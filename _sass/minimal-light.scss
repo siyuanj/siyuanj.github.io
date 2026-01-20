@@ -1,24 +1,36 @@
+/* ==========================================================================
+   布局：出版物列表行
+   作用：用于论文/出版物列表中的单行布局，使用 Flexbox 使内容垂直居中对齐。
+   ========================================================================== */
 .pub-row {
   display: flex; 
   align-items: center;}
 
+/* ==========================================================================
+   组件：社交媒体图标链接
+   作用：定义头部或页脚中社交图标（如 GitHub, Scholar 等）的样式。
+   调整：如果想要更改图标大小、间距或颜色，请在此处修改。
+   ========================================================================== */
 .social-icons a{
   display:inline-block;
-  height:2.4rem;
-  width:2.4rem;
+  height:2.4rem;  /* 图标容器高度 */
+  width:2.4rem;   /* 图标容器宽度 */
   background-color:transparent;
-  color:#043361!important;
-  border-radius:100%;
+  color:#043361!important; /* 图标默认颜色 */
+  border-radius:100%;      /* 圆形背景 */
   text-align:center;
-  font-size:1.15rem;
-  line-height:2.5rem;
-  margin-right:1rem}
+  font-size:1.15rem;       /* 图标符号的大小 */
+  line-height:2.5rem;      /* 行高，确保垂直居中 */
+  margin-right:1rem}       /* 图标之间的间距 */
 
+/* 暗黑模式下社交图标颜色 */
 @media (prefers-color-scheme: dark) { .social-icons a {color: #3eb7f0 !important; }}
 
-.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:white;
-    color:black;
-    transform: scale(1.2)}
+.social-icons a:last-child{margin-right:0}
+.social-icons a:hover{
+    background-color:white; /* 悬停背景色 */
+    color:black;            /* 悬停图标色 */
+    transform: scale(1.2)}  /* 悬停放大效果 */
     /*
     .social-icons a:after {
         content: '';
@@ -35,6 +47,7 @@
       }
      */
 
+/* 暗黑模式下社交图标的悬停效果 */
 @media (prefers-color-scheme: dark) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#20212b;
     color:black;
     transform: scale(1.2)} 
@@ -55,15 +68,24 @@
     */
 }
 
+/* ==========================================================================
+   组件：图标按钮 (Icon Button)
+   作用：另一种风格的社交按钮（如 Facebook, LinkedIn 等）。
+   效果：是一个圆形按钮，鼠标悬停时会有背景色扩展动画。
+   结构：
+     .icon-button (容器)
+       span (背景层，负责颜色和动画)
+       i (图标层，负责显示符号)
+   ========================================================================== */
 .icon-button{
   background-color:white;
   border-radius:3.6rem;
   cursor:pointer;
   display:inline-block;
-  font-size:2.0rem;
-  height:3.6rem;
-  line-height:3.6rem;
-  margin:0 5px;
+  font-size:2.0rem;      /* 图标大小 */
+  height:3.6rem;         /* 按钮高度 */
+  line-height:3.6rem;    /* 垂直居中 */
+  margin:0 5px;          /* 按钮间距 */
   position:relative;
   text-align:center;
   -webkit-user-select:none;
@@ -71,6 +93,7 @@
   -ms-user-select:none;
   user-select:none;width:3.6rem}
 
+/* 背景层动画初始状态：中心的一个点 */
 .icon-button span{
   border-radius:0;
   display:block;
@@ -85,12 +108,14 @@
   transition:all 0.3s;
   width:0}
 
+/* 背景层动画悬停状态：铺满整个按钮 */
 .icon-button:hover span{
   width:3.6rem;
   height:3.6rem;
   border-radius:3.6rem;
-  margin:-1.8rem}
+  margin:-1.8rem} /* 负 margin 用于保持居中 */
 
+/* 具体社交平台的背景颜色定义 */
 .twitter span{
   background-color:#4099ff}
 
@@ -108,9 +133,10 @@ email {
     font-family: "Ubuntu Mono";
 }
 
+/* 图标层样式 */
 .icon-button i{
   background:none;
-  color:white;
+  color:white; /* 注意：初始颜色设为了白色，可能需要根据具体背景调整 */
   height:3.6rem;
   left:0;
   line-height:3.6rem;
@@ -123,6 +149,7 @@ email {
   width:3.6rem;
   z-index:10}
 
+/* 为不同平台的图标定义默认颜色 (未悬停时) */
 .icon-button .icon-twitter{
   color:#4099ff}
 
@@ -135,33 +162,46 @@ email {
 .icon-button .icon-linkedin{
   color:#0077B5}
 
+/* 悬停时图标变为白色，以配合彩色背景 */
 .icon-button:hover .icon-twitter,.icon-button:hover .icon-facebook,.icon-button:hover .icon-github,.icon-button:hover .icon-linkedin{color:white}
 
+/* ==========================================================================
+   辅助类：颜色与显示控制
+   作用：用于根据亮/暗模式自动切换颜色或显示隐藏元素。
+   ========================================================================== */
+
+/* 自动颜色：在亮模式下为深灰，暗模式下为浅灰 */
 autocolor{
   color:#595959;
 }
 
+/* 仅在亮模式下可见 */
 lightonly {
   visibility: visible;
 }
 
+/* 仅在暗模式下可见 */
 darkonly {
   visibility: hidden;
 }
 
+/* 教育经历文字样式 */
 education {
     font-weight: 500;
     font-size: 115%;
   }
+
+/* 论文标题样式 */
 papertitle {
     font-weight: 600;
     font-size: 100%;
   }
 
+/* 暗黑模式适配 (Dark Mode Overrides) */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #20212b;
-        color: #dadbdf;
+        background-color: #20212b; /* 背景色 */
+        color: #dadbdf;            /* 文字色 */
     }
 
     autocolor{
@@ -182,15 +222,19 @@ papertitle {
 
 }
 
-
+/* ==========================================================================
+   图片样式
+   作用：定义通用图片和头像的样式。
+   ========================================================================== */
   .image {
-    // border-radius: 0.35em; // 原有代码
-    border-radius: 0; // 修改为 0 或者是你想要的圆角大小
+    // border-radius: 0.35em; // 原有代码：有圆角
+    border-radius: 0; // 修改为 0 表示矩形，或者设为其他值调整圆角
     border: 0;
     display: inline-block;
     position: relative;
   }
 
+    /* 图片遮罩层（用于鼠标悬停效果等，默认半透明覆盖） */
     .image:before {
       -moz-transition: opacity 0.2s ease-in-out;
       -webkit-transition: opacity 0.2s ease-in-out;
@@ -207,40 +251,51 @@ papertitle {
       width: 100%;
     }
 
+    /* 头像特定样式 */
     .image.avatar {
-      // border-radius: 100%; // 删除或注释掉这一行
+      // border-radius: 100%; // 删除或注释掉这一行 (圆形)
       border-radius: 0;      // 添加这一行变为矩形
     }
 
+      /* 头像不需要遮罩层 */
       .image.avatar:before {
         display: none;
       }
 
       .image.avatar img {
-        // border-radius: 100%; // 删除或注释掉这一行
+        // border-radius: 100%; // 删除或注释掉这一行 (圆形)
         border-radius: 0;      // 添加这一行变为矩形
         width: 45%; 
         // 这里的 width 也可以改大一点，比如 60% 或 80%，让头像更大
         padding: 20px;
       }
 
+    /* 侧边栏/头部中的头像样式 */
     #header .image.avatar {
       margin: 0 0 1em 0;
       width: 8.00em;
     }
 
+/* ==========================================================================
+   排版：标题与文本
+   作用：定义各级标题、段落、链接的字体大小、颜色和间距。
+   ========================================================================== */
+
+/* 标题通用样式 (h3 - h6) */
 h3, h4, h5, h6 {
   font-weight: 600;
-  color:#043361;
+  color:#043361; /* 深蓝色 */
   margin:0 0 20px;
 }
 
+/* 一级标题 (通常是页面主标题，如姓名) */
 h1 {
   font-weight: 500;
   color:#043361;
   margin:0 0 20px;
 }
 
+/* 二级标题 (通常是板块标题，如 "Publications") */
 h2 {
   color:#043361;
   font-weight: 500;
@@ -248,9 +303,10 @@ h2 {
   font-size: 157%;
 }
 
+/* 暗黑模式下的标题颜色 */
 @media (prefers-color-scheme: dark) {
   h1, h3, h4, h5, h6 {
-    color:rgb(62, 183, 240);
+    color:rgb(62, 183, 240); /* 浅蓝色 */
   }
 
   h2 {
@@ -258,6 +314,7 @@ h2 {
   }
 }
 
+/* 正文元素间距 */
 p, ul, ol, table, pre, dl {
   margin:0 0 20px;
 }
@@ -270,15 +327,17 @@ h1 {
   font-size:28px;
 }
 
+/* 链接样式 */
 a {
-  color:#39c;
+  color:#39c; /* 默认链接颜色 (蓝色) */
   text-decoration:none;
 }
 
 a:hover {
-  color:#069;
+  color:#069; /* 悬停链接颜色 (深蓝) */
 }
 
+/* 暗黑模式链接颜色 */
 @media (prefers-color-scheme: dark) {
   a {
     color:rgb(62, 183, 240);
@@ -296,11 +355,16 @@ a:hover small {
   color:#777;
 }
 
+/* ==========================================================================
+   布局结构：主容器
+   wrapper 是整个页面的最外层容器，限制了最大宽度并居中。
+   ========================================================================== */
 .wrapper {
-  width:1200px;
-  margin:0 auto;
+  width:1200px; /* 页面内容总宽度 */
+  margin:0 auto; /* 水平居中 */
 }
 
+/* 引用块样式 */
 blockquote {
   border-left:1px solid #e5e5e5;
   margin:0;
@@ -308,20 +372,23 @@ blockquote {
   font-style:italic;
 }
 
+/* 代码字体设置 */
 code, pre {
   font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
   color:#333;
 }
 
+/* 代码块容器样式 */
 pre {
   max-width:500px;
   padding:8px 15px;
   background: #f8f8f8;
   border-radius:5px;
   border:1px solid #e5e5e5;
-  overflow-x: auto;
+  overflow-x: auto; /* 允许横向滚动 */
 }
 
+/* 表格样式 */
 table {
   width:100%;
   border-collapse:collapse;
@@ -342,6 +409,7 @@ th {
   color:#444;
 }
 
+/* 暗黑模式下表格样式 */
 @media (prefers-color-scheme: dark) {
   th {
     color:rgb(62, 183, 240);
@@ -356,8 +424,12 @@ img {
   max-width:100%;
 }
 
+/* ==========================================================================
+   布局结构：侧边栏 (Header)
+   在大屏幕上，这是一个位于左侧的固定侧边栏，包含头像、导航等。
+   ========================================================================== */
 header {
-  width:232px;
+  width:232px; /* 侧边栏宽度 */
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
@@ -366,7 +438,7 @@ header {
 }
 
 
-
+/* 侧边栏导航列表样式 */
 header ul {
   list-style:none;
   height:40px;
@@ -432,8 +504,12 @@ header ul a strong {
   color:#222;
 }
 
+/* ==========================================================================
+   布局结构：主要内容区 (Section)
+   在大屏幕上，这是页面右侧的主体部分，放置各种说明、列表等。
+   ========================================================================== */
 section {
-  width: 900px; // 将原来的 650px 改大（例如 wrapper 1200 - header 232 ≈ 968，留一点余量设为 900px）
+  width: 900px; /* 内容区宽度。注意：Wrapper宽1200 - Header宽232 = 968，留有余量 */
   float:right;
   padding-top:4.0em;
   padding-bottom:50px;
@@ -450,6 +526,7 @@ hr {
   margin:0 0 20px;
 }
 
+/* 页脚样式 (通常也在侧边栏下方) */
 footer {
   width:232px;
   float:left;
@@ -459,19 +536,25 @@ footer {
   text-align:center;
 }
 
-// 将这里的 960px 改为你上面在 .wrapper 中设置的宽度 (例如 1200px)
+/* ==========================================================================
+   响应式设计：移动端和平板适配
+   作用：当屏幕宽度小于 1200px 时，调整布局。
+   核心变化：取消侧边栏固定，改为单列垂直流式布局，适应小屏幕阅读。
+   ========================================================================== */
+// Media Query 触发点：1200px
 @media print, screen and (max-width: 1200px) {
 
   .pub-row {
   display: flex; 
   align-items: center;}
 
+  /* 取消 wrapper 的固定宽度 */
   div.wrapper {
     width:auto;
     margin:0;
   }
 
-
+  /* 取消侧边栏和主体内容的浮动与固定定位 */
   header, section, footer {
     float:none;
     position:static;
@@ -499,7 +582,6 @@ footer {
     top:52px;
   }
 
-
    .image.avatar img {
         border-radius: 100%;
         width: 117px;
@@ -515,6 +597,7 @@ footer {
   
 }
 
+/* 针对更小屏幕 (小于 1200px 的补充规则) */
 @media print, screen and (max-width: 1200px) {
   body {
     word-wrap:break-word;
@@ -538,8 +621,13 @@ footer {
   }
 }
 
+/* ==========================================================================
+   响应式设计：手机端适配 (小于 480px)
+   作用：进一步优化极小屏幕的显示，如堆叠布局。
+   ========================================================================== */
 @media print, screen and (max-width: 480px) {
 
+  /* 出版物行改为块级显示，图片和文字可能会换行堆叠 */
   .pub-row {
     display: block; 
     align-items: center;}
@@ -571,6 +659,7 @@ footer {
 
 }
 
+/* 打印样式 */
 @media print {
   body {
     padding:0.4in;
@@ -579,6 +668,9 @@ footer {
   }
 }
 
+/* ==========================================================================
+   其他辅助类
+   ========================================================================== */
 .biblink {
   text-decoration:none;
   display: inline;
