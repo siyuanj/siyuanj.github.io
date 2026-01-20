@@ -265,21 +265,41 @@ papertitle {
       .image.avatar img {
         // border-radius: 100%; // 删除或注释掉这一行 (圆形)
         border-radius: 0;      // 添加这一行变为矩形
-        width: 45%; 
+        width: 80%; 
         // 这里的 width 也可以改大一点，比如 60% 或 80%，让头像更大
-        padding: 20px;
+        padding: 0px;
       }
 
     /* 侧边栏/头部中的头像样式 */
     #header .image.avatar {
-      margin: 0 0 1em 0;
-      width: 8.00em;
+      width: 10.00em;  /* [可选] 稍微调大容器宽度 */
+      
+      /* [修改] 关键部分：控制位置 */
+      display: block;      /* 设为块级元素 */
+      margin-left: 10px;   /* 距离左边的距离，越小越靠左 */
+      margin-right: auto;  /* 右边自动，确保它不会强制居中 */
+      margin-bottom: 1em;
     }
 
 /* ==========================================================================
    排版：标题与文本
    作用：定义各级标题、段落、链接的字体大小、颜色和间距。
    ========================================================================== */
+
+body {
+  /* 字体设置：优先使用系统字体，或者你可以指定如 "Georgia", "Times New Roman" 等 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  
+  /* 字号设置：这里修改正文大小，默认通常是 16px，你可以尝试 18px */
+  font-size: 18px; 
+
+  /* 行高：设置 1.6 或 1.7 会让大段文字阅读起来更舒服 */
+  line-height: 1.6;
+
+  /* 基础文字颜色：深灰色通常比纯黑更护眼 */
+  color: #ffffff; 
+}
+
 
 /* 标题通用样式 (h3 - h6) */
 h3, h4, h5, h6 {
@@ -288,29 +308,58 @@ h3, h4, h5, h6 {
   margin:0 0 20px;
 }
 
-/* 一级标题 (通常是页面主标题，如姓名) */
+/* H1: 侧边栏的名字 */
 h1 {
-  font-weight: 500;
-  color:#043361;
-  margin:0 0 20px;
+  font-weight: 700; /* 加粗 */
+  // color: #043361;
+  color: #ffffff;
+  margin: 0 0 10px;
+  font-size: 40px; /* 原值 28px，稍微加大 */
+  letter-spacing: 1px; /* 增加字间距，显得更有质感 */
+
+
 }
 
-/* 二级标题 (通常是板块标题，如 "Publications") */
+/* H2: 正文的大标题 (如 About Me, Research Interests) */
+/* 1. H2 容器：负责绘制底部的全长灰色细线 */
 h2 {
-  color:#043361;
-  font-weight: 500;
-  margin:2px 0px 15px;
-  font-size: 157%;
+  color: #043361;
+  font-weight: 600;
+  margin: 40px 0px 20px;
+  font-size: 1.75rem;
+  
+  /* 灰色全长线条 */
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 10px; /* 文字和线条的距离 */
+  position: relative;
 }
 
-/* 暗黑模式下的标题颜色 */
-@media (prefers-color-scheme: dark) {
-  h1, h3, h4, h5, h6 {
-    color:rgb(62, 183, 240); /* 浅蓝色 */
-  }
+/* 2. Span 标签：负责精确定位文字宽度，并绘制深蓝色线条 */
+h2 span {
+  position: relative; /* 为了定位伪元素 */
+  display: inline-block; /* 让它保持在行内 */
+}
 
+/* 3. 使用伪元素绘制深蓝色线条，叠在灰色线条上方 */
+h2 span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0; /* 让线条宽度自动撑满 span (即文字宽度) */
+  bottom: -12px; /* 向下偏移，正好盖在 H2 的灰色 border 上 (10px padding + 2px border) */
+  height: 4px; /* 深蓝色线条的厚度 */
+  background-color: #043361;
+  border-radius: 2px; /* 可选：给线条一点圆角 */
+}
+
+/* 暗黑模式适配 */
+@media (prefers-color-scheme: dark) {
   h2 {
-    color:rgb(62, 183, 240);
+    color: #3eb7f0;
+    border-bottom-color: #444;
+  }
+  h2 span::after {
+    background-color: #3eb7f0;
   }
 }
 
@@ -360,7 +409,7 @@ a:hover small {
    wrapper 是整个页面的最外层容器，限制了最大宽度并居中。
    ========================================================================== */
 .wrapper {
-  width:1200px; /* 页面内容总宽度 */
+  width:1400px; /* 页面内容总宽度 */
   margin:0 auto; /* 水平居中 */
 }
 
@@ -433,10 +482,27 @@ header {
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
-  padding-top:4.0em;
-  text-align:center
+  padding-top:3.5em;
+  text-align:center;
+  /* [修改] 关键部分：往左拉 */
+  margin-left: -45px; /* 负值会让元素向左移动 */
+  
+  /* [修改] 字体大小 */
+  font-size: 18px;    /* 增大字体 */
+  
 }
 
+header p {
+   margin: 5px 0; /* [修改] 减小段落间距，让图标往上靠 */
+   font-size: 16px; /* 稍微调小一点下面信息的字体 */
+   line-height: 1.4;
+   color: #aaa; /* 浅灰色，增加层级感 */
+   width: 100%;
+}
+
+header a {
+   color: inherit; /* 让链接颜色跟随文字 */
+}
 
 /* 侧边栏导航列表样式 */
 header ul {
@@ -509,7 +575,7 @@ header ul a strong {
    在大屏幕上，这是页面右侧的主体部分，放置各种说明、列表等。
    ========================================================================== */
 section {
-  width: 900px; /* 内容区宽度。注意：Wrapper宽1200 - Header宽232 = 968，留有余量 */
+  width: 1100px; /* 内容区宽度。注意：Wrapper宽1400 - Header宽232 = 1268，留有余量 */
   float:right;
   padding-top:4.0em;
   padding-bottom:50px;
@@ -542,7 +608,7 @@ footer {
    核心变化：取消侧边栏固定，改为单列垂直流式布局，适应小屏幕阅读。
    ========================================================================== */
 // Media Query 触发点：1200px
-@media print, screen and (max-width: 1200px) {
+@media print, screen and (max-width: 1400px) {
 
   .pub-row {
   display: flex; 
@@ -598,7 +664,7 @@ footer {
 }
 
 /* 针对更小屏幕 (小于 1200px 的补充规则) */
-@media print, screen and (max-width: 1200px) {
+@media print, screen and (max-width: 1400px) {
   body {
     word-wrap:break-word;
     padding:15px;
