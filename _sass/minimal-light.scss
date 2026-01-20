@@ -265,7 +265,7 @@ papertitle {
       .image.avatar img {
         // border-radius: 100%; // 删除或注释掉这一行 (圆形)
         border-radius: 0;      // 添加这一行变为矩形
-        width: 80%; 
+        width: 100%; 
         // 这里的 width 也可以改大一点，比如 60% 或 80%，让头像更大
         padding: 0px;
       }
@@ -482,7 +482,7 @@ header {
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
-  padding-top:3.5em;
+  padding-top:4.0em;
   text-align:center;
   /* [修改] 关键部分：往左拉 */
   margin-left: -45px; /* 负值会让元素向左移动 */
@@ -754,4 +754,50 @@ footer {
   margin-left: 0px;
   display:none;
   font-family: monospace;
+}
+
+/* ==========================================================================
+   组件：顶部导航栏 (Top Navigation)
+   ========================================================================== */
+.top-nav {
+  text-align: right; /* 核心：让导航栏靠右对齐 */
+  margin-bottom: 10px; /* 调整导航栏和下面 "About Me" 的距离 */
+  margin-top: -20px;   /* 微调：稍微往上提一点，利用上方留白 */
+}
+
+.top-nav a {
+  display: inline-block;
+  margin-left: 50px; /* 链接之间的间距 */
+  font-size: 24px;   /* 字体大小，建议与正文一致或稍大 */
+  font-weight: 600;  /* 稍微加粗 */
+  color: #043361;    /* 默认深蓝色，与标题一致 */
+  text-decoration: none;
+  border-bottom: 2px solid transparent; /* 预留悬停下划线位置 */
+  transition: all 0.3s ease;
+}
+
+/* 悬停效果：颜色变浅 + 出现下划线 */
+.top-nav a:hover {
+  color: #337ab7; 
+  border-bottom: 2px solid #337ab7;
+}
+
+/* 移动端适配：屏幕变窄时居中 */
+@media print, screen and (max-width: 960px) {
+  .top-nav {
+    text-align: center; /* 手机上居中可能更好看 */
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+/* 暗黑模式适配 */
+@media (prefers-color-scheme: dark) {
+  .top-nav a {
+    color: #3eb7f0;
+  }
+  .top-nav a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+  }
 }
