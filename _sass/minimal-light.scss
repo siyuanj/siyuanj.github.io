@@ -184,7 +184,8 @@ papertitle {
 
 
   .image {
-    border-radius: 0.35em;
+    // border-radius: 0.35em; // 原有代码
+    border-radius: 0; // 修改为 0 或者是你想要的圆角大小
     border: 0;
     display: inline-block;
     position: relative;
@@ -207,7 +208,8 @@ papertitle {
     }
 
     .image.avatar {
-      border-radius: 100%;
+      // border-radius: 100%; // 删除或注释掉这一行
+      border-radius: 0;      // 添加这一行变为矩形
     }
 
       .image.avatar:before {
@@ -215,12 +217,11 @@ papertitle {
       }
 
       .image.avatar img {
-        border-radius: 100%;
-        width: 45%;
+        // border-radius: 100%; // 删除或注释掉这一行
+        border-radius: 0;      // 添加这一行变为矩形
+        width: 45%; 
+        // 这里的 width 也可以改大一点，比如 60% 或 80%，让头像更大
         padding: 20px;
-        // border: 1px solid #ddd;
-        // padding: 3px;
-        // box-shadow: 0 -1px 5px 1px rgba(200, 200, 200, 0.3);
       }
 
     #header .image.avatar {
@@ -296,7 +297,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:960px;
+  width:1200px;
   margin:0 auto;
 }
 
@@ -432,7 +433,7 @@ header ul a strong {
 }
 
 section {
-  width:650px;
+  width: 900px; // 将原来的 650px 改大（例如 wrapper 1200 - header 232 ≈ 968，留一点余量设为 900px）
   float:right;
   padding-top:4.0em;
   padding-bottom:50px;
@@ -458,7 +459,8 @@ footer {
   text-align:center;
 }
 
-@media print, screen and (max-width: 960px) {
+// 将这里的 960px 改为你上面在 .wrapper 中设置的宽度 (例如 1200px)
+@media print, screen and (max-width: 1200px) {
 
   .pub-row {
   display: flex; 
@@ -513,7 +515,7 @@ footer {
   
 }
 
-@media print, screen and (max-width: 960px) {
+@media print, screen and (max-width: 1200px) {
   body {
     word-wrap:break-word;
     padding:15px;
