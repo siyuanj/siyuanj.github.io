@@ -14,15 +14,15 @@ canonical: https://siyuanj.github.io/
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
 # google_scholar: https://scholar.google.com/ # 暂无
-cv_link: assets/files/CV_public.pdf
+cv_link: /assets/files/CV_public.pdf
 github_link: https://github.com/siyuanj
 # linkedin: https://www.linkedin.com # 暂无
 twitter: https://x.com/siyaun_jiang
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/jiangsiyuan.png
-favicon: ./assets/img/avatar.png
-favicon_dark: ./assets/img/avatar.png
+avatar: /assets/img/jiangsiyuan.png
+favicon: /assets/img/avatar.png
+favicon_dark: /assets/img/avatar.png
 
 # Footnote
 # You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
@@ -43,6 +43,15 @@ font: "Serif" # or "Sans Serif"
 # See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
 remote_theme: yaoyao-liu/minimal-light
 
+
+collections:
+  notes:
+    output: true
+    directory: _notes  # 指定文件夹名称
+  blogs:
+    output: true
+    directory: _blogs
+  
 # The following files will be removed from the generated website.
 exclude:
   - Gemfile

@@ -801,3 +801,50 @@ footer {
     border-bottom-color: #ffffff;
   }
 }
+
+
+/* ==========================================================================
+   组件：文章与笔记列表 (Blog/Note List)
+   ========================================================================== */
+.post-list {
+  margin-top: 20px;
+}
+
+.post-item {
+  display: flex; /* 弹性布局：左边日期，右边标题 */
+  align-items: baseline; /* 基线对齐，保证文字看起来在一条线上 */
+  margin-bottom: 12px;
+  border-bottom: 1px dashed #eaeaea; /* 每一行下面加虚线分割 */
+  padding-bottom: 8px;
+}
+
+/* 左侧日期/标签区域 */
+.post-date {
+  font-family: "Ubuntu Mono", monospace; /* 等宽字体 */
+  color: #999;
+  font-size: 14px;
+  width: 110px; /* 固定宽度，确保右侧标题对齐 */
+  flex-shrink: 0; /* 防止日期被挤压 */
+}
+
+/* 右侧标题链接 */
+.post-link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333; /* 平时颜色 */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.post-link:hover {
+  color: #043361; /* 悬停颜色 (深蓝) */
+  text-decoration: underline;
+}
+
+/* 暗黑模式适配 */
+@media (prefers-color-scheme: dark) {
+  .post-item { border-bottom-color: #444; }
+  .post-date { color: #666; }
+  .post-link { color: #dadbdf; }
+  .post-link:hover { color: #3eb7f0; }
+}
