@@ -63,3 +63,16 @@ exclude:
   - LICENSE
   - minimal-light.gemspec
   - html_source_file/
+
+# Defaults Configuration
+defaults:
+  - scope:
+      path: ""
+      type: "blogs"  # 对应 _blogs 文件夹
+    values:
+      layout: "post" # 使用 _layouts/post.html
+  - scope:
+      path: ""
+      type: "notes"  # 对应 _notes 文件夹
+    values:
+      layout: "post"

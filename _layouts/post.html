@@ -1,0 +1,19 @@
+---
+layout: homepage
+---
+<div class="post-header" style="margin-bottom: 40px;">
+  {% if page.title %}
+    <h1 style="color: #39c; font-weight: 500; margin-bottom: 10px;">{{ page.title }}</h1>
+  {% endif %}
+  
+  {% if page.date %}
+    <span style="font-family: 'Ubuntu Mono', monospace; color: #999; font-size: 14px;">
+      {{ page.date | date: "%Y-%m-%d" }}
+    </span>
+  {% endif %}
+  <hr style="border: 0; border-top: 1px solid #eaeaea; margin-top: 20px;">
+</div>
+
+<div class="post-content">
+  {{ content }}
+</div>
