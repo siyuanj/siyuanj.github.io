@@ -195,5 +195,5 @@ This figure demonstrates the specificity of the designed enzymes and their repro
 * 
 **Figure f (Targeted Cleavage):** Experimental results confirm that the reprogrammed enzyme (TDP3) cleaved full-length human TDP-43 over time (1-10 hours), with faster processing observed for oligomeric forms compared to monomers.
 
-## citation:
+## Citation:
 Chen, A., Wu, K., Choi, H., Venkatesh, P., Pellock, S. J., Hanikel, N., ... & Baker, D. (2025). Computational design of metalloproteases. bioRxiv, 2025-11.
