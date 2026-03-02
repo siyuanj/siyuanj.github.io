@@ -47,6 +47,8 @@ Beyond research, I maintain an active lifestyle and diverse interests:
 - **Sports:** I am a member of the **Tsinghua University Diving Association** and the Tanwei College **Badminton Team**. I also enjoy running and swimming.
 - **Arts & Culture:** I love Rock Music, J-Pop, and Sci-Fi films (e.g., *The Matrix*, *Star Wars*).
 
+{% include visitor-map.html %}
+
 <!-- ## News
 
 - **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.

@@ -855,6 +855,34 @@ footer {
 }
 
 /* ==========================================================================
+   组件：访客地图 (Visitor Map)
+   ========================================================================== */
+.visitor-map-widget {
+  width: 50%;
+  margin: 16px auto 8px;
+  text-align: center;
+}
+
+.visitor-map-widget iframe,
+.visitor-map-widget > div,
+.visitor-map-widget img {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto;
+}
+
+.visitor-map-widget img {
+  height: auto;
+  display: block;
+}
+
+@media print, screen and (max-width: 960px) {
+  .visitor-map-widget {
+    width: 50%;
+  }
+}
+
+/* ==========================================================================
    组件：主题切换按钮 (Auto / Light / Dark)
    ========================================================================== */
 .theme-toggle {
