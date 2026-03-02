@@ -297,7 +297,7 @@ body {
   line-height: 1.6;
 
   /* 基础文字颜色：深灰色通常比纯黑更护眼 */
-  color: #ffffff; 
+  color: #595959;
 }
 
 
@@ -311,13 +311,18 @@ h3, h4, h5, h6 {
 /* H1: 侧边栏的名字 */
 h1 {
   font-weight: 700; /* 加粗 */
-  // color: #043361;
-  color: #ffffff;
+  color: #043361;
   margin: 0 0 10px;
   font-size: 40px; /* 原值 28px，稍微加大 */
   letter-spacing: 1px; /* 增加字间距，显得更有质感 */
 
 
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) h1 {
+    color: #eeeff0;
+  }
 }
 
 /* H2: 正文的大标题 (如 About Me, Research Interests) */
@@ -847,4 +852,307 @@ footer {
   .post-date { color: #666; }
   .post-link { color: #dadbdf; }
   .post-link:hover { color: #3eb7f0; }
+}
+
+/* ==========================================================================
+   组件：主题切换按钮 (Auto / Light / Dark)
+   ========================================================================== */
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 999;
+  min-width: 78px;
+  height: 34px;
+  padding: 0 12px 0 30px;
+  border: 1px solid rgba(4, 51, 97, 0.22);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffffff 0%, #f2f7ff 100%);
+  color: #043361;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(4, 51, 97, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: #6b7280;
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.2);
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-toggle[data-mode="light"]::before {
+  background: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22);
+}
+
+.theme-toggle[data-mode="dark"]::before {
+  background: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(4, 51, 97, 0.42);
+  box-shadow: 0 12px 22px rgba(4, 51, 97, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #337ab7;
+  outline-offset: 2px;
+}
+
+@media print, screen and (max-width: 960px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    min-width: 74px;
+    height: 32px;
+    padding: 0 10px 0 28px;
+  }
+
+  .theme-toggle::before {
+    left: 10px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-toggle {
+    border-color: rgba(114, 133, 170, 0.55);
+    background: linear-gradient(135deg, #2f3243 0%, #232736 100%);
+    color: #e3ebf8;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .theme-toggle:hover {
+    border-color: rgba(147, 188, 255, 0.65);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .theme-toggle:focus-visible {
+    outline-color: #3eb7f0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) body {
+    background-color: #20212b;
+    color: #dadbdf;
+  }
+}
+
+/* ==========================================================================
+   手动主题覆盖：当用户使用主题按钮时，覆盖系统自动模式。
+   ========================================================================== */
+html[data-theme="light"] body {
+  background-color: #ffffff;
+  color: #595959;
+}
+
+html[data-theme="light"] h1 {
+  color: #043361;
+}
+
+html[data-theme="light"] h2 {
+  color: #043361;
+  border-bottom-color: #eaeaea;
+}
+
+html[data-theme="light"] h2 span::after {
+  background-color: #043361;
+}
+
+html[data-theme="light"] a {
+  color: #39c;
+}
+
+html[data-theme="light"] .top-nav a {
+  color: #043361;
+}
+
+html[data-theme="light"] .top-nav a:hover {
+  color: #337ab7;
+  border-bottom-color: #337ab7;
+}
+
+html[data-theme="light"] .social-icons a {
+  color: #043361 !important;
+}
+
+html[data-theme="light"] .social-icons a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html[data-theme="light"] autocolor {
+  color: #595959;
+}
+
+html[data-theme="light"] lightonly {
+  visibility: visible;
+}
+
+html[data-theme="light"] darkonly {
+  visibility: hidden;
+}
+
+html[data-theme="light"] papertitle {
+  color: #222222;
+}
+
+html[data-theme="light"] strong {
+  color: #222222;
+}
+
+html[data-theme="light"] th,
+html[data-theme="light"] dt {
+  color: #444444;
+}
+
+html[data-theme="light"] .post-item {
+  border-bottom-color: #eaeaea;
+}
+
+html[data-theme="light"] .post-date {
+  color: #999999;
+}
+
+html[data-theme="light"] .post-link {
+  color: #333333;
+}
+
+html[data-theme="light"] .post-link:hover {
+  color: #043361;
+}
+
+html[data-theme="light"] .publications ol.bibliography li .links a.btn {
+  color: #000000;
+  border-color: #000000;
+}
+
+html[data-theme="light"] .theme-toggle {
+  border-color: rgba(4, 51, 97, 0.22);
+  background: linear-gradient(135deg, #ffffff 0%, #f2f7ff 100%);
+  color: #043361;
+  box-shadow: 0 8px 18px rgba(4, 51, 97, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+html[data-theme="light"] .theme-toggle:hover {
+  border-color: rgba(4, 51, 97, 0.42);
+  box-shadow: 0 12px 22px rgba(4, 51, 97, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+html[data-theme="dark"] body {
+  background-color: #20212b;
+  color: #dadbdf;
+}
+
+html[data-theme="dark"] h1 {
+  color: #eeeff0;
+}
+
+html[data-theme="dark"] h2 {
+  color: #3eb7f0;
+  border-bottom-color: #444444;
+}
+
+html[data-theme="dark"] h2 span::after {
+  background-color: #3eb7f0;
+}
+
+html[data-theme="dark"] a {
+  color: rgb(62, 183, 240);
+}
+
+html[data-theme="dark"] .top-nav a {
+  color: #3eb7f0;
+}
+
+html[data-theme="dark"] .top-nav a:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+html[data-theme="dark"] .social-icons a {
+  color: #3eb7f0 !important;
+}
+
+html[data-theme="dark"] .social-icons a:hover {
+  background-color: #20212b;
+  color: #000000;
+}
+
+html[data-theme="dark"] autocolor {
+  color: #dadbdf;
+}
+
+html[data-theme="dark"] lightonly {
+  visibility: hidden;
+}
+
+html[data-theme="dark"] darkonly {
+  visibility: visible;
+}
+
+html[data-theme="dark"] papertitle,
+html[data-theme="dark"] strong {
+  color: #eeeff0;
+}
+
+html[data-theme="dark"] th,
+html[data-theme="dark"] dt {
+  color: rgb(62, 183, 240);
+}
+
+html[data-theme="dark"] .post-item {
+  border-bottom-color: #444444;
+}
+
+html[data-theme="dark"] .post-date {
+  color: #666666;
+}
+
+html[data-theme="dark"] .post-link {
+  color: #dadbdf;
+}
+
+html[data-theme="dark"] .post-link:hover {
+  color: #3eb7f0;
+}
+
+html[data-theme="dark"] .publications ol.bibliography li .links a.btn {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  border-color: rgba(114, 133, 170, 0.55);
+  background: linear-gradient(135deg, #2f3243 0%, #232736 100%);
+  color: #e3ebf8;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+  border-color: rgba(147, 188, 255, 0.65);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .theme-toggle:focus-visible {
+  outline-color: #3eb7f0;
 }
