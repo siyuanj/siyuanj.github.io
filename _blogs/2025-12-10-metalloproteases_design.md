@@ -10,7 +10,7 @@ tags: [science, biology, AI]
 
 ### Link:[ full article](https://www.biorxiv.org/content/10.1101/2025.11.20.689622v1)
 
-Arthur: Anqi Chen, ... , David Baker
+Authors: Anqi Chen, ... , David Baker
 
 November 21, 2025
 

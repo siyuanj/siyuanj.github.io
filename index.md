@@ -4,7 +4,7 @@ layout: homepage
 
 ## <span>About Me</span>
 
-Hi, my name is Jiang Siyuan (蒋思源), currently an junior undergraduate student at Tsinghua University, Tanwei College, majoring in chemical Biology for Pharmaceutical Science.
+Hi, my name is Jiang Siyuan (蒋思源), currently a junior undergraduate student at Tsinghua University, Tanwei College, majoring in chemical Biology for Pharmaceutical Science.
 
 Currently, I am in Professor Yigong Shi's lab. I am interested in computational biology, especially protein design and evolution. I welcome any discussions about related topics! Feel free to reach out!
 
