@@ -1,3 +1,24 @@
+# Siyuan Jiang Academic Homepage
+
+This repository contains Siyuan Jiang's personal academic website, built with Jekyll and the Minimal Light theme for GitHub Pages.
+
+## Project Notes
+
+- Homepage content lives in `index.md`.
+- Profile metadata and sidebar links live in `_config.yml`.
+- The public CV linked from the sidebar is `assets/files/CV_public.pdf`.
+- Cross-session handoff notes live in `docs/STATUS.md`.
+
+## Local Preview
+
+```bash
+bundle install
+bundle exec jekyll build
+bundle exec jekyll serve
+```
+
+Then open <http://127.0.0.1:4000/>.
+
 # The Minimal Light Theme
 
 [![LICENSE](https://img.shields.io/github/license/yaoyao-liu/homepage?style=flat-square&logo=creative-commons&color=EF9421)](https://github.com/yaoyao-liu/minimal-light/blob/main/LICENSE)
