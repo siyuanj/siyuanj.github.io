@@ -22,6 +22,7 @@
 - Improved homepage readability by increasing body text size, darkening light-mode text color, strengthening body and emphasis weights, and aligning light/dark theme text colors.
 - Fixed responsive avatar styling so the profile image remains rectangular instead of becoming circular or elliptical at narrower widths or browser zoom levels.
 - Removed the final lab/discussion sentence from the About Me paragraph for now.
+- Added the publishing convention to `AGENTS.md`: commit and push website changes by default unless the user explicitly says not to push.
 
 ## Open Issues
 

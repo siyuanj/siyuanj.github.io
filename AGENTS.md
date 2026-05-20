@@ -41,3 +41,7 @@ After meaningful changes, update `docs/STATUS.md` with:
 - recommended next step
 
 Update `README.md` only when stable project context, setup, architecture, or the main implementation approach changes.
+
+## Publishing
+
+After making website changes, commit and push them to GitHub by default so the public site can update. Only skip pushing when the user explicitly asks not to push.
