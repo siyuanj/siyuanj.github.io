@@ -6,14 +6,14 @@ layout: homepage
 
 Hi, my name is Siyuan Jiang. I am an undergraduate student at Tsinghua University, Tanwei College, majoring in Chemical Biology for Pharmaceutical Science.
 
-My research interests center on computational protein engineering, especially model-driven protein design, virtual screening, evolutionary analysis, and functional redesign. I am currently working in Prof. Yigong Shi's lab and welcome discussions about protein design, evolution, and computational biology.
+My research interests center on computational protein engineering, especially model-driven protein design, virtual screening, evolutionary analysis, and functional redesign.
 
 ## <span>Education</span>
 
 **Tsinghua University, Tanwei College**  
 *B.S. in Chemical Biology for Pharmaceutical Science, 2023 - 2027 (expected)*
-- GPA: **3.80/4.00**
-- Selected coursework: Bioinformatics, Fundamentals of Programming (Python & C++), Organic Chemistry A, Chemical Biology
+- GPA: **3.81/4.00**
+- Selected coursework: Bioinformatics, Fundamentals of Programming (Python & C++), Chemical Biology, AI in Healthcare, Medicinal Chemistry
 
 ## <span>Research Interests</span>
 
@@ -39,11 +39,14 @@ My primary research interests include:
 
 **T-cell Specific In-situ CRISPR Screening System**  
 *School of Pharmaceutical Sciences, THU | Advisor: Prof. Xuebin Liao | Jul 2025 - Oct 2025*
-- Helped establish an in-situ CRISPR screening platform using lineage-specific gene editing in mouse embryonic stem cells to study immune-cell regulation.
+- Addressed the limitations of traditional CRISPR screening, where scarce hematopoietic stem cells impede in-situ studies.
+- Leveraged infinitely proliferative mouse embryonic stem cells with lineage-specific gene editing to establish an in-situ screening platform for immune cells.
+- The platform aims to dissect T cell exhaustion regulation and metabolic-epigenetic coupling during memory T cell differentiation.
 
 **iGEM Competition: In-situ RNA Quantification Tool**  
-*Tsinghua University | Advisor: Prof. Chun Li | Aug 2024 - Oct 2024*
+*Department of Chemical Engineering, THU | Advisor: Prof. Chun Li | Aug 2024 - Oct 2024*
 - Developed an in-situ RNA quantification tool in yeast based on the ADAR protein, offering advantages over qPCR in speed, convenience, and non-destructive measurement.
+- The tool facilitates better understanding of real-time gene expression within living cells.
 - The project was awarded a **Gold Medal** at the 2024 iGEM Competition.
 
 ## <span>Selected Projects</span>
@@ -53,18 +56,23 @@ My primary research interests include:
 - Implemented L1-regularized feature selection over 100 stratified samples to identify stable biomarkers; the resulting 4-piRNA colorectal cancer model achieved a test AUC of **0.802**.
 - Validated a Rare Abundance Genes strategy and built a scoring model that achieved an AUC of **0.971**.
 
+**Protein-Peptide Interaction Prediction via Generative Docking & GNNs**
+- Developed a generative-discriminative framework coupling diffusion-based docking (**RAPiDock**) with a Transformer-GNN scorer (**ITN**).
+- Implemented multi-instance learning on 3D bipartite graphs to enable structure-aware, interpretable binding prediction.
+- Outperformed sequence-based baselines in AUC and enrichment on pMHC I and SH3-peptide systems.
+
 ## <span>Honors and Awards</span>
 
 - **WeiGuang Program, Individual Excellence Award**, Tsinghua University (Jun 2025)
 - **Gold Award for the Practical Detachment**, Tanwei College (Jan 2025)
-- **Comprehensive Excellence Award**, Tsinghua University Scholarship (Nov 2024)
+- **Comprehensive Excellence Award**, Tsinghua University Scholarship, Top 20% (Nov 2024)
 - **Gold Medal**, International Genetically Engineered Machine Competition (iGEM) (Oct 2024)
 
 ## <span>Skills</span>
 
-- **Programming:** Python, C++, R, LaTeX
+- **Programming:** Python, C++, R, Java, LaTeX
 - **Frameworks:** PyTorch
-- **Languages:** English (Fluent)
+- **Languages:** English (TOEFL 94)
 
 ## <span>Hobbies</span>
 

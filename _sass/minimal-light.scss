@@ -172,7 +172,7 @@ email {
 
 /* 自动颜色：在亮模式下为深灰，暗模式下为浅灰 */
 autocolor{
-  color:#595959;
+  color:#374151;
 }
 
 /* 仅在亮模式下可见 */
@@ -201,11 +201,11 @@ papertitle {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #20212b; /* 背景色 */
-        color: #dadbdf;            /* 文字色 */
+        color: #e3e6eb;            /* 文字色 */
     }
 
     autocolor{
-      color:#dadbdf;
+      color:#e3e6eb;
     }
 
     lightonly {
@@ -217,7 +217,7 @@ papertitle {
     }
 
     papertitle {
-    color:#eeeff0;
+    color:#f4f6f8;
     }
 
 }
@@ -291,19 +291,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   
   /* 字号设置：这里修改正文大小，默认通常是 16px，你可以尝试 18px */
-  font-size: 18px; 
+  font-size: 19px; 
+  font-weight: 450;
 
   /* 行高：设置 1.6 或 1.7 会让大段文字阅读起来更舒服 */
-  line-height: 1.6;
+  line-height: 1.68;
 
   /* 基础文字颜色：深灰色通常比纯黑更护眼 */
-  color: #595959;
+  color: #1f2933;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 
 /* 标题通用样式 (h3 - h6) */
 h3, h4, h5, h6 {
-  font-weight: 600;
+  font-weight: 700;
   color:#39c; /* 深蓝色 */
   margin:0 0 20px;
 }
@@ -314,7 +317,7 @@ h1 {
   color: #043361;
   margin: 0 0 10px;
   font-size: 40px; /* 原值 28px，稍微加大 */
-  letter-spacing: 1px; /* 增加字间距，显得更有质感 */
+  letter-spacing: 0;
 
 
 }
@@ -329,7 +332,7 @@ h1 {
 /* 1. H2 容器：负责绘制底部的全长灰色细线 */
 h2 {
   color: #043361;
-  font-weight: 600;
+  font-weight: 700;
   margin: 40px 0px 20px;
   font-size: 1.75rem;
   
@@ -371,6 +374,10 @@ h2 span::after {
 /* 正文元素间距 */
 p, ul, ol, table, pre, dl {
   margin:0 0 20px;
+}
+
+p, li {
+  font-weight: 450;
 }
 
 h1, h2, h3 {
@@ -554,13 +561,13 @@ header ul a:active {
 }
 
 strong {
-  color:#222;
-  font-weight:500;
+  color:#020617;
+  font-weight:700;
 }
 
 @media (prefers-color-scheme: dark) {
   strong {
-    color:#eeeff0;
+    color:#f4f6f8;
   }
 }
 
@@ -654,7 +661,7 @@ footer {
   }
 
    .image.avatar img {
-        border-radius: 100%;
+        border-radius: 0;
         width: 117px;
         padding:20px;
       }
@@ -716,7 +723,7 @@ footer {
   }
 
   .image.avatar img {
-      border-radius: 100%;
+      border-radius: 0;
       width: 95px;
       padding:20px;
   }
@@ -990,7 +997,7 @@ footer {
    ========================================================================== */
 html[data-theme="light"] body {
   background-color: #ffffff;
-  color: #595959;
+  color: #1f2933;
 }
 
 html[data-theme="light"] h1 {
@@ -1029,7 +1036,19 @@ html[data-theme="light"] .social-icons a:hover {
 }
 
 html[data-theme="light"] autocolor {
-  color: #595959;
+  color: #374151;
+}
+
+html[data-theme="light"] p,
+html[data-theme="light"] li {
+  color: #1f2933;
+  font-weight: 450;
+}
+
+html[data-theme="light"] header position,
+html[data-theme="light"] header email,
+html[data-theme="light"] header autocolor {
+  color: #374151;
 }
 
 html[data-theme="light"] lightonly {
@@ -1041,11 +1060,12 @@ html[data-theme="light"] darkonly {
 }
 
 html[data-theme="light"] papertitle {
-  color: #222222;
+  color: #020617;
 }
 
 html[data-theme="light"] strong {
-  color: #222222;
+  color: #020617;
+  font-weight: 700;
 }
 
 html[data-theme="light"] th,
@@ -1088,7 +1108,7 @@ html[data-theme="light"] .theme-toggle:hover {
 
 html[data-theme="dark"] body {
   background-color: #20212b;
-  color: #dadbdf;
+  color: #e3e6eb;
 }
 
 html[data-theme="dark"] h1 {
@@ -1127,7 +1147,7 @@ html[data-theme="dark"] .social-icons a:hover {
 }
 
 html[data-theme="dark"] autocolor {
-  color: #dadbdf;
+  color: #e3e6eb;
 }
 
 html[data-theme="dark"] lightonly {
@@ -1140,7 +1160,7 @@ html[data-theme="dark"] darkonly {
 
 html[data-theme="dark"] papertitle,
 html[data-theme="dark"] strong {
-  color: #eeeff0;
+  color: #f4f6f8;
 }
 
 html[data-theme="dark"] th,
@@ -1157,7 +1177,7 @@ html[data-theme="dark"] .post-date {
 }
 
 html[data-theme="dark"] .post-link {
-  color: #dadbdf;
+  color: #e3e6eb;
 }
 
 html[data-theme="dark"] .post-link:hover {
