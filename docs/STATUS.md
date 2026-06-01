@@ -23,12 +23,14 @@
 - Fixed responsive avatar styling so the profile image remains rectangular instead of becoming circular or elliptical at narrower widths or browser zoom levels.
 - Removed the final lab/discussion sentence from the About Me paragraph for now.
 - Added the publishing convention to `AGENTS.md`: commit and push website changes by default unless the user explicitly says not to push.
+- Restored the homepage visitor map by adding a visible ClustrMaps image fallback, switching the script to the CDN embed URL, and reserving image height so the widget no longer collapses when the third-party script/image is slow or blocked.
 
 ## Open Issues
 
 - `README.md` still mostly documents the upstream Minimal Light theme rather than this personalized site.
 - Some older comments in `_config.yml` and `_sass/minimal-light.scss` appear mojibake-encoded; avoid broad rewrites unless intentionally cleaning documentation/comments.
+- The visitor map still depends on ClustrMaps availability for the actual map image/data; the homepage now keeps visible space for it if that remote asset is slow to load.
 
 ## Next Recommended Step
 
-- Preview the homepage after typography edits and decide whether the light-mode body weight should stay at 450 or be dialed back to 400.
+- Preview the deployed GitHub Pages site after pushing and confirm ClustrMaps loads from the public domain.

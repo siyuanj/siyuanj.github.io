@@ -870,8 +870,13 @@ footer {
   text-align: center;
 }
 
+.visitor-map-fallback {
+  display: block;
+}
+
 .visitor-map-widget iframe,
 .visitor-map-widget > div,
+.visitor-map-widget a,
 .visitor-map-widget img {
   width: 100% !important;
   max-width: 100% !important;
@@ -880,6 +885,7 @@ footer {
 
 .visitor-map-widget img {
   height: auto;
+  min-height: 120px;
   display: block;
 }
 
