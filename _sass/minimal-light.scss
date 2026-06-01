@@ -865,34 +865,28 @@ footer {
    组件：访客地图 (Visitor Map)
    ========================================================================== */
 .visitor-map-widget {
-  width: 50%;
-  margin: 16px auto 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  width: 100%;
+  margin: 18px auto 8px;
   text-align: center;
+  font-size: 14px;
 }
 
-.visitor-map-fallback {
-  display: block;
-}
-
-.visitor-map-widget iframe,
-.visitor-map-widget > div,
-.visitor-map-widget a,
-.visitor-map-widget img {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 auto;
+.visitor-badge {
+  display: inline-flex;
+  align-items: center;
 }
 
 .visitor-map-widget img {
-  height: auto;
-  min-height: 120px;
+  width: auto !important;
+  max-width: 112px !important;
+  height: 20px;
+  min-height: 0;
   display: block;
-}
-
-@media print, screen and (max-width: 960px) {
-  .visitor-map-widget {
-    width: 50%;
-  }
 }
 
 /* ==========================================================================
