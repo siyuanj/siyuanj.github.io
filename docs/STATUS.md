@@ -23,14 +23,14 @@
 - Fixed responsive avatar styling so the profile image remains rectangular instead of becoming circular or elliptical at narrower widths or browser zoom levels.
 - Removed the final lab/discussion sentence from the About Me paragraph for now.
 - Added the publishing convention to `AGENTS.md`: commit and push website changes by default unless the user explicitly says not to push.
-- Replaced the broken ClustrMaps visitor widget with a lightweight hits.sh visit counter badge that renders reliably in local preview and on GitHub Pages.
+- Investigated the ClustrMaps visitor widget outage. Git history shows the original embed was added on 2026-03-02 in commit `26cd410` and was not changed until the temporary troubleshooting commits on 2026-06-02. DNS checks through local DNS, Cloudflare, and Google currently fail for `clustrmaps.com`, `www.clustrmaps.com`, and `cdn.clustrmaps.com` because ClustrMaps authoritative nameservers refuse queries / have lame delegation. The original ClustrMaps widget has been restored so existing ClustrMaps history and IP/geographic records remain tied to the same site token.
 
 ## Open Issues
 
 - `README.md` still mostly documents the upstream Minimal Light theme rather than this personalized site.
 - Some older comments in `_config.yml` and `_sass/minimal-light.scss` appear mojibake-encoded; avoid broad rewrites unless intentionally cleaning documentation/comments.
-- The visitor counter now tracks visits as a badge rather than a geographic map; restore a map only if a reliable provider is chosen.
+- The ClustrMaps widget may remain invisible until ClustrMaps fixes its DNS/service-side issue. The local site and GitHub Pages build are healthy.
 
 ## Next Recommended Step
 
-- Preview the deployed GitHub Pages site after pushing and confirm the hits.sh visit badge appears.
+- Recheck DNS for `clustrmaps.com` and then preview the deployed GitHub Pages site. If DNS still fails, contact ClustrMaps support or log in to the ClustrMaps dashboard to see whether they changed the embed domain/code for existing counters.
