@@ -1,5 +1,25 @@
 # Project Status
 
+## 2026-10-01 08:05 CST - Local Tasks Bridge OAuth pages draft
+
+- User request: prepare long-lived Google OAuth for the personal Local Tasks
+  Bridge. Google Auth Platform currently blocks Production until Branding is
+  complete.
+- Drafted `local-tasks-bridge.md` and `local-tasks-bridge-privacy.md`. The pages
+  describe the local-only bridge, Tasks and identity scopes, data use, local
+  storage, retention, revocation, and Google API Services Limited Use
+  requirements. They contain no task content, OAuth token, client secret, or
+  private log.
+- Current state: the files exist only in this local clone. They have not been
+  committed, pushed, published, or entered into Google Cloud. The public site
+  is unchanged.
+- Validation: `git diff --check` passed. `bundle exec jekyll build` could not
+  run because this Mac lacks the repository's Jekyll gems; no dependency was
+  installed. GitHub Pages build and both public URLs remain unverified.
+- Next step: after review and authorization to publish, commit and push the two
+  pages, verify GitHub Pages, then add the homepage and privacy-policy URLs to
+  OAuth Branding and re-check the Production button.
+
 ## Current State
 
 - The homepage is a Jekyll academic personal website using the Minimal Light remote theme.
