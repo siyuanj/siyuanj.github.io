@@ -1,5 +1,20 @@
 # Project Status
 
+## 2026-10-01 08:10 CST - Local Tasks Bridge OAuth pages published
+
+- User explicitly approved publishing the two OAuth information pages.
+- Pushed commit `975fe65763b485a6afd006f7d8e36a5a4d259568` to `origin/main`.
+  GitHub Pages reported `built` with no build error.
+- Verified the rendered pages at `/local-tasks-bridge/` and
+  `/local-tasks-bridge/privacy/`; the latter includes the Google API Services
+  Limited Use statement. The pages expose no task content, OAuth credential,
+  client secret, or local diagnostic log.
+- Google OAuth Branding now uses those two URLs and the authorized domain
+  `siyuanj.github.io`; the console displayed `Branding changes saved!`.
+- Next step is outside this website repository: obtain the user's required
+  action-time confirmation before changing OAuth from Testing to In production
+  and issuing a fresh authorization.
+
 ## 2026-10-01 08:05 CST - Local Tasks Bridge OAuth pages draft
 
 - User request: prepare long-lived Google OAuth for the personal Local Tasks
