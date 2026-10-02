@@ -1,5 +1,16 @@
 # Project Status
 
+## 2026-10-02 09:10 CST - Local Tasks Bridge pages moved to the project site
+
+- The Local Tasks Bridge home page and privacy policy now live in the public
+  project repository `siyuanj/local-tasks-bridge` (`site/`) and are published
+  by its Pages workflow at the same URLs, `/local-tasks-bridge/` and
+  `/local-tasks-bridge/privacy/`. A project site takes precedence over a user
+  site path, so the copies here were no longer served.
+- Removed `local-tasks-bridge.md` and `local-tasks-bridge-privacy.md`. The
+  Google OAuth Branding URLs and the authorized domain `siyuanj.github.io` are
+  unchanged and keep working.
+
 ## 2026-10-01 08:10 CST - Local Tasks Bridge OAuth pages published
 
 - User explicitly approved publishing the two OAuth information pages.
