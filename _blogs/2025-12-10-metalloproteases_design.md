@@ -127,7 +127,7 @@ A methodological breakthrough in this study was discovering the decisive role of
 The following is a detailed interpretation of the four core figures in the paper to elucidate their scientific logic.
 
 ### Figure 1: Computational Design Workflow and Catalytic Principle
-![alt text](pic/image-1.png)
+![alt text](pic/image-1.png){: width="1362" height="765" loading="lazy" decoding="async"}
 This figure illustrates the entire process from chemical principles to computational generation.
 
 * 
@@ -143,7 +143,7 @@ This figure illustrates the entire process from chemical principles to computati
 
 
 ### Figure 2: Screening Strategy and the Discovery of the "Water" Mechanism
-![alt text](pic/image-2.png)
+![alt text](pic/image-2.png){: width="849" height="660" loading="lazy" decoding="async"}
 
 This figure reveals how the explicit water model differentiates between active and inactive designs.
 
@@ -164,7 +164,7 @@ This figure reveals how the explicit water model differentiates between active a
 
 
 ### Figure 3: Activity Validation and Mechanistic Characterization
-![alt text](pic/image-3.png)
+![alt text](pic/image-3.png){: width="828" height="639" loading="lazy" decoding="async"}
 
 This figure provides molecular-level evidence that "function comes from design."
 
@@ -181,7 +181,7 @@ This figure provides molecular-level evidence that "function comes from design."
 
 ### Figure 4: Specificity and Disease-Targeting Applications
 
-![alt text](pic/image-4.png)
+![alt text](pic/image-4.png){: width="810" height="468" loading="lazy" decoding="async"}
 
 This figure demonstrates the specificity of the designed enzymes and their reprogramming potential for therapeutic applications.
 
