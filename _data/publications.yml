@@ -1,4 +1,15 @@
 main:
+  - title: "StrucTrace: A universal Fourier watermark for traceable biomolecular structures"
+    short_title: "StrucTrace"
+    cover_kicker: "Biomolecular provenance"
+    cover_caption: "Fourier watermarking"
+    authors: "Xu Wang, Chi Wang, Tin-Yeh Huang, Yiquan Wang, **Siyuan Jiang**, and Yafei Yuan"
+    conference: "npj Structural Biology"
+    conference_short: "npj Structural Biology"
+    year: 2026
+    status: Accepted
+    code: https://github.com/JLU-WangXu/Structrace
+    bibtex: /assets/files/structrace.bib
   - title: "GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs"
     short_title: "GPCR-Turbo"
     cover_kicker: "Peptide virtual screening"

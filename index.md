@@ -48,7 +48,7 @@ My primary research interests include:
 - Batch-predicted approximately 1,500 structures with **AlphaFold 3** and analyzed the stepwise assembly order of gamma-secretase subunits during evolution.
 - Applied statistical methods and deep learning tools to identify mechanistically important residues in gamma-secretase and explore their potential association with Alzheimer's disease.
 
-## <span>Publication</span>
+## <span>Publications</span>
 
 {% include publications.md %}
 

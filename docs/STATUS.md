@@ -1,5 +1,15 @@
 # Project Status
 
+
+## 2026-10-05 01:32 CST (Asia/Shanghai) - StrucTrace accepted journal paper
+
+- **User request**: Add StrucTrace, accepted by an npj journal, with the original author order. Added it to the shared publication data above GPCR-Turbo, added assets/files/structrace.bib, and made the homepage heading plural. My choice: use the same title-cover card presentation and expose the existing public Code and BibTeX resources.
+- **Source verification**: Re-read the original acceptance email archived previously from the user's THU mailbox: accepted by npj Structural Biology on 2026-07-01. This session's public project README/Citation confirms Xu Wang, Chi Wang, Tin-Yeh Huang, Yiquan Wang, Siyuan Jiang, Yafei Yuan; own name remains fifth of six and is bold. Source: https://github.com/JLU-WangXu/Structrace. Email evidence is retained privately in the task workspace, not published in this repository.
+- **Review**: Title matches the acceptance email, authors match the public citation, journal/year/status are explicit, no DOI/volume/pages are inferred. BibTeX follows the project's @article citation with an Accepted note. The existing conditional links yield Code + BibTeX for StrucTrace and only BibTeX for GPCR-Turbo. Both pages use the same include.
+- **Current checkpoint**: Previous card commit e21a093 is deployed (Pages run 37220577050 succeeded). StrucTrace source changes are ready; commit/push, new Pages build, both online entries, resource downloads and visual acceptance remain pending at this checkpoint. No local Jekyll build was run.
+- **Unverified / next step**: Confirm online publication cards, resource links and responsive/light/dark presentation after deploy. Acceptance is confirmed; formal publication details have not been confirmed. The sidebar CV PDF remains the previously verified export; a concurrent CV task has added StrucTrace to the editable CV sources without exporting a replacement PDF.
+- **User decisions needed**: None.
+
 ## 2026-10-05 01:27 CST (Asia/Shanghai) - Publication card presentation
 
 - **User request / decision**: Match the reference academic paper-card presentation. User confirmed that GPCR-Turbo has no public PDF, code or project links yet.
