@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 01:27 CST (Asia/Shanghai) - Publication card presentation
+
+- **User request / decision**: Match the reference academic paper-card presentation. User confirmed that GPCR-Turbo has no public PDF, code or project links yet.
+- **Changes**: Shared card include, publication metadata, an isolated publication-cards.css stylesheet, stylesheet link and a downloadable gpcr-turbo.bib. The card has a title cover, IEEE BIBM badge, highlighted title and author name, venue/year and Accepted badge. My choice: use a typographic cover until a genuine paper teaser is available; render only existing resources. BibTeX uses @unpublished with an acceptance note and no invented DOI/pages.
+- **Validation checkpoint**: Source diff reviewed, conditional links and escaping checked, CSS includes desktop grid, narrow-screen stacking and automatic/manual dark-theme tokens. git diff --check passed. Commit/push, Pages build, online HTML/CSS/BibTeX and browser acceptance remain pending for this card checkpoint.
+- **Prior CV update**: e3dae0d is already deployed; Pages run 37220167016 succeeded. Six online content checks passed, including GPCR-Turbo on both pages and the live CV PDF's exact SHA-256 6515b07c916cbcffcad4abd4f80f78e4f86a2fc9509996c374be2d978fe1370b (154752 bytes).
+- **Limit / next step**: The title cover is not a scientific result figure. Add the actual paper teaser and public links when available; confirm desktop, dark and mobile rendering after publishing. No local Jekyll build was run.
+- **User decisions needed**: None.
+
+
 ## 2026-10-05 01:20 CST (Asia/Shanghai) - Academic CV content synchronization
 
 - **User request**: Sync the latest academic CV into the personal website. Updated index.md (GPA 3.83, graded coursework, four current research entries, selected project), _data/publications.yml and the shared _includes/publications.md, publications.md, SEO metadata and assets/files/CV_public.pdf. Kept the site's Hobbies and the iGEM award; removed research/project entries absent from the current CV.

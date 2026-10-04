@@ -1,0 +1,140 @@
+/* Publication cards share one layout across the homepage and publication list. */
+.publication-cards {
+  --paper-background: #eaf3fc;
+  --paper-border: #d5e4f2;
+  --paper-title: #1678ad;
+  --paper-text: #394654;
+  --paper-button: #1d4262;
+  --paper-status-background: #dceee8;
+  --paper-status-text: #256d51;
+  list-style: none;
+  margin: 22px 0 30px;
+  padding: 0;
+}
+
+.publication-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 29%) minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  margin: 0 0 22px;
+  padding: 24px;
+  border: 1px solid var(--paper-border);
+  border-radius: 13px;
+  background: var(--paper-background);
+  color: var(--paper-text);
+}
+
+.publication-visual { position: relative; margin-top: 5px; }
+.publication-conference-badge {
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: -7px;
+  padding: 5px 13px;
+  border-radius: 4px;
+  background: #07346c;
+  color: #fff;
+  font: 700 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: .035em;
+  box-shadow: 0 3px 9px rgba(5, 42, 78, .2);
+}
+
+.publication-teaser, .publication-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  box-shadow: 0 5px 13px rgba(24, 50, 74, .16);
+}
+.publication-teaser { object-fit: contain; background: #fff; }
+.publication-cover {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 26px 16px 18px;
+  background: radial-gradient(ellipse at 110% 90%, rgba(83, 201, 200, .4), transparent 60%), linear-gradient(140deg, #07346c, #176e91);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.publication-cover-eyebrow { font-size: 8px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+.publication-cover-title { margin: 12px 0 10px; font-size: clamp(20px, 2.1vw, 29px); font-weight: 750; line-height: 1.18; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.publication-cover-caption { font-size: 10px; font-weight: 500; letter-spacing: .04em; opacity: .8; }
+
+.publication-details { min-width: 0; }
+.publication-card .publication-title {
+  margin: 0 0 9px;
+  color: var(--paper-title);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.publication-card .publication-title a { color: var(--paper-title); }
+.publication-card .publication-authors p {
+  margin: 0;
+  color: var(--paper-text);
+  font-size: 16px;
+  line-height: 1.65;
+}
+.publication-card .publication-authors strong { color: inherit; font-weight: 750; }
+.publication-card .publication-venue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 12px;
+  color: var(--paper-text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.publication-venue abbr { border: 0; text-decoration: none; font-style: italic; }
+.publication-status {
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: var(--paper-status-background);
+  color: var(--paper-status-text);
+  font: 600 11px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.publication-links { display: flex; flex-wrap: wrap; gap: 7px; }
+.publication-card a.publication-link {
+  padding: 3px 11px;
+  border: 1px solid var(--paper-button);
+  border-radius: 3px;
+  color: var(--paper-button);
+  background: transparent;
+  font: 500 13px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-decoration: none;
+}
+.publication-card a.publication-link:hover { color: var(--paper-background); background: var(--paper-button); }
+.publication-card a.publication-link:focus-visible { outline: 2px solid var(--paper-title); outline-offset: 3px; }
+
+html[data-theme="dark"] .publication-cards {
+  --paper-background: #253647;
+  --paper-border: #3a5065;
+  --paper-title: #78c5ed;
+  --paper-text: #e0e8ef;
+  --paper-button: #a8cde5;
+  --paper-status-background: #214b42;
+  --paper-status-text: #a4ddc6;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .publication-cards {
+    --paper-background: #253647;
+    --paper-border: #3a5065;
+    --paper-title: #78c5ed;
+    --paper-text: #e0e8ef;
+    --paper-button: #a8cde5;
+    --paper-status-background: #214b42;
+    --paper-status-text: #a4ddc6;
+  }
+}
+
+@media (max-width: 640px) {
+  .publication-card { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
+  .publication-visual { max-width: 230px; }
+  .publication-cover, .publication-teaser { aspect-ratio: 16 / 9; }
+  .publication-cover-title { font-size: 28px; }
+  .publication-card .publication-title { font-size: 18px; }
+}

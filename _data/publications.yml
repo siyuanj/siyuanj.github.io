@@ -1,5 +1,11 @@
 main:
   - title: "GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs"
+    short_title: "GPCR-Turbo"
+    cover_kicker: "Peptide virtual screening"
+    cover_caption: "Fast & Accurate"
     authors: "**Siyuan Jiang**, Sijin Wu, Chi Wang, Zhaorui Jiang, Dongjian Jiang, Yiquan Wang, Tin-Yeh Huang, Xu Wang, and Yafei Yuan"
     conference: "2026 IEEE International Conference on Bioinformatics and Biomedicine (IEEE BIBM 2026)"
+    conference_short: "IEEE BIBM"
+    year: 2026
     status: Accepted
+    bibtex: /assets/files/gpcr-turbo.bib
