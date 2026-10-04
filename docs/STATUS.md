@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 01:57 CST (Asia/Shanghai) - Sidebar layout and heading hierarchy
+
+- **User decisions**: Optimize the site proportions and subtitles, keep the avatar/profile on the left for most window sizes like the supplied academic homepage, then push. Earlier user decisions still apply: real paper framework images, GPCR-Turbo has no public PDF/code/project yet.
+- **Changes / my choices**: Added site-layout.css after the legacy theme; replaced the 1400px stacking breakpoint with a 760px compact-header breakpoint, constrained the full page to 1160px, and used a 240px sticky sidebar (220px on smaller desktop windows). Unified body/section/project type sizes at 16/22/17px. Converted education and research/project labels to h3, separated advisor/date metadata, reduced navigation spacing, added the active-page state and an accessible main region. Paper images retain natural aspect ratios and full-size links; badges no longer overlap diagram labels.
+- **CV synchronization**: Re-read the latest English CV source and exported PDF. Synced the user's Oct 2026 food-peptide end date and first-author GPCR-Turbo-first order. Updated CV_public.pdf to the current two-page export: 154904 bytes, SHA-256 acbde3e1ecce94c3217bd402117f076344887b074c1f9aa74b2ee521f88b9a33. CV source was not edited here.
+- **Review / real checkpoint**: Reviewed layout specificity, 761–1000px sidebar/card interaction, narrow navigation/email wrapping, heading hierarchy, preserved academic statements and public resource conditionals. Earlier actual-figure commit 23ba2f8 is live via successful Pages run 37221627204; 23 HTTP/content/hash checks passed, 390px Chrome and desktop Safari Light/Dark visuals were checked. The new shared-layout changes require commit/push, Pages build and repeat rendered acceptance. No local Jekyll build was run.
+- **Limits / next step**: Confirm new homepage, Publications, Notes/Blog shared layout and latest CV bytes after deploy, including desktop and narrow viewport. StrucTrace's exact original PNG is 33.97 MB; no pixel editing was done. Formal publication DOI/pages remain unconfirmed. No user decisions pending. Private source emails and manuscript material remain outside this public repository.
+
+
 
 ## 2026-10-05 01:43 CST (Asia/Shanghai) - Framework image sizing and stylesheet refresh
 

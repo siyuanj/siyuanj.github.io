@@ -10,8 +10,10 @@ My research interests center on computational protein engineering, especially mo
 
 ## <span>Education</span>
 
-**Tsinghua University, Tanwei College**  
+### Tsinghua University, Tanwei College
 *B.S. in Chemical Biology for Pharmaceutical Science, 2023 - 2027 (expected)*
+{: .experience-meta}
+
 - GPA: **3.83/4.00**
 - Selected coursework: **Chemical Bioinformatics and Artificial Intelligence (A+)**, **Drug Design (A+)**, Bioinformatics (A, Excellent Project), Medicinal Chemistry (A), AI in Healthcare (A), Chemical Biology (A-)
 
@@ -25,25 +27,33 @@ My primary research interests include:
 
 ## <span>Research Experience</span>
 
-**Structure-Guided Aptamer Design**<br>
+### Structure-Guided Aptamer Design
 *School of Medicine, Stanford University | Advisor: Prof. Le Cong | Jul 2026 - Present*
+{: .experience-meta}
+
 - Developed workflows for RNA/DNA aptamer design, integrating protein–nucleic acid complex prediction, backbone-conditioned inverse folding, and structure-based candidate filtering.
 - Benchmarked **AlphaFold 3**, **Boltz-2**, **Protenix**, and **OpenFold3**, evaluating nucleic acid folding, protein-relative binding poses, and interface quality to assess the reliability of predicted training structures.
 - Evaluated **NALite** inverse-folding models with predicted and generated structural data under matched training budgets, comparing RNA/DNA sequence recovery and data-source effects.
 
-**EasyDesign: Agent-Assisted Protein Design**<br>
+### EasyDesign: Agent-Assisted Protein Design
 *School of Life Sciences, THU | Advisor: Assoc. Researcher Yafei Yuan | Jun 2026 - Present*
+{: .experience-meta}
+
 - Contributed across multiple stages of EasyDesign's agent-assisted protein and binder design workflow.
 - Primarily responsible for optimizing structure-prediction models and inference workflows; configured an inference backend using AlphaFold 3 code with converted OpenFold3 weights and packaged reproducible GPU environments for deployment on laboratory servers.
 
-**High-Throughput Screening of Functional Food-Derived Peptides**  
-*School of Life Sciences, THU | Advisor: Assoc. Researcher Yafei Yuan | Oct 2025 - Present*
+### High-Throughput Screening of Functional Food-Derived Peptides
+*School of Life Sciences, THU | Advisor: Assoc. Researcher Yafei Yuan | Oct 2025 - Oct 2026*
+{: .experience-meta}
+
 - Developed a multi-stage screening pipeline for bioactive food-derived peptides targeting specific proteins, addressing the computational bottleneck of direct high-precision docking.
 - Constructed and trained a lightweight pre-screening model to filter massive peptide libraries and enrich candidates for downstream analysis.
 - Integrated **AlphaFold 3** for high-precision structural validation of top candidates and finalized the study with wet-lab experimental assays to verify binding affinity.
 
-**Spatiotemporal Evolution of the Gamma-Secretase Complex**  
+### Spatiotemporal Evolution of the Gamma-Secretase Complex
 *School of Life Sciences, THU | Advisor: Prof. Yigong Shi | Jul 2025 - Present*
+{: .experience-meta}
+
 - Constructed eukaryotic phylogenetic trees for the gamma-secretase complex and traced the PS1 subunit from prokaryotic homologs to clarify its deep evolutionary origin.
 - Batch-predicted approximately 1,500 structures with **AlphaFold 3** and analyzed the stepwise assembly order of gamma-secretase subunits during evolution.
 - Applied statistical methods and deep learning tools to identify mechanistically important residues in gamma-secretase and explore their potential association with Alzheimer's disease.
@@ -54,7 +64,7 @@ My primary research interests include:
 
 ## <span>Selected Projects</span>
 
-**Protein-Peptide Interaction Prediction via Generative Docking & GNNs**
+### Protein-Peptide Interaction Prediction via Generative Docking & GNNs
 - Developed a generative-discriminative framework coupling diffusion-based docking (**RAPiDock**) with a Transformer-GNN scorer (**ITN**).
 - Implemented multi-instance learning on 3D bipartite graphs to enable structure-aware, interpretable binding prediction.
 - Outperformed sequence-based baselines in AUC and enrichment on pMHC I and SH3-peptide systems.

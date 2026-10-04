@@ -1,4 +1,16 @@
 main:
+  - title: "GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs"
+    short_title: "GPCR-Turbo"
+    image: /assets/img/publications/gpcr-turbo-framework.png
+    image_alt: "GPCR-Turbo Figure 1: three-stage GPCR-peptide screening framework"
+    image_width: 3400
+    image_height: 931
+    authors: "**Siyuan Jiang**, Sijin Wu, Chi Wang, Zhaorui Jiang, Dongjian Jiang, Yiquan Wang, Tin-Yeh Huang, Xu Wang, and Yafei Yuan"
+    conference: "2026 IEEE International Conference on Bioinformatics and Biomedicine (IEEE BIBM 2026)"
+    conference_short: "IEEE BIBM"
+    year: 2026
+    status: Accepted
+    bibtex: /assets/files/gpcr-turbo.bib
   - title: "StrucTrace: A universal Fourier watermark for traceable biomolecular structures"
     short_title: "StrucTrace"
     image: /assets/img/publications/structrace-framework.png
@@ -12,15 +24,3 @@ main:
     status: Accepted
     code: https://github.com/JLU-WangXu/Structrace
     bibtex: /assets/files/structrace.bib
-  - title: "GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs"
-    short_title: "GPCR-Turbo"
-    image: /assets/img/publications/gpcr-turbo-framework.png
-    image_alt: "GPCR-Turbo Figure 1: three-stage GPCR-peptide screening framework"
-    image_width: 3400
-    image_height: 931
-    authors: "**Siyuan Jiang**, Sijin Wu, Chi Wang, Zhaorui Jiang, Dongjian Jiang, Yiquan Wang, Tin-Yeh Huang, Xu Wang, and Yafei Yuan"
-    conference: "2026 IEEE International Conference on Bioinformatics and Biomedicine (IEEE BIBM 2026)"
-    conference_short: "IEEE BIBM"
-    year: 2026
-    status: Accepted
-    bibtex: /assets/files/gpcr-turbo.bib
