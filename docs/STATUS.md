@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 02:15 CST (Asia/Shanghai) - Visitor map replacement and deployed layout acceptance
+
+- **User authorization**: User requested repairing the visitor map, explicitly required Chrome, and then authorized retrieving the backend code directly. Normal Google sign-in completed in Chrome; no password was created or reset and no registration form was submitted. The authenticated dashboard had zero websites. Added the user's public homepage URL and retrieved its own Map widget code, site 1c8n8.
+- **Diagnosis / decision**: Old ClustrMaps domain resolves to 127.0.0.1 in local and Google DNS checks; old HTTPS script fails. The replacement provider's old-token data request returns HTML rather than JSONP, while the official demo works. Original site 1c9ch and its history were not recovered. My choice: start a new map for the user's site in the authenticated account; preserve the original code in the timestamped backup and earlier Git history.
+- **Implementation / review**: Updated visitor-map.html to the exact dashboard token and MapMyVisitors map.js endpoint, async loading, responsive w=a, corresponding noscript image and own statistics link. Added a consistent Visitors heading and a 320px maximum map width that fits narrow screens. Reviewed provider ID, source URL encoding, parent width, dark/light surrounding layout and independent loading. No demo token or invented visit counts.
+- **Current verified layout**: Commit 8111b0f and async follow-up d54eed5 are live; Pages runs 37222275336 and 37222468411 succeeded. Nine online URLs returned 200 and 41 structure/content/hash checks passed on d54eed5, including the latest CV's exact 154904 bytes and SHA-256 acbde3e1ecce94c3217bd402117f076344887b074c1f9aa74b2ee521f88b9a33. Chrome desktop and 390px homepage/paper visuals checked. A failed transient screen capture is marked invalid, not counted as StrucTrace mobile acceptance. Chrome's temporary capture problem was resolved using the exact application identifier; device emulation/DevTools were closed. Earlier desktop Light/Dark checks preceded the user's Chrome-only instruction.
+- **Checkpoint / next**: New map code is ready for commit/push and a real Pages build; confirm that the live homepage shows the map and its statistics page names siyuanj.github.io and records the new visit. Historical data migration remains unverified. No local Jekyll build was run. No further user decision is needed for the authorized repair. Private diagnostic snapshots and account UI remain outside this public repository.
+
+
 ## 2026-10-05 01:57 CST (Asia/Shanghai) - Sidebar layout and heading hierarchy
 
 - **User decisions**: Optimize the site proportions and subtitles, keep the avatar/profile on the left for most window sizes like the supplied academic homepage, then push. Earlier user decisions still apply: real paper framework images, GPCR-Turbo has no public PDF/code/project yet.

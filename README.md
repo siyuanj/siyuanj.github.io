@@ -11,6 +11,7 @@ This repository contains Siyuan Jiang's personal academic website, built with Je
 - Publication entries are maintained in `_data/publications.yml` and rendered by `_includes/publications.md` on both the homepage and the Publications page.
 - Publication cards use `assets/css/publication-cards.css` and the paper's framework figures in `assets/img/publications/`. Set the figure dimensions and alternative text in the publication data; figures are shown in full and open at their original size when clicked. Only supplied public resource URLs are rendered. Use actual paper figures rather than typographic title covers.
 - Shared page geometry and heading typography live in `assets/css/site-layout.css`, loaded after the theme and publication styles. Desktop uses a constrained two-column layout; screens at 760px or narrower use a compact profile header.
+- The visitor map lives in `_includes/visitor-map.html`. Use the website's own code from the MapMyVisitors dashboard; keep the script asynchronous and the `w=a` responsive width. Public visitor statistics: <https://mapmyvisitors.com/web/1c8n8>.
 - Cross-session handoff notes live in `docs/STATUS.md`.
 
 ## Local Preview
