@@ -11,6 +11,10 @@ SPECS = {
     "gpcr-turbo": (ROOT / "assets/img/publications/gpcr-turbo-framework.png", ROOT / "assets/img/publications", [600, 1200]),
     "structrace": (ROOT / "assets/img/publications/structrace-framework.png", ROOT / "assets/img/publications", [600, 1200]),
     "golden-gate-2026-09-26": (ROOT / "assets/img/photos/golden-gate-2026-09-26.png", ROOT / "assets/img/photos", [640, 1280]),
+    "google-2026-09-24": (ROOT / "assets/img/photos/google-2026-09-24.jpg", ROOT / "assets/img/photos", [640, 1280]),
+    "nvidia-2026-09-24": (ROOT / "assets/img/photos/nvidia-2026-09-24.jpg", ROOT / "assets/img/photos", [640, 1280]),
+    "griffith-2026-09-23": (ROOT / "assets/img/photos/griffith-2026-09-23.jpg", ROOT / "assets/img/photos", [640, 1280]),
+    "ucla-bear-2026-09-23": (ROOT / "assets/img/photos/ucla-bear-2026-09-23.jpg", ROOT / "assets/img/photos", [640, 1280]),
 }
 
 

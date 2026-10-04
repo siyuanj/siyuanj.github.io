@@ -7,3 +7,43 @@
   width: 1448
   height: 1086
   alt: "Illustrated portrait of Siyuan Jiang at the Golden Gate Bridge in San Francisco"
+
+- date: "2026-09-24"
+  display_date: "2026.9.24"
+  caption: "拜访 Google"
+  image: "/assets/img/photos/google-2026-09-24.jpg"
+  preview: "/assets/img/photos/google-2026-09-24-640.webp"
+  preview_large: "/assets/img/photos/google-2026-09-24-1280.webp"
+  width: 6528
+  height: 4896
+  alt: "Portrait beside a bear sculpture during a visit to Google"
+
+- date: "2026-09-24"
+  display_date: "2026.9.24"
+  caption: "夜游 NVIDIA"
+  image: "/assets/img/photos/nvidia-2026-09-24.jpg"
+  preview: "/assets/img/photos/nvidia-2026-09-24-640.webp"
+  preview_large: "/assets/img/photos/nvidia-2026-09-24-1280.webp"
+  width: 4896
+  height: 6528
+  alt: "Portrait outside NVIDIA at night"
+
+- date: "2026-09-23"
+  display_date: "2026.9.23"
+  caption: "Griffith 天文台"
+  image: "/assets/img/photos/griffith-2026-09-23.jpg"
+  preview: "/assets/img/photos/griffith-2026-09-23-640.webp"
+  preview_large: "/assets/img/photos/griffith-2026-09-23-1280.webp"
+  width: 4096
+  height: 3072
+  alt: "Portrait with a view over Los Angeles from Griffith Observatory"
+
+- date: "2026-09-23"
+  display_date: "2026.9.23"
+  caption: "和 UCLA 的熊合影"
+  image: "/assets/img/photos/ucla-bear-2026-09-23.jpg"
+  preview: "/assets/img/photos/ucla-bear-2026-09-23-640.webp"
+  preview_large: "/assets/img/photos/ucla-bear-2026-09-23-1280.webp"
+  width: 4896
+  height: 6528
+  alt: "Portrait beside the UCLA Bruin bear statue"
