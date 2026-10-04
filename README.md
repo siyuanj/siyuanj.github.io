@@ -7,6 +7,8 @@ This repository contains Siyuan Jiang's personal academic website, built with Je
 - Homepage content lives in `index.md`.
 - Profile metadata and sidebar links live in `_config.yml`.
 - The public CV linked from the sidebar is `assets/files/CV_public.pdf`.
+- Keep academic content and the public CV aligned with the current academic CV; replace the PDF at the existing link when syncing updates.
+- The publication entry is maintained in `_data/publications.yml` and rendered by `_includes/publications.md` on both the homepage and the Publications page.
 - Cross-session handoff notes live in `docs/STATUS.md`.
 
 ## Local Preview

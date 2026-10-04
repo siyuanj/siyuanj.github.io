@@ -12,8 +12,8 @@ My research interests center on computational protein engineering, especially mo
 
 **Tsinghua University, Tanwei College**  
 *B.S. in Chemical Biology for Pharmaceutical Science, 2023 - 2027 (expected)*
-- GPA: **3.81/4.00**
-- Selected coursework: Bioinformatics, Fundamentals of Programming (Python & C++), Chemical Biology, AI in Healthcare, Medicinal Chemistry
+- GPA: **3.83/4.00**
+- Selected coursework: **Chemical Bioinformatics and Artificial Intelligence (A+)**, **Drug Design (A+)**, Bioinformatics (A, Excellent Project), Medicinal Chemistry (A), AI in Healthcare (A), Chemical Biology (A-)
 
 ## <span>Research Interests</span>
 
@@ -25,36 +25,34 @@ My primary research interests include:
 
 ## <span>Research Experience</span>
 
+**Structure-Guided Aptamer Design**<br>
+*School of Medicine, Stanford University | Advisor: Prof. Le Cong | Jul 2026 - Present*
+- Developed workflows for RNA/DNA aptamer design, integrating protein–nucleic acid complex prediction, backbone-conditioned inverse folding, and structure-based candidate filtering.
+- Benchmarked **AlphaFold 3**, **Boltz-2**, **Protenix**, and **OpenFold3**, evaluating nucleic acid folding, protein-relative binding poses, and interface quality to assess the reliability of predicted training structures.
+- Evaluated **NALite** inverse-folding models with predicted and generated structural data under matched training budgets, comparing RNA/DNA sequence recovery and data-source effects.
+
+**EasyDesign: Agent-Assisted Protein Design**<br>
+*School of Life Sciences, THU | Advisor: Assoc. Researcher Yafei Yuan | Jun 2026 - Present*
+- Contributed across multiple stages of EasyDesign's agent-assisted protein and binder design workflow.
+- Primarily responsible for optimizing structure-prediction models and inference workflows; configured an inference backend using AlphaFold 3 code with converted OpenFold3 weights and packaged reproducible GPU environments for deployment on laboratory servers.
+
 **High-Throughput Screening of Functional Food-Derived Peptides**  
-*School of Life Sciences, THU | Advisor: Assoc. Researcher Yafei Yuan | Oct 2025 - Now*
+*School of Life Sciences, THU | Advisor: Assoc. Researcher Yafei Yuan | Oct 2025 - Present*
 - Developed a multi-stage screening pipeline for bioactive food-derived peptides targeting specific proteins, addressing the computational bottleneck of direct high-precision docking.
 - Constructed and trained a lightweight pre-screening model to filter massive peptide libraries and enrich candidates for downstream analysis.
-- Integrated **AlphaFold 3** for high-precision structural validation of top candidates, followed by wet-lab assays to verify binding affinity.
+- Integrated **AlphaFold 3** for high-precision structural validation of top candidates and finalized the study with wet-lab experimental assays to verify binding affinity.
 
 **Spatiotemporal Evolution of the Gamma-Secretase Complex**  
-*School of Life Sciences, THU | Advisor: Prof. Yigong Shi | Jul 2025 - Now*
+*School of Life Sciences, THU | Advisor: Prof. Yigong Shi | Jul 2025 - Present*
 - Constructed eukaryotic phylogenetic trees for the gamma-secretase complex and traced the PS1 subunit from prokaryotic homologs to clarify its deep evolutionary origin.
 - Batch-predicted approximately 1,500 structures with **AlphaFold 3** and analyzed the stepwise assembly order of gamma-secretase subunits during evolution.
 - Applied statistical methods and deep learning tools to identify mechanistically important residues in gamma-secretase and explore their potential association with Alzheimer's disease.
 
-**T-cell Specific In-situ CRISPR Screening System**  
-*School of Pharmaceutical Sciences, THU | Advisor: Prof. Xuebin Liao | Jul 2025 - Oct 2025*
-- Addressed the limitations of traditional CRISPR screening, where scarce hematopoietic stem cells impede in-situ studies.
-- Leveraged infinitely proliferative mouse embryonic stem cells with lineage-specific gene editing to establish an in-situ screening platform for immune cells.
-- The platform aims to dissect T cell exhaustion regulation and metabolic-epigenetic coupling during memory T cell differentiation.
+## <span>Publication</span>
 
-**iGEM Competition: In-situ RNA Quantification Tool**  
-*Department of Chemical Engineering, THU | Advisor: Prof. Chun Li | Aug 2024 - Oct 2024*
-- Developed an in-situ RNA quantification tool in yeast based on the ADAR protein, offering advantages over qPCR in speed, convenience, and non-destructive measurement.
-- The tool facilitates better understanding of real-time gene expression within living cells.
-- The project was awarded a **Gold Medal** at the 2024 iGEM Competition.
+{% include publications.md %}
 
 ## <span>Selected Projects</span>
-
-**Machine Learning for Cancer Diagnosis using Plasma small RNAs**
-- Developed a bioinformatics pipeline with Python, R, and scikit-learn to diagnose cancer from plasma small RNA-seq data.
-- Implemented L1-regularized feature selection over 100 stratified samples to identify stable biomarkers; the resulting 4-piRNA colorectal cancer model achieved a test AUC of **0.802**.
-- Validated a Rare Abundance Genes strategy and built a scoring model that achieved an AUC of **0.971**.
 
 **Protein-Peptide Interaction Prediction via Generative Docking & GNNs**
 - Developed a generative-discriminative framework coupling diffusion-based docking (**RAPiDock**) with a Transformer-GNN scorer (**ITN**).

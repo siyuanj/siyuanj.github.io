@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 01:20 CST (Asia/Shanghai) - Academic CV content synchronization
+
+- **User request**: Sync the latest academic CV into the personal website. Updated index.md (GPA 3.83, graded coursework, four current research entries, selected project), _data/publications.yml and the shared _includes/publications.md, publications.md, SEO metadata and assets/files/CV_public.pdf. Kept the site's Hobbies and the iGEM award; removed research/project entries absent from the current CV.
+- **Current verified state**: Nine source consistency checks and git diff --check passed. The public CV PDF matches Jiang_Siyuan_CV_20261005.pdf exactly: 154752 bytes, SHA-256 6515b07c916cbcffcad4abd4f80f78e4f86a2fc9509996c374be2d978fe1370b. GPCR-Turbo lists the complete author order and IEEE BIBM 2026, with Accepted status. No DOI or paper download was added.
+- **Publishing**: Source ready for commit and push to the existing main-branch GitHub Pages site; deployment and browser acceptance still pending at this checkpoint. No local Jekyll build was run. The shared publication include was reviewed for Markdown/Liquid rendering and avoids empty asset links.
+- **Preservation**: Fast-forwarded from the migrated dfbe00d to f2a21cf before editing, retaining the Search Console verification file and earlier Tasks Bridge changes. Affected source files and STATUS were backed up; prior STATUS sections preserved.
+- **Next step / unverified**: Confirm Pages build success, homepage and Publications content, the live CV hash, and desktop/mobile rendering. Historical research claims and course official English names are carried from the supplied CV, not independently re-certified.
+- **User decisions needed**: None.
+
+
 ## 2026-10-02 09:10 CST - Local Tasks Bridge pages moved to the project site
 
 - The Local Tasks Bridge home page and privacy policy now live in the public
@@ -50,7 +60,7 @@
 
 - The homepage is a Jekyll academic personal website using the Minimal Light remote theme.
 - The sidebar CV link points to `assets/files/CV_public.pdf`.
-- Homepage content in `index.md` is synced with the latest CV file `Jiang_Siyuan_CV_May19.pdf`.
+- Homepage academic content in `index.md` is synced with `Jiang_Siyuan_CV_20261005.pdf`; publication data is shared with the Publications page.
 
 ## Recent Progress
 
