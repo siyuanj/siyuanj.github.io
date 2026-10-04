@@ -1,10 +1,10 @@
 - title: Homepage
   url: /
+- title: Publications
+  url: /publications/
 - title: Notes
   url: /note/
   collection: notes
 - title: Blog
   url: /blog/
   collection: blogs
-- title: Publications
-  url: /publications/
