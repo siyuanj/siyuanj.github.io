@@ -1,6 +1,13 @@
 # Project Status
 
 
+## 2026-10-05 01:43 CST (Asia/Shanghai) - Framework image sizing and stylesheet refresh
+
+- **Review finding / my fix**: The first 390px Chrome preview exposed an overly tall image frame. Moved the 16:9 ratio to the image-link container and explicitly fit the image to that frame (width/height 100%, object-fit: contain). Added a build-time version query to the card stylesheet so fresh HTML cannot reuse the old cover stylesheet from browser cache. Figure content and original asset hashes stay unchanged.
+- **Current evidence**: Main-figure commit 5eb9413 deployed via Pages run 37221441968; HTTP verification downloaded both pages, both BibTeX files, CSS and both PNGs. All 23 content/file checks passed after excluding HTML comments in homepage counts. Browser sizing fix requires a new build and repeat visual acceptance.
+- **Next / limit**: Verify 390px and desktop frames after deploy, then restore the browser's initial Auto theme and normal viewport. No local Jekyll build was run. No user decisions required.
+
+
 ## 2026-10-05 01:40 CST (Asia/Shanghai) - Actual paper framework figures
 
 - **User decision**: Replace the gradient title covers with the actual paper's main/framework figure. Removed the cover template and styles. StrucTrace uses the public project's Figure 1; GPCR-Turbo uses the manuscript's Figure 1 overview (v27/v30 assets have the same SHA-256). Exact original PNG bytes are copied into assets/img/publications/. Cards show the whole figure without distortion and allow opening it at full resolution. My choice: a 16:9 frame suits the overview diagrams.

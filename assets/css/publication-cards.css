@@ -40,13 +40,12 @@
   box-shadow: 0 3px 9px rgba(5, 42, 78, .2);
 }
 
-.publication-image-link { display: block; }
+.publication-image-link { display: block; width: 100%; aspect-ratio: 16 / 9; }
 .publication-image-link:focus-visible { outline: 2px solid var(--paper-title); outline-offset: 3px; }
 .publication-teaser {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   border-radius: 10px;
   box-shadow: 0 5px 13px rgba(24, 50, 74, .16);
 }
