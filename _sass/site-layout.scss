@@ -53,7 +53,7 @@ div.wrapper {
   border-bottom: 1px solid #dce3e9;
   text-align: left;
 }
-.site-content .top-nav a { min-width: 0; margin: 0; padding: 6px 0; font-size: 15px; line-height: 1.5; font-weight: 600; }
+.site-content .top-nav a { min-width: 0; justify-self: center; margin: 0; padding: 6px 0; font-size: 15px; line-height: 1.5; font-weight: 600; }
 .site-content .top-nav a[aria-current="page"] { border-bottom-color: currentColor; }
 .site-content h2 { margin: 34px 0 16px; padding-bottom: 8px; border-bottom-width: 1px; font-size: 22px; line-height: 1.35; letter-spacing: -.015em; }
 .site-content .top-nav + h2 { margin-top: 0; }
