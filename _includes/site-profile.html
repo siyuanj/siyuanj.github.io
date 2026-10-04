@@ -1,0 +1,20 @@
+<header class="site-profile">
+  {% if site.avatar %}
+  <a class="image avatar" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }} homepage">
+    <img src="{{ '/assets/img/profile/avatar-320.webp' | relative_url }}" srcset="{{ '/assets/img/profile/avatar-320.webp' | relative_url }} 320w, {{ '/assets/img/profile/avatar-480.webp' | relative_url }} 480w" sizes="(max-width: 520px) 76px, (max-width: 760px) 104px, 148px" alt="{{ site.title | escape }}" width="320" height="480" fetchpriority="high" decoding="async">
+  </a>
+  {% endif %}
+  <div class="profile-details">
+    <h1>{{ site.title | escape }}</h1>
+    {% if site.position %}<p class="profile-position">{{ site.position | escape }}</p>{% endif %}
+    {% if site.affiliation %}<p><a href="{{ site.affiliation_link }}" rel="noopener">{{ site.affiliation | escape }}</a></p>{% endif %}
+    {% if site.email %}<p class="profile-email">{{ site.email | escape }}</p>{% endif %}
+    <div class="social-icons">
+      {% if site.google_scholar %}<a href="{{ site.google_scholar }}" aria-label="Google Scholar"><span aria-hidden="true">G</span></a>{% endif %}
+      {% if site.cv_link %}<a href="{{ site.cv_link | relative_url }}" aria-label="Download CV"><span class="cv-icon" aria-hidden="true">CV</span></a>{% endif %}
+      {% if site.github_link %}<a href="{{ site.github_link }}" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.4 5.1 18.4 5.4 18.4 5.4c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg></a>{% endif %}
+      {% if site.linkedin %}<a href="{{ site.linkedin }}" aria-label="LinkedIn"><span aria-hidden="true">in</span></a>{% endif %}
+      {% if site.twitter %}<a href="{{ site.twitter }}" aria-label="X profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.4-8.5L1.5 2H8l4.4 6.8L18.9 2ZM17.8 20h1.7L7 4H5.2l12.6 16Z"/></svg></a>{% endif %}
+    </div>
+  </div>
+</header>

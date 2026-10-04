@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}"{% unless site.auto_dark_mode %} data-theme="light"{% endunless %}>
+  <head>{% include site-head.html %}</head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {% if site.auto_dark_mode %}<button id="theme-toggle" class="theme-toggle" type="button" data-mode="auto" aria-label="Theme mode: Auto" title="Theme: Auto (click to switch)">Auto</button>{% endif %}
+    <div class="wrapper">
+      {% include site-profile.html %}
+      <main id="main-content" class="site-content" tabindex="-1">
+        {% include site-navigation.html %}
+        {{ content }}
+        <footer class="site-footer">
+          <a class="back-to-top" href="#top">Back to top ↑</a>
+          {% if site.enable_footnote %}<small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light">Minimal Light</a> theme.</small>{% endif %}
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

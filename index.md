@@ -1,6 +1,9 @@
 ---
 layout: homepage
+uses_publications: true
 ---
+
+<nav class="section-nav" aria-label="On this page"><a href="#education">Education</a><a href="#research-experience">Research</a><a href="#publications">Publications</a><a href="#selected-projects">Projects</a></nav>
 
 ## <span>About Me</span>
 
@@ -89,14 +92,3 @@ Beyond research, I maintain an active lifestyle and diverse interests:
 - **Arts & Culture:** I love Rock Music, J-Pop, and Sci-Fi films (e.g., *The Matrix*, *Star Wars*).
 
 {% include visitor-map.html %}
-
-<!-- ## News
-
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019. -->
-
-<!-- {% include_relative _includes/publications.md %}
-
-{% include_relative _includes/services.md %} -->

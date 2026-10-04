@@ -1,0 +1,12 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="{% if site.auto_dark_mode %}light dark{% else %}light{% endif %}">
+<title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+{% if site.keywords %}<meta name="keywords" content="{{ site.keywords | escape }}">{% endif %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="icon" href="{{ site.favicon | relative_url }}" type="image/png">
+{% if site.auto_dark_mode %}<script>{% include theme-init.js %}</script>{% endif %}
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.data.asset_versions.site_css }}">
+{% if page.uses_publications %}<link rel="stylesheet" href="{{ '/assets/css/publication-cards.css' | relative_url }}?v={{ site.data.asset_versions.publication_css }}">{% endif %}
+<script defer src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.data.asset_versions.site_js }}"></script>

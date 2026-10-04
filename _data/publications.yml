@@ -2,6 +2,8 @@ main:
   - title: "GPCR-Turbo: Fast and Accurate Peptide Virtual Screening for GPCRs"
     short_title: "GPCR-Turbo"
     image: /assets/img/publications/gpcr-turbo-framework.png
+    preview: /assets/img/publications/gpcr-turbo-600.webp
+    preview_large: /assets/img/publications/gpcr-turbo-1200.webp
     image_alt: "GPCR-Turbo Figure 1: three-stage GPCR-peptide screening framework"
     image_width: 3400
     image_height: 931
@@ -14,6 +16,8 @@ main:
   - title: "StrucTrace: A universal Fourier watermark for traceable biomolecular structures"
     short_title: "StrucTrace"
     image: /assets/img/publications/structrace-framework.png
+    preview: /assets/img/publications/structrace-600.webp
+    preview_large: /assets/img/publications/structrace-1200.webp
     image_alt: "StrucTrace Figure 1: Fourier watermarking framework for biomolecular structures"
     image_width: 13120
     image_height: 7622

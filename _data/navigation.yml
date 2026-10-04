@@ -1,0 +1,10 @@
+- title: Homepage
+  url: /
+- title: Notes
+  url: /note/
+  collection: notes
+- title: Blog
+  url: /blog/
+  collection: blogs
+- title: Publications
+  url: /publications/

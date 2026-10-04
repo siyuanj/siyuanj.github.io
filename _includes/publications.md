@@ -5,7 +5,7 @@
       <span class="publication-conference-badge">{{ publication.conference_short | escape }}</span>
       {% if publication.image %}
       <a class="publication-image-link" href="{{ publication.image | relative_url }}" aria-label="View {{ publication.short_title | escape }} framework figure">
-        <img class="publication-teaser" src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" width="{{ publication.image_width }}" height="{{ publication.image_height }}" loading="lazy" decoding="async">
+        <img class="publication-teaser" src="{{ publication.preview | default: publication.image | relative_url }}"{% if publication.preview_large %} srcset="{{ publication.preview | relative_url }} 600w, {{ publication.preview_large | relative_url }} 1200w" sizes="(max-width: 640px) 260px, (min-width: 761px) and (max-width: 1000px) 260px, 220px"{% endif %} alt="{{ publication.image_alt | default: publication.title | escape }}" width="{{ publication.image_width }}" height="{{ publication.image_height }}" loading="lazy" decoding="async">
       </a>
       {% endif %}
     </div>
