@@ -34,7 +34,7 @@ h2 { border-bottom: 1px solid var(--line); }
 p, ul, ol, table, pre, dl { margin: 0 0 20px; }
 ul, ol { padding-left: 26px; }
 hr { border: 0; border-top: 1px solid var(--line); }
-code, pre, .profile-email, .post-date { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+code, pre, .post-date { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
 code { background: var(--surface); border-radius: 3px; padding: 2px 4px; font-size: .85em; }
 pre { background: var(--surface); padding: 16px; border: 1px solid var(--line); border-radius: 6px; }
 pre code { padding: 0; }

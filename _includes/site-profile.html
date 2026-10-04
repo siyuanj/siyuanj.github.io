@@ -8,7 +8,7 @@
     <h1>{{ site.title | escape }}</h1>
     {% if site.position %}<p class="profile-position">{{ site.position | escape }}</p>{% endif %}
     {% if site.affiliation %}<p><a href="{{ site.affiliation_link }}" rel="noopener">{{ site.affiliation | escape }}</a></p>{% endif %}
-    {% if site.email %}<p class="profile-email">{{ site.email | escape }}</p>{% endif %}
+    {% if site.email %}<p class="profile-email">{{ site.email | escape | replace: '@', '@<wbr>' }}</p>{% endif %}
     <div class="social-icons">
       {% if site.google_scholar %}<a href="{{ site.google_scholar }}" aria-label="Google Scholar"><span aria-hidden="true">G</span></a>{% endif %}
       {% if site.cv_link %}<a href="{{ site.cv_link | relative_url }}" aria-label="Download CV"><span class="cv-icon" aria-hidden="true">CV</span></a>{% endif %}
