@@ -1,6 +1,15 @@
 # Project Status
 
 
+## 2026-10-05 01:40 CST (Asia/Shanghai) - Actual paper framework figures
+
+- **User decision**: Replace the gradient title covers with the actual paper's main/framework figure. Removed the cover template and styles. StrucTrace uses the public project's Figure 1; GPCR-Turbo uses the manuscript's Figure 1 overview (v27/v30 assets have the same SHA-256). Exact original PNG bytes are copied into assets/img/publications/. Cards show the whole figure without distortion and allow opening it at full resolution. My choice: a 16:9 frame suits the overview diagrams.
+- **Review / current state**: Figure pixels and manuscript figure reference reviewed; both assets match their source hashes. StrucTrace is 33966686 bytes (13120 x 7622), GPCR-Turbo is 592995 bytes (3400 x 931). Source data/image alternatives/dimensions align, object-fit: contain keeps diagram labels intact, loading is lazy with async decoding. No pixel editing, redrawing or generated figure content. No local Jekyll build was run.
+- **Prior deployment**: StrucTrace metadata commit 335959b and Pages run 37220915783 succeeded; online Publications lists both entries with Code/BibTeX resources. Initial homepage count check included an existing commented-out duplicate include; visible content is still two cards. Final checks will exclude HTML comments.
+- **Checkpoint / next step**: Framework sources ready for commit/push; new Pages build, image downloads and desktop/mobile visual acceptance pending. Original StrucTrace image is large; a smaller supplied paper image can replace it if needed. Sidebar PDF still uses the previously verified CV export.
+- **User decisions needed**: None.
+
+
 ## 2026-10-05 01:32 CST (Asia/Shanghai) - StrucTrace accepted journal paper
 
 - **User request**: Add StrucTrace, accepted by an npj journal, with the original author order. Added it to the shared publication data above GPCR-Turbo, added assets/files/structrace.bib, and made the homepage heading plural. My choice: use the same title-cover card presentation and expose the existing public Code and BibTeX resources.

@@ -40,28 +40,17 @@
   box-shadow: 0 3px 9px rgba(5, 42, 78, .2);
 }
 
-.publication-teaser, .publication-cover {
+.publication-image-link { display: block; }
+.publication-image-link:focus-visible { outline: 2px solid var(--paper-title); outline-offset: 3px; }
+.publication-teaser {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  aspect-ratio: 16 / 9;
   border-radius: 10px;
   box-shadow: 0 5px 13px rgba(24, 50, 74, .16);
 }
 .publication-teaser { object-fit: contain; background: #fff; }
-.publication-cover {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  padding: 26px 16px 18px;
-  background: radial-gradient(ellipse at 110% 90%, rgba(83, 201, 200, .4), transparent 60%), linear-gradient(140deg, #07346c, #176e91);
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-.publication-cover-eyebrow { font-size: 8px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
-.publication-cover-title { margin: 12px 0 10px; font-size: clamp(20px, 2.1vw, 29px); font-weight: 750; line-height: 1.18; letter-spacing: -.035em; overflow-wrap: anywhere; }
-.publication-cover-caption { font-size: 10px; font-weight: 500; letter-spacing: .04em; opacity: .8; }
 
 .publication-details { min-width: 0; }
 .publication-card .publication-title {
@@ -134,7 +123,5 @@ html[data-theme="dark"] .publication-cards {
 @media (max-width: 640px) {
   .publication-card { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
   .publication-visual { max-width: 230px; }
-  .publication-cover, .publication-teaser { aspect-ratio: 16 / 9; }
-  .publication-cover-title { font-size: 28px; }
   .publication-card .publication-title { font-size: 18px; }
 }

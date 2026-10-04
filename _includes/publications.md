@@ -4,13 +4,9 @@
     <div class="publication-visual">
       <span class="publication-conference-badge">{{ publication.conference_short | escape }}</span>
       {% if publication.image %}
-      <img class="publication-teaser" src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" loading="lazy">
-      {% else %}
-      <div class="publication-cover" aria-label="{{ publication.short_title | escape }} title cover">
-        <span class="publication-cover-eyebrow">{{ publication.cover_kicker | default: "Research" | escape }}</span>
-        <span class="publication-cover-title">{{ publication.short_title | escape }}</span>
-        {% if publication.cover_caption %}<span class="publication-cover-caption">{{ publication.cover_caption | escape }}</span>{% endif %}
-      </div>
+      <a class="publication-image-link" href="{{ publication.image | relative_url }}" aria-label="View {{ publication.short_title | escape }} framework figure">
+        <img class="publication-teaser" src="{{ publication.image | relative_url }}" alt="{{ publication.image_alt | default: publication.title | escape }}" width="{{ publication.image_width }}" height="{{ publication.image_height }}" loading="lazy" decoding="async">
+      </a>
       {% endif %}
     </div>
     <div class="publication-details">
