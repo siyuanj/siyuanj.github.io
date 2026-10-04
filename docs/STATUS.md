@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 02:20 CST (Asia/Shanghai) - Visitor map live acceptance complete
+
+- **Completed / user decisions**: Windows website migration, current CV synchronization, real framework publication cards, accepted StrucTrace entry, mostly-left desktop profile and consistent heading hierarchy are complete. User explicitly requested push and Chrome; the visitor map repair was authorized to retrieve the dashboard code directly.
+- **Current evidence**: Code commit 7bb7cc1d171f5f963ffd4def600a0653fa77107b is pushed. Pages run 37223710039 completed build, deploy and report successfully. The live homepage, Publications, Notes and Blog plus five resource URLs returned HTTP 200; all 43 content/structure/asset hash checks passed. CV PDF is the exact current 154904-byte English export (SHA-256 acbde3e1ecce94c3217bd402117f076344887b074c1f9aa74b2ee521f88b9a33).
+- **Browser acceptance / review**: Chrome desktop shows the map; a 390px viewport shows the full 320px widget within the page without clipping. Its link opens the user's own https://mapmyvisitors.com/web/1c8n8 statistics page, which names siyuanj.github.io and contains a new visitor record. Provider pageview displays are cached/lagged and include verification traffic; no claim of a stable total or distinct human-visitor count. Restored device width 400, turned device emulation off, closed DevTools and left the normal homepage open with Auto theme. Screenshots and private evidence remain outside this public repository.
+- **Blocked / remaining limits**: No implementation blocker. The previous site's visitor history was not recovered; the new counter starts with this repair. Formal paper DOI/pages remain unconfirmed. No local Jekyll build was run; actual Pages Jekyll deployment was verified. Original figure files are unchanged, including the large StrucTrace PNG.
+- **Next / user decisions needed**: No further user decision required. Keep the authenticated site's dashboard code as the source for future widget maintenance; add public paper resources when supplied. This final status-only update requires its scoped commit/push; no code or content changes after the verified deployment.
+
+
 ## 2026-10-05 02:15 CST (Asia/Shanghai) - Visitor map replacement and deployed layout acceptance
 
 - **User authorization**: User requested repairing the visitor map, explicitly required Chrome, and then authorized retrieving the backend code directly. Normal Google sign-in completed in Chrome; no password was created or reset and no registration form was submitted. The authenticated dashboard had zero websites. Added the user's public homepage URL and retrieved its own Map widget code, site 1c8n8.
