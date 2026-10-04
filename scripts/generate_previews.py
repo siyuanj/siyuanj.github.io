@@ -1,4 +1,4 @@
-"""Generate uncropped web previews; original paper figures stay byte-identical."""
+"""Generate uncropped web previews; original images stay byte-identical."""
 import argparse
 import hashlib
 import json
@@ -10,6 +10,7 @@ SPECS = {
     "avatar": (ROOT / "assets/img/jiangsiyuan.png", ROOT / "assets/img/profile", [320, 480]),
     "gpcr-turbo": (ROOT / "assets/img/publications/gpcr-turbo-framework.png", ROOT / "assets/img/publications", [600, 1200]),
     "structrace": (ROOT / "assets/img/publications/structrace-framework.png", ROOT / "assets/img/publications", [600, 1200]),
+    "golden-gate-2026-09-26": (ROOT / "assets/img/photos/golden-gate-2026-09-26.png", ROOT / "assets/img/photos", [640, 1280]),
 }
 
 

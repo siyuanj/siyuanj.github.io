@@ -71,6 +71,11 @@ div.wrapper {
 .site-content .post-date { width: 90px; font-size: 12px; }
 .site-content pre { max-width: 100%; overflow: auto; }
 .site-content img { max-width: 100%; }
+.photo-gallery { display: grid; gap: 24px; }
+.recent-photo { width: 100%; max-width: 640px; margin: 0; }
+.recent-photo-link { display: block; border-radius: 10px; overflow: hidden; }
+.recent-photo-link img { display: block; width: 100%; height: auto; }
+.recent-photo figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }
 .site-content .visitor-map-widget { width: 100%; max-width: 320px; margin: 24px auto 0; }
 .visitor-map-widget img { display: block; width: 100%; height: auto; }
 .site-footer { margin: 40px 0 0; padding-top: 16px; font-size: 12px; opacity: .7; }

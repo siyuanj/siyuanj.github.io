@@ -3,7 +3,7 @@ layout: homepage
 uses_publications: true
 ---
 
-<nav class="section-nav" aria-label="On this page"><a href="#education">Education</a><a href="#research-experience">Research</a><a href="#publications">Publications</a><a href="#selected-projects">Projects</a></nav>
+<nav class="section-nav" aria-label="On this page"><a href="#education">Education</a><a href="#research-experience">Research</a><a href="#publications">Publications</a><a href="#selected-projects">Projects</a><a href="#recent-photos">Photos</a></nav>
 
 ## <span>About Me</span>
 
@@ -90,5 +90,7 @@ My primary research interests include:
 Beyond research, I maintain an active lifestyle and diverse interests:
 - **Sports:** I am a member of the Tanwei College **Badminton Team** and the **Tsinghua University Diving Association**. I also enjoy running and swimming.
 - **Arts & Culture:** I love Rock Music, J-Pop, and Sci-Fi films (e.g., *The Matrix*, *Star Wars*).
+
+{% include recent-photos.html %}
 
 {% include visitor-map.html %}

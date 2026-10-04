@@ -1,0 +1,15 @@
+{% if site.data.photos.size > 0 %}
+<section class="recent-photos" aria-labelledby="recent-photos">
+  <h2 id="recent-photos"><span>Recent Photos</span></h2>
+  <div class="photo-gallery">
+    {% for photo in site.data.photos %}
+    <figure class="recent-photo">
+      <a class="recent-photo-link" href="{{ photo.image | relative_url }}" aria-label="View full-size photo: {{ photo.alt | escape }}">
+        <img src="{{ photo.preview | relative_url }}" srcset="{{ photo.preview | relative_url }} 640w, {{ photo.preview_large | relative_url }} 1280w" sizes="(max-width: 520px) calc(100vw - 36px), (max-width: 760px) calc(100vw - 48px), (max-width: 960px) calc(100vw - 320px), 640px" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt | escape }}" loading="lazy" decoding="async">
+      </a>
+      <figcaption><time datetime="{{ photo.date | escape }}">{{ photo.display_date | escape }}</time><span aria-hidden="true"> · </span>{{ photo.caption | escape }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
