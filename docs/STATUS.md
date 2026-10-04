@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 02:55 CST (Asia/Shanghai) - 窄屏导航与邮箱字体统一
+
+- **这次做了什么**：用户要求修正截图中 Homepage / Note / Blog / Publications 排列不齐，以及邮箱字体不同。我的判断：导航改为固定网格，520px以下两列两行，521–760px四个等宽列，更宽窗口四项一行；选中下划线跟随文字宽度。移除邮箱的等宽字体和独立缩小字号，继承身份/学校段落的系统字体及字号；在 @ 后添加不改变邮箱文字的 wbr 换行机会。更新内容哈希缓存键 756aca48b5d0。
+- **现在真实状态**：221d53da6c607a660e319caccc6de054e37b82d9、a34f4122dfd019d7d3d426fd1af7081f48582207 已push；Pages 37225938676、37226101014 均success。最终四页HTML和主CSS共5个URL返回200，16项定向检查通过；最终CSS 7978字节。Chrome桌面和320/390/500/600px检查：320px邮箱在@后自然换行；390/500px导航两列两行，600px一行，邮箱为正文同族字体；后续小修仅收窄导航下划线，最终390/500/600px再次确认。正常首页仍保留桌面左侧头像。
+- **卡在哪**：无实现阻塞。实测普通导航命中了旧页面prefetch cache并加载旧835fd32a793a样式；强制刷新后Network确认加载756aca48b5d0。旧页面的样式不会在不刷新文档时自动替换。一个旧QA标签出现空白截图，验收使用正常的新标签；未将其原因认定为本次CSS问题。
+- **还没验证的**：没有运行本地Jekyll或新性能基准；采用真实Pages构建、线上源文件及Chrome视觉验收。此轮不重新认证CV和学术内容，图片与JS未改变。已恢复设备宽400、关闭仿真和DevTools、保留Auto。
+- **要用户定的**：无。此记录和README说明还需文档提交push；不改变已验收的页面资源。私有报告和截图位于 /Users/jiangsiyuan/test20260820/10-5 导航字体修正/。
+
+
+
 ## 2026-10-05 02:47 CST (Asia/Shanghai) - Performance changes deployed and accepted
 
 - **This work / decisions**: User requested overall interaction and architecture optimization and push, with Chrome retained. Shared local layouts/includes and navigation data now serve all pages; only used styles load, system fonts/local SVG replace blocking remote fonts/icons, content-based cache keys retain unchanged assets, and deferred JS provides event-driven theme/navigation/map enhancement. My preview choice retains proportional 600/1200px paper previews with full original links. Added explicit dimensions, async decoding and native lazy loading to five existing blog images; source prose and original figures/CV remain unchanged.
