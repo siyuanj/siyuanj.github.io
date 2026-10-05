@@ -109,6 +109,7 @@ div.wrapper {
 .visitor-map-widget img { display: block; width: 100%; height: auto; }
 .site-footer { margin: 40px 0 0; padding-top: 16px; font-size: 12px; opacity: .7; }
 .theme-toggle { top: 14px; right: 14px; }
+.lang-toggle { top: 14px; right: 100px; }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) .site-content .top-nav { border-bottom-color: #394552; }
@@ -143,5 +144,5 @@ html[data-theme="light"] .site-content .top-nav { border-bottom-color: #dce3e9; 
 @media print {
   div.wrapper { display: block; width: 100%; padding: 0; }
   .wrapper > header.site-profile { position: static; margin-bottom: 24px; }
-  .theme-toggle, .top-nav, .site-footer { display: none; }
+  .theme-toggle, .lang-toggle, .top-nav, .site-footer { display: none; }
 }
