@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 12:38 CST (Asia/Shanghai) - 按最新决定重做三张自然动漫照片
+
+- **这次做了什么 / 用户决定**：用户否决此前强调夸张比例、强情绪和透视畸变的金门大桥提示词，要求其他同期照片直接转成动漫。以原始Google、Griffith、UCLA照片为主体/场景参考，以用户选定的NVIDIA插画仅作自然渲染参考，内置imagegen分别重做3张；保留原脸型、闭嘴/微笑表情、普通身体比例、服装与日夜场景。UCLA竖图通过横向环境扩展改为4:3。README记录最新默认，旧夸张要求已被用户新决定替代。
+- **现在真实状态 / 本次实测**：三张实际输出1448×1086、4:3，PNG与生成文件逐字节一致；交付六张640×480及1280×960、quality90 WebP，合计1218564字节，原PNG未重绘。photos.yml三项全部改用natural-illustrated新文件名，大图与两档缩略图匹配；日期/图注/位置、Golden Gate及选定NVIDIA保留。预览helper来源同步，CSS/JS缓存键不变。12个既有文件已备份，自审与diff --check通过。
+- **前一步NVIDIA验收**：ab9fc92099c52fc1e8f008e10d0267628e291f5a已push；Pages37263667703 build/deploy/report success。其4组线上检查通过，新3资源HTTP200且哈希匹配。Chrome第三张、中央2026.9.24夜游NVIDIA说明、实际点击选定1448×1086 PNG大图并返回已观察；证据在10-5 NVIDIA照片替换。此用户选定图片不随本轮重做。
+- **来源 / 真实限制**：自然版共3次内置imagegen，无CLI/API备用调用；人物相似度与场景采用逐张和原照的视觉审查，未声称精确几何复制或身份识别分数。prompts.md包含实际三条提示词和输入角色；selection.json、preview-manifest.json、backup-manifest.json及复用导出/核验helper在10-5 照片自然动漫化。当前原始照片仍为私有备份；历史插画保留旧链接，但轮播不再引用。
+- **卡在哪 / 下一步**：无素材阻塞。准备commit/push，等待本轮真实Pages，核验五条当前入口及九个新资源字节，再Chrome逐张观察新图/中央图注和大图入口。
+- **还没验证的 / 要用户定的**：本轮Pages发布、线上资源和Chrome新三图尚未验收；未跑本地Jekyll或新性能基准。无用户待定项。STATUS前插并备份，旧正文保持。
+
+
 ## 2026-10-05 12:27 CST (Asia/Shanghai) - 按用户选择替换NVIDIA夜游插画
 
 - **这次做了什么 / 用户决定**：用户选择exec-aaaa321e-fc24-4f66-92b2-8cd078fd188a.png作为更好的NVIDIA夜游插画。直接采用该PNG，不再次生成或改变画面；新增nvidia-2026-09-24-selected-illustrated.png及640/1280px WebP，把photos.yml中第三项的大图和两档预览统一指向新文件名。日期、图注、1448×1086尺寸和顺序保留。预览helper的NVIDIA来源也改为选定版。
