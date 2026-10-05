@@ -3,8 +3,6 @@ layout: homepage
 uses_publications: true
 ---
 
-<nav class="section-nav" aria-label="On this page"><a href="#education">Education</a><a href="#research-experience">Research</a><a href="#publications">Publications</a><a href="#selected-projects">Projects</a><a href="#recent-photos">Photos</a></nav>
-
 ## <span>About Me</span>
 
 Hi, my name is Siyuan Jiang. I am an undergraduate student at Tsinghua University, Tanwei College, majoring in Chemical Biology for Pharmaceutical Science.

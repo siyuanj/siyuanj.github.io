@@ -6,6 +6,7 @@ This repository contains Siyuan Jiang's personal academic website, built with Je
 
 - Homepage content lives in `index.md`.
 - Recent Photos is a homepage section maintained in `_data/photos.yml` and `_includes/recent-photos.html`. Keep supplied originals in `assets/img/photos/`; generate proportional 640/1280px lossless WebP previews with `scripts/generate_previews.py --only golden-gate-2026-09-26 --report <private-report-path>`. Photo dates/captions come from the owner; display images load lazily and link to the unchanged original.
+- Photos use a native horizontal scroll-snap track with event-driven arrows, position dots and keyboard navigation; touch/trackpad scrolling works without JavaScript. IntersectionObserver synchronizes the active dot after manual swipes. No autoplay, carousel timer, external library or global scroll handler. Image frames contain the complete landscape/portrait photos and keep section height stable. The homepage section shortcut row is intentionally removed.
 - Profile metadata and sidebar links live in `_config.yml`.
 - The public CV linked from the sidebar is `assets/files/CV_public.pdf`.
 - Keep academic content and the public CV aligned with the current academic CV; replace the PDF at the existing link when syncing updates.

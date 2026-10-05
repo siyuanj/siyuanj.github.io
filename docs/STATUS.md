@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 10:40 CST (Asia/Shanghai) - 首页小导航移除与照片横向轮播
+
+- **这次做了什么**：用户要求删除 Education/Research/Publications/Projects/Photos 小导航行，照片改为参考图所示的横向滑动方式。移除index.md中的section-nav，近期照片改为原生scroll-snap横向轨道，左右箭头、5个位置圆点、轨道键盘左右/Home/End及触屏/触控板滑动；保留日期说明和原图链接。我的判断：完整图片包含在桌面420px、手机300px高的稳定框内，不裁剪；不自动播放、不增加轮播库/计时器/global scroll handler。
+- **现在真实状态**：5张照片数据及原图/缩略图未改变；改动仅模板、CSS、JS和首页行。IntersectionObserver跟随滑动同步圆点；无JS时仍可横向滚动。更新CSS/JS内容键16676a3b199c、0dabd5ddf045。自审涵盖水平offset、循环边界、隐藏控件、缩窄布局、reduced-motion、无图页面、可访问标签和保留原图。Node --check与diff --check通过；准备提交push和真实Pages/Chrome验收。
+- **卡在哪**：当前Chrome已解锁可访问，上一轮锁屏限制已解除。
+- **还没验证的**：真实构建、在线资源与Chrome桌面/390px箭头/圆点/滑动交互尚待确认；未运行本地Jekyll或性能基准。此次没有重新认证日期地点和学术信息。
+- **要用户定的**：无。私有证据与备份在试验工作区10-5 照片横向轮播。
+
+
 ## 2026-10-05 03:09 CST (Asia/Shanghai) - 四张旅行照片已上线
 
 - **这次做了什么**：用户指定的四张照片及日期说明已加入 Recent Photos，与金门大桥照片一起共五张，按2026.9.26、9.24、9.24、9.23、9.23排列。Google/NVIDIA/Griffith/UCLA名称统一，附件按用户提供的顺序对应；沿用已有样式及原图点击链接。

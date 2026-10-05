@@ -1,15 +1,25 @@
 {% if site.data.photos.size > 0 %}
-<section class="recent-photos" aria-labelledby="recent-photos">
+<section class="recent-photos" aria-labelledby="recent-photos" aria-roledescription="carousel">
   <h2 id="recent-photos"><span>Recent Photos</span></h2>
-  <div class="photo-gallery">
+  <div class="photo-carousel" data-photo-carousel>
+  <div class="photo-gallery" id="photo-gallery" tabindex="0" aria-label="Photos: swipe horizontally or use the left and right arrow keys">
     {% for photo in site.data.photos %}
-    <figure class="recent-photo">
+    <figure class="recent-photo" role="group" aria-roledescription="slide" aria-label="{{ forloop.index }} of {{ forloop.length }}">
       <a class="recent-photo-link" href="{{ photo.image | relative_url }}" aria-label="View full-size photo: {{ photo.alt | escape }}">
         <img src="{{ photo.preview | relative_url }}" srcset="{{ photo.preview | relative_url }} 640w, {{ photo.preview_large | relative_url }} 1280w" sizes="(max-width: 520px) calc(100vw - 36px), (max-width: 760px) calc(100vw - 48px), (max-width: 960px) calc(100vw - 320px), 640px" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt | escape }}" loading="lazy" decoding="async">
       </a>
       <figcaption><time datetime="{{ photo.date | escape }}">{{ photo.display_date | escape }}</time><span aria-hidden="true"> · </span>{{ photo.caption | escape }}</figcaption>
     </figure>
     {% endfor %}
+  </div>
+  <div class="photo-controls" hidden>
+    <button class="photo-arrow photo-previous" type="button" aria-label="Previous photo" aria-controls="photo-gallery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="photo-arrow photo-next" type="button" aria-label="Next photo" aria-controls="photo-gallery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+  <div class="photo-dots" aria-label="Choose a photo" hidden>
+    {% for photo in site.data.photos %}<button class="photo-dot" type="button" data-photo-index="{{ forloop.index0 }}" aria-label="Show photo {{ forloop.index }} of {{ forloop.length }}: {{ photo.caption | escape }}" aria-controls="photo-gallery"{% if forloop.first %} aria-current="true"{% endif %}></button>{% endfor %}
+  </div>
+  <p class="photo-status" role="status" aria-live="polite" aria-atomic="true"></p>
   </div>
 </section>
 {% endif %}

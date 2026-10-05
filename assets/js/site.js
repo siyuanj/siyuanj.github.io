@@ -44,6 +44,48 @@
       link.addEventListener('focus', prefetch, { once: true });
     });
   }
+  document.querySelectorAll('[data-photo-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('.photo-gallery');
+    var slides = Array.from(track.querySelectorAll('.recent-photo'));
+    var dots = Array.from(carousel.querySelectorAll('.photo-dot'));
+    var status = carousel.querySelector('.photo-status');
+    var current = 0;
+    if (!slides.length) return;
+    function select(index) {
+      current = index;
+      dots.forEach(function (dot, position) {
+        if (position === current) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+      status.textContent = 'Photo ' + (current + 1) + ' of ' + slides.length + ': ' + slides[current].querySelector('figcaption').textContent.trim();
+    }
+    function show(index) {
+      index = (index + slides.length) % slides.length;
+      select(index);
+      track.scrollTo({ left: slides[index].offsetLeft, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+    carousel.querySelector('.photo-previous').addEventListener('click', function () { show(current - 1); });
+    carousel.querySelector('.photo-next').addEventListener('click', function () { show(current + 1); });
+    dots.forEach(function (dot, index) { dot.addEventListener('click', function () { show(index); }); });
+    track.addEventListener('keydown', function (event) {
+      if (event.target !== track) return;
+      var keys = { ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: slides.length - 1 };
+      if (!Object.prototype.hasOwnProperty.call(keys, event.key)) return;
+      event.preventDefault();
+      show(keys[event.key]);
+    });
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) select(slides.indexOf(entry.target));
+        });
+      }, { root: track, threshold: 0.6 });
+      slides.forEach(function (slide) { observer.observe(slide); });
+    }
+    select(0);
+    carousel.querySelector('.photo-controls').hidden = slides.length < 2;
+    carousel.querySelector('.photo-dots').hidden = slides.length < 2;
+  });
   var map = document.querySelector('.visitor-map-widget iframe[data-src]');
   if (map) {
     function initializeMap() { map.src = map.dataset.src; }
