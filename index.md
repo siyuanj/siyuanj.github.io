@@ -6,9 +6,9 @@ uses_photos: true
 
 ## <span>About Me</span>
 
-Hi, my name is Siyuan Jiang. I am an undergraduate student at Tsinghua University, Tanwei College, majoring in Chemical Biology for Pharmaceutical Science.
+Hi, my name is Siyuan Jiang. I am an undergraduate student at [{% include inline-logo.html name="tsinghua" %}Tsinghua University](https://www.tsinghua.edu.cn/en/), Tanwei College, majoring in Chemical Biology for Pharmaceutical Science.
 
-My research journey began with synthetic biology on the [Tsinghua-M iGEM 2024 team](https://2024.igem.wiki/tsinghua-m/), where we built RNAssay, an ADAR-based RNA sensing system in yeast, and won a Gold Medal. After a brief stay in [Prof. Xuebin Liao's lab](https://www.sps.tsinghua.edu.cn/info/1011/1423.htm), I joined [Prof. Yigong Shi's lab](https://ygshi.org/) at Tsinghua University in July 2025, where I study the evolution of the gamma-secretase complex. In summer 2026, I visited [Prof. Le Cong's lab](https://conglab.com/) at Stanford University, and in September 2026 I visited [Prof. Xuefeng Liu's lab](https://xuefeng11.github.io/) at the University of Florida.
+My research journey began with synthetic biology on the [{% include inline-logo.html name="tsinghua-m-igem" %}Tsinghua-M iGEM 2024 team](https://2024.igem.wiki/tsinghua-m/), where we built RNAssay, an ADAR-based RNA sensing system in yeast, and won a Gold Medal. After a brief stay in [{% include inline-logo.html name="tsinghua" %}Prof. Xuebin Liao's lab](https://www.sps.tsinghua.edu.cn/info/1011/1423.htm), I joined [{% include inline-logo.html name="tsinghua" %}Prof. Yigong Shi's lab](https://ygshi.org/) at Tsinghua University in July 2025, where I study the evolution of the gamma-secretase complex. In summer 2026, I visited [{% include inline-logo.html name="stanford" %}Prof. Le Cong's lab](https://conglab.com/) at Stanford University, and in September 2026 I visited [{% include inline-logo.html name="ufl" %}Prof. Xuefeng Liu's lab](https://xuefeng11.github.io/) at the University of Florida.
 
 My research interests center on computational protein engineering, especially model-driven protein design, virtual screening, evolutionary analysis, and functional redesign.
 

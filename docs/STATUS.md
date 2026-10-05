@@ -1,5 +1,16 @@
 # Project Status
 
+## 2026-10-05 05:05 EDT (America/New_York) - About Me加入学校/团队logo
+
+- **这次做了什么 / 用户要求**：仿照用户给的截图，在About Me链接文字前加入行内logo：清华（Tsinghua University、廖学斌组、施一公组）、Stanford（Le Cong组）、UF（Xuefeng Liu组）、Tsinghua-M iGEM 2024队徽（用户选定队徽而非iGEM官方标志）。新增`_data/logos.yml`、`_includes/inline-logo.html`、`assets/img/logos/`四个PNG，`_sass/site-base.scss`加`.inline-logo`（1.15em高、随字号缩放，alt为空因为后面有链接文字）。用户在聊天中确认下载以下文件。
+- **来源**：清华`Tsinghua_University_Logo.svg`（Wikimedia Commons，426616字节）→64px PNG；Stanford `https://www.stanford.edu/favicon.ico`（15086字节，取48px帧）；UF `https://www.ufl.edu/wp-content/uploads/sites/5/2022/02/favicon-blue_1.png`（1248字节，64px，原样复制）；Tsinghua-M队徽`https://static.igem.wiki/teams/5242/wikitest-bylzr/logopic1.svg`（4182字节）。原件、去标语SVG及SHA256SUMS保存在仓库外`/Volumes/Work/10-5 website/logo-sources/`。
+- **我的判断**：队徽底部标语“RNAs say important things”在图标尺寸下无法辨认，把SVG viewBox高度从858.3裁到745（标语基线y=822.7、字号89）后转为96×64 PNG；暗色模式下logo加1px白底圆角，否则黑猫队徽和紫色校徽在深色背景上看不清。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功，6个logo均渲染在对应链接内；内置浏览器在亮色和暗色下核对，6张图都加载出来（naturalWidth>0），显示高度一致。
+- **卡在哪 / 下一步**：push后核对Pages。
+- **还没验证的**：未在真实手机或Safari/Firefox上看效果；logo属各机构商标，仅作为隶属标识使用。
+- **要用户定的**：同04:30条（课程英文名、CV PDF同步）。
+
+
 ## 2026-10-05 04:55 EDT (America/New_York) - About Me研究经历合并为一段
 
 - **这次做了什么 / 用户要求**：用户认为施一公组单独一段过长，要求全部研究经历写成一段。`index.md`中iGEM、廖学斌组、施一公组、Le Cong组、Xuefeng Liu组合并为一段；施组只保留一句“where I study the evolution of the gamma-secretase complex”，廖组不再写学院名。链接不变。替代04:30条中“施组单独一段”的写法。

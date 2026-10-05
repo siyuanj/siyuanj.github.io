@@ -76,6 +76,12 @@ html[data-theme="dark"] .theme-switch::before { transform: translateX(calc(2 * v
 .theme-option:focus-visible { outline-offset: 1px; }
 .theme-option svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 html:not([data-theme]) [data-theme-option="auto"], html[data-theme="light"] [data-theme-option="light"], html[data-theme="dark"] [data-theme-option="dark"] { color: var(--heading); }
+// Inline institution logos sit on the text line and scale with the surrounding font.
+.inline-logo { display: inline-block; width: auto; height: 1.15em; margin: 0 .25em 0 .05em; vertical-align: -.2em; }
+// Dark theme: a light backing keeps dark or purple artwork visible.
+@mixin logo-backing { padding: 1px; border-radius: 3px; background: #fff; }
+@media (prefers-color-scheme: dark) { html:not([data-theme]) .inline-logo { @include logo-backing; } }
+html[data-theme="dark"] .inline-logo { @include logo-backing; }
 .post-lang-link { flex-shrink: 0; margin-left: 12px; font-size: 12px; }
 .section-nav { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 0 0 24px; font-size: 13px; }
 .site-content .section-nav + h2 { margin-top: 0; }

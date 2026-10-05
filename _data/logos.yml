@@ -1,0 +1,5 @@
+# Small inline institution/team marks used in body text; originals and checksums are kept outside the public repo.
+tsinghua: { src: /assets/img/logos/tsinghua.png, width: 64, height: 64 }
+stanford: { src: /assets/img/logos/stanford.png, width: 48, height: 48 }
+ufl: { src: /assets/img/logos/ufl.png, width: 64, height: 64 }
+tsinghua-m-igem: { src: /assets/img/logos/tsinghua-m-igem.png, width: 96, height: 64 }
