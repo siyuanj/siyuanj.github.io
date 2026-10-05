@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 05:25 EDT (America/New_York) - 测试笔记重新显示；用户确认课程名与CV
+
+- **用户决定**：两条测试笔记要显示；课程英文名“Gene Editing”正确；公开CV PDF不需要同步。占位博客`_blogs/2025-01-20-test.md`用户未提，仍为`published: false`。
+- **这次做了什么**：`_notes/2025-01-20-note_test.md`恢复为9562565原文。`_notes/test.md`原本没有front matter，在Jekyll里只会被当作静态文件复制、不进入Notes列表（此前线上Notes页也只显示1条）；本次加front matter，`title`与正文首行标题一致（我的判断：Jekyll会给集合条目按文件名自动生成标题“Test”，模板里的首行回退永远不会触发）。README导航说明已同步。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功；Notes列表依次为“这是一个非常随意的笔记标题”（/notes/test.html）、“My First note”（/notes/2025-01-20-note_test.html）；两页都没有重复标题；sitemap包含/note/及两条笔记。Pages结果见git log及Actions。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：同04:30条中的移动端/其他浏览器/OG抓取；CV同步按用户决定不做。
+- **要用户定的**：无。
+
+
 ## 2026-10-05 05:15 EDT (America/New_York) - 恢复Notes导航
 
 - **这次做了什么 / 用户决定**：用户问“Note怎么没了”。04:30条中“导航隐藏空集合”是我的判断，已撤销：`_includes/site-navigation.html`恢复为9562565版本（四个tab始终显示），`_sass/site-layout.scss`导航网格恢复`repeat(4, …)`，删掉仅为3项准备的窄屏规则。两条占位笔记和占位博客仍为`published: false`，Notes页显示“No notes yet.”；sitemap仍跳过空的Notes页。README导航说明已更新。

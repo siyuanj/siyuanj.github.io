@@ -1,5 +1,5 @@
 ---
-published: false # placeholder test entry
+title: "这是一个非常随意的笔记标题"
 ---
 # 这是一个非常随意的笔记标题
 
