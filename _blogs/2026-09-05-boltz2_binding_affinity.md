@@ -4,6 +4,8 @@ title: "bioRxiv 2025 | Boltz-2: The first AI binding-affinity model to approach 
 date: 2026-09-05
 description: "Boltz-2 adds an affinity module to an open co-folding model, approaching FEP-level accuracy on binding affinity at over 1000x the speed while also improving structure prediction."
 tags: [binding affinity, structure prediction, drug discovery, co-folding, virtual screening]
+lang: en
+translation_key: boltz2_binding_affinity
 ---
 
 # Boltz-2: Towards Accurate and Efficient Binding Affinity Prediction

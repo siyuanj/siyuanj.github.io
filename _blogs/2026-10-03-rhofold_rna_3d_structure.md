@@ -4,6 +4,8 @@ title: "Nat Methods 2024 | RhoFold+: Predicting single-chain RNA 3D structures w
 date: 2026-10-03
 description: "RhoFold+ fuses an RNA language model pretrained on ~23.7 million sequences with MSA information to predict single-chain RNA 3D structures, outperforming existing methods including AlphaFold3."
 tags: [rna structure prediction, rna language models, deep learning, structural biology]
+lang: en
+translation_key: rhofold_rna_3d_structure
 ---
 
 # Accurate RNA 3D structure prediction using a language model-based deep learning approach
