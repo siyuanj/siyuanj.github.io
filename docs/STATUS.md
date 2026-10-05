@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 12:22 CST (Asia/Shanghai) - 动漫favicon上线与Chrome标签验收完成
+
+- **这次做了什么 / 用户要求**：金门大桥动漫头像生成的新favicon已替换全站毕业帽图标，保留笑脸、眼镜、发型和蓝色背景。一次内置imagegen、母版1254×1254，16/32/48/180 PNG及多帧ICO交付；当前共享head统一所有页面，源码与提示词/导出脚本已保存。
+- **现在真实状态 / 本次验证**：代码aeeeb73c4c438c7c63a602613e8396391c0de0d4已push；真实Pages37262639294的build/deploy/report-build-status均success。verify_icons.py：本地17项检查通过，线上26项（包含17本地项）通过，三个页面icon/touch声明精确匹配、六个资源HTTP200且与本地SHA256一致；首页三个CSS资源也HTTP200。16/32标签PNG分别873/2840字节，ICO9688字节；母版未改变。
+- **Chrome实际验收 / 证据**：首页与2025-01-20-note_test笔记的页面内容和动漫头像标签图标均已实际观察并保存截图。初次首页导航已有新favicon但内容空白，不计为完整页面验收；正式首页地址重载后内容显示，通过最终截图确认。关闭本次额外笔记核验标签，保留用户原有标签、Light主题与首页核验标签。私有Chrome-favicon-home.png、Chrome-favicon-note.png、chrome-acceptance.json、online-check.json和deployment-aeeeb73.json记录实际证据。
+- **卡在哪 / 下一步**：无实现或发布阻塞。此为验收文档补充，准备单独commit/push并确认最终Pages；网站代码和图标资源不变。验收记录的首次shell内嵌Python因输入编码失败，改为直接写入UTF-8文件；失败时STATUS正文未改变。
+- **还没验证的 / 要用户定的**：未跑本地Jekyll，采用真实Pages构建。其他浏览器及iOS添加到桌面未实测，无性能基准。旧的未刷新标签可能仍保留缓存图标。无用户待定项。STATUS原章节已备份并逐字节保留。
+
+
 ## 2026-10-05 12:13 CST (Asia/Shanghai) - 动漫头像favicon生成与全站入口更新
 
 - **这次做了什么 / 用户要求**：使用内置imagegen，以金门大桥插画中的人物和风格生成个人网站浏览器头像图标。采用笑脸、黑框眼镜、深色蓬松头发和蓝底；生成一次，实际输出1254×1254，未将提示词要求的1024冒充实际尺寸。头像母版保存assets/img/icons/siyuan-anime.png，16/32/48/180px为标准交付缩放；全站共享head声明16/32px PNG和180px touch图标，根favicon.ico含16/32/48px帧。新PNG路径避开旧favicon缓存。
