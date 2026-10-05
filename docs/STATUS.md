@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 11:04 CST (Asia/Shanghai) - 用户追加三张居中、侧边模糊、移除图注
+
+- **用户要求 / 这次做了什么**：进一步缩小照片，同时显示三张，左右各显示大半张，边缘模糊，下方不放图注；沿用用户要求的GitHub现有实现。实际引入Swiper14.3.0核心JS/CSS（MIT，保持上游字节及LICENSE），按官方demos/130-centered.html配置centeredSlides与2.2 slidesPerView、loop；Swiper核心负责手势/尺寸/循环。样式适配为200/150px高度、600px外宽、侧图blur1.5px/scale.92及左右mask淡出，移除figcaption；日期地点留在数据和可访问名称。点击侧图居中、中央图打开原图，保留箭头/圆点和轨道焦点键盘。仅首页uses_photos加载本地核心，defer顺序明确。
+- **真实状态**：上一版无外框3e998f19996b301381cc2920b2534b2619f71321已push，Pages37257357109 success；4URL/15检查通过、Chrome桌面无外框及箭头/照片实际显示已观察。它尚未作为最终交付，此条记录的是用户追加要求后的新改动，待commit/push及验收。
+- **自审与源文件证据**：官方npm包14.3.0的SHA512 integrity通过；核心JS66997字节、CSS4369字节，保留MIT许可，vendor清单和参考源码在试验工作区10-5 照片样式调整。自审检查五张照片满足centered loop数量约束、realIndex圆点映射、侧图阻止原图跳转、仅中央链接可Tab访问、reduced-motion速度/样式、无图页面、备用横向滚动行以及200/150px对应100/75px箭头中心。共享JS语法及diff --check通过。原图和photos.yml未改动。
+- **卡在哪 / 下一步**：无实现阻塞，准备push、Pages构建、线上HTML/CSS/JS/vendor字节检查和Chrome三图/侧边模糊/无图注/侧图点击/窄屏拖动验收。Chrome中存在并发标签操作和桥接超时，读取新状态后已恢复原生页面操作；失败动作不计为验收。
+- **未验证 / 用户待定**：本轮三图版本的浏览器显示和实际拖动尚未验证；未运行本地Jekyll或受控性能基准。没有自动播放或额外全局轮询。无用户待定项；旧STATUS正文已备份并逐字节保留。
+
+
 ## 2026-10-05 10:56 CST (Asia/Shanghai) - 参考现有仓库调整照片展示
 
 - **这次做了什么 / 用户要求**：用户否决照片的大外框，要求查看GitHub已有实现再调整。读取knightnemo/knightnemo.github.io的simple-slider.css/simple-gallery.js、alshedivat/al-folio的项目图片示例和图库示例，以及nolimits4web/swiper的navigation/pagination CSS。我的判断：采用al-folio示例的开放式图片+图注布局、Swiper透明导航和44px点击区域/8px圆点做法，适配当前原生滚动轨道与主题色；去掉照片区域外边框、圆角底板和箭头圆圈，缩短图注空白。桌面300px、手机220px、五张照片和原图链接保留。

@@ -50,22 +50,40 @@
     var dots = Array.from(carousel.querySelectorAll('.photo-dot'));
     var status = carousel.querySelector('.photo-status');
     var current = 0;
-    if (!slides.length) return;
+    if (!slides.length || typeof window.Swiper !== 'function') return;
     function select(index) {
       current = index;
+      slides.forEach(function (slide, position) {
+        slide.querySelector('a').tabIndex = position === current ? 0 : -1;
+      });
       dots.forEach(function (dot, position) {
         if (position === current) dot.setAttribute('aria-current', 'true');
         else dot.removeAttribute('aria-current');
       });
-      status.textContent = 'Photo ' + (current + 1) + ' of ' + slides.length + ': ' + slides[current].querySelector('figcaption').textContent.trim();
+      status.textContent = slides[current].getAttribute('aria-label');
     }
+    // Adapt Swiper's centered demo; its core owns looping, dragging and sizing.
+    var slider = new window.Swiper(track, {
+      slidesPerView: 2.2,
+      centeredSlides: true,
+      spaceBetween: 10,
+      loop: slides.length >= 5,
+      speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 380,
+      grabCursor: true,
+      lazyPreloadPrevNext: 1,
+      breakpoints: { 521: { spaceBetween: 16 } },
+      on: {
+        init: function () { select(this.realIndex); },
+        slideChange: function () { select(this.realIndex); }
+      }
+    });
     function show(index) {
       index = (index + slides.length) % slides.length;
-      select(index);
-      track.scrollTo({ left: slides[index].offsetLeft, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      if (slider.params.loop) slider.slideToLoop(index);
+      else slider.slideTo(index);
     }
-    carousel.querySelector('.photo-previous').addEventListener('click', function () { show(current - 1); });
-    carousel.querySelector('.photo-next').addEventListener('click', function () { show(current + 1); });
+    carousel.querySelector('.photo-previous').addEventListener('click', function () { slider.slidePrev(); });
+    carousel.querySelector('.photo-next').addEventListener('click', function () { slider.slideNext(); });
     dots.forEach(function (dot, index) { dot.addEventListener('click', function () { show(index); }); });
     track.addEventListener('keydown', function (event) {
       if (event.target !== track) return;
@@ -74,15 +92,13 @@
       event.preventDefault();
       show(keys[event.key]);
     });
-    if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.6) select(slides.indexOf(entry.target));
-        });
-      }, { root: track, threshold: 0.6 });
-      slides.forEach(function (slide) { observer.observe(slide); });
-    }
-    select(0);
+    track.addEventListener('click', function (event) {
+      var slide = event.target.closest('.recent-photo');
+      if (slide && !slide.classList.contains('swiper-slide-active')) {
+        event.preventDefault();
+        show(Number(slide.dataset.photoIndex));
+      }
+    });
     carousel.querySelector('.photo-controls').hidden = slides.length < 2;
     carousel.querySelector('.photo-dots').hidden = slides.length < 2;
   });

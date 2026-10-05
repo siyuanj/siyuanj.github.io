@@ -1,6 +1,7 @@
 ---
 layout: homepage
 uses_publications: true
+uses_photos: true
 ---
 
 ## <span>About Me</span>

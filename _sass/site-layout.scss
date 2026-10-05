@@ -71,16 +71,18 @@ div.wrapper {
 .site-content .post-date { width: 90px; font-size: 12px; }
 .site-content pre { max-width: 100%; overflow: auto; }
 .site-content img { max-width: 100%; }
-// Open image/caption layout: https://github.com/alshedivat/al-folio/blob/main/_projects/1_project.md
-// Bare 44px navigation controls: https://github.com/nolimits4web/swiper/blob/master/src/modules/navigation/navigation.css
-.photo-carousel { position: relative; max-width: 680px; margin: 0 auto; padding: 0 48px; }
-.photo-gallery { position: relative; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+// Centered slides: https://github.com/nolimits4web/swiper/blob/master/demos/130-centered.html
+.photo-carousel { position: relative; max-width: 600px; margin: 0 auto; padding: 0; }
+.photo-gallery { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+.photo-gallery:not(.swiper-initialized) { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.photo-gallery:not(.swiper-initialized) .photo-track { gap: 16px; }
 .photo-gallery::-webkit-scrollbar { display: none; }
-.recent-photo { flex: 0 0 100%; min-width: 0; width: 100%; margin: 0; scroll-snap-align: start; }
-.recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 300px; max-width: 640px; margin: 0 auto; }
-.recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
-.recent-photo figcaption { min-height: 26px; margin-top: 12px; color: var(--text); font-size: 14px; line-height: 1.6; text-align: center; }
-.photo-arrow { position: absolute; top: 150px; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+.recent-photo { flex: 0 0 auto; min-width: 0; width: 44%; margin: 0; scroll-snap-align: center; }
+.recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 200px; margin: 0; }
+.recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 6px; }
+.swiper-initialized .recent-photo-link { opacity: .6; filter: blur(1.5px); transform: scale(.92); transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease; }
+.swiper-initialized .swiper-slide-active .recent-photo-link { opacity: 1; filter: none; transform: none; }
+.photo-arrow { position: absolute; z-index: 2; top: 100px; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--text); cursor: pointer; }
 .photo-previous { left: 0; }
 .photo-next { right: 0; }
 .photo-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -91,6 +93,7 @@ div.wrapper {
 .photo-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: .2; }
 .photo-dot[aria-current="true"]::before { opacity: 1; background: var(--link); }
 .photo-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .swiper-initialized .recent-photo-link { transition: none; } }
 .site-content .visitor-map-widget { width: 100%; max-width: 320px; margin: 24px auto 0; }
 .visitor-map-widget img { display: block; width: 100%; height: auto; }
 .site-footer { margin: 40px 0 0; padding-top: 16px; font-size: 12px; opacity: .7; }
@@ -125,10 +128,8 @@ html[data-theme="light"] .site-content .top-nav { border-bottom-color: #dce3e9; 
   .site-content h2 { font-size: 21px; margin-top: 30px; }
   .site-content .post-item { gap: 12px; }
   .site-content .post-date { width: 76px; }
-  .photo-carousel { padding: 0 44px; }
-  .recent-photo-link { height: 220px; }
-  .recent-photo figcaption { font-size: 13px; }
-  .photo-arrow { top: 110px; }
+  .recent-photo-link { height: 150px; }
+  .photo-arrow { top: 75px; }
 }
 @media print {
   div.wrapper { display: block; width: 100%; padding: 0; }

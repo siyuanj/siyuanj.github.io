@@ -7,6 +7,8 @@
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 <link rel="icon" href="{{ site.favicon | relative_url }}" type="image/png">
 {% if site.auto_dark_mode %}<script>{% include theme-init.js %}</script>{% endif %}
+{% if page.uses_photos %}<link rel="stylesheet" href="{{ '/assets/vendor/swiper-14.3.0/swiper.min.css' | relative_url }}">{% endif %}
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.data.asset_versions.site_css }}">
 {% if page.uses_publications %}<link rel="stylesheet" href="{{ '/assets/css/publication-cards.css' | relative_url }}?v={{ site.data.asset_versions.publication_css }}">{% endif %}
+{% if page.uses_photos %}<script defer src="{{ '/assets/vendor/swiper-14.3.0/swiper.min.js' | relative_url }}"></script>{% endif %}
 <script defer src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.data.asset_versions.site_js }}"></script>
