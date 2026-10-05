@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 12:27 CST (Asia/Shanghai) - 按用户选择替换NVIDIA夜游插画
+
+- **这次做了什么 / 用户决定**：用户选择exec-aaaa321e-fc24-4f66-92b2-8cd078fd188a.png作为更好的NVIDIA夜游插画。直接采用该PNG，不再次生成或改变画面；新增nvidia-2026-09-24-selected-illustrated.png及640/1280px WebP，把photos.yml中第三项的大图和两档预览统一指向新文件名。日期、图注、1448×1086尺寸和顺序保留。预览helper的NVIDIA来源也改为选定版。
+- **现在真实状态 / 本次核验**：选中原图1448×1086、4:3，与附件逐字节一致。交付helper完成1原图/2预览并确认原图源未变、两预览尺寸640×480和1280×960且为WebP，quality90；两档预览合计412792字节。现有五文件已按哈希备份；代码自审及diff --check通过，Git工作线无远端分叉。
+- **来源 / 自审**：用户的具体选择优先于此前自动选图，保留此前生成版本资源供历史链接使用；当前轮播仅引用新选择。复用既有encode-previews.cjs，Sharp仅做交付缩放/编码。任务目录10-5 NVIDIA照片替换保存selection.json、preview-manifest.json、backup-manifest.json和备份。CSS/JS、其他照片及favicon不涉及此次改动。
+- **卡在哪 / 下一步**：无素材阻塞。准备commit/push，等待真实Pages，核对新三资源的线上哈希和当前第三张大图/预览入口，再在Chrome实际观察NVIDIA图片和图注。
+- **还没验证的 / 要用户定的**：本轮Pages上线及Chrome显示尚待核验；未跑本地Jekyll或新性能基准。无用户待定项。STATUS前插、备份并保持旧正文。
+
+
 ## 2026-10-05 12:22 CST (Asia/Shanghai) - 动漫favicon上线与Chrome标签验收完成
 
 - **这次做了什么 / 用户要求**：金门大桥动漫头像生成的新favicon已替换全站毕业帽图标，保留笑脸、眼镜、发型和蓝色背景。一次内置imagegen、母版1254×1254，16/32/48/180 PNG及多帧ICO交付；当前共享head统一所有页面，源码与提示词/导出脚本已保存。
