@@ -4,6 +4,8 @@ title: "Nat Methods 2025 | InterPLM: Cracking open the black box of protein lang
 date: 2026-09-01
 description: "Sparse autoencoders decompose ESM-2 embeddings into thousands of interpretable biological features that reveal missing database annotations and causally steer the model's sequence predictions."
 tags: [protein language models, interpretability, sparse autoencoders, esm-2]
+lang: en
+translation_key: interplm_sparse_autoencoder
 ---
 
 # InterPLM: discovering interpretable features in protein language models via sparse autoencoders
