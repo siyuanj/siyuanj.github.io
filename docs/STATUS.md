@@ -1,5 +1,17 @@
 # Project Status
 
+## 2026-10-05 12:45 CST (Asia/Shanghai) - 自然动漫旅行照片上线验收
+
+- **这次做了什么 / 用户决定**：Google、Griffith天文台和UCLA三张已按用户最新要求重新转换为自然动漫插画；采用原照的表情、脸型、人体比例和实际场景，撤销旧夸张/透视畸变提示词。NVIDIA使用用户明确选定的PNG，Golden Gate保留既有图。五张当前展示统一1448×1086、4:3，大图与缩略图均为插画。README已记录此默认；轮播代码、间距、中央图注与圆形箭头不变。
+- **现在真实状态 / 本次验证**：图片代码8918fb4f5ae87544ea5c8f9524fd53a9fca31c83已push。真实Pages37264601350 completed/success，build/deploy/report-build-status三job均success。verify_online.py四组检查通过：五slides及尺寸/lazy/async属性；三项新PNG和两档预览引用一致；Golden Gate和选定NVIDIA入口保留；九个新资源HTTP200且SHA256与本地逐字节一致。三张PNG保留生成字节，六张quality90 WebP合计1218564字节。
+- **Chrome实际观察**：第二张Google、第四张Griffith、第五张UCLA的新图和对应日期/地点中央图注逐张核验；相邻照片同尺寸、原有NVIDIA选中版本仍显示。实际点击中央UCLA链接，打开natural-illustrated PNG，Chrome标题确认1448×1086，图像载入后返回轮播。Light、用户原有标签保留，DevTools和设备仿真未开启。本轮仅图片和数据变动，没有重复旧版布局/手机检查。
+- **来源 / 自审 / 证据**：共3次内置imagegen，以原照为主体/场景，以选定NVIDIA仅为渲染参考，无CLI/API备用生成。逐张视觉审查后替换，未声称脸部精确几何复制或身份识别分数；新文件名避免旧资源缓存。data/helper/README及提交diff自行review，diff --check通过。私有10-5 照片自然动漫化保存prompts.md、selection.json、preview-manifest.json、backup-manifest.json、九资源线上核验、deployed-homepage.html、deployment-8918fb4.json、四张Chrome截图及chrome-acceptance.json。12个旧文件备份且旧插画历史链接保留。
+- **前一步NVIDIA验收**：用户选图ab9fc92099c52fc1e8f008e10d0267628e291f5a已push；Pages37263667703全success。独立HTTP四组/三个资源字节匹配；Chrome第三张中央图注及实际点击1448×1086大图已验证，证据保存在10-5 NVIDIA照片替换。本轮没有重做用户选定图。
+- **卡在哪 / 下一步**：无发布或素材阻塞。本条为已完成验收的文档补充，提交push后只确认最终Pages；已通过的图片/页面检查不因纯文档提交重复。
+- **还没验证的**：未测真实手机触摸、其他浏览器及新性能基准；本次采用真实Pages构建，没有本地Jekyll。人脸/场景相似度为视觉判断，原照日期地点沿用用户提供的信息。
+- **要用户定的**：无。STATUS按时间增量前插、保存备份，历史正文逐字节保持。
+
+
 ## 2026-10-05 12:38 CST (Asia/Shanghai) - 按最新决定重做三张自然动漫照片
 
 - **这次做了什么 / 用户决定**：用户否决此前强调夸张比例、强情绪和透视畸变的金门大桥提示词，要求其他同期照片直接转成动漫。以原始Google、Griffith、UCLA照片为主体/场景参考，以用户选定的NVIDIA插画仅作自然渲染参考，内置imagegen分别重做3张；保留原脸型、闭嘴/微笑表情、普通身体比例、服装与日夜场景。UCLA竖图通过横向环境扩展改为4:3。README记录最新默认，旧夸张要求已被用户新决定替代。
