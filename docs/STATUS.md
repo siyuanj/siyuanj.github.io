@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 04:45 EDT (America/New_York) - b8aeca3 上线验收
+
+- **这次做了什么**：仅补记上一条改动的部署与线上核验，无代码变动。
+- **现在真实状态 / 本次验证**：b8aeca3 已push；Pages run 37283814679（pages-build-deployment）completed/success，build/deploy/report-build-status三个job均success。线上首页`<title>`与og:title均为“Siyuan Jiang”（GitHub Pages插件环境下也成立）；资源键site.css?v=f8b4a781ebe9、site.js?v=80362bc34a2b；三段主题按钮、导航3项、Gene Editing (A+)及五个实验室/iGEM链接均在线上HTML中；轮播只引用golden-gate、nvidia-selected、griffith-natural三张预览图。`/sitemap.xml`（100条URL，可解析，Notes已排除）、`/robots.txt`、`/feed.xml`（30条）、分享图均HTTP 200；不存在路径返回404并使用自定义“Page not found | Siyuan Jiang”页面；线上Blog列表49条，无“My First”。内置浏览器实测线上Odin-Multi：英文Part 3切中文后“三、看图说话”位于视口顶部13px处。
+- **注意**：浏览器若持有部署前缓存的HTML（GitHub Pages约10分钟），会暂时看到旧版本；本次实测中旧缓存页曾回到顶部，刷新缓存后正常。
+- **卡在哪 / 下一步**：无阻塞。
+- **还没验证的**：同上一条（真实手机触摸、Safari/Firefox、社交平台OG抓取、CV PDF同步）。
+- **要用户定的**：同上一条（课程英文名、CV PDF同步）。
+
+
 ## 2026-10-05 04:30 EDT (America/New_York) - 网站优化、照片精简、主题切换重做、About Me研究经历
 
 - **这次做了什么 / 用户要求**：照片只保留金门大桥、NVIDIA、Griffith（`_data/photos.yml`，Google/UCLA图片文件保留未删）；右上角Auto文字按钮改为系统/亮/暗三段图标切换（`_layouts/site.html`、`_sass/site-base.scss`、`assets/js/site.js`）；About Me新增研究经历：iGEM（Tsinghua-M 2024，RNAssay）→ 廖学斌组短期 → 施一公组（单独一段写主要工作：gamma-secretase时空演化、PS1溯源、约1,500个AF3预测、关键残基与AD）→ 2026暑期Le Cong组visit → 2026年9月UF Xuefeng Liu组visit，均加超链接；用户要求弱化廖组、突出施组。Selected coursework加入 **Gene Editing (A+)**；Honors里iGEM加队伍wiki链接；Research Experience中Le Cong与施一公导师名加链接。博客中英切换保留阅读位置（用户反馈切换后回到顶部）。
