@@ -1,0 +1,20 @@
+{%- comment -%}
+Table of contents from the rendered post's kramdown h2 headings (`<h2 id="...">`); the post title has no id
+and is skipped. Shown for posts with at least three sections. variant: "sidebar" (desktop) or "inline" (mobile).
+{%- endcomment -%}
+{%- assign toc_parts = include.html | split: '<h2 id="' -%}
+{%- if toc_parts.size > 3 -%}
+{%- if page.lang == 'zh' %}{% assign toc_label = '本文目录' %}{% else %}{% assign toc_label = 'On this page' %}{% endif -%}
+{%- capture toc_items -%}
+{%- for part in toc_parts offset: 1 -%}
+{%- assign toc_id = part | split: '"' | first -%}
+{%- assign toc_text = part | split: '</h2>' | first | remove_first: toc_id | remove_first: '">' | strip_html | strip -%}
+<li><a href="#{{ toc_id }}">{{ toc_text }}</a></li>
+{%- endfor -%}
+{%- endcapture -%}
+{%- if include.variant == 'inline' -%}
+<details class="post-toc post-toc-inline"><summary>{{ toc_label }}</summary><ol>{{ toc_items }}</ol></details>
+{%- else -%}
+<nav class="post-toc post-toc-sidebar" aria-label="{{ toc_label }}"><p class="post-toc-title">{{ toc_label }}</p><ol>{{ toc_items }}</ol></nav>
+{%- endif -%}
+{%- endif -%}

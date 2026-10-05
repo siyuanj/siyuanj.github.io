@@ -7,5 +7,27 @@ layout: homepage
     {% unless content contains '<h1' %}{% if page.title %}<h2 class="post-title">{{ page.title | escape }}</h2>{% endif %}{% endunless %}
     {% if page.date %}<p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>{% endif %}
   </header>
-  {{ content }}
+  {% comment %}On narrow screens the contents box goes after the title and paper details: after the first divider,
+  else after the title, else at the top.{% endcomment %}
+  {% capture toc_inline %}{% include post-toc.html html=content variant="inline" %}{% endcapture %}{% assign toc_inline = toc_inline | strip %}
+  {% if toc_inline == '' %}{{ content }}
+  {% elsif content contains '<hr />' %}{% capture toc_marker %}<hr />{{ toc_inline }}{% endcapture %}{{ content | replace_first: '<hr />', toc_marker }}
+  {% elsif content contains '</h1>' %}{% capture toc_marker %}</h1>{{ toc_inline }}{% endcapture %}{{ content | replace_first: '</h1>', toc_marker }}
+  {% else %}{{ toc_inline }}{{ content }}{% endif %}
 </article>
+{% comment %}Previous/next stay within the same collection and language (previous = older). Filenames start with the date,
+so sorting by path gives date order with a stable, language-independent tie-break.{% endcomment %}
+{% if page.lang == 'zh' %}{% assign siblings = site[page.collection] | where: "lang", "zh" %}{% else %}{% assign siblings = site[page.collection] | where_exp: "doc", "doc.lang != 'zh'" %}{% endif %}
+{% assign siblings = siblings | sort: "path" %}
+{% assign older = nil %}{% assign newer = nil %}
+{% for doc in siblings %}{% if doc.url == page.url %}
+  {% unless forloop.first %}{% assign older_index = forloop.index0 | minus: 1 %}{% assign older = siblings[older_index] %}{% endunless %}
+  {% unless forloop.last %}{% assign newer = siblings[forloop.index] %}{% endunless %}
+{% endif %}{% endfor %}
+{% if older or newer %}
+{% if page.lang == 'zh' %}{% assign older_label = '← 上一篇' %}{% assign newer_label = '下一篇 →' %}{% assign pager_label = '更多文章' %}{% else %}{% assign older_label = '← Previous' %}{% assign newer_label = 'Next →' %}{% assign pager_label = 'More posts' %}{% endif %}
+<nav class="post-pager" aria-label="{{ pager_label }}">
+  {% if older %}<a class="post-pager-link post-pager-older" href="{{ older.url | relative_url }}" rel="prev"><span class="post-pager-label">{{ older_label }}</span><span class="post-pager-title">{{ older.title | escape }}</span></a>{% endif %}
+  {% if newer %}<a class="post-pager-link post-pager-newer" href="{{ newer.url | relative_url }}" rel="next"><span class="post-pager-label">{{ newer_label }}</span><span class="post-pager-title">{{ newer.title | escape }}</span></a>{% endif %}
+</nav>
+{% endif %}

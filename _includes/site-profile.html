@@ -17,4 +17,5 @@
       {% if site.twitter %}<a href="{{ site.twitter }}" aria-label="X profile"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.4-8.5L1.5 2H8l4.4 6.8L18.9 2ZM17.8 20h1.7L7 4H5.2l12.6 16Z"/></svg></a>{% endif %}
     </div>
   </div>
+  {% if page.collection %}{% include post-toc.html html=content variant="sidebar" %}{% endif %}
 </header>

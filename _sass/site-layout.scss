@@ -71,6 +71,12 @@ div.wrapper {
 .site-content .post-item { gap: 18px; }
 .site-content .post-link { min-width: 0; font-size: 16px; overflow-wrap: anywhere; }
 .site-content .post-date { width: 90px; font-size: 12px; }
+.site-content .post-summary { flex: 1; min-width: 0; }
+.site-content .post-description { display: -webkit-box; margin: 3px 0 0; overflow: hidden; color: var(--muted); font-size: 14px; line-height: 1.55; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+// Year headings group the Blog list, so each row only needs month and day.
+.site-content .post-year { margin: 30px 0 2px; color: var(--muted); font-size: 15px; font-weight: 650; letter-spacing: .02em; }
+.site-content .post-list > .post-year:first-child { margin-top: 0; }
+.site-content .post-list-grouped .post-date { width: 52px; }
 .site-content pre { max-width: 100%; overflow: auto; }
 .site-content img { max-width: 100%; }
 // Splide's autoWidth photo example: src/js/test/php/examples/autoWidth.php (splide02).

@@ -59,6 +59,7 @@ Pushing to `main` triggers GitHub Pages' `pages-build-deployment` workflow. GitH
 
 - The shared shell is `_layouts/site.html`; `homepage` and `post` remain compatible entry layouts. Head metadata, profile and navigation are separate includes; navigation labels and routes live in `_data/navigation.yml`. Collection posts highlight their parent navigation tab and provide a return link.
 - `assets/css/site.scss` compiles `_sass/site-base.scss` and `_sass/site-layout.scss` into one compressed stylesheet. Desktop uses a constrained two-column layout; at 760px or narrower the profile becomes a compact header. System fonts and inline SVG icons avoid external font and style requests. Publication styling is loaded only by pages with `uses_publications: true`. Legacy theme files are kept for old cached pages but are not loaded.
+- Light-mode link colour is `#1b74a6` (5.1:1 on white) and publication card titles `#136fa2` (4.9:1 on the card), both meeting WCAG AA; the earlier `#3399cc` was 3.2:1. Dark-mode colours were already above 6:1.
 - Main navigation always shows all four tabs (owner decision 2026-10-05: keep Notes even while empty), in four aligned columns on medium screens and two equal columns at 520px or narrower. Profile email inherits the surrounding font and size, with a break opportunity after @. The homepage section shortcut row is intentionally removed.
 
 ### Typography
@@ -101,7 +102,9 @@ Pushing to `main` triggers GitHub Pages' `pages-build-deployment` workflow. GitH
 
 ### Blog, notes and CV
 
-- The Blog page lists English posts newest first, each with a link to its Chinese version; Chinese posts are not listed separately.
+- The Blog page lists English posts newest first, grouped by year, each with its front-matter `description` (clamped to two lines) and a link to its Chinese version; Chinese posts are not listed separately.
+- Lists, previous/next links and the feed sort by file path rather than `date`: filenames start with the date, and Jekyll's date sort orders same-day posts arbitrarily (and differently per language), while undated notes have no date yet when other pages render.
+- Posts with at least three `##` sections get a table of contents built at build time from the rendered `<h2 id>` headings (`_includes/post-toc.html`): in the sticky sidebar on desktop, with the current section highlighted by an IntersectionObserver (the last section once the footer is visible), and as a collapsed box after the first divider on screens 760px or narrower. Each post ends with previous/next links within the same collection and language.
 - The two test notes are published at the owner's request (2026-10-05); the undated one has a front-matter title matching its heading, because Jekyll otherwise names collection items after the filename. The placeholder blog post `_blogs/2025-01-20-test.md` stays `published: false`.
 - The public CV is `assets/files/CV_public.pdf`, linked from the sidebar. The homepage may contain details that the PDF does not (the owner decided on 2026-10-05 not to sync the Gene Editing course and research-journey paragraph into it).
 

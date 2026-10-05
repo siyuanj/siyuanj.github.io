@@ -7,7 +7,7 @@ permalink: /note/
 ## <span>Notes</span>
 
 <div class="post-list">
-  {% assign notes = site.notes | sort: "date" | reverse %}
+  {% assign notes = site.notes | sort: "path" | reverse %}
   {% comment %}Jekyll gives undated collection entries the build time as their date, so leave that date cell empty.{% endcomment %}
   {% assign build_time = site.time | date: "%s" %}
   {% for note in notes %}

@@ -2,7 +2,7 @@
 .publication-cards {
   --paper-background: #eaf3fc;
   --paper-border: #d5e4f2;
-  --paper-title: #1678ad;
+  --paper-title: #136fa2; /* 4.9:1 on the card background (WCAG AA) */
   --paper-text: #394654;
   --paper-button: #1d4262;
   --paper-status-background: #dceee8;

@@ -5,7 +5,7 @@ sitemap: false
 ---
 <?xml version="1.0" encoding="utf-8"?>
 {%- comment %}Matches the Blog page: English entries, newest first; Chinese versions are linked from each post.{% endcomment %}
-{%- assign posts = site.blogs | where_exp: "post", "post.lang != 'zh'" | sort: "date" | reverse %}
+{%- assign posts = site.blogs | where_exp: "post", "post.lang != 'zh'" | sort: "path" | reverse %}
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ site.title | xml_escape }} · Blog</title>
   <subtitle>{{ site.description | xml_escape }}</subtitle>

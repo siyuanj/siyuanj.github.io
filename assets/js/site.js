@@ -35,6 +35,27 @@
       tools.classList.toggle('is-floating', !entries[0].isIntersecting);
     }).observe(navigation);
   }
+  // Highlight the section being read in the sidebar table of contents. The observer fires only when a
+  // heading crosses the top 30% of the viewport; the current section is the last heading above that line,
+  // or the last section once the footer is in view (short final sections never reach the line).
+  var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.post-toc-sidebar a'));
+  var tocHeadings = tocLinks.map(function (link) { return document.getElementById(decodeURIComponent(link.hash.slice(1))); });
+  if (tocLinks.length && tocHeadings.every(Boolean) && 'IntersectionObserver' in window) {
+    var footer = document.querySelector('.site-footer');
+    var markSection = function () {
+      var line = window.innerHeight * 0.3;
+      var current = -1;
+      tocHeadings.forEach(function (heading, index) { if (heading.getBoundingClientRect().top < line) current = index; });
+      if (footer && footer.getBoundingClientRect().top < window.innerHeight) current = tocHeadings.length - 1;
+      tocLinks.forEach(function (link, index) {
+        if (index === current) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    var sectionObserver = new IntersectionObserver(markSection, { rootMargin: '0px 0px -70% 0px' });
+    tocHeadings.forEach(function (heading) { sectionObserver.observe(heading); });
+    if (footer) new IntersectionObserver(markSection).observe(footer);
+  }
   // Keep the reading position across translated posts. Both versions share the same
   // heading/figure sequence, so the position is stored as a fraction between landmarks.
   var article = document.querySelector('.post-content');
