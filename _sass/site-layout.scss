@@ -86,7 +86,7 @@ div.wrapper {
 .swiper-initialized .recent-photo-link { transform: scale(.92); transition: transform 220ms ease; }
 .swiper-initialized .swiper-slide-active .recent-photo-link { transform: none; }
 // ProgressiveBlur layer masks adapted from ibelick/motion-primitives; MIT notice in assets/vendor/motion-primitives/.
-.photo-edge { display: none; position: absolute; z-index: 2; top: 0; width: 12%; max-width: 72px; height: 200px; pointer-events: none; }
+.photo-edge { display: none; position: absolute; z-index: 2; top: 0; width: 8%; max-width: 48px; height: 200px; pointer-events: none; }
 .swiper-initialized ~ .photo-edge { display: block; }
 .photo-edge-left { left: 0; --edge-angle: 270deg; }
 .photo-edge-right { right: 0; --edge-angle: 90deg; }
