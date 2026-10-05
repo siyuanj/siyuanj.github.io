@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-05 05:40 EDT (America/New_York) - 仓库README去模板化
+
+- **这次做了什么 / 用户要求**：用户指出仓库README仍是模板。`README.md`重写：删除Minimal Light模板的介绍、Getting Started、配置示例等内容，改为本站说明：页面表、仓库结构、常见更新入口、本地预览与发布、按主题分节的实现说明（原Project Notes条目全部保留并归类）、项目文档和致谢（Minimal Light CC0、Splide与motion-primitives MIT）。CV条目按用户05:25决定改写为“主页可以包含PDF里没有的内容”。
+- **我的判断**：删除模板的德语/简体/繁体README（`README_de.md`、`README_zh_Hans.md`、`README_zh_Hant.md`，内容全是Minimal Light主题文档，git历史保留），并从`_config.yml`的exclude里去掉它们。`LICENSE`（模板的CC0）和`html_source_file/`没有动。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功，`_site`中没有README文件；README里的Liquid示例因README被exclude而不会被渲染。Pages结果见git log及Actions。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：GitHub仓库首页上README的渲染效果没有截图核对。
+- **要用户定的**：无。
+
+
 ## 2026-10-05 05:25 EDT (America/New_York) - 测试笔记重新显示；用户确认课程名与CV
 
 - **用户决定**：两条测试笔记要显示；课程英文名“Gene Editing”正确；公开CV PDF不需要同步。占位博客`_blogs/2025-01-20-test.md`用户未提，仍为`published: false`。

@@ -1,226 +1,117 @@
-# Siyuan Jiang Academic Homepage
+# Siyuan Jiang · Academic Homepage
 
-This repository contains Siyuan Jiang's personal academic website, built with Jekyll and the Minimal Light theme for GitHub Pages.
+Source for <https://siyuanj.github.io/>, the personal academic website of Siyuan Jiang (Tanwei College, Tsinghua University). It is a Jekyll site published by GitHub Pages from the `main` branch.
 
-## Project Notes
+## Pages
 
-- Homepage content lives in `index.md`.
-- Recent Photos is a homepage section maintained in `_data/photos.yml` and `_includes/recent-photos.html`. By owner decision on 2026-10-05 the carousel shows three 1448×1086 (4:3) anime travel illustrations: Golden Gate, NVIDIA and Griffith Observatory; the Google and UCLA artwork files remain in the repository but are no longer listed in `_data/photos.yml`. Golden Gate keeps the owner's existing artwork; NVIDIA uses the owner's explicitly selected illustration. The latest owner decision for Google, Griffith and UCLA is a faithful, natural anime conversion of the original photographs: retain face shape, original expression, ordinary human proportions and the actual scene, without caricature or perspective distortion. These three were regenerated with built-in imagegen using the approved NVIDIA image as a rendering reference and each original photograph as the identity/scene reference. Prompts and source records live in the private `test20260820/10-5 照片自然动漫化/` folder. Full-size links open the current illustrations. Source photographs and their old previews are backed up outside the public repository in the owner's `test20260820/10-5 照片插画统一/原始照片` folder; they are removed from the current published tree, with historical Git versions still retained. Do not restore photographic faces through thumbnails or full-size links. Photo dates/captions come from the owner. Generate uncropped 640/1280px quality-90 WebP display previews using `scripts/generate_previews.py --only google-2026-09-24-natural-illustrated --report <private-report-path>`; selected full-size PNGs must remain unchanged. Use a new image basename when replacing artwork so cached previews do not mask the update.
-- Photos follow the existing photo-based `splide02` example in [Splide's autoWidth.php](https://github.com/Splidejs/splide/blob/8d040f626a0cc21e74254ad03e7d1df4f752fc45/src/js/test/php/examples/autoWidth.php): loop, autoWidth, center focus and free dragging, with snap enabled. The track occupies the full content width; each slide follows the illustration's 4:3 aspect ratio with an 8px gap. Image height is at most 200px and shrinks to one quarter of the content width after reserving two gaps, allowing the active image and nearest neighbors to fit without cropping. Only the active image shows its date/location caption. Clicking a side image centers it; the active image links to the full-size illustration. Arrows, position dots and focused keyboard navigation are retained.
-- Only the far left/right viewport edges use the layered gradient-mask technique adapted from [motion-primitives ProgressiveBlur](https://github.com/ibelick/motion-primitives/blob/main/components/core/progressive-blur.tsx). These static, non-interactive overlays cover at most 8% (48px) per edge; there is no full-image blur or outer panel. Arrows use white 44px circular buttons, dark chevrons and a small shadow, following the owner's supplied reference. The upstream MIT license and pinned-source notice remain under `assets/vendor/motion-primitives/`; no React/Motion runtime is added.
-- Splide 4.1.4 core JS/CSS is vendored unchanged under `assets/vendor/splide-4.1.4/` with its MIT license, obtained from the official npm package and checked against its SHA-512 integrity. Only pages with `uses_photos: true` load these local files; defer order loads the library before site.js. Splide handles resizing, drag and loop clones. No autoplay or carousel timer is configured. Without the library, the CSS leaves a native horizontal image row. The homepage section shortcut row is intentionally removed.
-- Profile metadata and sidebar links live in `_config.yml`.
-- Inline institution logos in body text use `{% include inline-logo.html name="..." %}` inside the link text; keys, paths and pixel sizes live in `_data/logos.yml` and the small PNGs in `assets/img/logos/`. They are decorative (empty alt), sized to 1.15em, and get a white backing in dark mode. Original downloads (Wikimedia Tsinghua logo, stanford.edu and ufl.edu favicons, Tsinghua-M iGEM 2024 team logo with its tagline cropped out) and checksums are kept outside the repo in `10-5 website/logo-sources/`.
-- The shared head sets the page language, canonical URL, hreflang alternates for translated posts, Open Graph/Twitter summary tags and, on the homepage, Person structured data. `share_image` is a 512px JPEG resized from the favicon master. The homepage title is the name alone, because GitHub Pages' titles-from-headings plugin would otherwise use "About Me". Plugin-free Liquid templates generate `/sitemap.xml` (pages and published collection entries; `sitemap: false` opts out and empty collection index pages are skipped), `/robots.txt`, an Atom `/feed.xml` (latest 30 English blog posts, matching the Blog page) and a custom no-index `/404.html`.
-- The browser favicon is an anime face icon generated with the built-in imagegen tool from the Golden Gate illustration. Its unchanged 1254px square master is `assets/img/icons/siyuan-anime.png`; 16/32px PNGs are declared in the shared head, a 180px PNG supplies the touch icon, and `/favicon.ico` contains 16/32/48px PNG frames for automatic fallback. All page layouts inherit these links. The same artwork is used in light/dark browser chrome. When replacing the artwork, use a new basename for the linked PNGs to avoid stale favicon caches. Generation prompt, export helper and byte/dimension manifests are retained in the owner's private `test20260820/10-5 网页头像图标/` task folder.
-- The public CV linked from the sidebar is `assets/files/CV_public.pdf`.
-- Keep academic content and the public CV aligned with the current academic CV; replace the PDF at the existing link when syncing updates.
-- Publication entries are maintained in `_data/publications.yml` and rendered by `_includes/publications.md` on both the homepage and the Publications page.
-- Publication cards use `assets/css/publication-cards.css` and the paper's framework figures in `assets/img/publications/`. Set figure dimensions and alternative text in the publication data; keep the complete original accessible from the figure link. Only supplied public resource URLs are rendered. Use actual paper figures rather than typographic title covers.
-- Generate display previews with `python3 scripts/generate_previews.py --report preview-manifest.json` (requires Pillow); keep that report outside the public site. The script makes uncropped, proportional 600/1200px paper previews and 320/480px profile previews, losslessly encodes those resized previews as WebP and verifies the original files remain byte-identical. Newly generated travel illustrations use quality-90 WebP thumbnails to reduce transfer size, while their full PNG artwork stays byte-identical. Publication `preview`/`preview_large` paths feed native `srcset`; `image` still links to the full original. Update these paths/dimensions when replacing an original source. Use `--only avatar` or a paper's key to regenerate a subset.
-- Main navigation always shows all four tabs (owner decision 2026-10-05: keep Notes even while empty); it uses four aligned columns on medium screens and two equal columns at 520px or narrower. The two test notes are published at the owner's request (2026-10-05); the one without a date has a front-matter title matching its heading, because Jekyll otherwise names collection items after the filename. The placeholder blog post `_blogs/2025-01-20-test.md` stays `published: false`. Empty collection index pages are left out of the sitemap. Profile email inherits the surrounding system font and paragraph size, with a natural break opportunity after @.
-- The shared shell is `_layouts/site.html`; `homepage` and `post` remain compatible entry layouts. Head metadata, profile and navigation are separate includes; navigation labels/routes live in `_data/navigation.yml`. Collection posts highlight their parent navigation and provide a return link.
-- `assets/css/site.scss` compiles local `_sass/site-base.scss` and `_sass/site-layout.scss` into one compressed stylesheet. Desktop uses a constrained two-column layout; screens at 760px or narrower use a compact profile header. System fonts and inline SVG icons avoid external font/style requests. Paper styling is loaded only by pages with `uses_publications: true`. Legacy theme files are retained for old cached pages but are not loaded by the current shell.
-- `assets/js/site.js` provides deferred, event-driven theme switching, navigation prefetch on pointer/keyboard intent (disabled on data-saving/2G connections), and visitor-frame initialization after page load. A tiny head include restores the saved theme before paint.
-- Top-right page tools stay fixed: the language link on translated posts and a System/Light/Dark segmented theme switch. The switch's sliding thumb and active icon are styled from `html[data-theme]`, so they are correct before the deferred script runs; an IntersectionObserver on the main navigation adds a floating shadow once it scrolls away. Switching language on a post keeps the reading position: the click stores the position in sessionStorage as a fraction between heading/figure landmarks (both language versions share the same sequence), and the target page restores it, falling back to a whole-page ratio if the landmark counts differ. Native page links, section links, skip link and return-to-top work without JavaScript. No site-owned polling or scroll handlers.
-- The visitor map UI lives in `_includes/visitor-map.html`; its provider script lives in `assets/visitor-map.html`, in a separate frame, initialized after the main page has loaded. Keep the website's own dashboard token, asynchronous script and `w=a` responsive width. Initialization is not tied to scrolling to the map, so ordinary homepage visits are still recorded once the widget initializes. Public visitor statistics: <https://mapmyvisitors.com/web/1c8n8>.
-- Run `python3 scripts/update_asset_versions.py` after changing shared styles or scripts. It updates content-based cache keys in `_data/asset_versions.json`; documentation-only deployments do not invalidate unchanged resources. Source helpers and handoff documents are excluded from the generated site.
-- Cross-session handoff notes live in `docs/STATUS.md`.
+| URL | Source | Content |
+|---|---|---|
+| `/` | `index.md` | About Me, education, research interests and experience, publications, projects, awards, skills, hobbies, Recent Photos, visitor map |
+| `/publications/` | `publications.md` | Publication cards |
+| `/blog/` | `blog.md`, `_blogs/` | Paper-reading posts in English, each linked to its Chinese version |
+| `/note/` | `note.md`, `_notes/` | Notes |
+| `/feed.xml`, `/sitemap.xml`, `/robots.txt`, `/404.html` | same-named files, `404.md` | Atom feed, sitemap, crawler rules, custom not-found page |
 
-## Local Preview
+## Repository Layout
+
+```
+_config.yml              profile metadata, sidebar links, collections, build excludes
+_data/                   navigation, publications, photos, inline logos, asset cache keys
+_includes/               head, profile, navigation, publications, photos, visitor map, inline logo
+_layouts/                site.html (shared shell); homepage and post entry layouts
+_sass/                   site-base.scss, site-layout.scss (plus unused legacy theme files)
+_blogs/, _notes/         collection entries; blog figures live in _blogs/pic/
+assets/css/              site.scss entry, publication-cards.css
+assets/js/site.js        all site behaviour (theme, page tools, carousel, prefetch, visitor map)
+assets/img/              avatar previews, favicons, photos, publication figures, logos
+assets/files/            public CV and BibTeX files
+assets/vendor/           Splide 4.1.4 and the motion-primitives notice
+scripts/                 preview generation and asset cache keys
+docs/STATUS.md           cross-session handoff notes (excluded from the site)
+html_source_file/        legacy compiled template HTML (excluded from the site)
+```
+
+## Common Updates
+
+- **Homepage text**: edit `index.md`. Add an inline logo before a link with `{% include inline-logo.html name="tsinghua" %}` (keys in `_data/logos.yml`).
+- **Profile and sidebar links**: `_config.yml`.
+- **Publications**: `_data/publications.yml`, figures in `assets/img/publications/`, then regenerate previews (see below).
+- **Photos**: `_data/photos.yml` and `assets/img/photos/`.
+- **Blog posts**: generated, together with `_blogs/pic/`, by the owner's separate export tool (`tools/blog_export.py` in the `8-28 公众号` workspace). Edit the source there instead of the generated files.
+- **Notes**: add a Markdown file to `_notes/` with front matter (at least `title`; `date` controls ordering).
+- **CV**: replace `assets/files/CV_public.pdf` at the same path.
+- **Shared CSS/JS**: after editing, run `python3 scripts/update_asset_versions.py`.
+
+## Local Preview and Publishing
 
 ```bash
 bundle install
-bundle exec jekyll build
 bundle exec jekyll serve
 ```
 
-Then open <http://127.0.0.1:4000/>.
+Then open <http://127.0.0.1:4000/>. On macOS system Ruby 2.6 the gems need `ffi < 1.17`; the owner's `8-28 公众号/tools/build_blog_site.sh` builds with a separate Gemfile that adds this pin. `_site/` is gitignored.
 
-# The Minimal Light Theme
+Pushing to `main` triggers GitHub Pages' `pages-build-deployment` workflow. GitHub Pages runs Jekyll 3.x with its default plugins (for example titles-from-headings), so check the deployed page when behaviour depends on page titles.
 
-[![LICENSE](https://img.shields.io/github/license/yaoyao-liu/homepage?style=flat-square&logo=creative-commons&color=EF9421)](https://github.com/yaoyao-liu/minimal-light/blob/main/LICENSE)
+## Implementation Notes
 
-\[[Demo the theme](https://minimal-light-theme.yliu.me/)\]  \[[简体中文](https://github.com/yaoyao-liu/minimal-light/blob/master/README_zh_Hans.md) | [繁體中文](https://github.com/yaoyao-liu/minimal-light/blob/master/README_zh_Hant.md) | [Deutsche](https://github.com/yaoyao-liu/minimal-light/blob/master/README_de.md)\]
- 
-*This is the source code of my homepage. I build this website based on [minimal](https://github.com/orderedlist/minimal).*
-<br>
-*Feel free to use and share the source code anywhere you like.*
+### Layout and styles
 
-An improved vision from [@Xiao-Chenguang](https://github.com/Xiao-Chenguang): [[link](https://github.com/Xiao-Chenguang/minimal-light)]
+- The shared shell is `_layouts/site.html`; `homepage` and `post` remain compatible entry layouts. Head metadata, profile and navigation are separate includes; navigation labels and routes live in `_data/navigation.yml`. Collection posts highlight their parent navigation tab and provide a return link.
+- `assets/css/site.scss` compiles `_sass/site-base.scss` and `_sass/site-layout.scss` into one compressed stylesheet. Desktop uses a constrained two-column layout; at 760px or narrower the profile becomes a compact header. System fonts and inline SVG icons avoid external font and style requests. Publication styling is loaded only by pages with `uses_publications: true`. Legacy theme files are kept for old cached pages but are not loaded.
+- Main navigation always shows all four tabs (owner decision 2026-10-05: keep Notes even while empty), in four aligned columns on medium screens and two equal columns at 520px or narrower. Profile email inherits the surrounding font and size, with a break opportunity after @. The homepage section shortcut row is intentionally removed.
 
-**The latest version of my homepage is available here: <br><https://github.com/yaoyao-liu/homepage>**
+### Theme switch and page tools
 
-## Features
+- `assets/js/site.js` provides deferred, event-driven theme switching, page tools, the photo carousel, navigation prefetch on pointer/keyboard intent (disabled on data-saving/2G connections), and visitor-frame initialization after page load. A tiny head include restores the saved theme before paint. Native links, section links, skip link and return-to-top work without JavaScript. There is no site-owned polling or scroll handler.
+- Top-right page tools stay fixed: the language link on translated posts and a System/Light/Dark segmented theme switch. The sliding thumb and active icon are styled from `html[data-theme]`, so they are correct before the deferred script runs. An IntersectionObserver on the main navigation adds a floating shadow once it scrolls away.
+- Switching language on a post keeps the reading position. The click stores the position in sessionStorage as a fraction between heading/figure landmarks (both language versions share the same sequence), and the target page restores it, falling back to a whole-page ratio if the landmark counts differ.
 
-- Simple and elegant personal homepage theme
-- Jekyll theme, automatically deployed by GitHub Pages
-- Basic search engine optimization
-- Mobile friendly
-- Supporting Markdown 
-- Supporting dark mode
+### Head metadata and SEO
 
-## Project Architecture
+- The shared head sets the page language, canonical URL, hreflang alternates for translated posts, Open Graph/Twitter summary tags and, on the homepage, Person structured data. `share_image` is a 512px JPEG resized from the favicon master.
+- The homepage title is the name alone, because GitHub Pages' titles-from-headings plugin would otherwise use "About Me".
+- Plugin-free Liquid templates generate `/sitemap.xml` (pages and published collection entries; `sitemap: false` opts out and empty collection index pages are skipped), `/robots.txt`, an Atom `/feed.xml` (latest 30 English blog posts, matching the Blog page) and a custom no-index `/404.html`.
 
-```
-.
-├── _data                    
-|   └── publications.yml                      # the YAML file for publications
-├── _includes                    
-|   ├── publications.md                       # the Markdown file for publications
-|   └── services.md                           # the Markdown file for services
-├── _layouts                  
-|   └── homepage.html                         #  the html template for the homepage 
-├── _sass
-|   ├── minimal-light.scss                    #  this file will be compiled into a CSS file to control the style of the page              
-|   └── minimal-light-no-dark-mode.scss       #  this file is similar to minimal-light.scss with the dark mode disabled
-├── assets                                    #  some files
-├── html_source_file                          #  compiled HTML files
-├── .gitignore                                #  this file specifies intentionally untracked files that Git should ignore
-├── CNAME                                     #  the custom domain, will be used by GitHub page sevice
-├── Gemfile                                   #  a RubyGems related file
-├── LICENSE                                   #  the license file
-├── README.md                                 #  the readme file (English)
-├── README_de.md                              #  the readme file (German)
-├── README_zh_Hans.md                         #  the readme file (Simplified Chinese)
-├── README_zh_Hant.md                         #  the readme file (Traditional Chinese)
-├── _config.yml                               #  the Jekyll configuration file, including some options of the page  
-└── index.md                                  #  the content of the index page, using Markdown
-```
+### Recent Photos
 
-## Getting Started
+- Maintained in `_data/photos.yml` and `_includes/recent-photos.html`. By owner decision on 2026-10-05 the carousel shows three 1448×1086 (4:3) anime travel illustrations: Golden Gate, NVIDIA and Griffith Observatory. The Google and UCLA artwork files remain in the repository but are no longer listed.
+- Golden Gate keeps the owner's existing artwork; NVIDIA uses the owner's explicitly selected illustration. The owner's standing decision for converted photos is a faithful, natural anime style: keep face shape, original expression, ordinary human proportions and the actual scene, without caricature or perspective distortion. Griffith (and the unlisted Google and UCLA images) were regenerated with built-in imagegen using the approved NVIDIA image as the rendering reference and each original photograph as the identity/scene reference. Prompts and source records live in the private `test20260820/10-5 照片自然动漫化/` folder.
+- Source photographs and their old previews are backed up outside the public repository in the owner's `test20260820/10-5 照片插画统一/原始照片` folder; they are removed from the published tree, with historical Git versions still retained. Do not restore photographic faces through thumbnails or full-size links. Photo dates and captions come from the owner. Full-size links open the current illustrations.
+- The carousel follows the photo-based `splide02` example in [Splide's autoWidth.php](https://github.com/Splidejs/splide/blob/8d040f626a0cc21e74254ad03e7d1df4f752fc45/src/js/test/php/examples/autoWidth.php): loop, autoWidth, center focus and free dragging with snap. The track spans the content width; slides keep the 4:3 ratio with an 8px gap. Image height is at most 200px and shrinks to a quarter of the content width after reserving two gaps, so the active image and its neighbours fit without cropping. Only the active image shows its date/location caption. Clicking a side image centers it; the active image links to the full-size illustration. Arrows, position dots and focused keyboard navigation are kept; there is no autoplay or timer. Without the library, the CSS leaves a native horizontal image row.
+- Only the far left/right edges use the layered gradient-mask technique adapted from [motion-primitives ProgressiveBlur](https://github.com/ibelick/motion-primitives/blob/main/components/core/progressive-blur.tsx). These static overlays cover at most 8% (48px) per edge. Arrows are white 44px circular buttons with dark chevrons and a small shadow, following the owner's reference. The upstream MIT license and pinned-source notice are under `assets/vendor/motion-primitives/`; no React/Motion runtime is added.
+- Splide 4.1.4 core JS/CSS is vendored unchanged under `assets/vendor/splide-4.1.4/` with its MIT license, obtained from the official npm package and checked against its SHA-512 integrity. Only pages with `uses_photos: true` load it; defer order loads the library before `site.js`.
+- When replacing artwork, use a new image basename so cached previews do not mask the update, and keep the selected full-size PNG unchanged.
 
-This template can be used in the following two ways: 
-- **Using with the GitHub Pages Service.** GitHub will provide you with a server to generate and host web pages.
-- **Using locally with Jekyll.** You may install Jekyll on your own computer and generate static web pages (i.e., HTML files) with this template. After that, you may upload the HTML files to your server.
+### Publications and previews
 
-The detailed instructions are available below.
+- Entries live in `_data/publications.yml` and are rendered by `_includes/publications.md` on both the homepage and the Publications page. Cards use `assets/css/publication-cards.css` and each paper's framework figure in `assets/img/publications/`. Set figure dimensions and alternative text in the data; keep the complete original reachable from the figure link. Only supplied public resource URLs are rendered. Use actual paper figures rather than typographic title covers.
+- Generate display previews with `python3 scripts/generate_previews.py --report preview-manifest.json` (requires Pillow); keep the report outside the public site. The script makes uncropped, proportional 600/1200px paper previews and 320/480px profile previews, losslessly encodes them as WebP and verifies the originals stay byte-identical. Travel illustrations use quality-90 640/1280px WebP previews (for example `--only google-2026-09-24-natural-illustrated --report <private-report-path>`). Publication `preview`/`preview_large` paths feed `srcset`; `image` still links to the full original. Use `--only avatar` or a paper key to regenerate a subset.
 
+### Favicon and inline logos
 
-### Using with the GitHub Pages Service
+- The favicon is an anime face icon generated with built-in imagegen from the Golden Gate illustration. Its unchanged 1254px master is `assets/img/icons/siyuan-anime.png`; 16/32px PNGs are declared in the shared head, a 180px PNG is the touch icon, and `/favicon.ico` holds 16/32/48px frames. The same artwork serves light and dark browser chrome. Use a new basename when replacing it to avoid stale favicon caches. The prompt, export helper and manifests are in the owner's private `test20260820/10-5 网页头像图标/` folder.
+- Inline institution logos are decorative (empty alt), sized to 1.15em and given a white backing in dark mode; keys, paths and pixel sizes live in `_data/logos.yml`, PNGs in `assets/img/logos/`. Original downloads (Wikimedia Tsinghua logo, stanford.edu and ufl.edu favicons, the Tsinghua-M iGEM 2024 team logo with its tagline cropped out) and checksums are kept outside the repo in `10-5 website/logo-sources/`.
 
-There are two ways to use this template on GitHub:
+### Blog, notes and CV
 
-#### Fork this repository
-- Fork this repository (or [use this repository as a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)) and change the name to `your-username.github.io`.
+- The Blog page lists English posts newest first, each with a link to its Chinese version; Chinese posts are not listed separately.
+- The two test notes are published at the owner's request (2026-10-05); the undated one has a front-matter title matching its heading, because Jekyll otherwise names collection items after the filename. The placeholder blog post `_blogs/2025-01-20-test.md` stays `published: false`.
+- The public CV is `assets/files/CV_public.pdf`, linked from the sidebar. The homepage may contain details that the PDF does not (the owner decided on 2026-10-05 not to sync the Gene Editing course and research-journey paragraph into it).
 
-- Enable the GitHub pages for that repository following the steps [here](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
+### Visitor map
 
-#### Using this repository as a remote theme
-To use this theme, add the following to your repository's `_config.yml`:
+- The UI is in `_includes/visitor-map.html`; the provider script runs in a separate frame, `assets/visitor-map.html`, initialized after the main page has loaded. Keep the site's own dashboard token, asynchronous script and `w=a` responsive width. Initialization is not tied to scrolling, so ordinary homepage visits are still recorded. Public statistics: <https://mapmyvisitors.com/web/1c8n8>.
 
-```yaml
-remote_theme: yaoyao-liu/minimal-light
-```
+### Asset caching
 
-Please note that adding the above line will directly apply all the default settings in this repository to yours.
+- `python3 scripts/update_asset_versions.py` writes content-based cache keys to `_data/asset_versions.json`, so documentation-only deployments do not invalidate unchanged CSS/JS. Source helpers and handoff documents are excluded from the generated site.
 
-If you hope to edit any files (e.g., `index.md`), you still need to copy them to your repository.
+## Project Documents
 
-### Using Locally with Jekyll
+- `AGENTS.md` / `CLAUDE.md`: repository rules for coding agents (kept identical).
+- `docs/STATUS.md`: cross-session handoff notes.
 
-First, install [Ruby](https://www.ruby-lang.org/en/) and [Jekyll](https://jekyllrb.com/). The install instructions can be found here: <https://jekyllrb.com/docs/installation/#guides>
+## Credits
 
-Then, clone this repository:
-
-```bash
-git clone https://github.com/yaoyao-liu/minimal-light.git
-cd minimal-light
-```
-Install and run:
-
-```bash
-bundle install
-bundle add webrick
-bundle exec jekyll server
-```
-View the live page using `localhost`:
-<http://localhost:4000>. You can get the HTML files in `_site` folder.
-
-### Using the HTML version
-
-The compiled HTML files are available in the `html_source_file` folder. If you don't like Jekyll, you may directly edit and use the HTML version.
-
-## Customizing
-
-### Configuration variables
-
-The Minimal Light theme will respect the following variables, if set in your site's `_config.yml`:
-
-  ```yaml
-# Basic Information 
-title: Your Name
-position: Ph.D. Student
-affiliation: Your Affiliation
-email: yourname (at) example.edu
-
-# Search Engine Optimization (SEO)
-# The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: minimal light
-description: The Minimal Light is a simple and elegant jekyll theme for academic personal homepage.
-canonical: https://minimal-light-theme.yliu.me/
-
-# Links 
-# If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/
-cv_link: assets/files/curriculum_vitae.pdf
-github_link: https://github.com/
-linkedin: https://www.linkedin.com/
-twitter: https://twitter.com/
-
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/avatar.png
-favicon: ./assets/img/favicon.png
-favicon_dark: ./assets/img/favicon-dark.png
-
-# Footnote
-# You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
-enable_footnote: true
-
-# Auto Dark Mode
-# You may use the option to disable the automatic dark theme
-auto_dark_mode: true
-
-# Font
-# You can use this option to choose between Serif or Sans Serif fonts.
-font: "Serif" # or "Sans Serif"
-
-# Google Analytics ID
-# Please remove this if you don't use Google Analytics
-google_analytics: UA-111540567-4
-  ```
-### Edit `index.md`
-
-Create `index.md` and add your personal information. It supports **Markdown** and **HTML** syntax.
-
-### Edit included files
-
-There are two markdown files included in `index.md`. They are `_includes/publications.md` and `_includes/service.md`, respectively. These two files also support **Markdown** and **HTML** syntax. If you don't hope to include these two files, you may remove the following lines in `index.md`:
-https://github.com/yaoyao-liu/minimal-light/blob/b38070cd0b6bce45d8a885f3828549af8f82b7cb/index.md?plain=1#L21-L23
-
-If you hope to edit the publication list without changing the format, you may edit `_data/publications.yml`:
-https://github.com/yaoyao-liu/minimal-light/blob/77b1b3b31d4561091bcd739f37a2e1880e8b5ca5/_data/publications.yml#L3-L11
-
-
-### Stylesheet
-
-If you'd like to add your own custom styles, you may edit `_sass/minimal-light.scss`.
-
-### Layouts
-
-If you'd like to change the theme's HTML layout, you may edit `_layout/homepage.html`.
-
-## License
-
-This work is licensed under a [Creative Commons Zero v1.0 Universal](https://github.com/yaoyao-liu/minimal-light/blob/master/LICENSE) License.
-
-## Acknowledgements
-
-Our project uses the source code from the following repositories:
-
-* [pages-themes/minimal](https://github.com/pages-themes/minimal)
-
-* [orderedlist/minimal](https://github.com/orderedlist/minimal)
-
-* [al-folio](https://github.com/alshedivat/al-folio)
+The layout was originally derived from the [Minimal Light](https://github.com/yaoyao-liu/minimal-light) theme by Yaoyao Liu (CC0-1.0, see `LICENSE`), itself based on [pages-themes/minimal](https://github.com/pages-themes/minimal). Splide (MIT) and the motion-primitives ProgressiveBlur technique (MIT) are credited under `assets/vendor/`.
