@@ -50,11 +50,12 @@
     var dots = Array.from(carousel.querySelectorAll('.photo-dot'));
     var status = carousel.querySelector('.photo-status');
     var current = 0;
-    if (!slides.length || typeof window.Swiper !== 'function') return;
+    if (!slides.length || typeof window.Splide !== 'function') return;
     function select(index) {
       current = index;
-      slides.forEach(function (slide, position) {
-        slide.querySelector('a').tabIndex = position === current ? 0 : -1;
+      carousel.querySelectorAll('.recent-photo').forEach(function (slide) {
+        var activeOriginal = Number(slide.dataset.photoIndex) === current && !slide.classList.contains('splide__slide--clone');
+        slide.querySelector('a').tabIndex = activeOriginal ? 0 : -1;
       });
       dots.forEach(function (dot, position) {
         if (position === current) dot.setAttribute('aria-current', 'true');
@@ -62,28 +63,32 @@
       });
       status.textContent = slides[current].getAttribute('aria-label');
     }
-    // Adapt Swiper's centered demo; its core owns looping, dragging and sizing.
-    var slider = new window.Swiper(track, {
-      slidesPerView: 2.2,
-      centeredSlides: true,
-      spaceBetween: 10,
-      loop: slides.length >= 5,
-      speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 380,
-      grabCursor: true,
-      lazyPreloadPrevNext: 1,
-      breakpoints: { 521: { spaceBetween: 16 } },
-      on: {
-        init: function () { select(this.realIndex); },
-        slideChange: function () { select(this.realIndex); }
-      }
+    // Follow Splide's existing autoWidth photo example (splide02).
+    var slider = new window.Splide(carousel, {
+      type: slides.length > 1 ? 'loop' : 'slide',
+      autoWidth: true,
+      focus: 'center',
+      trimSpace: false,
+      gap: 8,
+      drag: 'free',
+      snap: true,
+      perMove: 1,
+      speed: 380,
+      arrows: false,
+      pagination: false,
+      keyboard: false,
+      live: false,
+      focusableNodes: '',
+      reducedMotion: { speed: 0 }
     });
+    slider.on('mounted moved scrolled', function () { select(slider.index); });
+    slider.mount();
     function show(index) {
       index = (index + slides.length) % slides.length;
-      if (slider.params.loop) slider.slideToLoop(index);
-      else slider.slideTo(index);
+      slider.go(index);
     }
-    carousel.querySelector('.photo-previous').addEventListener('click', function () { slider.slidePrev(); });
-    carousel.querySelector('.photo-next').addEventListener('click', function () { slider.slideNext(); });
+    carousel.querySelector('.photo-previous').addEventListener('click', function () { slider.go('<'); });
+    carousel.querySelector('.photo-next').addEventListener('click', function () { slider.go('>'); });
     dots.forEach(function (dot, index) { dot.addEventListener('click', function () { show(index); }); });
     track.addEventListener('keydown', function (event) {
       if (event.target !== track) return;
@@ -94,7 +99,7 @@
     });
     track.addEventListener('click', function (event) {
       var slide = event.target.closest('.recent-photo');
-      if (slide && !slide.classList.contains('swiper-slide-active')) {
+      if (slide && Number(slide.dataset.photoIndex) !== current) {
         event.preventDefault();
         show(Number(slide.dataset.photoIndex));
       }

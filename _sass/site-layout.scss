@@ -71,30 +71,30 @@ div.wrapper {
 .site-content .post-date { width: 90px; font-size: 12px; }
 .site-content pre { max-width: 100%; overflow: auto; }
 .site-content img { max-width: 100%; }
-// Centered slides: https://github.com/nolimits4web/swiper/blob/master/demos/130-centered.html
-.photo-carousel { position: relative; max-width: 600px; margin: 0 auto; padding: 0; }
+// Splide's autoWidth photo example: src/js/test/php/examples/autoWidth.php (splide02).
+.photo-carousel { --photo-height: min(200px, calc((100vw - 36px) / 4.25)); container-type: inline-size; position: relative; width: 100%; margin: 0; padding: 0; visibility: visible; }
+// Reserve two 8px gaps; the widest center/neighbor combination spans four heights.
+@supports (width: 1cqw) { .photo-carousel { --photo-height: min(200px, calc((100cqw - 16px) / 4)); } }
 .photo-gallery { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); }
-.photo-gallery:not(.swiper-initialized) { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-.photo-gallery:not(.swiper-initialized) .photo-track { gap: 16px; }
+.photo-carousel:not(.is-initialized) .photo-gallery { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.photo-carousel:not(.is-initialized) .photo-track { gap: 8px; }
 .photo-gallery::-webkit-scrollbar { display: none; }
-.recent-photo { flex: 0 0 auto; min-width: 0; width: 44%; margin: 0; scroll-snap-align: center; }
-.recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 200px; margin: 0; }
+.recent-photo { flex: 0 0 auto; min-width: 0; width: calc(var(--photo-height) * var(--photo-ratio)); margin: 0; scroll-snap-align: center; }
+.recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: var(--photo-height); margin: 0; }
 .recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 6px; }
-.recent-photo figcaption { min-height: 22px; margin-top: 10px; font-size: 13px; line-height: 1.6; text-align: center; }
-.swiper-initialized .recent-photo figcaption { visibility: hidden; }
-.swiper-initialized .swiper-slide-active figcaption { visibility: visible; }
-.swiper-initialized .recent-photo-link { transform: scale(.92); transition: transform 220ms ease; }
-.swiper-initialized .swiper-slide-active .recent-photo-link { transform: none; }
+.recent-photo figcaption { position: relative; left: 50%; width: max-content; min-height: 22px; margin-top: 10px; transform: translateX(-50%); font-size: 13px; line-height: 1.6; text-align: center; white-space: nowrap; }
+.photo-carousel.is-initialized .recent-photo figcaption { visibility: hidden; }
+.photo-carousel.is-initialized .recent-photo.is-active figcaption { visibility: visible; }
 // ProgressiveBlur layer masks adapted from ibelick/motion-primitives; MIT notice in assets/vendor/motion-primitives/.
-.photo-edge { display: none; position: absolute; z-index: 2; top: 0; width: 8%; max-width: 48px; height: 200px; pointer-events: none; }
-.swiper-initialized ~ .photo-edge { display: block; }
+.photo-edge { display: none; position: absolute; z-index: 2; top: 0; width: 8%; max-width: 48px; height: var(--photo-height); pointer-events: none; }
+.photo-carousel.is-initialized .photo-edge { display: block; }
 .photo-edge-left { left: 0; --edge-angle: 270deg; }
 .photo-edge-right { right: 0; --edge-angle: 90deg; }
 .photo-edge span { position: absolute; inset: 0; -webkit-backdrop-filter: blur(var(--edge-blur)); backdrop-filter: blur(var(--edge-blur)); -webkit-mask-image: linear-gradient(var(--edge-angle), transparent var(--fade-start), #000 var(--solid-start), #000 var(--solid-end), transparent var(--fade-end)); mask-image: linear-gradient(var(--edge-angle), transparent var(--fade-start), #000 var(--solid-start), #000 var(--solid-end), transparent var(--fade-end)); }
 .photo-edge span:nth-child(1) { --edge-blur: 1px; --fade-start: 20%; --solid-start: 40%; --solid-end: 60%; --fade-end: 80%; }
 .photo-edge span:nth-child(2) { --edge-blur: 2px; --fade-start: 40%; --solid-start: 60%; --solid-end: 80%; --fade-end: 100%; }
 .photo-edge span:nth-child(3) { --edge-blur: 3px; --fade-start: 60%; --solid-start: 80%; --solid-end: 100%; --fade-end: 120%; }
-.photo-arrow { position: absolute; z-index: 3; top: 100px; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--text); cursor: pointer; }
+.photo-arrow { position: absolute; z-index: 3; top: calc(var(--photo-height) / 2); transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--text); cursor: pointer; }
 .photo-previous { left: 0; }
 .photo-next { right: 0; }
 .photo-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -105,7 +105,6 @@ div.wrapper {
 .photo-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: .2; }
 .photo-dot[aria-current="true"]::before { opacity: 1; background: var(--link); }
 .photo-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-@media (prefers-reduced-motion: reduce) { .swiper-initialized .recent-photo-link { transition: none; } }
 .site-content .visitor-map-widget { width: 100%; max-width: 320px; margin: 24px auto 0; }
 .visitor-map-widget img { display: block; width: 100%; height: auto; }
 .site-footer { margin: 40px 0 0; padding-top: 16px; font-size: 12px; opacity: .7; }
@@ -140,9 +139,6 @@ html[data-theme="light"] .site-content .top-nav { border-bottom-color: #dce3e9; 
   .site-content h2 { font-size: 21px; margin-top: 30px; }
   .site-content .post-item { gap: 12px; }
   .site-content .post-date { width: 76px; }
-  .recent-photo-link { height: 150px; }
-  .photo-edge { height: 150px; }
-  .photo-arrow { top: 75px; }
 }
 @media print {
   div.wrapper { display: block; width: 100%; padding: 0; }

@@ -1,0 +1,8 @@
+Splide 4.1.4, @splidejs/splide from the official npm registry.
+Upstream JS/CSS and MIT license are retained without modifications.
+Package source commit: 192a5b0cea16c815f038e669e2025eb332e697f9
+https://registry.npmjs.org/@splidejs/splide/4.1.4
+
+Photo layout configuration follows the splide02 example:
+https://github.com/Splidejs/splide/blob/8d040f626a0cc21e74254ad03e7d1df4f752fc45/src/js/test/php/examples/autoWidth.php
+The website adapts photo dimensions, gap, caption visibility and controls.

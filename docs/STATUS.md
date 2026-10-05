@@ -1,5 +1,13 @@
 # Project Status
 
+## 2026-10-05 11:27 CST (Asia/Shanghai) - 采用 Splide 现有照片轮播示例
+
+- **用户要求 / 本次改动**：用户进一步明确要找照片排列方式的现成仓库，并要求邻图靠近、横向铺满正文、不要把邻图截掉一半。读取 Splide 实际照片示例 autoWidth.php 的 splide02（上游8d040f626a0cc21e74254ad03e7d1df4f752fc45），采用 loop / autoWidth / focus:center / drag:free，并启用snap。换用官方npm Splide4.1.4核心，移除Swiper运行时；容器100%正文宽、按原图比例分配slide宽度、图片间距8px，去掉侧图scale造成的空隙。高度上限200px，窄容器预留16px间距后按四分之一宽度缩小，保证中央与最近邻图完整；仅中央图注可见，继续保留外侧8%/48px的局部渐进模糊。
+- **我的判断 / 自审**：沿用成熟组件负责拖动、循环克隆与resize，本站只适配比例、图注和既有控件；不开自动播放。原图及photos.yml未变。检查事件索引与原图链接、克隆不进入Tab序列、无JS原生横向行、方向遮罩与箭头位置。包的SHA512 integrity通过，JS29803字节、核心CSS1964字节，保持上游字节及MIT；来源清单和源码在试验工作区10-5 照片样式调整。JS语法检查通过。
+- **现在真实状态**：上一轮边缘模糊与中央图注3da0a58、窄化59e6d76均已push，Pages37258551198、37258697098 success；Chrome已观察3da0a58仅中央图注与两端局部模糊。旧线上核验有一条不通过，是检查器未允许CSS自定义属性冒号后的空格，不能写成全部通过。本轮Splide代码与资源待commit/push及真实Pages/线上/Chrome验收。
+- **卡在哪 / 下一步**：没有发布阻塞。提交push，等待Pages；核对首页和非照片页的依赖范围、线上资源字节、Chrome桌面及400px的完整邻图、图注、首尾循环和拖动。README已改为实际照片示例，旧STATUS正文已备份保留。
+- **未验证 / 用户待定**：本轮Splide布局尚未在浏览器验收，真实手机触控与受控性能基准未测试；不声称消除所有卡顿。无用户待定事项。
+
 ## 2026-10-05 11:12 CST (Asia/Shanghai) - 仅外侧边缘模糊、中央照片保留图注
 
 - **用户决定 / 本次改动**：左侧照片只在左边模糊，右侧照片只在右边模糊；中央图保留日期地点图注，侧图不显示图注。读取 motion-primitives ProgressiveBlur 源码，固定上游 120f64f6ca60348e251f929e9c81f11ccbe45eda，按四段梯度蒙版及 270°/90°方向适配静态 CSS。去掉整张侧图 blur/opacity，两端最多12%/72px窄区各3层 backdrop-filter（1/2/3px），pointer-events:none；箭头位于上层。figcaption 仅 swiper-slide-active 可见。保留200/150px、2.2张居中轮播。上游MIT和来源NOTICE保留；没有引入React/Motion运行时。
