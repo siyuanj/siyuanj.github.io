@@ -73,16 +73,25 @@ div.wrapper {
 .site-content img { max-width: 100%; }
 // Centered slides: https://github.com/nolimits4web/swiper/blob/master/demos/130-centered.html
 .photo-carousel { position: relative; max-width: 600px; margin: 0 auto; padding: 0; }
-.photo-gallery { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); }
+.photo-gallery { position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent); }
 .photo-gallery:not(.swiper-initialized) { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .photo-gallery:not(.swiper-initialized) .photo-track { gap: 16px; }
 .photo-gallery::-webkit-scrollbar { display: none; }
 .recent-photo { flex: 0 0 auto; min-width: 0; width: 44%; margin: 0; scroll-snap-align: center; }
 .recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 200px; margin: 0; }
 .recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 6px; }
-.swiper-initialized .recent-photo-link { opacity: .6; filter: blur(1.5px); transform: scale(.92); transition: opacity 220ms ease, filter 220ms ease, transform 220ms ease; }
-.swiper-initialized .swiper-slide-active .recent-photo-link { opacity: 1; filter: none; transform: none; }
-.photo-arrow { position: absolute; z-index: 2; top: 100px; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--text); cursor: pointer; }
+.swiper-initialized .recent-photo-link { transform: scale(.92); transition: transform 220ms ease; }
+.swiper-initialized .swiper-slide-active .recent-photo-link { transform: none; }
+// ProgressiveBlur layer masks adapted from ibelick/motion-primitives; MIT notice in assets/vendor/motion-primitives/.
+.photo-edge { display: none; position: absolute; z-index: 2; top: 0; width: 12%; max-width: 72px; height: 200px; pointer-events: none; }
+.swiper-initialized ~ .photo-edge { display: block; }
+.photo-edge-left { left: 0; --edge-angle: 270deg; }
+.photo-edge-right { right: 0; --edge-angle: 90deg; }
+.photo-edge span { position: absolute; inset: 0; -webkit-backdrop-filter: blur(var(--edge-blur)); backdrop-filter: blur(var(--edge-blur)); -webkit-mask-image: linear-gradient(var(--edge-angle), transparent var(--fade-start), #000 var(--solid-start), #000 var(--solid-end), transparent var(--fade-end)); mask-image: linear-gradient(var(--edge-angle), transparent var(--fade-start), #000 var(--solid-start), #000 var(--solid-end), transparent var(--fade-end)); }
+.photo-edge span:nth-child(1) { --edge-blur: 1px; --fade-start: 20%; --solid-start: 40%; --solid-end: 60%; --fade-end: 80%; }
+.photo-edge span:nth-child(2) { --edge-blur: 2px; --fade-start: 40%; --solid-start: 60%; --solid-end: 80%; --fade-end: 100%; }
+.photo-edge span:nth-child(3) { --edge-blur: 3px; --fade-start: 60%; --solid-start: 80%; --solid-end: 100%; --fade-end: 120%; }
+.photo-arrow { position: absolute; z-index: 3; top: 100px; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--text); cursor: pointer; }
 .photo-previous { left: 0; }
 .photo-next { right: 0; }
 .photo-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -129,6 +138,7 @@ html[data-theme="light"] .site-content .top-nav { border-bottom-color: #dce3e9; 
   .site-content .post-item { gap: 12px; }
   .site-content .post-date { width: 76px; }
   .recent-photo-link { height: 150px; }
+  .photo-edge { height: 150px; }
   .photo-arrow { top: 75px; }
 }
 @media print {

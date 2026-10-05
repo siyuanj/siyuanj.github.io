@@ -1,0 +1,4 @@
+Progressive photo-edge blur masks adapted from motion-primitives ProgressiveBlur.
+Copyright (c) 2024 ibelick. MIT license retained in LICENSE.
+Pinned source: https://github.com/ibelick/motion-primitives/blob/120f64f6ca60348e251f929e9c81f11ccbe45eda/components/core/progressive-blur.tsx
+The four-stop layered mask formula and left/right angles are adapted to static HTML/CSS, using three nonzero blur layers per narrow edge. React/Motion code is not bundled or executed.

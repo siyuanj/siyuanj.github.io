@@ -13,6 +13,9 @@
     {% endfor %}
     </div>
   </div>
+  {% comment %}Static layer masks adapted from motion-primitives ProgressiveBlur; see vendor notice.{% endcomment %}
+  <div class="photo-edge photo-edge-left" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="photo-edge photo-edge-right" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="photo-controls" hidden>
     <button class="photo-arrow photo-previous" type="button" aria-label="Previous photo" aria-controls="photo-gallery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
     <button class="photo-arrow photo-next" type="button" aria-label="Next photo" aria-controls="photo-gallery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
