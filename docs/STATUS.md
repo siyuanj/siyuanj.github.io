@@ -1,5 +1,13 @@
 # Project Status
 
+## 2026-10-05 11:12 CST (Asia/Shanghai) - 仅外侧边缘模糊、中央照片保留图注
+
+- **用户决定 / 本次改动**：左侧照片只在左边模糊，右侧照片只在右边模糊；中央图保留日期地点图注，侧图不显示图注。读取 motion-primitives ProgressiveBlur 源码，固定上游 120f64f6ca60348e251f929e9c81f11ccbe45eda，按四段梯度蒙版及 270°/90°方向适配静态 CSS。去掉整张侧图 blur/opacity，两端最多12%/72px窄区各3层 backdrop-filter（1/2/3px），pointer-events:none；箭头位于上层。figcaption 仅 swiper-slide-active 可见。保留200/150px、2.2张居中轮播。上游MIT和来源NOTICE保留；没有引入React/Motion运行时。
+- **真实状态**：三图初版42d048a已push，Pages37258070743 success；7URL全部200、16线上检查通过，Chrome桌面三图/无图注/Next到Google/圆点到UCLA最终位置已观察。局部边缘模糊14751ae首次push被远端新增3篇博客拒绝；fetch确认博客与本次文件不重叠，将合并保留后重试。中央图注及最新CSS键0f453ca5dc56待提交，JS678a2aca2419不变。
+- **自审 / 证据**：遮罩小于侧图可见区，不覆盖中央图；镜像角度正确，无整图模糊/调低透明度；层数固定且不增加JS轮询，初始化前不启用覆盖层。图注visibility随Swiper active class，侧图仍有可访问日期地点。原图和photos.yml不改。源码、许可、哈希清单及备份在试验工作区10-5 照片样式调整；diff检查通过。
+- **阻塞 / 下一步**：无内容阻塞。提交图注、合并远端博客、push后真实Pages部署，核对线上边缘样式与Chrome桌面/400px显示和交互。上一条记录的整张侧图模糊与无图注已被用户澄清替代。
+- **尚未验证 / 用户待定**：最新边缘模糊和中央图注的线上/浏览器效果待新部署；真手机触摸、无JS回退、性能基准未测试。无用户待定事项。STATUS旧正文已备份，增量前插。
+
 ## 2026-10-05 11:04 CST (Asia/Shanghai) - 用户追加三张居中、侧边模糊、移除图注
 
 - **用户要求 / 这次做了什么**：进一步缩小照片，同时显示三张，左右各显示大半张，边缘模糊，下方不放图注；沿用用户要求的GitHub现有实现。实际引入Swiper14.3.0核心JS/CSS（MIT，保持上游字节及LICENSE），按官方demos/130-centered.html配置centeredSlides与2.2 slidesPerView、loop；Swiper核心负责手势/尺寸/循环。样式适配为200/150px高度、600px外宽、侧图blur1.5px/scale.92及左右mask淡出，移除figcaption；日期地点留在数据和可访问名称。点击侧图居中、中央图打开原图，保留箭头/圆点和轨道焦点键盘。仅首页uses_photos加载本地核心，defer顺序明确。

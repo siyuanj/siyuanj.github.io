@@ -80,6 +80,9 @@ div.wrapper {
 .recent-photo { flex: 0 0 auto; min-width: 0; width: 44%; margin: 0; scroll-snap-align: center; }
 .recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 200px; margin: 0; }
 .recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 6px; }
+.recent-photo figcaption { min-height: 22px; margin-top: 10px; font-size: 13px; line-height: 1.6; text-align: center; }
+.swiper-initialized .recent-photo figcaption { visibility: hidden; }
+.swiper-initialized .swiper-slide-active figcaption { visibility: visible; }
 .swiper-initialized .recent-photo-link { transform: scale(.92); transition: transform 220ms ease; }
 .swiper-initialized .swiper-slide-active .recent-photo-link { transform: none; }
 // ProgressiveBlur layer masks adapted from ibelick/motion-primitives; MIT notice in assets/vendor/motion-primitives/.

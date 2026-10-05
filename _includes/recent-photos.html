@@ -9,6 +9,7 @@
       <a class="recent-photo-link" href="{{ photo.image | relative_url }}" aria-label="View full-size photo: {{ photo.display_date | escape }} · {{ photo.caption | escape }}">
         <img src="{{ photo.preview | relative_url }}" srcset="{{ photo.preview | relative_url }} 640w, {{ photo.preview_large | relative_url }} 1280w" sizes="(max-width: 520px) 45vw, 270px" width="{{ photo.width }}" height="{{ photo.height }}" alt="{{ photo.alt | escape }}" loading="lazy" decoding="async">
       </a>
+      <figcaption><time datetime="{{ photo.date | escape }}">{{ photo.display_date | escape }}</time><span aria-hidden="true"> · </span>{{ photo.caption | escape }}</figcaption>
     </figure>
     {% endfor %}
     </div>
