@@ -38,6 +38,13 @@
   // Keep the reading position across translated posts. Both versions share the same
   // heading/figure sequence, so the position is stored as a fraction between landmarks.
   var article = document.querySelector('.post-content');
+  // A paragraph that is entirely emphasis is a figure caption or note in these posts; mute it.
+  if (article) {
+    article.querySelectorAll('p').forEach(function (paragraph) {
+      var only = paragraph.children.length === 1 ? paragraph.firstElementChild : null;
+      if (only && only.tagName === 'EM' && paragraph.textContent.trim() === only.textContent.trim()) paragraph.classList.add('post-caption');
+    });
+  }
   var languageLink = document.querySelector('.lang-toggle');
   var positionKey = 'translation-position';
   function landmarkEdges() {

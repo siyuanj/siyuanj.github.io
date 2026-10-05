@@ -1,5 +1,16 @@
 # Project Status
 
+## 2026-10-05 06:10 EDT (America/New_York) - 全站文字排版与Notes列表优化
+
+- **用户要求**：笔记部分现在只是普通Markdown；参考有研究的排版规范（用户举例OpenAI页面读起来舒服）优化整体字号、间距。
+- **调研依据（2026-10-05实测/查阅）**：OpenAI英文文章`/index/towards-safety-cases-for-frontier-ai-training/`正文17px/28px、字距-0.01em、标题字重500、正文列556px（约65个拉丁字符）、段距24px；中文版`/zh-Hans-CN/index/the-eternal-complement/`同为17px/28px，列宽596px（约35个汉字）。@tailwindcss/typography `src/styles.js`：base 16/28、lg 18/32、`max-width: 65ch`、段距1.25em、h2 1.5em且上边距2em。改前本站文章页16px/1.72，正文列864px（约110个拉丁字符/约50个汉字），段距16px。
+- **这次做了什么（我的判断，按上述依据）**：(1) 全站正文17px/1.65（≤520px时16px），中文页行高1.75；字体栈加入PingFang SC、Hiragino Sans GB、Microsoft YaHei、Noto Sans CJK SC，仍不加载网络字体。(2) `div.wrapper`最大宽度1160→1060px，内容列864→764px（约90个拉丁字符/行）；首页轮播图高随之200→187px。(3) 首页h2 22→24px、字重650；h3 17→18px；经历说明13→14px；段距16→18px。(4) 新增`_sass/site-prose.scss`（已加入`scripts/update_asset_versions.py`的site_css来源）：文章/笔记正文列60ch（约75个拉丁字符/38个汉字）、段距1.25em、h2取消下划线并加大上边距、正文链接加下划线、图片居中；同时删掉`site-base.scss`中被覆盖的旧标题规则。(5) `site.js`把整段只有斜体的段落标为`.post-caption`，只改成灰色（不改字号，避免页面跳动）；中文页`em`改为正体。实测中英文生成文章里的斜体各259处，全是整段图注/注释，没有句中斜体。(6) `note.md`：去掉“NOTE”标签和行内样式，与Blog列表一样显示“日期+标题”；无日期的笔记（Jekyll用构建时间作日期）不显示日期。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功。内置浏览器1280×800：英文文章列642px、17px/28px、段距21.25px；中文文章每行38个汉字、行高1.75、7处图注为灰色正体；首页内容列764px、约90字符/行，出版物卡片764px；Notes列表为“（空）这是一个非常随意的笔记标题”“2025-01-20 My First note”。375px手机：16px/26.4px，无横向溢出，暗色正常。语言切换保位逻辑未改，图注只改颜色不影响定位。
+- **卡在哪 / 下一步**：push后核对Pages和线上效果。
+- **还没验证的**：Windows/Android上的中文字体实际回退；Safari/Firefox渲染；用户主观观感需要用户确认。
+- **要用户定的**：排版观感是否满意（如需更接近OpenAI，可把文章列再收窄到约560px，或改用标题字重500）。
+
+
 ## 2026-10-05 05:40 EDT (America/New_York) - 仓库README去模板化
 
 - **这次做了什么 / 用户要求**：用户指出仓库README仍是模板。`README.md`重写：删除Minimal Light模板的介绍、Getting Started、配置示例等内容，改为本站说明：页面表、仓库结构、常见更新入口、本地预览与发布、按主题分节的实现说明（原Project Notes条目全部保留并归类）、项目文档和致谢（Minimal Light CC0、Splide与motion-primitives MIT）。CV条目按用户05:25决定改写为“主页可以包含PDF里没有的内容”。

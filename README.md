@@ -38,7 +38,7 @@ html_source_file/        legacy compiled template HTML (excluded from the site)
 - **Publications**: `_data/publications.yml`, figures in `assets/img/publications/`, then regenerate previews (see below).
 - **Photos**: `_data/photos.yml` and `assets/img/photos/`.
 - **Blog posts**: generated, together with `_blogs/pic/`, by the owner's separate export tool (`tools/blog_export.py` in the `8-28 公众号` workspace). Edit the source there instead of the generated files.
-- **Notes**: add a Markdown file to `_notes/` with front matter (at least `title`; `date` controls ordering).
+- **Notes**: add a Markdown file to `_notes/` with front matter (at least `title`; `date` controls ordering and is shown in the list, undated notes show no date).
 - **CV**: replace `assets/files/CV_public.pdf` at the same path.
 - **Shared CSS/JS**: after editing, run `python3 scripts/update_asset_versions.py`.
 
@@ -60,6 +60,12 @@ Pushing to `main` triggers GitHub Pages' `pages-build-deployment` workflow. GitH
 - The shared shell is `_layouts/site.html`; `homepage` and `post` remain compatible entry layouts. Head metadata, profile and navigation are separate includes; navigation labels and routes live in `_data/navigation.yml`. Collection posts highlight their parent navigation tab and provide a return link.
 - `assets/css/site.scss` compiles `_sass/site-base.scss` and `_sass/site-layout.scss` into one compressed stylesheet. Desktop uses a constrained two-column layout; at 760px or narrower the profile becomes a compact header. System fonts and inline SVG icons avoid external font and style requests. Publication styling is loaded only by pages with `uses_publications: true`. Legacy theme files are kept for old cached pages but are not loaded.
 - Main navigation always shows all four tabs (owner decision 2026-10-05: keep Notes even while empty), in four aligned columns on medium screens and two equal columns at 520px or narrower. Profile email inherits the surrounding font and size, with a break opportunity after @. The homepage section shortcut row is intentionally removed.
+
+### Typography
+
+- Body text is 17px with 1.65 line height (16px at 520px or narrower); Chinese pages use 1.75. The font stack is system UI fonts followed by PingFang SC, Hiragino Sans GB, Microsoft YaHei and Noto Sans CJK SC, so no web fonts are loaded. The page is at most 1060px wide, giving a ~764px content column (about 90 Latin characters per line).
+- Blog posts and notes use `_sass/site-prose.scss`: a 60ch reading column (~75 Latin or ~38 Chinese characters), 1.25em paragraph spacing, unruled section headings with a 2em lead-in, underlined body links and centered figures. The rhythm follows [@tailwindcss/typography](https://github.com/tailwindlabs/tailwindcss-typography/blob/main/src/styles.js); size and measure were checked against OpenAI article pages on 2026-10-05 (17px/28px text, 556-596px columns, about 65 Latin or 35 Chinese characters).
+- `site.js` marks a paragraph that is entirely emphasis as `.post-caption` (all italic paragraphs in the generated posts are figure captions or notes) and mutes its colour only, so the layout does not move. Chinese pages keep emphasis upright because CJK fonts have no true italics.
 
 ### Theme switch and page tools
 

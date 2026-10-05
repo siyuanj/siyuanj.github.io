@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = {
-    "site_css": ["assets/css/site.scss", "_sass/site-base.scss", "_sass/site-layout.scss"],
+    "site_css": ["assets/css/site.scss", "_sass/site-base.scss", "_sass/site-layout.scss", "_sass/site-prose.scss"],
     "publication_css": ["assets/css/publication-cards.css"],
     "site_js": ["assets/js/site.js"],
 }

@@ -26,7 +26,7 @@
 html[data-theme="dark"] { @include dark-palette; color-scheme: dark; }
 html[data-theme="light"] { color-scheme: light; }
 html { scroll-padding-top: 24px; }
-body { background: var(--page-bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { background: var(--page-bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
@@ -54,8 +54,6 @@ img { height: auto; }
 .post-item { display: flex; align-items: baseline; border-bottom: 1px solid var(--line); padding: 14px 0; }
 .post-date { flex-shrink: 0; color: var(--muted); }
 .post-header { margin-bottom: 24px; }
-.site-content .post-title { font-size: 26px; line-height: 1.35; margin: 16px 0 12px; }
-.post-content > h1 { font-size: 26px; line-height: 1.35; margin: 16px 0 12px; }
 .post-meta { color: var(--muted); font-size: 13px; }
 .post-back { font-size: 13px; }
 // Page tools stay reachable while reading; once the navigation scrolls away they gain a floating shadow.

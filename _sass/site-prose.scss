@@ -1,0 +1,35 @@
+// Reading typography for blog posts and notes. Rhythm follows @tailwindcss/typography (1.25em paragraphs,
+// h2 at ~1.4em with a 2em lead-in); size and measure were checked against OpenAI article pages
+// (17px/28px text, 556-596px columns, ~65 Latin or ~35 Chinese characters). 60ch gives ~75 Latin / ~38 Chinese.
+.site-content .post-content { max-width: 60ch; }
+.site-content .post-content p,
+.site-content .post-content ul,
+.site-content .post-content ol,
+.site-content .post-content table,
+.site-content .post-content pre,
+.site-content .post-content blockquote { margin-top: 0; margin-bottom: 1.25em; }
+.site-content .post-content > h1,
+.site-content .post-content .post-title { margin: .35em 0 .65em; font-size: 1.85em; line-height: 1.22; font-weight: 700; letter-spacing: -.022em; }
+.site-content .post-content h2 { margin: 2em 0 .7em; padding-bottom: 0; border-bottom: 0; font-size: 1.4em; line-height: 1.32; letter-spacing: -.018em; }
+.site-content .post-content h3 { margin: 1.75em 0 .5em; font-size: 1.15em; line-height: 1.45; }
+.site-content .post-content h4 { margin: 1.5em 0 .4em; font-size: 1em; font-weight: 650; }
+.site-content .post-content li { margin-bottom: .45em; }
+.site-content .post-content li > ul,
+.site-content .post-content li > ol { margin-top: .45em; margin-bottom: 0; }
+.site-content .post-content img { display: block; margin: 1.75em auto; border-radius: 6px; }
+.site-content .post-content hr { margin: 2.25em 0; }
+.site-content .post-content blockquote { padding: .15em 0 .15em 1em; }
+.site-content .post-content table { font-size: .9em; line-height: 1.55; }
+.site-content .post-content a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+.site-content .post-content a:hover { text-decoration-color: currentColor; }
+.site-content .post-content .post-back { text-decoration: none; }
+.site-content .post-header { margin-bottom: 1.25em; }
+// Captions change colour only, so marking them after load does not move the text.
+.site-content .post-content .post-caption { color: var(--muted); }
+// Chinese has no true italics; browsers would slant the glyphs, so keep emphasis upright.
+html:lang(zh) .site-content .post-content em { font-style: normal; }
+@media (max-width: 520px) {
+  .site-content .post-content > h1,
+  .site-content .post-content .post-title { font-size: 1.6em; }
+  .site-content .post-content h2 { font-size: 1.3em; }
+}
