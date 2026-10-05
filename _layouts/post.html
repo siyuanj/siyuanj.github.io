@@ -6,6 +6,18 @@ layout: homepage
     {% if page.collection == 'notes' %}<a class="post-back" href="{{ '/note/' | relative_url }}">← All notes</a>{% else %}<a class="post-back" href="{{ '/blog/' | relative_url }}">← All blog posts</a>{% endif %}
     {% unless content contains '<h1' %}{% if page.title %}<h2 class="post-title">{{ page.title | escape }}</h2>{% endif %}{% endunless %}
     {% if page.date %}<p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>{% endif %}
+    {% if page.translation_key %}
+      {% assign versions = site[page.collection] | where: "translation_key", page.translation_key | sort: "lang" %}
+      {% if versions.size > 1 %}
+        <p class="post-lang" aria-label="Language">
+          {% for version in versions %}
+            {% if version.lang == 'zh' %}{% assign label = '中文' %}{% else %}{% assign label = 'English' %}{% endif %}
+            {% if version.url == page.url %}<span class="post-lang-current" aria-current="true" lang="{{ version.lang }}">{{ label }}</span>
+            {% else %}<a href="{{ version.url | relative_url }}" lang="{{ version.lang }}" hreflang="{{ version.lang }}">{{ label }}</a>{% endif %}
+          {% endfor %}
+        </p>
+      {% endif %}
+    {% endif %}
   </header>
   {{ content }}
 </article>
