@@ -18,11 +18,11 @@ cv_link: /assets/files/CV_public.pdf
 github_link: https://github.com/siyuanj
 # linkedin: https://www.linkedin.com # 暂无
 twitter: https://x.com/siyaun_jiang
-# Images (e.g., your profile picture and your website's favicon) 
-# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
+# Profile and browser icons. The anime favicon works on both light and dark chrome.
 avatar: /assets/img/jiangsiyuan.png
-favicon: /assets/img/avatar.png
-favicon_dark: /assets/img/avatar.png
+favicon: /assets/img/icons/siyuan-anime-32.png
+favicon_small: /assets/img/icons/siyuan-anime-16.png
+apple_touch_icon: /assets/img/icons/siyuan-anime-180.png
 
 # Footnote
 # You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."

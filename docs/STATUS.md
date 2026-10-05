@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 12:13 CST (Asia/Shanghai) - 动漫头像favicon生成与全站入口更新
+
+- **这次做了什么 / 用户要求**：使用内置imagegen，以金门大桥插画中的人物和风格生成个人网站浏览器头像图标。采用笑脸、黑框眼镜、深色蓬松头发和蓝底；生成一次，实际输出1254×1254，未将提示词要求的1024冒充实际尺寸。头像母版保存assets/img/icons/siyuan-anime.png，16/32/48/180px为标准交付缩放；全站共享head声明16/32px PNG和180px touch图标，根favicon.ico含16/32/48px帧。新PNG路径避开旧favicon缓存。
+- **现在真实状态 / 本次实测**：母版与imagegen原始PNG逐字节一致；16px873字节、32px2840字节、ICO9688字节。17项本地素材核查通过：PNG尺寸/哈希、母版保留、ICO目录/偏移/三帧精确匹配/长度。16/32px已查看，眼镜和笑脸可辨认；配置与共享head diff自审及diff --check通过。README记录实际入口、交付尺寸和私有重跑文件。CSS/JS、头像侧栏和照片轮播未改。
+- **自审 / 来源**：所有造型由内置imagegen生成，Node Sharp仅缩小交付尺寸，未使用CLI/API备用生成模式。输入、最终提示词favicon-prompt.md、selected-icon.png、export-favicon.cjs、icon-manifest.json、local-review.json和STATUS备份在试验工作区10-5 网页头像图标。所有当前布局继承site-head；旧主题favicon脚本不由当前布局加载。
+- **卡在哪 / 下一步**：无素材或实现阻塞。准备commit/push，再等待真实Pages构建、核对首页/Publications/笔记三个入口和六个资源线上字节，Chrome实际检查标签图标。
+- **还没验证的 / 要用户定的**：本轮线上部署及Chrome标签尚未验收；未跑本地Jekyll，不声称浏览器性能基准或真实iOS添加到桌面已测。无用户待定项。STATUS增量前插，原章节保留。
+
+
 ## 2026-10-05 12:04 CST (Asia/Shanghai) - 旅行插画上线与Chrome验收完成
 
 - **这次做了什么 / 用户决定**：近期照片另外四张已通过内置imagegen转换成与金门大桥参考一致的动漫旅行插画；用户原始提示词保存在私有final-prompt-set.json，NVIDIA/Griffith面部经过针对性修正。五张完整画幅统一1448×1086、4:3；当前缩略图与大图链接均为插画，保留日期地点、8px间距、中央图注、局部边缘模糊和圆形箭头。旧真人JPEG/预览已哈希备份并从当前发布树移除，历史Git版本仍保留。
