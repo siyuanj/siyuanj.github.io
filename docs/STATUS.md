@@ -1,5 +1,12 @@
 # Project Status
 
+## 2026-10-05 10:44 CST (Asia/Shanghai) - 按用户反馈缩小照片轮播
+
+- **用户追加要求**：photo区域小一些。我的判断：桌面图片框420→300px，手机300→220px；轮播外框最大680px并居中，箭头随图片中心缩移。保留完整比例、日期说明、五张照片与左右/圆点/手势交互。CSS内容键24fa74aff089，JS保持0dabd5ddf045。
+- **当前实测**：初版a2675a5已push，Pages37256351316全部success；4URL/五slides/五dots/两箭头/五caption/小导航移除/CSS/JS字节检查通过。Chrome点击Next实际切到Google第二张、第二圆点高亮，Light桌面完整图与说明已观察。其余交互和缩小后视觉验收待新部署。
+- **自审/未验证/下一步**：缩小仅改CSS几何和缓存键，箭头中心与300/220px框匹配，max-width可缩窄。diff --check通过。准备commit/push，然后Chrome核对缩小后桌面/390px、圆点、首尾循环、键盘及滑动。未运行本地Jekyll或性能基准；无用户待定内容。旧STATUS正文已备份并保留。
+
+
 ## 2026-10-05 10:40 CST (Asia/Shanghai) - 首页小导航移除与照片横向轮播
 
 - **这次做了什么**：用户要求删除 Education/Research/Publications/Projects/Photos 小导航行，照片改为参考图所示的横向滑动方式。移除index.md中的section-nav，近期照片改为原生scroll-snap横向轨道，左右箭头、5个位置圆点、轨道键盘左右/Home/End及触屏/触控板滑动；保留日期说明和原图链接。我的判断：完整图片包含在桌面420px、手机300px高的稳定框内，不裁剪；不自动播放、不增加轮播库/计时器/global scroll handler。
