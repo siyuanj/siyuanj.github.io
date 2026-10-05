@@ -1,0 +1,14 @@
+---
+layout: null
+permalink: /sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for entry in site.html_pages %}{% assign nav_item = site.data.navigation | where: "url", entry.url | first %}{% if nav_item.collection and site[nav_item.collection].size == 0 %}{% continue %}{% endif %}{% unless entry.sitemap == false %}
+  <url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>
+{%- endunless %}{% endfor %}
+{%- for collection in site.collections %}{% if collection.output %}{% for doc in collection.docs %}{% unless doc.sitemap == false %}
+  <url><loc>{{ doc.url | absolute_url | xml_escape }}</loc>{% if doc.date %}<lastmod>{{ doc.date | date: '%Y-%m-%d' }}</lastmod>{% endif %}</url>
+{%- endunless %}{% endfor %}{% endif %}{% endfor %}
+</urlset>

@@ -9,6 +9,7 @@
   --line: #dce3e9;
   --muted: #6b7280;
   --surface: #f4f7fa;
+  --raised: #fff;
 }
 @mixin dark-palette {
   --page-bg: #20212b;
@@ -19,6 +20,7 @@
   --line: #394552;
   --muted: #a6adb8;
   --surface: #282c3a;
+  --raised: #3a4152;
 }
 @media (prefers-color-scheme: dark) { html:not([data-theme]) { @include dark-palette; } }
 html[data-theme="dark"] { @include dark-palette; color-scheme: dark; }
@@ -56,14 +58,27 @@ img { height: auto; }
 .post-content > h1 { font-size: 26px; line-height: 1.35; margin: 16px 0 12px; }
 .post-meta { color: var(--muted); font-size: 13px; }
 .post-back { font-size: 13px; }
-.lang-toggle { position: fixed; z-index: 10; display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); font: 600 12px/1 ui-monospace, monospace; text-decoration: none; }
-.lang-toggle:hover { border-color: var(--link); text-decoration: none; }
+// Page tools stay reachable while reading; once the navigation scrolls away they gain a floating shadow.
+.page-tools { position: fixed; z-index: 10; display: flex; align-items: center; gap: 8px; }
+.page-tools.is-floating .lang-toggle, .page-tools.is-floating .theme-switch { box-shadow: 0 6px 18px rgba(15, 23, 42, .14); }
+.page-tools, .page-tools * { box-sizing: border-box; }
+.lang-toggle, .theme-switch { height: 34px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); transition: box-shadow .2s; }
+.lang-toggle { display: inline-flex; align-items: center; gap: 5px; padding: 0 11px 0 9px; color: var(--muted); font-size: 12px; font-weight: 650; line-height: 1; text-decoration: none; transition: color .2s, border-color .2s, box-shadow .2s; }
+.lang-toggle:hover { border-color: var(--link); color: var(--text); text-decoration: none; }
 .lang-toggle svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+// A single thumb marks the active theme; it follows html[data-theme], which is set before first paint.
+.theme-switch { --option: 28px; position: relative; display: inline-flex; gap: 2px; padding: 2px; }
+.theme-switch::before { content: ''; position: absolute; top: 2px; left: 2px; width: var(--option); height: var(--option); border-radius: 50%; background: var(--raised); box-shadow: 0 1px 3px rgba(15, 23, 42, .18); transition: transform .25s cubic-bezier(.3, .7, .4, 1); }
+html[data-theme="light"] .theme-switch::before { transform: translateX(calc(var(--option) + 2px)); }
+html[data-theme="dark"] .theme-switch::before { transform: translateX(calc(2 * var(--option) + 4px)); }
+.theme-option { position: relative; display: grid; place-items: center; width: var(--option); height: var(--option); padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; transition: color .2s; }
+.theme-option:hover { color: var(--text); }
+.theme-option:focus-visible { outline-offset: 1px; }
+.theme-option svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+html:not([data-theme]) [data-theme-option="auto"], html[data-theme="light"] [data-theme-option="light"], html[data-theme="dark"] [data-theme-option="dark"] { color: var(--heading); }
 .post-lang-link { flex-shrink: 0; margin-left: 12px; font-size: 12px; }
 .section-nav { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 0 0 24px; font-size: 13px; }
 .site-content .section-nav + h2 { margin-top: 0; }
-.theme-toggle { position: fixed; z-index: 10; min-width: 74px; height: 32px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--text); padding: 0 12px; font: 600 12px/1 ui-monospace, monospace; cursor: pointer; }
-.theme-toggle:hover { border-color: var(--link); }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 20; padding: 8px 12px; background: var(--page-bg); transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }

@@ -23,6 +23,8 @@ avatar: /assets/img/jiangsiyuan.png
 favicon: /assets/img/icons/siyuan-anime-32.png
 favicon_small: /assets/img/icons/siyuan-anime-16.png
 apple_touch_icon: /assets/img/icons/siyuan-anime-180.png
+# 512px link-preview image (Open Graph / structured data), resized from the favicon master.
+share_image: /assets/img/icons/siyuan-anime-share-512.jpg
 
 # Footnote
 # You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."

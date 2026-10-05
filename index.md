@@ -8,6 +8,12 @@ uses_photos: true
 
 Hi, my name is Siyuan Jiang. I am an undergraduate student at Tsinghua University, Tanwei College, majoring in Chemical Biology for Pharmaceutical Science.
 
+My research journey began with synthetic biology on the [Tsinghua-M iGEM 2024 team](https://2024.igem.wiki/tsinghua-m/), where we built RNAssay, an ADAR-based RNA sensing system in yeast, and won a Gold Medal. After a brief stay in [Prof. Xuebin Liao's lab](https://www.sps.tsinghua.edu.cn/info/1011/1423.htm) at the School of Pharmaceutical Sciences, I joined [Prof. Yigong Shi's lab](https://ygshi.org/) at the School of Life Sciences, Tsinghua University, in July 2025.
+
+In the Shi Lab, my main project is the spatiotemporal evolution of gamma-secretase, the intramembrane protease complex implicated in Alzheimer's disease. I trace its catalytic subunit presenilin-1 (PS1) back to prokaryotic homologs with eukaryotic phylogenetics, use about 1,500 AlphaFold 3 predictions to reconstruct the order in which its subunits assembled during evolution, and identify mechanistically important residues and their potential links to Alzheimer's disease.
+
+In summer 2026, I visited [Prof. Le Cong's lab](https://conglab.com/) at Stanford University School of Medicine, and in September 2026 I visited [Prof. Xuefeng Liu's lab](https://xuefeng11.github.io/) at the University of Florida.
+
 My research interests center on computational protein engineering, especially model-driven protein design, virtual screening, evolutionary analysis, and functional redesign.
 
 ## <span>Education</span>
@@ -17,7 +23,7 @@ My research interests center on computational protein engineering, especially mo
 {: .experience-meta}
 
 - GPA: **3.83/4.00**
-- Selected coursework: **Chemical Bioinformatics and Artificial Intelligence (A+)**, **Drug Design (A+)**, Bioinformatics (A, Excellent Project), Medicinal Chemistry (A), AI in Healthcare (A), Chemical Biology (A-)
+- Selected coursework: **Chemical Bioinformatics and Artificial Intelligence (A+)**, **Drug Design (A+)**, **Gene Editing (A+)**, Bioinformatics (A, Excellent Project), Medicinal Chemistry (A), AI in Healthcare (A), Chemical Biology (A-)
 
 ## <span>Research Interests</span>
 
@@ -30,7 +36,7 @@ My primary research interests include:
 ## <span>Research Experience</span>
 
 ### Structure-Guided Aptamer Design
-*School of Medicine, Stanford University | Advisor: Prof. Le Cong | Jul 2026 - Present*
+*School of Medicine, Stanford University | Advisor: [Prof. Le Cong](https://conglab.com/) | Jul 2026 - Present*
 {: .experience-meta}
 
 - Developed workflows for RNA/DNA aptamer design, integrating protein–nucleic acid complex prediction, backbone-conditioned inverse folding, and structure-based candidate filtering.
@@ -53,7 +59,7 @@ My primary research interests include:
 - Integrated **AlphaFold 3** for high-precision structural validation of top candidates and finalized the study with wet-lab experimental assays to verify binding affinity.
 
 ### Spatiotemporal Evolution of the Gamma-Secretase Complex
-*School of Life Sciences, THU | Advisor: Prof. Yigong Shi | Jul 2025 - Present*
+*School of Life Sciences, THU | Advisor: [Prof. Yigong Shi](https://ygshi.org/) | Jul 2025 - Present*
 {: .experience-meta}
 
 - Constructed eukaryotic phylogenetic trees for the gamma-secretase complex and traced the PS1 subunit from prokaryotic homologs to clarify its deep evolutionary origin.
@@ -76,7 +82,7 @@ My primary research interests include:
 - **WeiGuang Program, Individual Excellence Award**, Tsinghua University (Jun 2025)
 - **Gold Award for the Practical Detachment**, Tanwei College (Jan 2025)
 - **Comprehensive Excellence Award**, Tsinghua University Scholarship, Top 20% (Nov 2024)
-- **Gold Medal**, International Genetically Engineered Machine Competition (iGEM) (Oct 2024)
+- **Gold Medal**, International Genetically Engineered Machine Competition (iGEM), team [Tsinghua-M · RNAssay](https://2024.igem.wiki/tsinghua-m/) (Oct 2024)
 
 ## <span>Skills</span>
 

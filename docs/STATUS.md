@@ -1,5 +1,16 @@
 # Project Status
 
+## 2026-10-05 04:30 EDT (America/New_York) - 网站优化、照片精简、主题切换重做、About Me研究经历
+
+- **这次做了什么 / 用户要求**：照片只保留金门大桥、NVIDIA、Griffith（`_data/photos.yml`，Google/UCLA图片文件保留未删）；右上角Auto文字按钮改为系统/亮/暗三段图标切换（`_layouts/site.html`、`_sass/site-base.scss`、`assets/js/site.js`）；About Me新增研究经历：iGEM（Tsinghua-M 2024，RNAssay）→ 廖学斌组短期 → 施一公组（单独一段写主要工作：gamma-secretase时空演化、PS1溯源、约1,500个AF3预测、关键残基与AD）→ 2026暑期Le Cong组visit → 2026年9月UF Xuefeng Liu组visit，均加超链接；用户要求弱化廖组、突出施组。Selected coursework加入 **Gene Editing (A+)**；Honors里iGEM加队伍wiki链接；Research Experience中Le Cong与施一公导师名加链接。博客中英切换保留阅读位置（用户反馈切换后回到顶部）。
+- **我的判断**：(1) 右上角工具保持fixed，便于阅读中途切换语言；导航滚出视口后由IntersectionObserver加浮动阴影（无scroll handler）。(2) 语言切换按“标题+图片”地标之间的比例映射位置，地标数不一致时退回整页比例；本地构建中48对中英文章地标数全部一致，正文图片均带width/height。(3) 首页`<title>`和og:title改为仅姓名（Pages的titles-from-headings会生成“About Me”）。(4) 新增OG/Twitter摘要卡、hreflang、按页`lang`、首页Person JSON-LD；512px分享图`assets/img/icons/siyuan-anime-share-512.jpg`由favicon母图用sips缩放（107326字节）。(5) 新增无插件`sitemap.xml`、`robots.txt`、Atom `feed.xml`（最新30篇英文博客）和自定义`404.md`（noindex）。(6) 三个占位测试条目（`_blogs/2025-01-20-test.md`、`_notes/2025-01-20-note_test.md`、`_notes/test.md`）设`published: false`，未删除；导航自动隐藏没有已发布条目的集合，因此Notes暂不显示，有新笔记后自动恢复。(7) 导航下边框改用`var(--line)`，删掉三条硬编码颜色覆盖。
+- **链接来源（2026-10-05查证）**：iGEM <https://2024.igem.wiki/tsinghua-m/>（team页成员列表含Siyuan Jiang）；廖学斌 <https://www.sps.tsinghua.edu.cn/info/1011/1423.htm>；施一公 <https://ygshi.org/>（页面含清华地址；ygshi.life.tsinghua.edu.cn从本机访问超时，未采用）；Le Cong <https://conglab.com/>（其Google Scholar主页链接）；Xuefeng Liu <https://xuefeng11.github.io/>（UF College of Medicine与AI for Health Institute助理教授）。以上链接本机curl均返回HTTP 200。
+- **现在真实状态 / 本次验证**：本地`/Volumes/Work/8-28 公众号/tools/build_blog_site.sh`（Jekyll 3.8.7）构建成功；sitemap（3个页面+已发布博客）和feed（30条）均可被XML解析；Blog列表49条（占位测试已移除）；导航3项。内置浏览器（scratchpad静态副本，localhost:4000）核验：三种状态均正确设置`data-theme`、localStorage和`aria-pressed`；轮播为3张原始slide+6个clone，中央金门大桥图注正确；430px窄屏下导航3列、工具栏高34px；Odin-Multi英文Part 3切到中文落在“三、看图说话”，中文Part 4下方120px切回英文落在Part 4下方173px，顶部切换仍为0；控制台无错误。`git diff --check`通过。提交号与Pages部署结果在本条后续补记。
+- **卡在哪 / 下一步**：push后核对Pages构建，以及线上首页/博客/404/sitemap/feed；在GitHub Pages环境确认首页og:title为姓名。
+- **还没验证的**：写入本条时尚未确认GitHub Pages（Jekyll 3.10及默认插件）线上渲染；未测真实手机触摸、Safari/Firefox；OG卡片未经各平台抓取器实测；`Gene Editing`是我对课程英文名的译法；公开CV PDF尚未加入该课程和About Me新增经历，需要与CV源文件同步。
+- **要用户定的**：课程英文名是否用“Gene Editing”；是否同步更新`assets/files/CV_public.pdf`。本次STATUS为前插，备份于`/Volumes/Work/10-5 website/status-backups/STATUS-20261005-0430-EDT.md`。
+
+
 ## 2026-10-05 12:45 CST (Asia/Shanghai) - 自然动漫旅行照片上线验收
 
 - **这次做了什么 / 用户决定**：Google、Griffith天文台和UCLA三张已按用户最新要求重新转换为自然动漫插画；采用原照的表情、脸型、人体比例和实际场景，撤销旧夸张/透视畸变提示词。NVIDIA使用用户明确选定的PNG，Golden Gate保留既有图。五张当前展示统一1448×1086、4:3，大图与缩略图均为插画。README已记录此默认；轮播代码、间距、中央图注与圆形箭头不变。

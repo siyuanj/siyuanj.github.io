@@ -1,0 +1,27 @@
+---
+layout: null
+permalink: /feed.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="utf-8"?>
+{%- comment %}Matches the Blog page: English entries, newest first; Chinese versions are linked from each post.{% endcomment %}
+{%- assign posts = site.blogs | where_exp: "post", "post.lang != 'zh'" | sort: "date" | reverse %}
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title | xml_escape }} · Blog</title>
+  <subtitle>{{ site.description | xml_escape }}</subtitle>
+  <link href="{{ '/feed.xml' | absolute_url }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ '/blog/' | absolute_url }}" rel="alternate" type="text/html"/>
+  <id>{{ '/blog/' | absolute_url }}</id>
+  <updated>{{ posts.first.date | default: site.time | date_to_xmlschema }}</updated>
+  <author><name>{{ site.title | xml_escape }}</name><uri>{{ '/' | absolute_url }}</uri></author>
+{%- for post in posts limit: 30 %}
+  <entry>
+    <title>{{ post.title | strip_html | xml_escape }}</title>
+    <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html"/>
+    <id>{{ post.url | absolute_url }}</id>
+    <published>{{ post.date | date_to_xmlschema }}</published>
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <summary>{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | xml_escape }}</summary>
+  </entry>
+{%- endfor %}
+</feed>

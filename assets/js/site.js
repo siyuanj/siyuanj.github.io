@@ -2,31 +2,92 @@
 (function () {
   'use strict';
   var modes = ['auto', 'light', 'dark'];
-  var button = document.getElementById('theme-toggle');
-  var mode = 'auto';
+  var options = Array.prototype.slice.call(document.querySelectorAll('[data-theme-option]'));
   function normalize(value) { return modes.indexOf(value) < 0 ? 'auto' : value; }
+  // The pressed state is styled from html[data-theme], so it is correct before this deferred script runs.
   function apply(value) {
-    mode = normalize(value);
+    var mode = normalize(value);
     if (mode === 'auto') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', mode);
-    if (button) {
-      var label = mode[0].toUpperCase() + mode.slice(1);
-      button.textContent = label;
-      button.dataset.mode = mode;
-      button.setAttribute('aria-label', 'Theme mode: ' + label);
-      button.title = 'Theme: ' + label + ' (click to switch)';
-    }
+    options.forEach(function (option) {
+      option.setAttribute('aria-pressed', option.dataset.themeOption === mode ? 'true' : 'false');
+    });
+    return mode;
   }
-  if (button) {
-    try { mode = normalize(localStorage.getItem('theme-preference')); } catch (error) { /* Storage is optional. */ }
-    apply(mode);
-    button.addEventListener('click', function () {
-      apply(modes[(modes.indexOf(mode) + 1) % modes.length]);
-      try { localStorage.setItem('theme-preference', mode); } catch (error) { /* Storage is optional. */ }
+  if (options.length) {
+    var saved = null;
+    try { saved = localStorage.getItem('theme-preference'); } catch (error) { /* Storage is optional. */ }
+    apply(saved);
+    options.forEach(function (option) {
+      option.addEventListener('click', function () {
+        var mode = apply(option.dataset.themeOption);
+        try { localStorage.setItem('theme-preference', mode); } catch (error) { /* Storage is optional. */ }
+      });
     });
     window.addEventListener('storage', function (event) {
       if (event.key === 'theme-preference') apply(event.newValue);
     });
+  }
+  var tools = document.querySelector('.page-tools');
+  var navigation = document.querySelector('.top-nav');
+  if (tools && navigation && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      tools.classList.toggle('is-floating', !entries[0].isIntersecting);
+    }).observe(navigation);
+  }
+  // Keep the reading position across translated posts. Both versions share the same
+  // heading/figure sequence, so the position is stored as a fraction between landmarks.
+  var article = document.querySelector('.post-content');
+  var languageLink = document.querySelector('.lang-toggle');
+  var positionKey = 'translation-position';
+  function landmarkEdges() {
+    var edges = [0, article.getBoundingClientRect().top + window.scrollY];
+    article.querySelectorAll('h1, h2, h3, h4, h5, h6, img').forEach(function (element) {
+      edges.push(element.getBoundingClientRect().top + window.scrollY);
+    });
+    edges.push(document.documentElement.scrollHeight);
+    return edges;
+  }
+  function scrollRange() { return Math.max(1, document.documentElement.scrollHeight - window.innerHeight); }
+  if (article && languageLink) {
+    languageLink.addEventListener('click', function (event) {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      var edges = landmarkEdges();
+      var y = window.scrollY;
+      var index = 0;
+      while (index < edges.length - 2 && y >= edges[index + 1]) index++;
+      var span = edges[index + 1] - edges[index];
+      var position = {
+        path: new URL(languageLink.href).pathname,
+        count: edges.length,
+        index: index,
+        fraction: span > 0 ? Math.min(Math.max((y - edges[index]) / span, 0), 1) : 0,
+        ratio: y / scrollRange()
+      };
+      try { sessionStorage.setItem(positionKey, JSON.stringify(position)); } catch (error) { /* Storage is optional. */ }
+    });
+  }
+  var savedPosition = null;
+  try {
+    savedPosition = JSON.parse(sessionStorage.getItem(positionKey));
+    sessionStorage.removeItem(positionKey);
+  } catch (error) { /* Storage is optional. */ }
+  if (article && savedPosition && savedPosition.path === location.pathname) {
+    var restoredY = null;
+    var restorePosition = function () {
+      var edges = landmarkEdges();
+      var i = savedPosition.index;
+      var y = edges.length === savedPosition.count && i + 1 < edges.length
+        ? edges[i] + savedPosition.fraction * (edges[i + 1] - edges[i])
+        : savedPosition.ratio * scrollRange();
+      window.scrollTo(0, Math.round(y));
+      restoredY = window.scrollY;
+    };
+    restorePosition();
+    // Images reserve their size, but re-align once after load unless the reader has moved.
+    window.addEventListener('load', function () {
+      if (window.scrollY === restoredY) restorePosition();
+    }, { once: true });
   }
   var connection = navigator.connection;
   var prefetched = new Set();

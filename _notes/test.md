@@ -1,3 +1,6 @@
+---
+published: false # placeholder test entry
+---
 # 这是一个非常随意的笔记标题
 
 这里是正文内容，我根本不需要写 date 也不需要写 title。
