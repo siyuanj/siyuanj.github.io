@@ -11,10 +11,10 @@ SPECS = {
     "gpcr-turbo": (ROOT / "assets/img/publications/gpcr-turbo-framework.png", ROOT / "assets/img/publications", [600, 1200]),
     "structrace": (ROOT / "assets/img/publications/structrace-framework.png", ROOT / "assets/img/publications", [600, 1200]),
     "golden-gate-2026-09-26": (ROOT / "assets/img/photos/golden-gate-2026-09-26.png", ROOT / "assets/img/photos", [640, 1280]),
-    "google-2026-09-24": (ROOT / "assets/img/photos/google-2026-09-24.jpg", ROOT / "assets/img/photos", [640, 1280]),
-    "nvidia-2026-09-24": (ROOT / "assets/img/photos/nvidia-2026-09-24.jpg", ROOT / "assets/img/photos", [640, 1280]),
-    "griffith-2026-09-23": (ROOT / "assets/img/photos/griffith-2026-09-23.jpg", ROOT / "assets/img/photos", [640, 1280]),
-    "ucla-bear-2026-09-23": (ROOT / "assets/img/photos/ucla-bear-2026-09-23.jpg", ROOT / "assets/img/photos", [640, 1280]),
+    "google-2026-09-24-illustrated": (ROOT / "assets/img/photos/google-2026-09-24-illustrated.png", ROOT / "assets/img/photos", [640, 1280]),
+    "nvidia-2026-09-24-illustrated": (ROOT / "assets/img/photos/nvidia-2026-09-24-illustrated.png", ROOT / "assets/img/photos", [640, 1280]),
+    "griffith-2026-09-23-illustrated": (ROOT / "assets/img/photos/griffith-2026-09-23-illustrated.png", ROOT / "assets/img/photos", [640, 1280]),
+    "ucla-bear-2026-09-23-illustrated": (ROOT / "assets/img/photos/ucla-bear-2026-09-23-illustrated.png", ROOT / "assets/img/photos", [640, 1280]),
 }
 
 
@@ -38,13 +38,16 @@ def generate(names=None):
                 height = round(original.height * width / original.width)
                 preview = original.resize((width, height), Image.Resampling.LANCZOS)
                 destination = output_dir / (name + "-" + str(width) + ".webp")
-                preview.save(destination, "WEBP", lossless=True, method=6)
+                illustrated = name.endswith("-illustrated")
+                preview.save(destination, "WEBP", lossless=not illustrated, quality=90, method=6)
                 with Image.open(destination) as reopened:
                     assert reopened.size == (width, height)
-                    assert reopened.convert("RGBA").tobytes() == preview.convert("RGBA").tobytes()
+                    if not illustrated:
+                        assert reopened.convert("RGBA").tobytes() == preview.convert("RGBA").tobytes()
                 entries.append({"path": str(destination.relative_to(ROOT)), "width": width,
                                 "height": height, "bytes": destination.stat().st_size,
-                                "sha256": digest(destination)})
+                                "sha256": digest(destination), "lossless": not illustrated,
+                                "quality": 90 if illustrated else None})
         assert digest(source) == original_hash
         report[name] = {"source": str(source.relative_to(ROOT)), "source_sha256": original_hash,
                         "original_unchanged": True, "previews": entries}
