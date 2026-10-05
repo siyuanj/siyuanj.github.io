@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 12:04 CST (Asia/Shanghai) - 旅行插画上线与Chrome验收完成
+
+- **这次做了什么 / 用户决定**：近期照片另外四张已通过内置imagegen转换成与金门大桥参考一致的动漫旅行插画；用户原始提示词保存在私有final-prompt-set.json，NVIDIA/Griffith面部经过针对性修正。五张完整画幅统一1448×1086、4:3；当前缩略图与大图链接均为插画，保留日期地点、8px间距、中央图注、局部边缘模糊和圆形箭头。旧真人JPEG/预览已哈希备份并从当前发布树移除，历史Git版本仍保留。
+- **现在真实状态 / 本次验证**：代码c8343602ca5d36ba4fcf017de676f67faa4cf0f5已push，真实Pages37261417651的build/deploy/report-build-status均success。verify_online.py四组检查通过：线上五slides及1448×1086/lazy/async/PNG大图入口；12新资源HTTP200且与本地逐字节一致；12旧真人资源HTTP404。首次核查遇到一个Griffith PNG HTTP503，加入仅对暂时性HTTP/network错误的最多3次重试后全部通过。四张640预览合计489930字节，比旧1442018字节少66.0%；未声称相同幅度的网页性能提升。
+- **Chrome实际验收 / 证据**：桌面金门大桥/UCLA/Google三个同尺寸插画及中央图注已观察；圆点选NVIDIA，NVIDIA/Google/Griffith三个最终插画及图注正确。实际点击NVIDIA中央链接打开1448×1086 illustrated PNG，再返回。400px仿真观察完整三图、箭头、中央说明，Next从第一张到Google第二张匹配。已关闭仿真及DevTools，保留Light和用户标签。私有任务目录10-5 照片插画统一保存五张Chrome截图、chrome-acceptance.json、online-check.json、部署JSON、提示词、原始备份、选中PNG及预览清单；8项本地素材审查通过。
+- **卡在哪 / 下一步**：无实现或上线阻塞。本条是最终验收文档补充，提交push后核对最终Pages状态；图片和已验收页面代码不变。
+- **还没验证的 / 要用户定的**：未测真手机触摸、无JS回退、受控性能基准，未跑本地Jekyll；采用真实Pages构建和Chrome。原图拍摄日期地点采用用户提供的信息。无用户待定项。STATUS增量前插、时间戳备份，原章节保留。
+
+
 ## 2026-10-05 11:55 CST (Asia/Shanghai) - 旅行照片统一为动漫插画
 
 - **这次做了什么 / 用户要求**：使用内置imagegen把Google、NVIDIA、Griffith、UCLA四张旅行照转换成金门大桥图的动漫风格，人物全部插画化；统一五张1448×1086、4:3画幅。原始四次生成后，按用户补充的金门大桥原始提示词再次修正NVIDIA/Griffith偏写实面部，共6次内置调用；其余两张经参考图/提示词视觉核对接受。日期和地点保留用户标注。全图PNG和缩略图路径均换为illustrated命名，点击大图也展示插画。
