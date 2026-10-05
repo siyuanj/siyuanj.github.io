@@ -71,22 +71,24 @@ div.wrapper {
 .site-content .post-date { width: 90px; font-size: 12px; }
 .site-content pre { max-width: 100%; overflow: auto; }
 .site-content img { max-width: 100%; }
-.photo-carousel { position: relative; max-width: 680px; margin: 0 auto; padding: 20px 56px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+// Open image/caption layout: https://github.com/alshedivat/al-folio/blob/main/_projects/1_project.md
+// Bare 44px navigation controls: https://github.com/nolimits4web/swiper/blob/master/src/modules/navigation/navigation.css
+.photo-carousel { position: relative; max-width: 680px; margin: 0 auto; padding: 0 48px; }
 .photo-gallery { position: relative; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
 .photo-gallery::-webkit-scrollbar { display: none; }
 .recent-photo { flex: 0 0 100%; min-width: 0; width: 100%; margin: 0; scroll-snap-align: start; }
 .recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: 300px; max-width: 640px; margin: 0 auto; }
 .recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
-.recent-photo figcaption { min-height: 42px; margin-top: 14px; color: var(--text); font-size: 14px; line-height: 1.6; text-align: center; }
-.photo-arrow { position: absolute; top: 170px; transform: translateY(-50%); display: grid; place-items: center; width: 36px; height: 36px; padding: 8px; border: 1px solid var(--line); border-radius: 50%; background: var(--page-bg); color: var(--text); cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.08); }
-.photo-previous { left: 10px; }
-.photo-next { right: 10px; }
+.recent-photo figcaption { min-height: 26px; margin-top: 12px; color: var(--text); font-size: 14px; line-height: 1.6; text-align: center; }
+.photo-arrow { position: absolute; top: 150px; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; padding: 10px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+.photo-previous { left: 0; }
+.photo-next { right: 0; }
 .photo-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.photo-arrow:hover { color: var(--link); border-color: var(--link); }
+.photo-arrow:hover { color: var(--link); }
 .photo-dots { display: flex; justify-content: center; flex-wrap: wrap; }
 .photo-controls[hidden], .photo-dots[hidden] { display: none; }
 .photo-dot { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; background: transparent; border: 0; border-radius: 50%; cursor: pointer; }
-.photo-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: .35; }
+.photo-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: .2; }
 .photo-dot[aria-current="true"]::before { opacity: 1; background: var(--link); }
 .photo-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .site-content .visitor-map-widget { width: 100%; max-width: 320px; margin: 24px auto 0; }
@@ -123,12 +125,10 @@ html[data-theme="light"] .site-content .top-nav { border-bottom-color: #dce3e9; 
   .site-content h2 { font-size: 21px; margin-top: 30px; }
   .site-content .post-item { gap: 12px; }
   .site-content .post-date { width: 76px; }
-  .photo-carousel { padding: 14px 32px 10px; }
+  .photo-carousel { padding: 0 44px; }
   .recent-photo-link { height: 220px; }
   .recent-photo figcaption { font-size: 13px; }
-  .photo-arrow { top: 124px; width: 30px; height: 30px; padding: 5px; }
-  .photo-previous { left: 2px; }
-  .photo-next { right: 2px; }
+  .photo-arrow { top: 110px; }
 }
 @media print {
   div.wrapper { display: block; width: 100%; padding: 0; }

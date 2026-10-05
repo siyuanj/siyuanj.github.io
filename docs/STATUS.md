@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 10:56 CST (Asia/Shanghai) - 参考现有仓库调整照片展示
+
+- **这次做了什么 / 用户要求**：用户否决照片的大外框，要求查看GitHub已有实现再调整。读取knightnemo/knightnemo.github.io的simple-slider.css/simple-gallery.js、alshedivat/al-folio的项目图片示例和图库示例，以及nolimits4web/swiper的navigation/pagination CSS。我的判断：采用al-folio示例的开放式图片+图注布局、Swiper透明导航和44px点击区域/8px圆点做法，适配当前原生滚动轨道与主题色；去掉照片区域外边框、圆角底板和箭头圆圈，缩短图注空白。桌面300px、手机220px、五张照片和原图链接保留。
+- **现在真实状态**：改_sass/site-layout.scss及README参考说明，内容缓存键d300bc9d5d2a；JS仍0dabd5ddf045。参考源码与来源/哈希清单在试验工作区10-5 照片样式调整/参考源码；没有执行下载的示例脚本。自审确认箭头top=150/110对应300/220px图片框，44px点击区与两侧留白匹配；原有focus-visible和切换逻辑保留。diff --check通过，工作区仅本轮CSS/版本/README/STATUS更改。
+- **卡在哪 / 下一步**：无实现阻塞。准备commit/push、真实Pages构建及线上CSS/Chrome桌面和窄屏验收。al-folio示例已在Chrome观察到无外层面板的图片排列；本轮页面尚未部署。
+- **还没验证的**：实际手机触屏手势、无JS回退和新性能基准未验证；不将参考仓库全部导入或其运行时说成当前网站依赖。只有样式做法沿用，其余交互使用既有轨道。
+- **要用户定的**：无。旧STATUS正文已时间戳备份并逐字节保留。
+
+
 ## 2026-10-05 10:51 CST (Asia/Shanghai) - 紧凑照片轮播上线验收完成
 
 - **完成内容 / 用户要求**：移除首页 Education/Research/Publications/Projects/Photos 小导航行；五张照片改为单张横向轮播，左右箭头、位置圆点、键盘左右/Home/End。按用户追加反馈缩小：桌面图片框300px、手机220px、外框最大680px居中；完整比例、日期说明、原图链接保留。照片文件与数据未改动。
