@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 05:15 EDT (America/New_York) - 恢复Notes导航
+
+- **这次做了什么 / 用户决定**：用户问“Note怎么没了”。04:30条中“导航隐藏空集合”是我的判断，已撤销：`_includes/site-navigation.html`恢复为9562565版本（四个tab始终显示），`_sass/site-layout.scss`导航网格恢复`repeat(4, …)`，删掉仅为3项准备的窄屏规则。两条占位笔记和占位博客仍为`published: false`，Notes页显示“No notes yet.”；sitemap仍跳过空的Notes页。README导航说明已更新。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功，首页导航为`/`、`/publications/`、`/note/`、`/blog/`，`/note/`页含“No notes yet.”。Pages结果见git log及Actions。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：同04:30条。
+- **要用户定的**：是否恢复显示两条占位测试笔记（目前隐藏，文件保留）；课程英文名、CV PDF同步同04:30条。
+
+
 ## 2026-10-05 05:05 EDT (America/New_York) - About Me加入学校/团队logo
 
 - **这次做了什么 / 用户要求**：仿照用户给的截图，在About Me链接文字前加入行内logo：清华（Tsinghua University、廖学斌组、施一公组）、Stanford（Le Cong组）、UF（Xuefeng Liu组）、Tsinghua-M iGEM 2024队徽（用户选定队徽而非iGEM官方标志）。新增`_data/logos.yml`、`_includes/inline-logo.html`、`assets/img/logos/`四个PNG，`_sass/site-base.scss`加`.inline-logo`（1.15em高、随字号缩放，alt为空因为后面有链接文字）。用户在聊天中确认下载以下文件。

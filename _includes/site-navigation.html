@@ -1,8 +1,5 @@
-{% comment %}Collection tabs appear only when that collection has published entries.{% endcomment %}
-{% assign nav_count = 0 %}
-{% for item in site.data.navigation %}{% unless item.collection and site[item.collection].size == 0 %}{% assign nav_count = nav_count | plus: 1 %}{% endunless %}{% endfor %}
-<nav class="top-nav" aria-label="Main navigation" data-nav-items="{{ nav_count }}" style="--nav-items: {{ nav_count }};">
-  {% for item in site.data.navigation %}{% if item.collection and site[item.collection].size == 0 %}{% continue %}{% endif %}
+<nav class="top-nav" aria-label="Main navigation">
+  {% for item in site.data.navigation %}
   <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% elsif item.collection and page.collection == item.collection %} aria-current="page"{% endif %}>{{ item.title }}</a>
   {% endfor %}
 </nav>
