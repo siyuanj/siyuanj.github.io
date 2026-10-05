@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-05 04:55 EDT (America/New_York) - About Me研究经历合并为一段
+
+- **这次做了什么 / 用户要求**：用户认为施一公组单独一段过长，要求全部研究经历写成一段。`index.md`中iGEM、廖学斌组、施一公组、Le Cong组、Xuefeng Liu组合并为一段；施组只保留一句“where I study the evolution of the gamma-secretase complex”，廖组不再写学院名。链接不变。替代04:30条中“施组单独一段”的写法。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功，About Me共3段（自我介绍、研究经历、研究兴趣）；`git diff --check`通过。提交与Pages结果见git log及Actions。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：同04:30条。
+- **要用户定的**：同04:30条（课程英文名、CV PDF同步）。
+
+
 ## 2026-10-05 04:45 EDT (America/New_York) - b8aeca3 上线验收
 
 - **这次做了什么**：仅补记上一条改动的部署与线上核验，无代码变动。

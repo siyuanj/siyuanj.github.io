@@ -8,11 +8,7 @@ uses_photos: true
 
 Hi, my name is Siyuan Jiang. I am an undergraduate student at Tsinghua University, Tanwei College, majoring in Chemical Biology for Pharmaceutical Science.
 
-My research journey began with synthetic biology on the [Tsinghua-M iGEM 2024 team](https://2024.igem.wiki/tsinghua-m/), where we built RNAssay, an ADAR-based RNA sensing system in yeast, and won a Gold Medal. After a brief stay in [Prof. Xuebin Liao's lab](https://www.sps.tsinghua.edu.cn/info/1011/1423.htm) at the School of Pharmaceutical Sciences, I joined [Prof. Yigong Shi's lab](https://ygshi.org/) at the School of Life Sciences, Tsinghua University, in July 2025.
-
-In the Shi Lab, my main project is the spatiotemporal evolution of gamma-secretase, the intramembrane protease complex implicated in Alzheimer's disease. I trace its catalytic subunit presenilin-1 (PS1) back to prokaryotic homologs with eukaryotic phylogenetics, use about 1,500 AlphaFold 3 predictions to reconstruct the order in which its subunits assembled during evolution, and identify mechanistically important residues and their potential links to Alzheimer's disease.
-
-In summer 2026, I visited [Prof. Le Cong's lab](https://conglab.com/) at Stanford University School of Medicine, and in September 2026 I visited [Prof. Xuefeng Liu's lab](https://xuefeng11.github.io/) at the University of Florida.
+My research journey began with synthetic biology on the [Tsinghua-M iGEM 2024 team](https://2024.igem.wiki/tsinghua-m/), where we built RNAssay, an ADAR-based RNA sensing system in yeast, and won a Gold Medal. After a brief stay in [Prof. Xuebin Liao's lab](https://www.sps.tsinghua.edu.cn/info/1011/1423.htm), I joined [Prof. Yigong Shi's lab](https://ygshi.org/) at Tsinghua University in July 2025, where I study the evolution of the gamma-secretase complex. In summer 2026, I visited [Prof. Le Cong's lab](https://conglab.com/) at Stanford University, and in September 2026 I visited [Prof. Xuefeng Liu's lab](https://xuefeng11.github.io/) at the University of Florida.
 
 My research interests center on computational protein engineering, especially model-driven protein design, virtual screening, evolutionary analysis, and functional redesign.
 
