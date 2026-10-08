@@ -91,7 +91,7 @@ RFD3 基于 AtomWorks 框架（github.com/RosettaCommons/atomworks）构建，�
 
 **3\. 氢键条件化（Hydrogen bond conditioning）**
 
-指定哪些原子应该是氢键供体或受体。结合 classifier-free guidance，**小分子的氢键比例从 26.67% 提升到 36.67%**。
+指定哪些原子应该是氢键供体或受体。仅做条件化时，小分子的氢键比例从 26.67% 提升到 32.67%，**再加上 classifier-free guidance 可进一步提升到 36.67%**。
 
 **4\. 溶剂可及性条件化（RASA conditioning）**
 

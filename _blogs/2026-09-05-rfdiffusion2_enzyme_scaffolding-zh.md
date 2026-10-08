@@ -122,11 +122,11 @@ RFD1 使用 DDPM（去噪扩散概率模型），需要辅助 loss 和 self-cond
 
 Theozyme 来源：进化优化的 RA95.5-8F 晶体结构，包含 Lys 亲核催化中心 + Tyr/Asp/Asn 氢键网络。测试 96 个设计，**4 个具有催化活性**。
 
-最优设计：k<sub>cat</sub>/K<sub>M</sub> = 6.37 M<sup>-1</sup>s<sup>-1</sup>，k<sub>cat</sub> = 0.028 s<sup>-1</sup>（文献非催化速率为 6.5×10<sup>-7</sup> s<sup>-1</sup>）。
+最优设计：k<sub>cat</sub>/K<sub>M</sub> = 6.34 ± 0.92 M<sup>-1</sup>s<sup>-1</sup>（论文给出的非催化速率为 6.5×10<sup>-9</sup> s<sup>-1</sup>）。
 
 **2\. 半胱氨酸水解酶（Cysteine hydrolase）**
 
-Theozyme：Cys-His-Asp 催化三联体 + Asn 氧阴离子洞。测试 48 个设计，**多个具有活性**。
+Theozyme：Cys-His-Asn 催化三联体，氧阴离子洞由半胱氨酸主链氮与一个谷氨酰胺共同稳定。测试 48 个设计，**多个具有活性**。
 
 最优设计：k<sub>cat</sub>/K<sub>M</sub> = 248 M<sup>-1</sup>s<sup>-1</sup>，**优于此前报道的所有计算设计的半胱氨酸酯酶**。
 
