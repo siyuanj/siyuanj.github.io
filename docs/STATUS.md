@@ -1,5 +1,14 @@
 # Project Status
 
+## 2026-10-08 01:54 EDT (America/New_York) - 侧栏加入LinkedIn
+
+- **用户要求**：把LinkedIn账号放到网站上，和X、GitHub并列。用户给出的链接为`https://www.linkedin.com/in/siyuan-jiang-26492b3ab/?isSelfProfile=true`。
+- **这次做了什么**：`_config.yml`启用`linkedin: https://www.linkedin.com/in/siyuan-jiang-26492b3ab/`（我的判断：去掉`?isSelfProfile=true`，这是本人查看自己主页时才有的参数）。`_includes/site-profile.html`把模板原有的文字“in”换成与GitHub/X同风格的LinkedIn SVG图标，侧栏顺序为CV、GitHub、LinkedIn、X。`_includes/site-head.html`首页Person结构化数据的`sameAs`改为按GitHub、LinkedIn、X依次push，以后增删链接不用再手写逗号。
+- **现在真实状态 / 本次验证**：本地Jekyll构建成功；首页、Blog、Publications页侧栏都有LinkedIn链接，HTML中没有`isSelfProfile`；`sameAs`为GitHub、LinkedIn、X三项。先用占位链接单独构建到scratchpad，在内置浏览器放大查看，图标与GitHub/X对齐、风格一致。Pages结果见git log及Actions。
+- **还没验证的**：LinkedIn对curl返回301（登录墙），本机无法确认该主页公开可见；需要用户在未登录状态下自查。
+- **要用户定的**：无。
+
+
 ## 2026-10-05 09:40 EDT (America/New_York) - 全站审计；链接对比度修正与博客阅读体验
 
 - **审计结果（本次实测）**：本地构建106页，内部链接/图片缺失0。线上首页实际下载约817KB，其中金门大桥640px预览440KB、头像320px预览142KB，两者都是无损WebP（`generate_previews.py`只对名字以`-illustrated`结尾的图有损编码）；在浏览器里用canvas做quality-90试编码（不保存）：金门大桥96KB、头像21KB。博客文章图片为PNG，每篇中位数1.73MB、最大6.9MB；`boltzgen_universal_binder/page_2.png` 1191KB，试编码WebP q85为199KB。对比度：亮色链接`#3399cc`对白底3.20:1，出版物卡片标题`#1678ad`对卡片底4.33:1，均低于WCAG AA的4.5:1；暗色模式各项都≥6.5:1。`assets/`下有41个未被引用的文件，约22.9MB（旧插画、模板示例图、模板旧CSS/JS）。98个页面有两个h1（侧栏姓名+文章标题）。
