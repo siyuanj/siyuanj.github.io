@@ -111,7 +111,7 @@ NA-MPNN 当前为 RNA 设计和蛋白-DNA 特异性分别训练了两个模型�
 
 ## 通讯作者介绍
 
-David Baker 教授，华盛顿大学生物化学系和蛋白质设计研究所（Institute for Protein Design, IPD）所长，霍华德·休斯医学研究所（HHMI）研究员，2024 年诺贝尔化学奖得主。Baker 教授领导开发了 Rosetta 蛋白质建模软件套件以及 ProteinMPNN、LigandMPNN、RFdiffusion 和 RoseTTAFold 系列工具，是计算蛋白质设计这一领域的奠基人。第一作者 Andrew Kubaney 是华盛顿大学分子工程、生物化学和物理学方向的研究生，在 IPD 从事核酸逆折叠和序列设计研究。共同一作 Andrew Favor 同为 IPD 分子工程方向研究生。Cameron Glasscock 是 Rice University 生物科学系研究人员，专注于核酸设计从计算到实验的完整验证流程。Justas Dauparas 是 ProteinMPNN 和 LigandMPNN 的核心开发者，为 NA-MPNN 的架构设计和代码实现提供了最直接的技术基础和经验积累。
+David Baker 教授，华盛顿大学生物化学系和蛋白质设计研究所（Institute for Protein Design, IPD）所长，霍华德·休斯医学研究所（HHMI）研究员，2024 年诺贝尔化学奖得主。Baker 教授领导开发了 Rosetta 蛋白质建模软件套件以及 ProteinMPNN、LigandMPNN、RFdiffusion 和 RoseTTAFold 系列工具，是计算蛋白质设计这一领域的奠基人。第一作者 Andrew Kubaney 是华盛顿大学分子工程与生物化学方向的研究生，在 IPD 从事核酸逆折叠和序列设计研究。第二作者 Andrew Favor 同为 IPD 分子工程方向研究生。Cameron Glasscock 是 Rice University 生物科学系研究人员，专注于核酸设计从计算到实验的完整验证流程。Justas Dauparas 是 ProteinMPNN 和 LigandMPNN 的核心开发者，为 NA-MPNN 的架构设计和代码实现提供了最直接的技术基础和经验积累。
 
 ## 引用
 

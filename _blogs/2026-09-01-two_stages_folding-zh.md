@@ -270,11 +270,11 @@ pair2seq bias 对准 contact → structure module 读 z 作为几何信号 → d
 
 ## 通讯作者介绍
 
-David Bau 是 Northeastern University 计算机科学系教授，是 AI 可解释性（interpretability）领域的代表性研究者之一。他在 MIT 获得博士学位，长期从事神经网络内部表示的理解与编辑工作。他早期关于网络神经元语义可视化（Network Dissection）和表示编辑（如 ROME、Locating and Editing Factual Associations）的工作在 NLP 和计算机视觉领域产生了广泛影响，为"打开黑箱"这个方向建立了一套系统性的研究范式。这篇文章将他在语言模型 interpretability 中发展出的方法论（activation patching、linear probing、representation steering）迁移到蛋白折叠模型中，展示了 mechanistic interpretability 跨领域应用的潜力。
+论文标注的通讯作者是第一作者 Kevin Lu 与 Chris Wendler，两人均来自 Northeastern University（通讯邮箱 lu.kev@northeastern.edu、ch.wendler@northeastern.edu）。同为核心贡献者的 David Bau 是 Northeastern University 计算机科学系教授，是 AI 可解释性（interpretability）领域的代表性研究者之一。他在 MIT 获得博士学位，长期从事神经网络内部表示的理解与编辑工作。他早期关于网络神经元语义可视化（Network Dissection）和表示编辑（如 ROME、Locating and Editing Factual Associations）的工作在 NLP 和计算机视觉领域产生了广泛影响，为"打开黑箱"这个方向建立了一套系统性的研究范式。这篇文章将他在语言模型 interpretability 中发展出的方法论（activation patching、linear probing、representation steering）迁移到蛋白折叠模型中，展示了 mechanistic interpretability 跨领域应用的潜力。
 
-Chris Wendler 是 ETH Zurich 与 Northeastern University 联合培养的研究者，主要研究方向为深度学习模型的机制分析与可解释性。他是本文的共同通讯作者，在跨模型表示对齐与因果干预方法的设计中发挥了重要作用。
+共同通讯作者 Chris Wendler 在本文的署名单位为 Northeastern University，主要研究方向为深度学习模型的机制分析与可解释性。他是本文的共同通讯作者，在跨模型表示对齐与因果干预方法的设计中发挥了重要作用。
 
-第一作者 Kevin Lu 来自 MIT，同时也是共同通讯作者，主导了本文的实验设计与大规模 patching 实验的实现。
+第一作者 Kevin Lu 来自 Northeastern University，同时也是共同通讯作者，主导了本文的实验设计与大规模 patching 实验的实现。
 
 ## 引用
 

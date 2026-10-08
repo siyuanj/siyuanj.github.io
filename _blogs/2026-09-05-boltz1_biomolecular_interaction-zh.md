@@ -278,7 +278,7 @@ Boltz-1 的意义不仅仅在于它"复现了 AlphaFold3 的精度"——这固�
 
 ## 通讯作者介绍
 
-Jeremy Wohlwend、Gabriele Corso 和 Saro Passaro 为本文的共同通讯作者，三人均就职于 MIT 计算机科学与人工智能实验室（CSAIL）和 MIT Jameel Clinic。Gabriele Corso 本科毕业于剑桥大学，在 MIT 攻读博士期间主导开发了分子对接扩散模型 DiffDock，是将生成式 AI 应用于结构生物学的核心推动者之一。Regina Barzilay 教授是 MIT CSAIL 的 School of Engineering Distinguished Professor，专注于机器学习在药物发现和分子科学中的应用，是 Boltz 系列项目的资深指导者。Tommi Jaakkola 教授（MIT CSAIL）是机器学习与概率推理领域的先驱学者，他的研究深刻地影响了 Boltz 项目在扩散模型和随机过程方面的理论基础，对 Boltz-steering 中 Feynman-Kac 框架的应用有重要启发。
+Jeremy Wohlwend、Gabriele Corso 和 Saro Passaro 为本文的共同通讯作者，三人均就职于 MIT 计算机科学与人工智能实验室（CSAIL）和 MIT Jameel Clinic。Gabriele Corso 本科毕业于剑桥大学，在 MIT 攻读博士期间主导开发了分子对接扩散模型 DiffDock，是将生成式 AI 应用于结构生物学的核心推动者之一。Regina Barzilay 教授（MIT CSAIL 与 MIT Jameel Clinic）是 School of Engineering Distinguished Professor，专注于机器学习在药物发现和分子科学中的应用，是 Boltz 系列项目的资深指导者。Tommi Jaakkola 教授（同属 MIT CSAIL 与 MIT Jameel Clinic）是机器学习与概率推理领域的先驱学者，他的研究深刻地影响了 Boltz 项目在扩散模型和随机过程方面的理论基础，对 Boltz-steering 中 Feynman-Kac 框架的应用有重要启发。
 
 ## 引用
 

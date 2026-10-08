@@ -19,7 +19,7 @@ Cell Systems，2025 年 10 月 15 日
 ---
 蛋白质与 RNA 的复合物结构决定了转录调控、RNA 剪接、核糖体组装、病毒复制等过程的分子机制，但实验解析的蛋白质-RNA 复合物数量远少于蛋白质-蛋白质复合物。AlphaFold 3、RF2NA 和 RF2AA 等方法虽然能够预测复合物结构，但它们通常依赖多序列比对（MSA）来捕获共进化信号。问题在于：蛋白质-RNA 配对 MSA 在实际场景中普遍匮乏——在本文的 39 个测试靶标中，**28 个的配对 MSA 深度仅为 1**，也就是只有查询序列本身，没有额外的同源序列可供比对。
 
-奥本大学 Debswapna Bhattacharya 团队提出了 **ProRNA3D-single**：通过几何感知配对蛋白质语言模型（ESM-2，6.5 亿参数）和 RNA 语言模型（RNA-FM，9900 万参数），在完全不使用 MSA 和模板的情况下预测蛋白质-RNA 复合物三维结构。核心策略是先预测跨分子的 Cα-C4′ 原子间距离分布图，再通过 PyRosetta 几何优化将距离约束转换为三维坐标。
+弗吉尼亚理工 Debswapna Bhattacharya 团队提出了 **ProRNA3D-single**：通过几何感知配对蛋白质语言模型（ESM-2，6.5 亿参数）和 RNA 语言模型（RNA-FM，9900 万参数），在完全不使用 MSA 和模板的情况下预测蛋白质-RNA 复合物三维结构。核心策略是先预测跨分子的 Cα-C4′ 原子间距离分布图，再通过 PyRosetta 几何优化将距离约束转换为三维坐标。
 
 在 Test_39 测试集上，ProRNA3D-single 的成功预测率（fnat > 0.2）达到 **41.03%**（16/39），分别比 AlphaFold 3 高约 18 个百分点、比 RF2NA 和 RF2AA 各高约 26 个百分点。更值得注意的是：RF2NA 去掉 MSA 和模板后（RF2NA-single），39 个靶标中没有一个达到成功标准。
 
@@ -135,7 +135,7 @@ Test_39 的样本量（39 个复合物）限制了统计推断的可靠性，结
 
 ## 通讯作者介绍
 
-Debswapna Bhattacharya 为本文通讯作者，任职于奥本大学（Auburn University）计算机科学与软件工程系。他本科毕业于印度贾达普大学（Jadavpur University），在爱荷华州立大学取得博士学位，后在华盛顿大学 David Baker 实验室从事博士后研究。其团队长期聚焦于计算结构生物学，特别是蛋白质及蛋白质-核酸复合物的三维结构预测方法开发。此前曾发表 ProRNA3D 系列（最初版本使用 MSA 输入，本文的 single 版本是无 MSA 的扩展）和 DeepComplex 等工作，持续探索如何用深度学习方法从序列信息预测生物分子复合物的三维结构。本文首作 Rahmatullah Roche 是 Bhattacharya 实验室的博士生，也是 ProRNA3D 系列的主要开发者。
+Debswapna Bhattacharya 为本文通讯作者，署名单位为弗吉尼亚理工大学（Virginia Tech）计算机科学系。他本科毕业于印度贾达普大学（Jadavpur University），在爱荷华州立大学取得博士学位，后在华盛顿大学 David Baker 实验室从事博士后研究。其团队长期聚焦于计算结构生物学，特别是蛋白质及蛋白质-核酸复合物的三维结构预测方法开发。此前曾发表 ProRNA3D 系列（最初版本使用 MSA 输入，本文的 single 版本是无 MSA 的扩展）和 DeepComplex 等工作，持续探索如何用深度学习方法从序列信息预测生物分子复合物的三维结构。本文首作 Rahmatullah Roche 是 Bhattacharya 实验室的博士生，也是 ProRNA3D 系列的主要开发者。
 
 ## 引用
 

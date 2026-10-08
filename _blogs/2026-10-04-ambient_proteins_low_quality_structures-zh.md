@@ -136,7 +136,7 @@ pLDDT 作为质量指标比较粗糙，将整个蛋白质压缩为单个数值�
 
 ## 通讯作者介绍
 
-本研究的共同第一作者 Giannis Daras 和 Jeffrey Ouyang-Zhang 分别来自 MIT 计算机科学与人工智能实验室（CSAIL）和德克萨斯大学奥斯汀分校（UT Austin）计算机科学系。其他作者包括 Krithika Ravishankar、William Daspit（均来自 UT Austin）。资深作者 Costis Daskalakis 是 MIT CSAIL 教授，研究方向涵盖算法博弈论、计算复杂性与机器学习理论，曾获 Nevanlinna Prize（现 IMU Abacus Medal），近年来在生成模型理论方面发表了一系列有影响力的工作。Qiang Liu 是 UT Austin 计算机科学系副教授，研究方向为机器学习方法论。Adam Klivans 是 UT Austin 计算机科学系教授，专注于计算学习理论。该团队此前提出了 Ambient Diffusion 框架，首次证明可以在仅观测到损坏样本的条件下训练扩散模型，本文将这一框架推广到蛋白质结构生成领域，为利用大规模计算预测数据中的低质量部分提供了新的方法论范式。
+本研究的共同第一作者 Giannis Daras 和 Jeffrey Ouyang-Zhang 分别来自 MIT 计算机科学与人工智能实验室（CSAIL）和德克萨斯大学奥斯汀分校（UT Austin）计算机科学系。其他作者包括 Krithika Ravishankar、William Daspit 和 Daniel J. Diaz（均来自 UT Austin 计算机科学系）。资深作者 Costis Daskalakis 是 MIT CSAIL 教授，研究方向涵盖算法博弈论、计算复杂性与机器学习理论，曾获 Nevanlinna Prize（现 IMU Abacus Medal），近年来在生成模型理论方面发表了一系列有影响力的工作。Qiang Liu 是 UT Austin 计算机科学系副教授，研究方向为机器学习方法论。Adam Klivans 是 UT Austin 计算机科学系教授，专注于计算学习理论。该团队此前提出了 Ambient Diffusion 框架，首次证明可以在仅观测到损坏样本的条件下训练扩散模型，本文将这一框架推广到蛋白质结构生成领域，为利用大规模计算预测数据中的低质量部分提供了新的方法论范式。
 
 ## 引用
 

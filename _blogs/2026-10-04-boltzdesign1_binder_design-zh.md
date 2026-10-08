@@ -145,7 +145,7 @@ BoltzDesign1 继承了 Boltz-1 全原子、多分子类型的表示能力，因�
 
 ## 通讯作者介绍
 
-Bruno E. Correia，瑞士洛桑联邦理工学院（EPFL）蛋白质设计与免疫工程实验室教授，博士毕业于里斯本大学，曾在华盛顿大学 David Baker 实验室完成博士后训练，研究方向为计算蛋白质设计、疫苗免疫原设计和蛋白质工程。Sergey Ovchinnikov，哈佛大学生物学系助理教授，博士毕业于 MIT，在蛋白质共进化分析、结构预测和深度学习蛋白设计领域有开创性工作，是 ColabFold 等广泛使用的结构预测工具的核心开发者，曾获 NSF CAREER Award。
+本文唯一标注的通讯作者是 Sergey Ovchinnikov（通讯邮箱 so3@mit.edu），署名单位为麻省理工学院（MIT）；共同作者 Bruno E. Correia 任职于瑞士洛桑联邦理工学院（EPFL）蛋白质设计与免疫工程实验室，研究方向为计算蛋白质设计、疫苗免疫原设计和蛋白质工程。Ovchinnikov博士毕业于 MIT，在蛋白质共进化分析、结构预测和深度学习蛋白设计领域有开创性工作，是 ColabFold 等广泛使用的结构预测工具的核心开发者，曾获 NSF CAREER Award。
 
 ## 引用
 

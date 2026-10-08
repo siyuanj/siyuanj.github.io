@@ -255,7 +255,7 @@ Strand 的例子是这篇论文最深刻的发现。它揭示了一个容易被�
 
 ## 通讯作者介绍
 
-通讯作者 Piotr Jedryszek 同时隶属于 University of Oxford 生物系和 Evolvere Biosciences（伦敦）。资深作者 Oliver M. Crook 任职于 University of Oxford 统计系和 Kavli Institute for Nanoscience Discovery，研究方向涵盖贝叶斯统计、蛋白质组学空间分析（spatial proteomics）、以及机器学习在生物学中的应用。Crook 此前的代表性工作包括 BANDLE（贝叶斯差异亚细胞定位分析）和 MR.Ash（多分辨率自适应收缩先验），近年来将研究重心转向蛋白质结构预测模型的可解释性与可控性。本文的第一作者 Jedryszek 与 Crook 此前还合作发表了 TopK SAE 的 weight regularization 方法论文（ICML 2026 Workshop on Mechanistic Interpretability），本文使用的 SAE 正是基于该方法训练的。
+通讯作者 Piotr Jedryszek 同时隶属于 University of Oxford 生物系和 Evolvere Biosciences（伦敦）。资深作者 Oliver M. Crook 在本文的署名单位为 University of Oxford 的 Kavli Institute for Nanoscience Discovery 与化学系，研究方向涵盖贝叶斯统计、蛋白质组学空间分析（spatial proteomics）、以及机器学习在生物学中的应用。Crook 此前的代表性工作包括 BANDLE（贝叶斯差异亚细胞定位分析）和 MR.Ash（多分辨率自适应收缩先验），近年来将研究重心转向蛋白质结构预测模型的可解释性与可控性。本文的第一作者 Jedryszek 与 Crook 此前还合作发表了 TopK SAE 的 weight regularization 方法论文（ICML 2026 Workshop on Mechanistic Interpretability），本文使用的 SAE 正是基于该方法训练的。
 
 ## 引用
 

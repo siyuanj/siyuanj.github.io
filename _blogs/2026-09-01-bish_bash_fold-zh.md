@@ -301,7 +301,7 @@ core-surface boundary 正相关折叠质量、表面电荷正相关可溶性、�
 
 ## 通讯作者介绍
 
-Robert D. Finn 现任欧洲分子生物学实验室欧洲生物信息学研究所（EMBL-EBI）的研究组长和团队负责人，领导 Protein Function Development 团队。他是蛋白质生物信息学领域的标志性人物之一，长期负责维护和开发 Pfam（蛋白质家族数据库）和 InterPro（蛋白质功能整合注释平台）这两个全球使用最广泛的蛋白质注释数据库。Finn 教授在 Washington University in St. Louis 取得博士学位，研究方向涵盖蛋白质功能注释、比较基因组学、序列分析方法开发。近年来，他的团队积极将 AI/ML 方法引入蛋白质注释工作流，本文即是这一方向的最新成果——用可解释性工具反过来理解 AI 蛋白结构预测模型学到了什么。本文的第一作者兼通讯作者 Soo-Jeong Kim 来自剑桥大学和 EMBL-EBI，具体负责了本研究的设计与执行。
+本文的第一作者兼通讯作者是 Soo-Jeong Kim（剑桥大学与 EMBL-EBI），另两位作者是 Carlos Vonessen（独立贡献者）和 Robert D. Finn。Finn 现任欧洲分子生物学实验室欧洲生物信息学研究所（EMBL-EBI）的研究组长和团队负责人，领导 Protein Function Development 团队。他是蛋白质生物信息学领域的标志性人物之一，长期负责维护和开发 Pfam（蛋白质家族数据库）和 InterPro（蛋白质功能整合注释平台）这两个全球使用最广泛的蛋白质注释数据库。Finn 教授在 Washington University in St. Louis 取得博士学位，研究方向涵盖蛋白质功能注释、比较基因组学、序列分析方法开发。近年来，他的团队积极将 AI/ML 方法引入蛋白质注释工作流，本文即是这一方向的最新成果——用可解释性工具反过来理解 AI 蛋白结构预测模型学到了什么。本文的第一作者兼通讯作者 Soo-Jeong Kim 来自剑桥大学和 EMBL-EBI，具体负责了本研究的设计与执行。
 
 ## 引用
 

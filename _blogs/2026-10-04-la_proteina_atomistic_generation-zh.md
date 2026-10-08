@@ -149,7 +149,7 @@ La-Proteina 的全原子能力使其可以完成原子级的条件设计——�
 
 ## 通讯作者介绍
 
-Karsten Kreis，NVIDIA Research 高级研究科学家，主要研究方向为深度生成模型及其在科学领域的应用。Kreis 本科和硕士毕业于德国亚琛工业大学物理系，在加拿大滑铁卢大学获得统计物理方向的博士学位，研究液晶和软物质系统的计算模拟，随后在多伦多大学与机器学习领域知名学者合作从事博士后研究，后加入 NVIDIA Research。他在能量模型、评分匹配、去噪扩散模型和流匹配等生成模型方向有广泛的方法论贡献，代表性工作包括改进 score-based 模型的训练稳定性和采样效率。近年来 Kreis 将研究重心转向科学领域，将这些生成模型框架应用于蛋白质从头设计和分子生成等关键问题。Arash Vahdat 为共同通讯作者，同为 NVIDIA Research 的资深研究科学家和研究总监，在变分自编码器（VAE）和扩散模型领域发表了大量有影响力的工作。第一作者 Tomas Geffner 来自 NVIDIA Research，Kieran Didi 来自微软研究院剑桥实验室，团队成员还包括来自 NVIDIA 和 MIT 的多位研究者。论文代码已在GitHub开源（github.com/NVIDIA-Digital-Bio/la-proteina），便于研究者复现和扩展。Didi等人（2026）已将La-Proteina进一步应用于蛋白质结合物从头设计，证明了该框架在实际蛋白质工程场景中的应用潜力。
+Karsten Kreis，NVIDIA Research 高级研究科学家，主要研究方向为深度生成模型及其在科学领域的应用。Kreis 本科和硕士毕业于德国亚琛工业大学物理系，在加拿大滑铁卢大学获得统计物理方向的博士学位，研究液晶和软物质系统的计算模拟，随后在多伦多大学与机器学习领域知名学者合作从事博士后研究，后加入 NVIDIA Research。他在能量模型、评分匹配、去噪扩散模型和流匹配等生成模型方向有广泛的方法论贡献，代表性工作包括改进 score-based 模型的训练稳定性和采样效率。近年来 Kreis 将研究重心转向科学领域，将这些生成模型框架应用于蛋白质从头设计和分子生成等关键问题。Arash Vahdat 为共同通讯作者，同为 NVIDIA Research 的资深研究科学家和研究总监，在变分自编码器（VAE）和扩散模型领域发表了大量有影响力的工作。第一作者 Tomas Geffner 来自 NVIDIA，共同第一作者 Kieran Didi 的署名单位为 NVIDIA 与牛津大学，团队成员还包括来自 NVIDIA、Mila（魁北克人工智能研究所）和蒙特利尔大学的多位研究者。论文代码已在GitHub开源（github.com/NVIDIA-Digital-Bio/la-proteina），便于研究者复现和扩展。Didi等人（2026）已将La-Proteina进一步应用于蛋白质结合物从头设计，证明了该框架在实际蛋白质工程场景中的应用潜力。
 
 ## 引用
 

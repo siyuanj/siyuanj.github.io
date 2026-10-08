@@ -279,7 +279,7 @@ NPM1 的结合区是无序区，设计时用规范语言把无序区标为 bindi
 
 ## 通讯作者介绍
 
-Regina Barzilay，MIT 电气工程与计算机科学系教授、AI 与健康 Jameel Clinic 联合负责人，博士毕业于哥伦比亚大学，研究方向为机器学习在药物发现和分子设计中的应用，因对计算生物学和自然语言处理的贡献获得麦克阿瑟天才奖。Tommi Jaakkola 是 MIT 电气工程与计算机科学系 Thomas M. Siebel 讲席教授，CSAIL 与 IDSS 成员，在概率模型、机器学习及其分子应用方面做出多项开创性工作，他所在团队在扩散模型和随机过程上的工作是 Boltz 系列模型的理论基础之一。本研究由 MIT、哈佛、UCSF、斯坦福、Broad 研究所等多个实验室联合完成，38 位作者横跨计算与实验团队。
+Regina Barzilay，MIT 电气工程与计算机科学系教授、AI 与健康 Jameel Clinic 联合负责人，博士毕业于哥伦比亚大学，研究方向为机器学习在药物发现和分子设计中的应用，因对计算生物学和自然语言处理的贡献获得麦克阿瑟天才奖。Tommi Jaakkola 是 MIT 电气工程与计算机科学系 Thomas M. Siebel 讲席教授，CSAIL 与 IDSS 成员，在概率模型、机器学习及其分子应用方面做出多项开创性工作，他所在团队在扩散模型和随机过程上的工作是 Boltz 系列模型的理论基础之一。论文标注的通讯作者是第一作者 Hannes Stark（hstark@csail.mit.edu），Barzilay 与 Jaakkola 是本文的资深作者。本研究由 MIT 与 UCSF 等机构联合完成，38 位作者横跨计算与实验团队。
 
 ## 引用
 

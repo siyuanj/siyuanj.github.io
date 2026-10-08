@@ -135,7 +135,7 @@ n = 445 的测试集上本文模型 r = 0.64、ADMET-AI r = 0.48，**本文模�
 
 ## 通讯作者介绍
 
-Saro Passaro，Boltz PBC 联合创始人兼 CEO，此前在 MIT 完成博士后研究（导师为 Regina Barzilay 教授），参与开发了 Boltz-1 和 Boltz-2 蛋白结构预测模型，研究方向为深度学习驱动的分子设计和药物发现。Gabriele Corso，MIT 计算机科学博士（导师 Tommi Jaakkola 教授），Boltz PBC 联合创始人，在几何深度学习和分子建模领域发表了多项有影响力的工作，包括分子对接方法 DiffDock 和扩散模型的随机插值理论框架。本研究共 14 位作者，由 Boltz PBC、MIT、Scripps 研究所、威斯康星大学麦迪逊分校和科罗拉多大学丹佛分校等机构联合完成，其中湿实验验证部分主要由学术合作实验室独立执行。第一作者 Noah Getz 和 Geoffrey Smith 负责了筛选流程的开发和优化工作。
+Saro Passaro，Boltz PBC 联合创始人兼 CEO，此前在 MIT 完成博士后研究（导师为 Regina Barzilay 教授），参与开发了 Boltz-1 和 Boltz-2 蛋白结构预测模型，研究方向为深度学习驱动的分子设计和药物发现。Gabriele Corso，MIT 计算机科学博士（导师 Tommi Jaakkola 教授），Boltz PBC 联合创始人，在几何深度学习和分子建模领域发表了多项有影响力的工作，包括分子对接方法 DiffDock 和扩散模型的随机插值理论框架。本研究共 13 位作者，由 Boltz PBC、MIT CSAIL、Morgridge 研究所、威斯康星大学麦迪逊分校、塔夫茨大学化学系以及一家退伍军人事务部医学中心等机构联合完成，其中湿实验验证部分主要由学术合作实验室独立执行。第一作者 Noah Getz 负责了筛选流程的开发和优化工作。
 
 ## 引用
 

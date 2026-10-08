@@ -145,7 +145,7 @@ Even so, BoltzDesign1 offers a promising technical route: general binder design 
 
 ## About the Corresponding Authors
 
-Bruno E. Correia is a professor at the Laboratory of Protein Design and Immunoengineering at EPFL in Switzerland; he received his PhD from the University of Lisbon and completed postdoctoral training in David Baker's laboratory at the University of Washington, and his research covers computational protein design, vaccine immunogen design and protein engineering. Sergey Ovchinnikov is an assistant professor in the Department of Biology at Harvard University; he received his PhD from MIT and has done pioneering work on protein co-evolution analysis, structure prediction and deep learning for protein design, is a core developer of widely used structure prediction tools such as ColabFold, and is a recipient of the NSF CAREER Award.
+The sole corresponding author listed in this article is Sergey Ovchinnikov (corresponding email so3@mit.edu), affiliated with the Massachusetts Institute of Technology (MIT). Co-author Bruno E. Correia is affiliated with the Laboratory of Protein Design and Immunoengineering at the Swiss Federal Institute of Technology Lausanne (EPFL), with research interests in computational protein design, vaccine immunogen design, and protein engineering. Dr. Ovchinnikov received his Ph.D. from MIT and has made pioneering contributions in protein coevolution analysis, structure prediction, and deep learning-based protein design. He is a core developer of widely-used structure prediction tools such as ColabFold and has received the NSF CAREER Award.
 
 ## Citation
 
