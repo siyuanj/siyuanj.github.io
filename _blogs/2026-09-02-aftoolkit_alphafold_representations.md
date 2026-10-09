@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Brief Bioinform 2025 | AFToolkit: Changing inference, not weights, to make AlphaFold2 predict mutational ΔΔG"
-date: 2026-10-03
+date: 2026-09-02
 description: "AFToolkit drops MSA search, masks templates after the first recycle, and feeds AlphaFold2's internal representations to an SVM to predict ΔΔG for substitutions, insertions and deletions."
 tags: [protein stability, alphafold2, mutation effect prediction, protein engineering]
 lang: en

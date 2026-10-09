@@ -49,7 +49,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-Then open <http://127.0.0.1:4000/>. On macOS system Ruby 2.6 the gems need `ffi < 1.17`; the owner's `8-28 公众号/tools/build_blog_site.sh` builds with a separate Gemfile that adds this pin. `_site/` is gitignored.
+Then open <http://127.0.0.1:4000/>. On macOS system Ruby 2.6 the gems need `ffi < 1.17`; the owner's `8-28 公众号/tools/build_blog_site.sh` builds with a separate Gemfile that adds this pin. Its gems live in `10-5 website/.jekyll-gems/` on the SSD (not `$TMPDIR`, which macOS purges); the script test-loads Jekyll and reinstalls the pinned versions if any gem is damaged. `_site/` is gitignored.
 
 Pushing to `main` triggers GitHub Pages' `pages-build-deployment` workflow. GitHub Pages runs Jekyll 3.x with its default plugins (for example titles-from-headings), so check the deployed page when behaviour depends on page titles.
 
@@ -103,7 +103,7 @@ Pushing to `main` triggers GitHub Pages' `pages-build-deployment` workflow. GitH
 ### Blog, notes and CV
 
 - The Blog page lists English posts newest first, grouped by year, each with its front-matter `description` (clamped to two lines) and a link to its Chinese version; Chinese posts are not listed separately.
-- Post dates come from the exporter's `_post_dates` (in the `8-28 公众号` workspace, `tools/blog_meta_overrides.json`). On 2026-10-09 the 26 posts exported together on 2026-10-04 were spread over 2026-08-29..2026-10-01 at the owner's request, each after its paper's publication date (`tools/spread_post_dates.py`, seed 20261009). Post URLs contain the date, so `/404.html` forwards an old dated blog URL to the post with the same name and language.
+- Post dates come from the exporter's `_post_dates` (in the `8-28 公众号` workspace, `tools/blog_meta_overrides.json`). On 2026-10-09 the 26 posts exported together on 2026-10-04 and the 4 from 2026-10-03 were spread over 2026-08-29..2026-10-02 at the owner's request, one per day and each after its paper's publication date (`tools/spread_post_dates.py`, seed 20261009); the only shared days left are the four original writing dates of the 18 earlier posts. Post URLs contain the date, so `/404.html` forwards an old dated blog URL to the post with the same name and language.
 - Lists, previous/next links and the feed sort by file path rather than `date`: filenames start with the date, and Jekyll's date sort orders same-day posts arbitrarily (and differently per language), while undated notes have no date yet when other pages render.
 - Posts with at least three `##` sections get a table of contents built at build time from the rendered `<h2 id>` headings (`_includes/post-toc.html`): in the sticky sidebar on desktop, with the current section highlighted by an IntersectionObserver (the last section once the footer is visible), and as a collapsed box after the first divider on screens 760px or narrower. Each post ends with previous/next links within the same collection and language.
 - The two test notes are published at the owner's request (2026-10-05); the undated one has a front-matter title matching its heading, because Jekyll otherwise names collection items after the filename. The placeholder blog post `_blogs/2025-01-20-test.md` stays `published: false`.

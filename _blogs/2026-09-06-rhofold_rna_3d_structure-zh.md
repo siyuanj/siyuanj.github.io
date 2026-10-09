@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nat Methods 2024| RhoFold+：用 RNA 语言模型预测单链 RNA 三维结构"
-date: 2026-10-03
+date: 2026-09-06
 description: "RNA 的功能由它的三维结构决定，可在 PDB 收录的约 21.4 万个结构里，纯 RNA 结构还不到 1%。"
 tags: [rna structure prediction, rna language models, deep learning, structural biology]
 lang: zh

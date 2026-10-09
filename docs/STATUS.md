@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-09 06:39 EDT (America/New_York) - 修复本地构建；10-03的4篇也分散
+
+- **用户决定**：同意重新下载gem修复本地构建、把gem移到持久位置；10-03那4篇也分散。
+- **这次做了什么**：(1) 按原`Gemfile.lock`（版本不变）把27个gem重装到`/Volumes/Work/10-5 website/.jekyll-gems/`（下载3.6 MB，安装后31 MB）；`8-28 公众号/tools/build_blog_site.sh`默认gem目录改到这里，检查方式从`bundle check`（只比对版本，gem代码被删也照样通过）改为实际`require "jekyll"`，失败则`bundle install --force`重装。(2) `spread_post_dates.py --from-date 2026-10-03`（seed 20261009）：AFToolkit→09-02、RhoFold→09-06、AlphaFold 3→09-12、AE PocketMiner→10-02，论文都在2026-05前；用导出工具重新发布这4篇。网站README与上级目录README已记录gem位置。
+- **现在真实状态 / 本次验证**：新gem目录下本地构建成功（1.7秒）；在scratch副本里删掉pathutil代码后，`bundle check`仍通过、新检查能发现并重装，构建成功（自愈路径可用）。网站这次8个文件重命名，每个只改`date:`一行。本地构建：49篇英文中10-03、10-04均为0，仍同日的只剩原18篇的写作日（08-28、08-30、09-01、09-05）；94组中英上一篇/下一篇全部对应，列表顺序与上一篇链接一致。线上结果见后续补记或git log。
+- **卡在哪 / 下一步**：无。旧的`$TMPDIR/siyuanj-site-gems`已不再使用，留给系统清理。
+- **还没验证的**：无新增。
+- **要用户定的**：无。
+
+
 ## 2026-10-09 06:32 EDT (America/New_York) - 2f6f419 上线核验
 
 - **现在真实状态（线上实测）**：Pages对`2f6f419`构建成功。线上Blog列表49篇按日期倒序，2026-10-04为0篇；sitemap的97个博客网址都已是新日期；97页逐页抓取，94组中英文上一篇/下一篇全部对应，列表顺序与上一篇链接一致。内置浏览器打开旧网址`/blogs/2026-10-04-odin_multi_specific_binder-zh.html`，自动跳到`/blogs/2026-09-14-odin_multi_specific_binder-zh.html`；不存在的`/blogs/2026-10-04-does-not-exist.html`仍停在404页。`8-28 公众号`本地提交`9aa7dc9`（无远端）；该仓库另一工作线的20个未提交文件未动。

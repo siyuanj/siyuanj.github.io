@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "bioRxiv 2026 | AE-PocketMiner: Using attention to predict cryptic pockets and their allosteric switches at once"
-date: 2026-10-03
+date: 2026-10-02
 description: "AE-PocketMiner adds self-attention to a geometric GNN to predict cryptic pockets and their allosteric coupling from one structure, validated by simulations and thiol labeling on CB1, δ-secretase and VP35."
 tags: [cryptic pockets, allostery, graph neural networks, attention, drug discovery]
 lang: en

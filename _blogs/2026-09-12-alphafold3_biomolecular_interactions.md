@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nature 2024 | AlphaFold 3: One model for predicting nearly every type of biomolecular complex"
-date: 2026-10-03
+date: 2026-09-12
 description: "AlphaFold 3 swaps Evoformer for a Pairformer and adds an atom-level diffusion module, predicting complexes of proteins, nucleic acids, ligands and modified residues more accurately than specialized tools."
 tags: [structure prediction, alphafold, diffusion models, protein-ligand docking, biomolecular complexes]
 lang: en

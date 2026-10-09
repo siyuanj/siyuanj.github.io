@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "bioRxiv 2026| AE-PocketMiner：用注意力同时预测隐蔽口袋和它的变构开关"
-date: 2026-10-03
+date: 2026-10-02
 description: "很多蛋白在晶体结构里表面平坦，看起来无处下手，于是被贴上\"不可成药\"的标签。"
 tags: [cryptic pockets, allostery, graph neural networks, attention, drug discovery]
 lang: zh

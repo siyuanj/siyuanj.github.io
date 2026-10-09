@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nature 2024| AlphaFold 3：一个模型预测几乎所有类型的生物分子复合物"
-date: 2026-10-03
+date: 2026-09-12
 description: "AlphaFold 2 让单条蛋白链的结构预测接近实验精度，可细胞里的分子机器很少只由蛋白组成：转录因子要抓住 DNA，核糖体由 rRNA 和几十种蛋白装配而成，药物分子要嵌进蛋白口袋，糖链和磷酸基团会改写蛋白之间的结合…"
 tags: [structure prediction, alphafold, diffusion models, protein-ligand docking, biomolecular complexes]
 lang: zh

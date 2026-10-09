@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Brief Bioinform 2025| AFToolkit：不改权重，只改推理，让 AlphaFold2 算出突变的 ΔΔG"
-date: 2026-10-03
+date: 2026-09-02
 description: "蛋白工程里最常被问到的一句话是：这个突变会让蛋白更稳定还是更不稳定？"
 tags: [protein stability, alphafold2, mutation effect prediction, protein engineering]
 lang: zh
