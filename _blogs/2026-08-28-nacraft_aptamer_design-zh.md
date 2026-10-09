@@ -224,7 +224,7 @@ Best-of-N 分析也很有实际指导意义：
 
 ### 通讯作者
 
-**Odin Zhang（张昊天）**，英灵殿科技（Valhalla Technology）创始人兼 CEO，同时在香港中文大学攻读博士学位，由 Pheng-Ann Heng（CUHK）、David Baker（UW）和 Gaurav Bhardwaj 联合指导。他本科毕业于浙江大学物理学和药学双学位，硕士阶段获浙江大学竺可桢奖学金（校最高荣誉），后赴华盛顿大学 Baker Lab 工作并获得计算机科学硕士学位。2025 年创立英灵殿科技，专注于 AI 驱动的全模态分子设计，开发了 ODesign——首个统一支持蛋白、DNA、RNA、小分子从头设计的生成模型。主要研究方向包括 AI for Science、生物分子设计和计算机辅助药物设计，代表作发表于 Nature Computational Science、Nature Machine Intelligence、ICLR 和 Chemical Reviews 等。Google Scholar 引用 2400+，h-index 31。
+**Odin Zhang（张昊天）**，英灵殿科技（Valhalla Technology）创始人兼 CEO，同时在香港中文大学攻读博士学位。他本科毕业于浙江大学物理学和药学双学位，硕士阶段获浙江大学竺可桢奖学金（校最高荣誉），后赴华盛顿大学 Baker Lab 工作并获得计算机科学硕士学位。2025 年创立英灵殿科技，专注于 AI 驱动的全模态分子设计，开发了 ODesign，该模型统一支持蛋白、DNA、RNA、小分子从头设计。主要研究方向包括 AI for Science、生物分子设计和计算机辅助药物设计，代表作发表于 Nature Computational Science、Nature Machine Intelligence、ICLR 和 Chemical Reviews 等。Google Scholar 引用 2400+，h-index 31。
 
 **Liqin Zhang（张丽琴）**，北京大学药学院药物分析学系助理教授、独立 PI。她本硕就读于北京大学药学院（2005–2011），博士毕业于佛罗里达大学化学系及 UF Health 癌症中心（2011–2016），后于斯坦福大学医学院从事博士后研究（2018–2019），并在 Thermo Fisher Scientific 担任科学家（2020–2021）。她的研究方向聚焦功能核酸探针的构建与应用、核酸适配体的模态设计与开发，以及药物靶标发现与药物研发。近年在 Nature Biomedical Engineering、JACS、Chem、Nano Letters 等期刊发表多篇代表性工作。Google Scholar 引用 5700+，h-index 32。
 
