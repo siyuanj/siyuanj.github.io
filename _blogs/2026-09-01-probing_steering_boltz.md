@@ -68,7 +68,7 @@ The probed concepts fall into two broad categories:
 
 **Evaluation details**
 
-Evaluation uses a fixed test set of 486 proteins (21.9M residues). Probes are evaluated with 5-fold cross-validation grouped by protein (residues from the same protein never appear in both the training and test sets). F1 uses a domain-level metric (precision is computed per residue and recall per domain: a domain counts as recalled as long as at least one of its residues is hit).
+Evaluation using a fixed test set of 486 proteins (containing three sets of labels from SwissProt, AlphaFold DB, and Boltz-1 predicted structures). Probes were grouped by protein and subjected to 5-fold cross-validation (residues of the same protein do not appear in both the training set and test set simultaneously). F1 score uses domain-level metrics (precision is calculated per residue, recall is calculated per domain——as long as at least one residue in a domain is detected, it counts as a recall success).
 
 Amino-acid identity serves as a **positive control**: if the probe recovers amino-acid identity perfectly (F1 ≈ 1.0), the alignment between labels and activations is confirmed to be correct.
 
@@ -150,8 +150,8 @@ Data split: 389 proteins are used to fit the steering directions and 97 held-out
 
 In the final trunk layer (L47), both geometric and sequence-chemistry information are highly decodable:
 
-* **Geometry**: helix F1 = 0.79-0.90, strand F1 ≈ 0.83, coil F1 ≈ 0.86
-* **Sequence chemistry**: signal peptide F1 ≈ 0.76, disulfide bond F1 ≈ 0.43, disorder F1 ≈ 0.86
+* **Geometric properties**: helix F1 = 0.79-0.90, strand F1 ≈ 0.83, coil F1 ≈ 0.86, disorder F1 ≈ 0.86
+* **Sequence-chemical properties**: signal peptide F1 ≈ 0.76, disulfide bond F1 ≈ 0.43
 * **Positive control**: amino-acid identity F1 = 0.996 (trunk output), confirming that the label-activation alignment is correct
 
 Once inside the diffusion module (L22), the two kinds of information split dramatically:

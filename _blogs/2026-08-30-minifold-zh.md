@@ -19,7 +19,7 @@ Transactions on Machine Learning Research，2025 年 2 月 2 日
 ---
 AlphaFold2 以来，蛋白结构预测已经非常好用。但"好用"和"用得起"之间还有巨大鸿沟：扫描 1000 万条抗体序列，哪怕每条只要几秒钟，也要消耗接近 **1 个 GPU 年**。
 
-MIT 的 Regina Barzilay 团队在这篇 TMLR Featured Paper 中提出了 **MiniFold**——一个大幅精简的蛋白结构预测架构。核心发现：ESMFold 继承自 AlphaFold2 的 Evoformer 和 IPA 结构模块占据了 95% 以上的推理时间，但其中**大量组件并非必须**。砍掉它们之后，同样的 ESM-2 语言模型下，MiniFold 在 CAMEO/CASP 上精度基本持平，**速度提升 10-20 倍，显存大幅下降**。
+MIT 的 Regina Barzilay 团队在 TMLR 上发表了 **MiniFold**——一个大幅精简的蛋白结构预测架构。核心发现：ESMFold 继承自 AlphaFold2 的 Evoformer 和 IPA 结构模块占据了 95% 以上的推理时间，但其中**大量组件并非必须**。砍掉它们之后，同样的 ESM-2 语言模型下，MiniFold 在 CAMEO/CASP 上精度基本持平，**速度提升 10-20 倍，显存大幅下降**。
 
 ## 一、研究问题
 
@@ -209,11 +209,11 @@ MiniFold 在单节点 **8 × A100 GPU** 上训练约 250K steps（两阶段：�
 
 **机构：**MIT CSAIL / University of Chicago / Broad Institute of MIT and Harvard
 
-**发表：**Transactions on Machine Learning Research (TMLR), 04/2025, Featured Certification
+**发表：**Transactions on Machine Learning Research (TMLR), 04/2025
 
-### 通讯作者
+### 资深作者
 
-**Regina Barzilay**，麻省理工学院（MIT）电气工程与计算机科学系 School of Engineering Distinguished Professor of AI & Health，同时担任 MIT Jameel Clinic AI Faculty Lead 和 CSAIL 成员。她本科和硕士毕业于以色列本-古里安大学（Ben-Gurion University of the Negev），博士毕业于哥伦比亚大学计算机科学系，后于康奈尔大学完成博士后研究。她的研究横跨自然语言处理和 AI for Science 两大领域，近年来聚焦于将深度学习应用于药物发现和临床 AI。代表性成果包括通过深度学习发现新型抗生素 halicin（发表于 Cell，2020），以及一系列乳腺癌早期检测的 AI 模型。2017 年获 MacArthur Fellowship（"天才奖"），2022 年获 AAAI Squirrel AI Award for AI for the Benefit of Humanity，2025 年入选 TIME100 AI 榜单。Google Scholar 引用 50,000+，h-index 超过 100。在蛋白结构预测领域，她的团队同时也是 Boltz-1（biomolecular interaction modeling 模型）的主要开发者。
+论文未标注通讯作者，资深作者为 **Regina Barzilay**，麻省理工学院（MIT）电气工程与计算机科学系 School of Engineering Distinguished Professor of AI & Health，同时担任 MIT Jameel Clinic AI Faculty Lead 和 CSAIL 成员。她本科和硕士毕业于以色列本-古里安大学（Ben-Gurion University of the Negev），博士毕业于哥伦比亚大学计算机科学系，后于康奈尔大学完成博士后研究。她的研究横跨自然语言处理和 AI for Science 两大领域，近年来聚焦于将深度学习应用于药物发现和临床 AI。代表性成果包括通过深度学习发现新型抗生素 halicin（发表于 Cell，2020），以及一系列乳腺癌早期检测的 AI 模型。2017 年获 MacArthur Fellowship（"天才奖"），2022 年获 AAAI Squirrel AI Award for AI for the Benefit of Humanity，2025 年入选 TIME100 AI 榜单。Google Scholar 引用 50,000+，h-index 超过 100。在蛋白结构预测领域，她的团队同时也是 Boltz-1（biomolecular interaction modeling 模型）的主要开发者。
 
 ## 引用
 

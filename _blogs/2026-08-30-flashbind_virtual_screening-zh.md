@@ -74,7 +74,7 @@ FlashBind 的核心策略很直接：**把 Boltz-2 中每个昂贵的模块都�
 * **Panel a**（MF-PCBA）：横轴是推理时间（对数尺度），纵轴是 EF@1%（前 1% 的富集因子）。FlashBind（星号）位于 **Pareto 前沿的最优区域**——以 0.7 秒的速度达到 EF@1% = 14.13，几乎追平 Boltz-2 的 13.95，但快了 50 倍。传统方法（Vina、GNINA、Chemgauss4）聚集在右下角低性能区域。
 * **Panel b**（抗生素 benchmark）：FlashBind 不仅速度快，AUROC 也远超所有基线。值得注意的是 Boltz-2 在这个任务上掉到了 0.45 左右（接近随机），FlashBind 达到了 **0.710**。
 
-**读图结论：**FlashBind 是目前唯一一个**同时超越 Pareto 前沿**的方法——在两个 benchmark 上都实现了比所有基线更快、更准的组合。
+**读图结论：**FlashBind 位于**效率-精度 Pareto 前沿的最优折衷位置**，精度与 Boltz-2 相当，推理速度快约 50 倍（0.7 秒对 35 秒）。
 
 ### Figure 2 · FlashBind 框架总览
 

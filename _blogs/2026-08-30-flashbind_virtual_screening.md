@@ -74,7 +74,7 @@ In summary, FlashBind's formula is: **fast docking provides structural priors �
 * **Panel a** (MF-PCBA): The x-axis is inference time (log scale), and the y-axis is EF@1% (enrichment factor at the top 1%). FlashBind (star) sits in the **optimal region of the Pareto frontier** — achieving EF@1% = 14.13 at 0.7 seconds, nearly matching Boltz-2's 13.95 while being 50x faster. Traditional methods (Vina, GNINA, Chemgauss4) cluster in the lower-right low-performance region.
 * **Panel b** (antibiotic benchmark): FlashBind is not only fast but also far surpasses all baselines in AUROC. Notably, Boltz-2 drops to around 0.45 on this task (near random), while FlashBind achieves **0.710**.
 
-**Takeaway:** FlashBind is currently the only method that **simultaneously pushes beyond the Pareto frontier** — achieving both faster speed and higher accuracy than all baselines across both benchmarks.
+**Figure Conclusion:** FlashBind is positioned at the **optimal trade-off position on the efficiency-accuracy Pareto frontier**, with accuracy comparable to Boltz-2, and inference speed approximately 50 times faster (0.7 seconds versus 35 seconds).
 
 ### Figure 2: FlashBind Framework Overview
 

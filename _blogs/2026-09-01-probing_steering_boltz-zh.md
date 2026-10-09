@@ -68,7 +68,7 @@ AlphaFold3 和 Boltz-1 这类结构预测模型的架构可以分为两个阶段
 
 **评估细节**
 
-评估使用 486 个蛋白的固定测试集（21.9M 残基）。Probes 按蛋白分组做 5-fold 交叉验证（同一蛋白的残基不会同时出现在训练集和测试集）。F1 使用 domain-level 指标（precision 按残基计，recall 按 domain 计——只要一个 domain 中至少有一个残基被命中就算 recall 成功）。
+评估使用 486 个蛋白的固定测试集（含 SwissProt、AlphaFold DB 与 Boltz-1 预测结构三套标签）。Probes 按蛋白分组做 5-fold 交叉验证（同一蛋白的残基不会同时出现在训练集和测试集）。F1 使用 domain-level 指标（precision 按残基计，recall 按 domain 计——只要一个 domain 中至少有一个残基被命中就算 recall 成功）。
 
 氨基酸种类作为**正控制**（positive control）：如果 probe 能完美恢复氨基酸种类（F1 ≈ 1.0），就确认 label 和 activation 的对齐是正确的。
 
@@ -150,8 +150,8 @@ SAE 在 **84,074 个无标签蛋白**（21.9M 残基）上训练，使用 l<sub>
 
 trunk 的最终层（L47）表征中，几何信息和序列化学信息都高度可解码：
 
-* **几何类**：helix F1 = 0.79-0.90，strand F1 ≈ 0.83，coil F1 ≈ 0.86
-* **序列化学类**：signal peptide F1 ≈ 0.76，disulfide bond F1 ≈ 0.43，disorder F1 ≈ 0.86
+* **几何类**：helix F1 = 0.79-0.90，strand F1 ≈ 0.83，coil F1 ≈ 0.86，disorder F1 ≈ 0.86
+* **序列化学类**：signal peptide F1 ≈ 0.76，disulfide bond F1 ≈ 0.43
 * **正控制**：氨基酸种类 F1 = 0.996（trunk 输出），确认 label-activation 对齐正确
 
 进入 diffusion module（L22）后，两类信息发生了戏剧性的分裂：

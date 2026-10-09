@@ -19,7 +19,7 @@ ICML 2026 Workshop on Generative and Agentic AI for Biology，2026 年
 ---
 AlphaFold3 和 Boltz-2 在蛋白结构预测上表现出色，但它们的扩散模块（diffusion module）内部到底在做什么？输入一组条件信号，输出三维坐标——中间经历的 200 步去噪过程，模型的"大脑"里在想什么？
 
-剑桥大学和 EMBL-EBI 的研究团队用**稀疏自编码器（SAE）**打开了这个黑箱。他们发现：扩散模块内部编码了丰富的可解释生物学特征；**AF3 和 Boltz-2 虽然架构相近，走的却是完全不同的 denoising 路径**；AF3 有更强的"模型先验"，即使输入信号被破坏也照样运转——这可能意味着某种 hallucination；更关键的是，这些**内部特征能比 pLDDT 更准确地预测 de novo 蛋白的实验成败**。
+剑桥大学与 EMBL-EBI 的研究者（以及一位独立贡献者）用**稀疏自编码器（SAE）**打开了这个黑箱。他们发现：扩散模块内部编码了丰富的可解释生物学特征；**AF3 和 Boltz-2 虽然架构相近，走的却是完全不同的 denoising 路径**；AF3 有更强的"模型先验"，即使输入信号被破坏也照样运转——这可能意味着某种 hallucination；更关键的是，这些**内部特征能比 pLDDT 更准确地预测 de novo 蛋白的实验成败**。
 
 *「拆开蛋白折叠 AI 黑箱」系列第二篇。上一篇我们讲了 InterPLM 用 SAE 解析蛋白语言模型 ESM-2 的内部特征。这一篇更进一步——进入结构预测模型最核心的扩散模块。*
 
@@ -179,7 +179,7 @@ SAE 特征的自动解释由 Claude Opus 4.6 完成（通过检查每个特征�
 
 ![Figure 3: Feature category composition across denoising timesteps under varying MSA depth](pic/bish_bash_fold/page_5b.png){: width="1066" height="490" loading="lazy" decoding="async"}
 
-*Figure 3. 不同 MSA 深度和序列消融条件下，AF3（上排）和 Boltz-2（下排）的特征类别构成。四列分别对应 t=0, t=50, t=100, t=146, t=199。四种颜色对应 model-prior（蓝）、MSA-activated（橙）、MSA-silenced（绿）、sequence-driven（红）。*
+*Figure 3. 不同 MSA 深度和序列消融条件下，AF3（上排）和 Boltz-2（下排）的特征类别构成。五列分别对应 t=0, t=50, t=100, t=146, t=199。四种颜色对应 model-prior（蓝）、MSA-activated（橙）、MSA-silenced（绿）、sequence-driven（红）。*
 
 这张图是本文的核心结果图，信息密度很高。关键要看的是两件事：
 
@@ -301,7 +301,7 @@ core-surface boundary 正相关折叠质量、表面电荷正相关可溶性、�
 
 ## 通讯作者介绍
 
-本文的第一作者兼通讯作者是 Soo-Jeong Kim（剑桥大学与 EMBL-EBI），另两位作者是 Carlos Vonessen（独立贡献者）和 Robert D. Finn。Finn 现任欧洲分子生物学实验室欧洲生物信息学研究所（EMBL-EBI）的研究组长和团队负责人，领导 Protein Function Development 团队。他是蛋白质生物信息学领域的标志性人物之一，长期负责维护和开发 Pfam（蛋白质家族数据库）和 InterPro（蛋白质功能整合注释平台）这两个全球使用最广泛的蛋白质注释数据库。Finn 教授在 Washington University in St. Louis 取得博士学位，研究方向涵盖蛋白质功能注释、比较基因组学、序列分析方法开发。近年来，他的团队积极将 AI/ML 方法引入蛋白质注释工作流，本文即是这一方向的最新成果——用可解释性工具反过来理解 AI 蛋白结构预测模型学到了什么。本文的第一作者兼通讯作者 Soo-Jeong Kim 来自剑桥大学和 EMBL-EBI，具体负责了本研究的设计与执行。
+本文的第一作者兼通讯作者是 Soo-Jeong Kim（剑桥大学与 EMBL-EBI），另两位作者是 Carlos Vonessen（独立贡献者）和 Robert D. Finn。Finn 现任欧洲分子生物学实验室欧洲生物信息学研究所（EMBL-EBI）的研究组长和团队负责人，领导 Protein Function Development 团队。他是蛋白质生物信息学领域的标志性人物之一，长期负责维护和开发 Pfam（蛋白质家族数据库）和 InterPro（蛋白质功能整合注释平台）这两个全球使用最广泛的蛋白质注释数据库。Finn 教授在 Washington University in St. Louis 取得博士学位，研究方向涵盖蛋白质功能注释、比较基因组学、序列分析方法开发。近年来，他的团队积极将 AI/ML 方法引入蛋白质注释工作流，本文即是这一方向的最新成果——用可解释性工具反过来理解 AI 蛋白结构预测模型学到了什么。
 
 ## 引用
 

@@ -115,9 +115,9 @@ Linear probing 回答的是"信息存在与否"，但"存在"和"被模型主动
 
 * **Panel A-B** 揭示了 MSA 对潜空间维度的影响。有 MSA 时（蓝线），pair representation 的方差在较少主成分上就饱和（更紧凑）；无 MSA 时（红线）方差更分散。具体地，Checkpoint B 达到 95% 方差需要 **32 个主成分（有 MSA）vs 18 个（无 MSA）**——MSA 注入后空间先膨胀；到 CN，Pairformer 又把信号压缩回更紧凑的结构流形。
 * **Panel C-D** 展示了一个有趣的变化：在 Checkpoint A，PC1 与序列长度高度相关（r = 0.917）；到 CN，这种相关性大幅减弱（r = 0.773），点云按 pTM 着色后呈现明显的质量梯度。这说明 Pairformer 把潜空间从"编码基本序列属性"转化为了**"编码结构质量"**。
-* **Panel E** 量化了 MSA 增加的几何确定性：MSA 在所有 sequence separation 上都降低了 distogram entropy（几何不确定性），**中等距离（13-23 残基）和长程（24 及以上）效果最大**。这意味着 MSA 的核心贡献在于帮助模型建立中远程的空间约束。
-* **Panel F-G** 是 PCA 主成分与结构特征的相关矩阵对比。Checkpoint A 时 PC1 主要与 contact density 和 mean burial 相关（基本的拓扑属性）；到 CN，PC1 与 **pTM 的相关性达到 0.78**，与 contact density 达 0.89——潜空间已经高度组织成"与结构质量直接相关"的几何空间。
-* **Panel H** 是 activation patching 的结果：沿 PC2 正方向推移 embedding，**distogram entropy 系统性增大**（红色正值），证明潜空间中确实存在可操控的"几何确定性/不确定性"维度。
+* **Panel E** 量化了 MSA 增加的几何确定性：MSA 在所有 sequence separation 上都降低了 distogram entropy（几何不确定性），**残基对间隔为 6–23 个位置时熵增最大，其他间隔上也保持较高水平**。这意味着 MSA 的核心贡献在于帮助模型建立中远程的空间约束。
+* **Panel F-G** 是 PCA 主成分与结构特征的相关矩阵对比。Checkpoint A 时 PC1 主要与 contact density 和 mean burial 相关（基本的拓扑属性）；PC1 与 **pTM 的 Spearman 相关系数约为 −0.71**，与 contact density 的相关性同样很强——潜空间已经高度组织成"与结构质量直接相关"的几何空间。
+* **Panel H** 是 activation patching 的结果：沿 PC2 推移 embedding，**distogram entropy 平均降低约 0.0198**，证明潜空间中确实存在可操控的"几何确定性/不确定性"维度。
 * **Panel I-K** 分析了 single 与 pair representation 的信息分配。关键发现：**结构信息几乎全部存在于 pair representation**。Pair 独有信息中，contact density、mean burial、pTM 等都很高（Panel J），而 single 的独有信息几乎为零（Panel K）。
 * **Panel L** 追踪了 Cα-Cα 距离的可线性解码性：R<sup>2</sup> 从 A 的 **0.311 稳步增长到 CN 的 0.474**（加局部上下文后 0.504）。这条持续上升的曲线直观地展示了 Pairformer 逐步把分散的进化线索整合为可解码的几何关系的过程。
 
@@ -163,7 +163,7 @@ Linear probing 回答的是"信息存在与否"，但"存在"和"被模型主动
 **怎么读这张图**
 
 * **Panel A** 是全文最有实践价值的结果。四条线代表四种同源序列类型：蓝色 similar（>80% identity）、橙色 medium（50-70%）、绿色 dissimilar（&lt;30%）、紫色 random（随机抽样）。黑色虚线是完整 MSA 的 TM-score 上限，灰色虚线是无 MSA 的基线。**即使只有 1 条同源序列，也能显著优于无 MSA**。但近缘序列（蓝线）帮助最小——它几乎只是在重复 query 自身。远缘序列（绿线）和随机抽样（紫线）效果更好。**n=5 时 random 的 TM-score 已达约 0.88，n=10 时约 0.92，接近完整 MSA**。
-* **Panel B** 用雷达图展示了四个层级在 pTM、BiDT（双向距离测试）、TM-score、模型确定性、表征相似度五个维度上的表现。从 n=1 到 n=10，dissimilar 和 random 的雷达图面积显著扩大，而 similar 的面积始终最小。这直观地说明：**系统发育多样性（phylogenetic diversity）在多个维度上都优于单纯的深度**。
+* **Panel B** 用雷达图展示了四个层级在 pTM、lDDT（局部距离差异测试）、TM-score、模型确定性、表征相似度五个维度上的表现。从 n=1 到 n=10，dissimilar 和 random 的雷达图面积显著扩大，而 similar 的面积始终最小。这直观地说明：**系统发育多样性（phylogenetic diversity）在多个维度上都优于单纯的深度**。
 * **Panel C** 是一个非常漂亮的负对照。作者把完全无关蛋白的序列裁剪后填入 MSA（"假 MSA"），深度从 1 到 100 条。无论给多少条假序列，TM-score 稳定在约 0.49-0.52（与无 MSA 几乎一样），cosine distance 高达 0.54，entropy delta 也居高不下。这排除了一个重要的替代解释：**AF3 需要的确实是与 query 有进化关系的信息，它在读真正的进化信号，而非只响应"看起来像 MSA"的输入格式**。
 * **Panel D** 把 contact recall 的改善按 sequence separation 分箱：sequential（近程）、secondary（二级结构尺度）、medium-range、long-range。结果清晰：**远程接触的恢复最依赖高多样性 MSA**（右侧绿色/紫色柱明显更高）。这非常合理——远程接触最难从局部序列模式推导，恰恰需要进化比较提供"全局拓扑约束"。即使只有 1 条远缘序列，也能显著提升 long-range contact recall。
 
