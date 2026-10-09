@@ -103,7 +103,8 @@
     }
     function onUp(event) {
       if (event.pointerId !== press.id) return;
-      var full = press.level >= 1;
+      // Judge the charge by elapsed time, not the last drawn frame, so slow frames cannot lose a full charge.
+      var full = press.since > 0 && performance.now() - press.since >= CHARGE_MS;
       stopPress();
       if (!full) return;
       swallowClick = true;
