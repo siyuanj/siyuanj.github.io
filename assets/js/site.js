@@ -139,6 +139,7 @@
     var dots = Array.from(carousel.querySelectorAll('.photo-dot'));
     var status = carousel.querySelector('.photo-status');
     var current = 0;
+    var eggBusy = false;
     if (!slides.length || typeof window.Splide !== 'function') return;
     function select(index) {
       current = index;
@@ -150,7 +151,7 @@
         if (position === current) dot.setAttribute('aria-current', 'true');
         else dot.removeAttribute('aria-current');
       });
-      status.textContent = slides[current].getAttribute('aria-label');
+      if (!eggBusy) status.textContent = slides[current].getAttribute('aria-label');
     }
     // Follow Splide's existing autoWidth photo example (splide02).
     var slider = new window.Splide(carousel, {
@@ -193,6 +194,14 @@
         show(Number(slide.dataset.photoIndex));
       }
     });
+    if (typeof window.attachPhotoEgg === 'function') {
+      window.attachPhotoEgg({
+        carousel: carousel, gallery: track, slider: slider, count: slides.length,
+        onBusy: function (value) { eggBusy = value; },
+        announce: function (message) { status.textContent = message; },
+        onDone: function () { select(slider.index); }
+      });
+    }
     carousel.querySelector('.photo-controls').hidden = slides.length < 2;
     carousel.querySelector('.photo-dots').hidden = slides.length < 2;
   });

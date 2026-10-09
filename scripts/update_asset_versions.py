@@ -8,6 +8,7 @@ SOURCES = {
     "site_css": ["assets/css/site.scss", "_sass/site-base.scss", "_sass/site-layout.scss", "_sass/site-prose.scss"],
     "publication_css": ["assets/css/publication-cards.css"],
     "site_js": ["assets/js/site.js"],
+    "photo_egg_js": ["assets/js/photo-egg.js"],
 }
 versions = {}
 for key, paths in SOURCES.items():

@@ -112,6 +112,17 @@ div.wrapper {
 .photo-dot { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; background: transparent; border: 0; border-radius: 50%; cursor: pointer; }
 .photo-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); opacity: .2; }
 .photo-dot[aria-current="true"]::before { opacity: 1; background: var(--link); }
+// Easter egg (assets/js/photo-egg.js): a still press charges a ring; a full charge spins the strip into a pixel egg.
+.recent-photo-link { -webkit-touch-callout: none; }
+.photo-charge { position: absolute; z-index: 4; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; opacity: 0; pointer-events: none; transform: scale(.5); transition: opacity .15s, transform .15s; background: conic-gradient(var(--link) calc(var(--charge, 0) * 1turn), rgba(128, 128, 128, .28) 0); -webkit-mask: radial-gradient(circle, transparent 54%, #000 57%); mask: radial-gradient(circle, transparent 54%, #000 57%); }
+.photo-carousel.is-charging .photo-charge { opacity: 1; transform: scale(1); }
+.photo-carousel.is-charged .photo-charge { background: conic-gradient(#ff4d6d, #ffb703, #8ac926, #1fb6ff, #9b5de5, #ff4d6d); animation: photo-charge-spin .6s linear infinite; }
+@keyframes photo-charge-spin { to { transform: scale(1.08) rotate(1turn); } }
+.photo-carousel.is-egg-spinning .recent-photo-link img { filter: blur(3px) saturate(1.4); }
+.recent-photo-link img { transition: filter .2s; }
+.photo-carousel.is-egg-busy .photo-gallery, .photo-carousel.is-egg-busy .photo-controls, .photo-carousel.is-egg-busy .photo-dots { pointer-events: none; }
+.photo-egg { position: absolute; z-index: 5; top: 0; left: 0; border-radius: 6px; image-rendering: pixelated; transition: opacity .3s; }
+.photo-egg.is-leaving { opacity: 0; }
 .photo-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .site-content .visitor-map-widget { width: 100%; max-width: 320px; margin: 24px auto 0; }
 .visitor-map-widget img { display: block; width: 100%; height: auto; }
