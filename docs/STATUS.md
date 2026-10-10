@@ -1,5 +1,13 @@
 # Project Status
 
+## 2026-10-10 10:01 EDT (America/New_York) - 新两图及日期上线验收
+
+- **这次做了什么 / 用户决定**：两张照片日期均按“今天”补为2026.10.10，网站内容提交`e5babed`，插画与接入实现为前一提交`1914904`。本条仅补充验收记录。
+- **现在真实状态 / 本次实测**：日期加入后Jekyll构建成功，两条日期标签都正确；375px浏览器中Baker图注自然分成两行，边界left=26px/right=333px、高41.59px，页面无横向溢出。Pages运行`38057829210`成功部署`e5babed492b4d1cd19fd76c77ed13c3f4337df65`；线上浏览器确认5张图、新两张日期与指定图注、Baker狗头。两张PNG、四张WebP及SVG共7项线上资源均HTTP 200，与本地逐字节相同。私有任务目录保存`deployment.json`、`online-assets.json`、`mobile-dated-preview.png`、`online-desktop.png`及`online-photos.png`。
+- **卡在哪 / 下一步**：无发布阻塞；完成本条文档提交。临时本地预览服务在任务结束时停止，线上页面保留为交付入口。
+- **还没验证的**：真机触摸、Safari/Firefox及原有彩蛋完整流程未复测；插画海报小字不作为科研原始数据。旧STATUS正文已备份并检查逐字节保留。
+- **要用户定的**：无。
+
 ## 2026-10-10 09:58 EDT (America/New_York) - 学推海报与 Baker 照片动漫化
 
 - **用户要求 / 决定**：用 imagegen 将两张附件照片转换为与网站现有展示一致的动漫风格；图注为“学推计划海报展示”和“First time to see Baker!(Nice glasses[doge])”（标记实际显示为狗头）。用户随后确认两张均摄于今天，采用2026.10.10。
