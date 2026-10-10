@@ -1,4 +1,6 @@
-- caption: "学推计划海报展示"
+- date: "2026-10-10"
+  display_date: "2026.10.10"
+  caption: "学推计划海报展示"
   image: /assets/img/photos/xuetui-poster-natural-illustrated.png
   preview: /assets/img/photos/xuetui-poster-natural-illustrated-640.webp
   preview_large: /assets/img/photos/xuetui-poster-natural-illustrated-1280.webp
@@ -6,7 +8,9 @@
   height: 1086
   alt: "Anime illustration of Siyuan Jiang presenting his GPCR-Turbo research poster at Tsinghua University"
 
-- caption: "First time to see Baker!(Nice glasses[doge])"
+- date: "2026-10-10"
+  display_date: "2026.10.10"
+  caption: "First time to see Baker!(Nice glasses[doge])"
   image: /assets/img/photos/baker-rosettacon-asia-natural-illustrated.png
   preview: /assets/img/photos/baker-rosettacon-asia-natural-illustrated-640.webp
   preview_large: /assets/img/photos/baker-rosettacon-asia-natural-illustrated-1280.webp

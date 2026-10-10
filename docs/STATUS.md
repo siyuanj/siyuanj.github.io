@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-10 09:58 EDT (America/New_York) - 学推海报与 Baker 照片动漫化
+
+- **用户要求 / 决定**：用 imagegen 将两张附件照片转换为与网站现有展示一致的动漫风格；图注为“学推计划海报展示”和“First time to see Baker!(Nice glasses[doge])”（标记实际显示为狗头）。用户随后确认两张均摄于今天，采用2026.10.10。
+- **这次做了什么 / 我的判断**：两次内置 image_gen，以用户照片为人物/场景目标，以已选 NVIDIA 插画为画风参考，保留自然比例、表情、海报/会场构图和 Baker 红色眼镜。新增两张 PNG 及四张 WebP 到 `assets/img/photos/`，在 `_data/photos.yml` 最前面依次加入海报、Baker，原三张保留。`_includes/photo-caption.html` 将转义后的 `[doge]` 替换为复用彩蛋像素图的 `assets/img/icons/doge-pixel.svg`；`recent-photos.html` 支持缺省日期及可访问图注。`_sass/site-layout.scss` 让长图注按轮播宽度换行，更新 CSS 缓存键、预览 helper 和 README。
+- **自审 / 本次验证**：先审查输入、命名、图注转义、可选日期、SVG 来源和 CSS 作用域，再构建和浏览器核验。两张母版实测均1448×1086，逐字节匹配 image_gen 原始输出；四张预览为640×480 / 1280×960、quality 90、共466182字节，母版不变。系统 Python 缺 Pillow，改用 Codex 已打包 Python 运行现有 helper，未安装依赖。第一次构建发现 Liquid 对花括号 doge 标记的解析冲突，改为 `[doge]` 后 Jekyll 3.8.7 构建成功；`git diff --check` 通过。日期补充前，构建首页有5张照片、15个本地图片引用全部存在，无空日期标签。内置浏览器桌面和375px宽度查看新两图及狗头；手机页面宽375px无横向溢出，英文图注完整；实点 Baker 大图打开1448×1086 PNG，控制台 error 为空。日期补充后的验证见后续补记。
+- **证据 / 产物**：私有 `/Volumes/Work/10-5 website/photo-sources/10-10-academic-events/` 保存 `originals/`、实际两条 `prompts.md`、`preview-manifest.json`、`local-review.json`、桌面/手机截图。原始真人照片未放进公开仓库。本次开始于 `c18597d`，fetch/pull确认与远端一致。
+- **现在真实状态 / 卡在哪**：图片及网站实现已提交并push为`1914904`，Pages运行`38057752889`在09:58 EDT为in_progress。用户确认日期后补入photos.yml，尚待构建并提交日期与交接文档。首次尝试通过shell前插STATUS因stdin编码报错未写入；这次先保存时间戳备份，再用局部补丁前插，未覆盖旧历史。
+- **还没验证的**：本次最终 Pages 部署和线上资源（发布后补记）；真机触摸、Safari/Firefox、原有彩蛋完整流程未复测，动画逻辑未改。海报小字为插画化重绘，未逐字符校对，不作为论文数据来源。
+- **要用户定的**：无。
+
 ## 2026-10-09 14:44 EDT (America/New_York) - 照片轮播彩蛋
 
 - **用户要求**：照片能拖动、松手有惯性；再加按住蓄力、松手飞速滑动，最后出现像素风“you found the egg”加 doge 狗头的画面，要像黑客风格那样闪烁，但用彩色而不是绿色，并适配亮色/暗色模式；显示一会儿后回到照片展示。上一轮的优化清单用户没有选择，这次没做；剩余40篇全文核查用户选“先不跑”。
