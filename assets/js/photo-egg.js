@@ -8,6 +8,8 @@
   var CHARGE_MS = 1200;  // time from first charge to full
   var MOVE_LIMIT = 8;    // pointer travel (px) that turns a press into an ordinary drag
   var LEAVE_MS = 650;    // dissolve back to the photos
+  var EMERGE_MS = 1600;  // the spinning photos dissolve into scrolling pixels over this time
+  var CONTENT_MS = 1150; // then the panel, doge and text fade in
 
   // 5x7 pixel font, rows top to bottom.
   var FONT = {};
@@ -152,7 +154,10 @@
       setBusy(true);
       if (calmMotion() || count < 2) { showEgg(pointerType); return; }
       var speed = slider.options.speed;
-      var steps = count * 4 - (slider.index % count);  // several laps, ending on the first photo
+      var laps = Math.max(2, Math.ceil(10 / count));
+      var steps = count * laps - (slider.index % count);  // about ten slides, ending on the first photo
+      var emergeAt = Math.floor(steps * 0.55);           // the egg grows out of the strip while it slows down
+      var emerged = false;
       var step = 0;
       var watchdog = 0;
       spin = function () {
@@ -161,8 +166,12 @@
           spin = null;
           slider.options.speed = speed;
           carousel.classList.remove('is-egg-spinning');
-          showEgg(pointerType);
+          if (!emerged) showEgg(pointerType);
           return;
+        }
+        if (step === emergeAt && !emerged) {
+          emerged = true;
+          showEgg(pointerType);
         }
         var t = steps > 1 ? step / (steps - 1) : 1;
         var stepSpeed = Math.round(45 + 360 * Math.pow(t, 2.4));  // fast first, easing out
@@ -193,6 +202,7 @@
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
       carousel.appendChild(canvas);
+      carousel.classList.add('is-egg-emerging');
       var ctx = canvas.getContext('2d');
       if (options.announce) options.announce('You found the egg! Such wow.');
 
@@ -261,112 +271,127 @@
         var tone = dark ? 62 : 42;
         var pace = calm ? 0.3 : 1;          // reduced motion keeps a slow scroll, without flashing
         var tick = Math.floor(t / 80);
-        ctx.fillStyle = bg;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Emerging: pixels appear at random on the moving sheet until they cover the photos underneath.
+        var grow = Math.min(1, t / (calm ? 900 : EMERGE_MS));
+        grow = grow * grow * (3 - 2 * grow);
+        var rt = t - (calm ? 600 : CONTENT_MS);  // clock for the panel, doge and text
+        if (grow < 1) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else {
+          ctx.fillStyle = bg;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+        // Distance travelled: the normal scroll plus a burst that starts at the spinning strip's speed and
+        // decays, so the photos' motion carries straight into the pixels.
+        function travel(base, burst) { return t * base * pace + (calm ? 0 : burst * 600 * (1 - Math.exp(-t / 600))); }
         // The whole background scrolls left in three layers. Positions are fractional, so the pixel blocks
         // glide smoothly instead of jumping a whole cell at a time.
         // 1. A full mosaic of colour moving as one sheet.
-        var sheet = t * 0.006 * pace;
+        var sheet = travel(0.006, 0.05);
         var sheetCol = Math.floor(sheet);
         var sheetFrac = sheet - sheetCol;
         for (var y = 0; y < rows; y++) {
           for (var x = 0; x <= cols; x++) {
             var u = x + sheetCol;
             var shade = noise(u, y, 21);
+            if (grow < 1 && noise(u, y, 41) >= grow * 1.08) continue;
             rect(x - sheetFrac, y, 1, 1, mosaicColor(u * 4 + y * 6 + t * 0.01 * pace, dark ? 9 + shade * 16 : 92 - shade * 14, 1));
           }
         }
         // 2. Brighter sparse pixels moving faster, for depth.
-        var sparks = t * 0.016 * pace;
+        var sparks = travel(0.016, 0.07);
         var sparkCol = Math.floor(sparks);
         var sparkFrac = sparks - sparkCol;
         for (var y2 = 0; y2 < rows; y2++) {
           for (var x2 = 0; x2 <= cols; x2++) {
-            if (noise(x2 + sparkCol, y2, 22) < 0.05) rect(x2 - sparkFrac, y2, 1, 1, hsl((x2 + sparkCol) * 9 + y2 * 5, 90, tone + 6, dark ? 0.75 : 0.5));
+            if (noise(x2 + sparkCol, y2, 22) < 0.05) rect(x2 - sparkFrac, y2, 1, 1, hsl((x2 + sparkCol) * 9 + y2 * 5, 90, tone + 6, (dark ? 0.75 : 0.5) * grow));
           }
         }
         // 3. Streams racing left with a bright head and a fading trail behind it.
         streams.forEach(function (d) {
-          var head = cols + 2 - ((d.offset + t * d.speed * pace) % (cols + d.len + 10));
+          var head = cols + 2 - ((d.offset + travel(d.speed, 0.06)) % (cols + d.len + 10));
           for (var i = 0; i < d.len; i++) {
             var x = head + i;
             if (x < -1 || x > cols || (!calm && noise(Math.floor(x), d.y, tick) < 0.18)) continue;
             var fade = 1 - i / d.len;
-            rect(x, d.y, 1, 1, hsl(d.hue + x * 3 + t * 0.05 * pace, 95, i === 0 ? tone + 16 : tone + 4, (dark ? 0.85 : 0.6) * fade));
+            rect(x, d.y, 1, 1, hsl(d.hue + x * 3 + t * 0.05 * pace, 95, i === 0 ? tone + 16 : tone + 4, (dark ? 0.85 : 0.6) * fade * grow));
           }
         });
-        // Translucent panel so the background keeps moving behind the text, framed by a marching rainbow.
-        rect(px, py, panelWidth, panelHeight, dark ? 'rgba(6,7,12,0.74)' : 'rgba(246,247,251,0.76)');
-        var march = t * 0.3 * pace;
-        for (var e = 0; e < panelWidth; e++) {
-          rect(px + e, py, 1, 1, hsl(e * 9 - march, 95, tone, 0.95));
-          rect(px + e, py + panelHeight - 1, 1, 1, hsl(e * 9 + march, 95, tone, 0.95));
-        }
-        for (var q = 1; q < panelHeight - 1; q++) {
-          rect(px, py + q, 1, 1, hsl(q * 9 + march, 95, tone, 0.95));
-          rect(px + panelWidth - 1, py + q, 1, 1, hsl(q * 9 - march, 95, tone, 0.95));
-        }
-        // Doge, revealed top-down at first, with an occasional RGB-split glitch.
-        var dogeRows = calm ? dogeHeight : Math.floor(Math.max(0, t - 120) / 28);
-        if (!calm && t > 800 && t % 1300 < 70) {
-          doge(dogeX - 1, dogeY, dogeRows, dark ? 'rgba(0,229,255,0.7)' : 'rgba(0,150,200,0.5)');
-          doge(dogeX + 1, dogeY, dogeRows, dark ? 'rgba(255,0,170,0.7)' : 'rgba(220,0,120,0.45)');
-        }
-        doge(dogeX, dogeY, dogeRows);
-        // Text decodes from random characters, then keeps a light flicker with cycling rainbow hues.
-        var index = 0;
-        LINES.forEach(function (line, lineNumber) {
-          for (var n = 0; n < line.length; n++) {
-            var ch = line.charAt(n);
-            if (ch === ' ') continue;
-            var x = textX + n * 6;
-            var y = textY + lineNumber * 10;
-            var settled = calm || t > 260 + index * 55;
-            var shown = settled ? ch : NOISE.charAt(Math.floor(noise(index, Math.floor(t / 50), 3) * NOISE.length));
-            var hue = index * 26 + t * 0.15 * pace;
-            var flicker = !calm && settled ? noise(index, Math.floor(t / 90), 5) : 1;
-            if (flicker >= 0.004) {  // a rare drop-out; most flicker is a bright flash
-              glyph(shown, x + 1, y + 1, 1, dark ? hsl(hue, 90, 22, 1) : 'rgba(20,24,40,0.16)');
-              glyph(shown, x, y, 1, flicker < 0.06 ? (dark ? '#ffffff' : '#10131c') : settled ? hsl(hue, 95, tone + (dark ? 4 : 0), 1) : hsl(hue, 60, tone, 0.6));
+        if (rt >= 0) {
+          // Translucent panel fading in over the moving background, framed by a marching rainbow.
+          var show = Math.min(1, rt / 350);
+          rect(px, py, panelWidth, panelHeight, dark ? 'rgba(6,7,12,' + (0.74 * show) + ')' : 'rgba(246,247,251,' + (0.76 * show) + ')');
+          var march = t * 0.3 * pace;
+          for (var e = 0; e < panelWidth; e++) {
+            rect(px + e, py, 1, 1, hsl(e * 9 - march, 95, tone, 0.95 * show));
+            rect(px + e, py + panelHeight - 1, 1, 1, hsl(e * 9 + march, 95, tone, 0.95 * show));
+          }
+          for (var q = 1; q < panelHeight - 1; q++) {
+            rect(px, py + q, 1, 1, hsl(q * 9 + march, 95, tone, 0.95 * show));
+            rect(px + panelWidth - 1, py + q, 1, 1, hsl(q * 9 - march, 95, tone, 0.95 * show));
+          }
+          // Doge, revealed top-down, with an occasional RGB-split glitch.
+          var dogeRows = calm ? dogeHeight : Math.floor(Math.max(0, rt - 60) / 28);
+          if (!calm && rt > 800 && t % 1300 < 70) {
+            doge(dogeX - 1, dogeY, dogeRows, dark ? 'rgba(0,229,255,0.7)' : 'rgba(0,150,200,0.5)');
+            doge(dogeX + 1, dogeY, dogeRows, dark ? 'rgba(255,0,170,0.7)' : 'rgba(220,0,120,0.45)');
+          }
+          doge(dogeX, dogeY, dogeRows);
+          // Text decodes from random characters, then keeps a light flicker with cycling rainbow hues.
+          var index = 0;
+          LINES.forEach(function (line, lineNumber) {
+            for (var n = 0; n < line.length; n++) {
+              var ch = line.charAt(n);
+              if (ch === ' ') continue;
+              var x = textX + n * 6;
+              var y = textY + lineNumber * 10;
+              var settled = calm || rt > 200 + index * 55;
+              var shown = settled ? ch : NOISE.charAt(Math.floor(noise(index, Math.floor(t / 50), 3) * NOISE.length));
+              var hue = index * 26 + t * 0.15 * pace;
+              var flicker = !calm && settled ? noise(index, Math.floor(t / 90), 5) : 1;
+              if (flicker >= 0.004) {  // a rare drop-out; most flicker is a bright flash
+                glyph(shown, x + 1, y + 1, 1, dark ? hsl(hue, 90, 22, show) : 'rgba(20,24,40,' + (0.16 * show) + ')');
+                glyph(shown, x, y, 1, flicker < 0.06 ? (dark ? '#ffffff' : '#10131c') : settled ? hsl(hue, 95, tone + (dark ? 4 : 0), show) : hsl(hue, 60, tone, 0.6 * show));
+              }
+              index += 1;
             }
-            index += 1;
+          });
+          if (calm || Math.floor(t / 420) % 2 === 0) rect(textX + LINES[1].length * 6, textY + 10, 5, 7, hsl(t * 0.2 * pace, 95, tone, 0.85 * show));
+          // Doge-speak keeps popping up in the top band: two slots, each showing a new word every cycle.
+          if (rt > 400 && topBand[1] - topBand[0] >= wordHeight + 1) {
+            for (var slot = 0; slot < 2; slot++) {
+              var cycle = Math.floor((rt + slot * 1300) / 2600);
+              if ((rt + slot * 1300) % 2600 > 1800 || (!calm && noise(slot, Math.floor(t / 70), 9) < 0.15)) continue;
+              var word = WORDS[Math.floor(noise(cycle, slot, 31) * WORDS.length)];
+              var wordWidth = (word.length * 6 - 1) * small;
+              var half = cols / 2;
+              var wx = slot * half + 1 + noise(cycle, slot, 37) * Math.max(0, half - wordWidth - 2);
+              var wy = topBand[0] + (topBand[1] - topBand[0] - wordHeight) / 2;
+              text(word, wx, wy, small, function (i) { return hsl(cycle * 70 + slot * 150 + i * 22, 90, tone, 0.95); });
+            }
           }
-        });
-        if (calm || Math.floor(t / 420) % 2 === 0) rect(textX + LINES[1].length * 6, textY + 10, 5, 7, hsl(t * 0.2 * pace, 95, tone, 0.85));
-        // Doge-speak keeps popping up in the top band: two slots, each showing a new word every cycle.
-        if (topBand[1] - topBand[0] >= wordHeight + 1) {
-          for (var slot = 0; slot < 2; slot++) {
-            var cycle = Math.floor((t + slot * 1300) / 2600);
-            if ((t + slot * 1300) % 2600 > 1800 || (!calm && noise(slot, Math.floor(t / 70), 9) < 0.15)) continue;
-            var word = WORDS[Math.floor(noise(cycle, slot, 31) * WORDS.length)];
-            var wordWidth = (word.length * 6 - 1) * small;
-            var half = cols / 2;
-            var wx = slot * half + 1 + noise(cycle, slot, 37) * Math.max(0, half - wordWidth - 2);
-            var wy = topBand[0] + (topBand[1] - topBand[0] - wordHeight) / 2;
-            text(word, wx, wy, small, function (i) { return hsl(cycle * 70 + slot * 150 + i * 22, 90, tone, 0.95); });
+          // How to get back, once the text has settled.
+          if (rt > 1200 && bottomBand[1] - bottomBand[0] >= wordHeight + 1 && (calm || t % 1400 < 1050)) {
+            var hintWidth = (hint.length * 6 - 1) * small;
+            text(hint, (cols - hintWidth) / 2, bottomBand[0] + (bottomBand[1] - bottomBand[0] - wordHeight) / 2, small,
+              function (i) { return hsl(i * 18 + t * 0.1 * pace, 70, dark ? 72 : 36, 0.9); });
           }
-        }
-        // How to get back, once the text has settled.
-        if (t > 1200 && bottomBand[1] - bottomBand[0] >= wordHeight + 1 && (calm || t % 1400 < 1050)) {
-          var hintWidth = (hint.length * 6 - 1) * small;
-          text(hint, (cols - hintWidth) / 2, bottomBand[0] + (bottomBand[1] - bottomBand[0] - wordHeight) / 2, small,
-            function (i) { return hsl(i * 18 + t * 0.1 * pace, 70, dark ? 72 : 36, 0.9); });
-        }
-        // Glitch slice: shift a horizontal band for a moment.
-        if (!calm && t > 800 && t % 900 < 60) {
-          var band = Math.floor(noise(Math.floor(t / 900), 2, 4) * canvas.height * 0.8);
-          var bandHeight = Math.max(unit * 2, canvas.height * 0.08);
-          ctx.drawImage(canvas, 0, band, canvas.width, bandHeight, Math.round((noise(band, 3, 3) * 6 - 3) * unit), band, canvas.width, bandHeight);
+          // Glitch slice: shift a horizontal band for a moment.
+          if (!calm && rt > 800 && t % 900 < 60) {
+            var band = Math.floor(noise(Math.floor(t / 900), 2, 4) * canvas.height * 0.8);
+            var bandHeight = Math.max(unit * 2, canvas.height * 0.08);
+            ctx.drawImage(canvas, 0, band, canvas.width, bandHeight, Math.round((noise(band, 3, 3) * 6 - 3) * unit), band, canvas.width, bandHeight);
+          }
         }
         // Scanlines.
-        ctx.fillStyle = dark ? 'rgba(0,0,0,0.26)' : 'rgba(255,255,255,0.32)';
+        ctx.fillStyle = dark ? 'rgba(0,0,0,' + (0.26 * grow) + ')' : 'rgba(255,255,255,' + (0.32 * grow) + ')';
         for (var s = 0; s < canvas.height; s += 3 * ratio) ctx.fillRect(0, s, canvas.width, Math.max(1, ratio));
-        // Intro noise burst, and the dissolve when leaving.
-        var density = leaving != null ? Math.min(1, leaving / LEAVE_MS) : (!calm && t < 160 ? 1 - t / 160 : 0);
+        // Dissolve when leaving.
+        var density = leaving != null ? Math.min(1, leaving / LEAVE_MS) : 0;
         if (density > 0) {
           for (var gy = 0; gy < rows; gy++) {
             for (var gx = 0; gx < cols; gx++) {
-              if (noise(gx, gy, 11) < density) rect(gx, gy, 1, 1, leaving != null ? bg : hsl(gx * 7 + gy * 11, 90, tone, 0.85));
+              if (noise(gx, gy, 11) < density) rect(gx, gy, 1, 1, bg);
             }
           }
         }
@@ -398,7 +423,7 @@
       }
       document.addEventListener('keydown', onKey);
       function close() {
-        if (closingAt != null) return;
+        if (closingAt != null || performance.now() - started < (calm ? 900 : CONTENT_MS + 300)) return;
         closingAt = performance.now();
         canvas.classList.add('is-leaving');
         if (!frame) frame = window.requestAnimationFrame(loop);
@@ -408,6 +433,7 @@
         if (watcher) watcher.disconnect();
         document.removeEventListener('keydown', onKey);
         canvas.remove();
+        carousel.classList.remove('is-egg-emerging');
         egg = null;
         setBusy(false);
         if (hadFocus) gallery.focus({ preventScroll: true });

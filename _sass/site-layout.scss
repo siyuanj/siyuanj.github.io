@@ -123,6 +123,8 @@ div.wrapper {
 @keyframes photo-charge-spin { to { transform: scale(1.08) rotate(1turn); } }
 .photo-carousel.is-egg-spinning .recent-photo-link img { filter: blur(3px) saturate(1.4); }
 .recent-photo-link img { transition: filter .2s; }
+// While the egg grows out of the strip, the photos melt into a heavier blur underneath it.
+.photo-carousel.is-egg-emerging .recent-photo-link img { filter: blur(7px) saturate(1.6); transition: filter 1s; }
 .photo-carousel.is-egg-busy .photo-gallery, .photo-carousel.is-egg-busy .photo-controls, .photo-carousel.is-egg-busy .photo-dots { pointer-events: none; }
 .photo-carousel.is-egg-busy .photo-dots { opacity: .35; transition: opacity .3s; }
 .photo-egg { position: absolute; z-index: 5; top: 0; left: 0; border-radius: 6px; cursor: pointer; image-rendering: pixelated; transition: opacity .65s ease-in; }
