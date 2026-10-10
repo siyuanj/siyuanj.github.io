@@ -90,7 +90,9 @@ div.wrapper {
 .recent-photo { flex: 0 0 auto; min-width: 0; width: calc(var(--photo-height) * var(--photo-ratio)); margin: 0; scroll-snap-align: center; }
 .recent-photo-link { display: flex; justify-content: center; align-items: center; width: 100%; height: var(--photo-height); margin: 0; }
 .recent-photo-link img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; border-radius: 6px; }
-.recent-photo figcaption { position: relative; left: 50%; width: max-content; min-height: 22px; margin-top: 10px; transform: translateX(-50%); font-size: 13px; line-height: 1.6; text-align: center; white-space: nowrap; }
+.recent-photo figcaption { position: relative; left: 50%; width: max-content; max-width: calc(100vw - 68px); min-height: 22px; margin-top: 10px; transform: translateX(-50%); font-size: 13px; line-height: 1.6; text-align: center; overflow-wrap: anywhere; }
+@supports (width: 1cqw) { .recent-photo figcaption { max-width: calc(100cqw - 32px); } }
+.recent-photo .photo-caption-emoji { display: inline-block; width: 1.15em; height: auto; margin: 0 .12em; vertical-align: -.15em; border-radius: 0; }
 .photo-carousel.is-initialized .recent-photo figcaption { visibility: hidden; }
 .photo-carousel.is-initialized .recent-photo.is-active figcaption { visibility: visible; }
 // ProgressiveBlur layer masks adapted from ibelick/motion-primitives; MIT notice in assets/vendor/motion-primitives/.

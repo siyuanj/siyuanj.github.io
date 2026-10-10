@@ -7,6 +7,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = {
+    "xuetui-poster-natural-illustrated": (ROOT / "assets/img/photos/xuetui-poster-natural-illustrated.png", ROOT / "assets/img/photos", [640, 1280]),
+    "baker-rosettacon-asia-natural-illustrated": (ROOT / "assets/img/photos/baker-rosettacon-asia-natural-illustrated.png", ROOT / "assets/img/photos", [640, 1280]),
     "avatar": (ROOT / "assets/img/jiangsiyuan.png", ROOT / "assets/img/profile", [320, 480]),
     "gpcr-turbo": (ROOT / "assets/img/publications/gpcr-turbo-framework.png", ROOT / "assets/img/publications", [600, 1200]),
     "structrace": (ROOT / "assets/img/publications/structrace-framework.png", ROOT / "assets/img/publications", [600, 1200]),

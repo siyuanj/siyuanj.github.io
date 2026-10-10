@@ -1,0 +1,3 @@
+{%- assign caption = include.text | escape -%}
+{%- capture doge -%}<img class="photo-caption-emoji" src="{{ '/assets/img/icons/doge-pixel.svg' | relative_url }}" width="16" height="15" alt="doge">{%- endcapture -%}
+{{- caption | replace: '[doge]', doge -}}

@@ -1,3 +1,19 @@
+- caption: "学推计划海报展示"
+  image: /assets/img/photos/xuetui-poster-natural-illustrated.png
+  preview: /assets/img/photos/xuetui-poster-natural-illustrated-640.webp
+  preview_large: /assets/img/photos/xuetui-poster-natural-illustrated-1280.webp
+  width: 1448
+  height: 1086
+  alt: "Anime illustration of Siyuan Jiang presenting his GPCR-Turbo research poster at Tsinghua University"
+
+- caption: "First time to see Baker!(Nice glasses[doge])"
+  image: /assets/img/photos/baker-rosettacon-asia-natural-illustrated.png
+  preview: /assets/img/photos/baker-rosettacon-asia-natural-illustrated-640.webp
+  preview_large: /assets/img/photos/baker-rosettacon-asia-natural-illustrated-1280.webp
+  width: 1448
+  height: 1086
+  alt: "Anime illustration of a RosettaCon Asia lecture hall with David Baker wearing red sunglasses on the video screen"
+
 - date: "2026-09-26"
   display_date: "2026.9.26"
   caption: "摄于金门大桥"
