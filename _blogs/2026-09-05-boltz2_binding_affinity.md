@@ -31,7 +31,7 @@ The paper comes from a joint team at MIT CSAIL, the Jameel Clinic, Valence Labs,
 
 AlphaFold3 and Boltz-1 answer the question of "what does it look like": given the sequences and structures of a protein and a ligand, they predict the 3D conformation of the complex. In drug design, however, the more central question is "how strongly does it bind": whether a compound can become a drug candidate depends on its **binding affinity** for the target protein.
 
-Existing methods for computing affinity sit at two extremes. At one end is **molecular docking** (e.g. Chemgauss4), which is fast (seconds) but has very low predictive accuracy (Pearson r ≈ 0.28) and is only good for rough initial ranking. At the other end is **free energy perturbation (FEP)**, which is accurate (r ≈ 0.75) but needs thousands to tens of thousands of CPU hours of molecular dynamics simulation per molecule, placing enormous demands on compute. The broad middle ground between speed and accuracy, where a tool would be reasonably accurate and still fast enough, has long lacked a reliable option.
+Current affinity calculation methods form a bipolarized landscape. On one end is **molecular docking** (such as Chemgauss4), which is fast (second-level) but has very low prediction accuracy (Pearson r ≈ 0.26) and can only perform preliminary ranking. On the other end is **free energy perturbation (FEP)**, with high accuracy (r ≈ 0.75), but each molecule requires thousands to tens of thousands of CPU hours of molecular dynamics simulation, placing extremely high demands on computational resources. In the vast middle ground between speed and accuracy—possessing both reasonable accuracy and sufficient speed—reliable tools have been lacking.
 
 **What this figure asks:** Where does Boltz-2 sit on the accuracy-speed trade-off compared with docking and FEP methods?
 
@@ -41,7 +41,7 @@ Existing methods for computing affinity sit at two extremes. At one end is **mol
 
 This gap is exactly what Boltz-2 targets. Its ambition goes well beyond bolting on an affinity head: the team set out to build a **complete AI drug-discovery pipeline that starts from sequence, goes through structure prediction and affinity evaluation, and on to virtual screening and molecule generation**. Within this pipeline, Boltz-2 serves as both the structure prediction engine and the affinity evaluation engine.
 
-On the FEP+ 4-target benchmark, Boltz-2 reaches Pearson r = 0.66, close to ABFE (r = 0.75) and OpenFE (r = 0.65), while computing more than 1000 times faster. On the CASP16 affinity track, Boltz-2 outperformed every participant with zero tuning. In virtual screening, Boltz-2 reaches an enrichment factor of 18.4 (at the 0.5% threshold), more than 7 times that of conventional docking.
+On the FEP+ 4-target benchmark, Boltz-2 achieved a Pearson r = 0.66, approaching the accuracy of ABFE (r = 0.75) and OpenFE (r = 0.65), but with over 1000-fold speedup. On the CASP16 affinity track, Boltz-2 outperforms all participants without fine-tuning. In virtual screening scenarios, Boltz-2's enrichment factor reaches 18.4 (0.5% threshold), approximately 9 times that of traditional docking methods.
 
 ## Part 2: Methodology: Upgraded training data: from static structures to dynamic ensembles plus affinity labels
 

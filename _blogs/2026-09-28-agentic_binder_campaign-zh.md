@@ -23,7 +23,7 @@ bioRxiv，2026 年 9 月 24 日
 
 ## 一、研究问题
 
-近年来，蛋白质结合物从头设计领域涌现了大量工具：生成骨架结构的 Complexa（支持 beam search、best-of-N、Feynman-Kac steering、MCTS 四种搜索方式）和 BoltzGen，集成式设计流程 BindCraft，序列重设计的 ProteinMPNN，以及结构评估的 AlphaFold2-Multimer。每种工具有各自擅长的靶点和场景，**没有任何单一生成器在所有靶点上都是最优的**。
+近年来，蛋白质结合物从头设计领域涌现了大量工具：生成式设计工具 Complexa（支持 beam search、best-of-N、Feynman-Kac steering、MCTS 四种搜索方式）和 BoltzGen，集成式设计流程 BindCraft，序列重设计的 ProteinMPNN，以及结构评估的 AlphaFold2-Multimer。每种工具有各自擅长的靶点和场景，**没有任何单一生成器在所有靶点上都是最优的**。
 
 现实中的设计 campaign 会遇到多种困境：某个生成器没有产出可用结果；生成了结构但尚未完成评估；某个候选物非常接近成功，只差一项指标；设计符合质量标准但结构与已有结果重复；某条路线一开始有效，后来却不断产生重复结构。
 

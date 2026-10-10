@@ -91,7 +91,7 @@ On AlphaFold 3, the improvement from pair representation scaling is substantial:
 
 **Per-state success rate**: up from **0.60** under default inference to **0.73**, with significant gains in both the domain motion and transporter groups
 
-**Fill ratio**: more than doubled in both groups, with the largest gain in the transporter group
+**Fill ratio**: Both groups showed improvement, with the transporter group more than doubling.
 
 **Worst-case minimum RMSD**: significantly lower in all three groups
 
@@ -185,7 +185,7 @@ At the conceptual level, the paper supports an increasingly strong view: **the p
 
 **Corresponding Authors**
 
-Shosuke Suzuki and Toshiyuki Amagasa are both corresponding authors of this paper and are from the Department of Computer Science at the University of Tsukuba, Japan. Professor Amagasa's research spans database systems, data engineering, and applications of machine learning to scientific data, and in recent years has focused on combining deep learning methods with protein structure prediction. This paper is the team's representative work on controlling protein conformational sampling. It was published in the Journal of Chemical Information and Modeling (IF 6.4), submitted on June 24, 2026 and accepted on August 11, with a review period of about 48 days.
+Shosuke Suzuki and Toshiyuki Amagasa are both corresponding authors of this paper, from University of Tsukuba in Japan (Suzuki in the Graduate School of Science and Engineering, Amagasa in the Center for Computational Sciences). Professor Amagasa's research interests encompass database systems, data engineering, and applications of machine learning in scientific data, with recent focus on combining deep learning methods with protein structure prediction. This paper is a representative work of the team in protein conformation sampling control, published in Journal of Chemical Information and Modeling (IF 6.4), submitted on June 24, 2026, accepted on August 11, with a review period of approximately 48 days.
 
 ## Citation
 

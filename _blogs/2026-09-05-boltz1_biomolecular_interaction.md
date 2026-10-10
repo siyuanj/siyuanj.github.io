@@ -23,7 +23,7 @@ In 2024 AlphaFold3 showed that deep learning can predict, with high accuracy, th
 
 Wohlwend, Corso, Passaro and colleagues at MIT CSAIL and the Jameel Clinic introduced **Boltz-1**, a biomolecular structure prediction platform that is fully open-sourced under the MIT license. Boltz-1 makes systematic improvements at four levels, namely the data processing pipeline, the model architecture, the diffusion inference procedure and confidence estimation, and it **reaches the same accuracy as AlphaFold3 and Chai-1** on several benchmarks while using only about a quarter of AlphaFold3's training compute.
 
-Even more important, the team proposes **Boltz-steering**, an inference-time technique for enforcing physical constraints. Using the Feynman-Kac framework and Sequential Monte Carlo sampling, it introduces seven classes of physical potentials into the diffusion process and lifts physical validity in one step from 57% to **97%**, far ahead of AlphaFold3 (58%) and Chai-1 (27%). The code, weights, training pipeline and benchmarks are all released under the MIT license, and Boltz-1 has already become the core platform for downstream work such as SwitchCraft and Pair Representation Scaling.
+More importantly, the team further proposed **Boltz-steering**, an inference-time physics constraint correction technique: through the Feynman-Kac framework and Sequential Monte Carlo sampling, seven types of physical potential functions were introduced in the diffusion process, elevating the physical plausibility rate from approximately 43% to **97%**, far exceeding AlphaFold3 (58%) and Chai-1 (27%). Code, weights, training procedures, and benchmarks are all released under MIT license and have become the core platform for downstream research (SwitchCraft, Pair Representation Scaling, etc.).
 
 ## Part 1: Research Question
 
@@ -244,7 +244,7 @@ The model with Boltz-steering is called **Boltz-1x**. While structure prediction
 
 ## Part 4: Key Contributions
 
-Boltz-1 was evaluated on two independent benchmarks: **593 recent PDB structures** (released after January 2023, ensuring that none of the models saw them during training) and **66 structures from the CASP15 competition**. Inference used 200 diffusion steps and 10 recycling rounds, generating 5 candidate structures per target and taking the best.
+Boltz-1 evaluation was conducted on two independent benchmarks: **541 recent PDB structures** (released after January 2023, ensuring they were not seen in the training sets of any model) and **66 structures from the CASP15 competition**. Inference parameters were set to 200 diffusion steps and 10 rounds of recycling, generating 5 candidate structures for each target and selecting the best one.
 
 **What this figure asks:** On the PDB test set, how does Boltz-1 compare with AF3, Chai-1 and the other models on five core metrics?
 

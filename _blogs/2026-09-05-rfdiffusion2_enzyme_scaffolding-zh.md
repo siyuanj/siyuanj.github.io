@@ -87,7 +87,7 @@ RFD1 使用 DDPM（去噪扩散概率模型），需要辅助 loss 和 self-cond
 
 ## 三、看图说话
 
-为了系统评估酶活性位点 scaffolding 的能力，团队构建了 **AME（Active site Motif Evaluation）benchmark**：从 M-CSA（Mechanism and Catalytic Site Atlas）数据库手工筛选 958 个催化活性位点，精选出 41 个覆盖 EC 1-5 类的多样性活性位点。
+为了系统评估酶活性位点 scaffolding 的能力，团队构建了 **AME（atomic motif enzyme）benchmark**：从 M-CSA（Mechanism and Catalytic Site Atlas）数据库手工筛选 958 个催化活性位点，精选出 41 个覆盖 EC 1-5 类的多样性活性位点。
 
 **这张图想回答：**在 AME benchmark 的 41 个酶 motif 上，RFD2 比 RFD1 的成功率高多少？
 
@@ -182,7 +182,7 @@ DFT theozyme：Zn<sup>2+</sup> + 咪唑配体 + 金属配位基团。96 个设�
 
 ## 通讯作者介绍
 
-Rohith Krishna 是华盛顿大学蛋白质设计研究所（Institute for Protein Design, IPD）的研究科学家，博士毕业于华盛顿大学。他是 RoseTTAFold All-Atom 架构和 RFdiffusion 系列的核心开发者，主导了 RFD2 和 RFD3 的架构设计，在将蛋白质结构预测与生成模型从残基级推进到原子级的过程中发挥了关键作用。
+Rohith Krishna 是华盛顿大学蛋白质设计研究所（Institute for Protein Design, IPD）的研究科学家，博士毕业于华盛顿大学。他是 RoseTTAFold All-Atom 架构和 RFdiffusion 系列的核心开发者，参与了 RFD2 和 RFD3 的架构设计，在将蛋白质结构预测与生成模型从残基级推进到原子级的过程中发挥了关键作用。
 
 David Baker 是华盛顿大学教授、霍华德·休斯医学研究所（HHMI）研究员、蛋白质设计研究所创始所长。他是计算蛋白质设计领域的开拓者，其团队开发的 Rosetta 软件套件和一系列深度学习方法（RFdiffusion、ProteinMPNN 等）奠定了现代蛋白质设计的技术基础。2024 年，Baker 与 Demis Hassabis、John Jumper 共同获得诺贝尔化学奖，以表彰他们在计算蛋白质设计和蛋白质结构预测领域的开创性贡献。
 

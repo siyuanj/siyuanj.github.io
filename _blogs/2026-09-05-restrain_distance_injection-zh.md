@@ -103,7 +103,7 @@ NMR NOESY 实验给出的是**氢原子间距离上限**，但 AlphaFold distogr
 
 ![](pic/restrain_distance_injection/page_10.png){: width="1071" height="1530" loading="lazy" decoding="async"}
 
-*Fig 4 \| 25 个困难抗体-抗原复合物预测。(a) AF2-resTrain vs 无约束 AF2.3；(b) vs AF3；(c) vs Chai-1；(d) OF3-resTrain vs OpenFold3。对角线以上的点表示 resTrain 更优。*
+*Fig 4 \| 25 个困难抗体-抗原复合物预测。(a) AF2-resTrain vs 无约束 AF2.3；(b) vs AF3；(c) vs Chai-1；(d) OF3-resTrain vs OpenFold3。点在对角线两侧分别表示两种方法的优劣（横纵坐标见图注）。*
 
 **成功率对比（DockQ > 0.23 为正确）**
 

@@ -59,7 +59,7 @@ Concretely, a multistate design task is defined by the following elements:
 
 **Contact Loss**: ensures that the structure in each state is itself compact and confidently predicted, serving as the default regularizer for all design tasks.
 
-Sequence optimization uses a straight-through estimator (STE) to handle the non-differentiability of argmax, and a four-stage schedule (240 steps in total) that moves gradually from continuous exploration to a discrete sequence: the first 30 steps perform soft optimization for rapid exploration, the middle 200 steps gradually lower the temperature to sharpen the distribution, and the final 10 steps finish with a hard sequence.
+Sequence optimization employs straight-through estimator (STE) to handle the non-differentiable problem of argmax, and gradually converges from continuous exploration to discrete sequences through a four-stage schedule (240 steps total): the first 30 steps conduct soft optimization for rapid exploration, the middle 200 steps are divided into two segments—first maintaining τ=0.5 for 100 steps, then gradually decreasing the temperature from 0.5 to 0.005 to sharpen the distribution—and the final 10 steps conclude with hard sequences.
 
 ## Part 3: Key Figure Analysis
 

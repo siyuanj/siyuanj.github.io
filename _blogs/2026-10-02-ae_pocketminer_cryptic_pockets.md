@@ -23,7 +23,7 @@ Over the past few years, AI has become able to predict "where a pocket might be"
 
 The solution from the Bowman lab at the University of Pennsylvania is **AE-PocketMiner (attention enabled PocketMiner)**: it appends a two-head multi-head self-attention module after the geometric graph neural network of the original PocketMiner, so that when predicting a given residue the model can "look at" every residue in the protein. The model therefore produces two sets of outputs: a per-residue cryptic pocket probability, and attention scores between residues—the latter used as candidate allosteric couplings.
 
-The results are solid: on 18,250 apo structures from CryptoBank, recall rises from 56.7% to **76.0%**; on the membrane protein CB1, the model hits 29 of 30 known pocket residues; on δ-secretase, it predicts a previously unreported cryptic pocket, with supporting evidence from thiol labeling experiments; and on Ebola virus VP35, mutating two allosteric residues picked by the model shifts the experimentally measured fraction of open pockets from 25.2% to **67.0%**.
+The results are quite solid: recall improved from 56.7% to **76.0%** on 18,250 apo structures in CryptoBank; identified 29 of 30 known pocket residues on the membrane protein CB1; predicted a previously unreported cryptic pocket on δ-secretase and obtained evidence through thiol-labeling experiments; on Ebola virus VP35, the two residues selected by the model exhibited experimentally measured pocket opening ratios of **67.0%** (V327A) and 28.6% (E262A) upon mutation, respectively, compared to 25.2% for the wild-type.
 
 ## Part 1: Research Question
 

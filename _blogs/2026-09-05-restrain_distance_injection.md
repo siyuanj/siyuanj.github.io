@@ -103,7 +103,7 @@ The authors tested on 25 difficult antibody–antigen complexes. Each complex wa
 
 ![](pic/restrain_distance_injection/page_10.png){: width="1071" height="1530" loading="lazy" decoding="async"}
 
-*Fig 4 \| Prediction on 25 difficult antibody–antigen complexes. (a) AF2-resTrain vs. unconstrained AF2.3; (b) vs. AF3; (c) vs. Chai-1; (d) OF3-resTrain vs. OpenFold3. Points above the diagonal indicate resTrain performs better.*
+*Fig 4 \| Prediction of 25 difficult antibody-antigen complexes. (a) AF2-resTrain vs unconstrained AF2.3; (b) vs AF3; (c) vs Chai-1; (d) OF3-resTrain vs OpenFold3. Points on both sides of the diagonal indicate the relative performance of the two methods (see figure legend for axis labels).*
 
 **Success rate comparison (DockQ > 0.23 = correct)**
 

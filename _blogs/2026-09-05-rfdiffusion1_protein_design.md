@@ -73,7 +73,7 @@ In unconditional generation mode, RFdiffusion is given no input constraints and 
 
 * **Topological diversity**: the generated protein topologies go far beyond the structure space known in the PDB and include many entirely new folds
 * **Experimental validation**: of 18 designs, **9 expressed as soluble proteins**, several with extremely high thermal stability, with some designs remaining stable at 95°C
-* **Speed**: generating a 300-residue protein takes only **11 seconds**, against 8.5 minutes for traditional hallucination methods
+* **Speed improvement**: Generating a 100-residue protein takes only **11 seconds**, compared to 8.5 minutes for traditional hallucination methods
 * **Fold-directed design**: directing generation toward TIM barrels (42.5% success rate) and NTF2 folds (54.1% success rate) both work well
 
 ### Experiment 2: symmetric oligomers, from cyclic to icosahedral

@@ -122,7 +122,7 @@ SRP 控制每个蛋白取排名前多少的残基作为预测的变构位点。�
 
 DCC 是预测位点中心到真实位点中心的距离，越小越准。AlloFusion 的箱体最低最窄，**中位 DCC 5.35 Å**，明显优于 PASSer Rank（10.94 Å）和 PASSer Ensemble（16.47 Å）。
 
-AllositePro 中位 DCC 虽低到 4.23 Å，但它只成功预测 16/24 个蛋白，漏检率 33%；AlloFusion 在 D24 上 **成功预测 23/24**，兼顾了覆盖率和精度。
+AllositePro 中位 DCC 虽低到 4.23 Å，但它只成功预测 14/24 个蛋白，漏检率 41.7%；AlloFusion 在 D24 上 **成功预测 23/24**，兼顾了覆盖率和精度。
 
 ### Figure 8 · 三个蛋白上真实与预测位点的结构对照
 
@@ -168,7 +168,7 @@ AllositePro 中位 DCC 虽低到 4.23 Å，但它只成功预测 16/24 个蛋白
 
 **MCC 0.543**：Matthew 相关系数同时考虑 TP、TN、FP 和 FN 四种分类结果，比准确率更适合类别不平衡的场景，AlloFusion 在此指标上同样领先
 
-在独立测试集 D24（24 个变构蛋白）上，AlloFusion 成功预测了 23 个蛋白的变构位点。作者使用 DCC（predicted site center 与 known site center 之间的距离）衡量空间准确性，AlloFusion 的中位 DCC 为 5.35 Å，显著低于 PASSer Rank（10.94 Å）和 PASSer Ensemble（16.47 Å），说明 AlloFusion 不仅能找到变构区域，而且定位更精准。AllositePro 的中位 DCC 虽低（4.23 Å），但它只成功预测了 16/24 个蛋白，漏检率高达 33%。DeepAllo（中位 DCC 6.87 Å，成功 21/24）和 PASSer Rank（成功 19/24）也存在明显的预测盲区。
+在独立测试集 D24（24 个变构蛋白）上，AlloFusion 成功预测了 23 个蛋白的变构位点。作者使用 DCC（predicted site center 与 known site center 之间的距离）衡量空间准确性，AlloFusion 的中位 DCC 为 5.35 Å，显著低于 PASSer Rank（10.94 Å）和 PASSer Ensemble（16.47 Å），说明 AlloFusion 不仅能找到变构区域，而且定位更精准。AllositePro 的中位 DCC 虽低（4.23 Å），但它只成功预测了 14/24 个蛋白，漏检率高达 41.7%。DeepAllo（中位 DCC 6.87 Å，成功 22/24）和 PASSer Rank（成功 14/24）也存在明显的预测盲区。
 
 在具体蛋白案例中（如 PDB: 5J94_A），AlloFusion 预测的变构残基与真实 AFR 高度重合，而 AllositePro 虽然预测区域紧凑但覆盖了大量无关残基，PASSer Ensemble 和 Automl 的预测区域则偏离了真实变构位点。对于另一个蛋白 3PG9_B，AllositePro 完全没有输出预测结果（N/A），而 AlloFusion 仍能正确识别变构区域。
 

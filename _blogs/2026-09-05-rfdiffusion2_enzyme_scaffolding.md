@@ -87,7 +87,7 @@ Besides the motif itself, RFD2 supports three additional atomic-level conditioni
 
 ## Part 3: Key Figure Analysis
 
-To systematically evaluate enzyme active site scaffolding, the team built the **AME (Active site Motif Evaluation) benchmark**: starting from 958 hand-curated catalytic active sites from the M-CSA (Mechanism and Catalytic Site Atlas) database, they selected 41 diverse active sites spanning EC classes 1-5.
+To systematically evaluate the capability of enzyme active site scaffolding, the team constructed the **AME (atomic motif enzyme) benchmark**: manually screening 958 catalytic active sites from the M-CSA (Mechanism and Catalytic Site Atlas) database and carefully selecting 41 diverse active sites covering EC classes 1-5.
 
 **What this figure asks:** On the 41 enzyme motifs of the AME benchmark, how much higher is RFD2's success rate than RFD1's?
 
@@ -182,7 +182,7 @@ It is worth noting that RFD2 is the second generation of the RFdiffusion series 
 
 ## About the Corresponding Authors
 
-Rohith Krishna is a research scientist at the Institute for Protein Design (IPD) at the University of Washington, where he also received his PhD. He is a core developer of the RoseTTAFold All-Atom architecture and the RFdiffusion series, led the architecture design of RFD2 and RFD3, and has played a key role in moving protein structure prediction and generative models from the residue level to the atomic level.
+Rohith Krishna is a research scientist at the Institute for Protein Design (IPD) at the University of Washington and received his PhD from the University of Washington. He is a core developer of the RoseTTAFold All-Atom architecture and the RFdiffusion series, participated in the architecture design of RFD2 and RFD3, and played a key role in advancing protein structure prediction and generative models from residue-level to atomic-level.
 
 David Baker is a professor at the University of Washington, an investigator of the Howard Hughes Medical Institute (HHMI), and the founding director of the Institute for Protein Design. A pioneer of computational protein design, his group developed the Rosetta software suite and a series of deep learning methods (RFdiffusion, ProteinMPNN, and others) that form the technical foundation of modern protein design. In 2024, Baker shared the Nobel Prize in Chemistry with Demis Hassabis and John Jumper in recognition of their pioneering contributions to computational protein design and protein structure prediction.
 

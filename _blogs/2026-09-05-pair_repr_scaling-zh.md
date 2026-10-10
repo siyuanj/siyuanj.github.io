@@ -91,7 +91,7 @@ Benchmark 按三个组分别报告结果：**domain motion**、**transporter**�
 
 **Per-state success rate**：从默认推理的 **0.60** 提升到 **0.73**，domain motion 和 transporter 两组均显著改善
 
-**Fill ratio**：在两组中均翻倍以上，transporter 组提升最大
+**Fill ratio**：两组都有提升，transporter 组翻倍以上
 
 **Worst-case minimum RMSD**：三组均显著下降
 
@@ -185,7 +185,7 @@ Scaling 后 distogram 在替代态一侧的概率质量上升，分布熵增大
 
 **通讯作者**
 
-Shosuke Suzuki 和 Toshiyuki Amagasa 均为本文通讯作者，来自日本筑波大学（University of Tsukuba）计算机科学系。Amagasa 教授的研究方向涵盖数据库系统、数据工程和机器学习在科学数据中的应用，近年来聚焦于将深度学习方法与蛋白质结构预测相结合。本文是该团队在蛋白质构象采样控制方面的代表性工作，发表于 Journal of Chemical Information and Modeling（IF 6.4），2026 年 6 月 24 日投稿，8 月 11 日接收，审稿周期约 48 天。
+Shosuke Suzuki 和 Toshiyuki Amagasa 均为本文通讯作者，来自日本筑波大学（University of Tsukuba；Suzuki 在理工学研究科，Amagasa 在计算科学中心）。Amagasa 教授的研究方向涵盖数据库系统、数据工程和机器学习在科学数据中的应用，近年来聚焦于将深度学习方法与蛋白质结构预测相结合。本文是该团队在蛋白质构象采样控制方面的代表性工作，发表于 Journal of Chemical Information and Modeling（IF 6.4），2026 年 6 月 24 日投稿，8 月 11 日接收，审稿周期约 48 天。
 
 ## 引用
 

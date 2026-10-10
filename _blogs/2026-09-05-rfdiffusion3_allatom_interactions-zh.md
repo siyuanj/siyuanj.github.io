@@ -182,7 +182,7 @@ RFD3 支持蛋白-DNA 共扩散——在生成蛋白的同时预测 DNA 的结�
 
 **DNA binder 实验成功率偏低。**5 个合成的设计中只有 1 个确认结合（20%），且亲和力为微摩尔级。作为一种全新的设计能力，这是可以接受的起点，但距离实用仍有距离。
 
-**AME benchmark 为 in silico 评估。**酶设计的实验验证仅限于一个反应（半胱氨酸水解酶）。37/41 的优势数据来自 AF3 评估，在多少个真实反应上能保持这一优势尚不清楚。
+**AME benchmark 为 in silico 评估。**酶设计的实验验证仅限于一个反应（半胱氨酸水解酶）。37/41 的优势数据来自 Chai（开源复现的 AF3 类模型）评估，在多少个真实反应上能保持这一优势尚不清楚。
 
 **预印本，尚未经过同行评审。**这篇文章发布于 bioRxiv（2025 年 9 月），in silico 和 experimental 数据的质量和可重复性有待正式审稿的检验。
 
@@ -194,7 +194,7 @@ RFD3 支持蛋白-DNA 共扩散——在生成蛋白的同时预测 DNA 的结�
 
 ## 通讯作者介绍
 
-Rohith Krishna 是华盛顿大学蛋白质设计研究所（Institute for Protein Design, IPD）的研究科学家，博士毕业于华盛顿大学。他是 RFdiffusion 系列的核心架构师，主导了 RFD2 和 RFD3 的开发，同时也是 RoseTTAFold All-Atom 框架的第一作者（Science, 2024）和 AtomWorks 框架的主要开发者。他的工作推动了蛋白质设计从残基级到全原子级的范式转变。
+Rohith Krishna 是华盛顿大学蛋白质设计研究所（Institute for Protein Design, IPD）的研究科学家，博士毕业于华盛顿大学。他是 RFdiffusion 系列的核心架构师，参与了 RFD2 和 RFD3 的开发，同时也是 RoseTTAFold All-Atom 框架的第一作者（Science, 2024）和 AtomWorks 框架的主要开发者。他的工作推动了蛋白质设计从残基级到全原子级的范式转变。
 
 David Baker 是华盛顿大学教授、霍华德-休斯医学研究所研究员、蛋白质设计研究所创始所长。他是计算蛋白质设计领域的开拓者，开发了 Rosetta 软件套件，2024 年因在计算蛋白质设计方面的开创性贡献获得诺贝尔化学奖（与 Demis Hassabis、John Jumper 共享）。从 RoseTTAFold 到 RFdiffusion 系列，Baker 实验室持续引领着 AI 驱动的蛋白质设计前沿。
 

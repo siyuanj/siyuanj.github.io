@@ -23,7 +23,7 @@ Tools for protein binder design keep multiplying: Complexa, BindCraft, BoltzGen,
 
 ## Part 1: Research Question
 
-Recent years have brought a flood of tools for de novo protein binder design: Complexa for generating backbones (supporting four search modes, namely beam search, best-of-N, Feynman-Kac steering and MCTS) and BoltzGen, the integrated design pipeline BindCraft, ProteinMPNN for sequence redesign, and AlphaFold2-Multimer for structural evaluation. Each tool has its own strengths across targets and scenarios, and **no single generator is optimal on every target**.
+In recent years, the field of de novo design of protein complexes has seen the emergence of numerous tools: generative design tools Complexa (supporting four search methods: beam search, best-of-N, Feynman-Kac steering, MCTS) and BoltzGen, integrated design pipeline BindCraft, ProteinMPNN for sequence redesign, and AlphaFold2-Multimer for structure assessment. Each tool has targets and scenarios where it excels, but **no single generator is optimal across all targets**.
 
 Real design campaigns run into several kinds of difficulty: a generator produces no usable result; structures are generated but not yet evaluated; a candidate comes very close to success and misses on just one metric; a design meets the quality criteria but duplicates the structure of an existing result; a route that works at first starts producing duplicate structures over and over.
 

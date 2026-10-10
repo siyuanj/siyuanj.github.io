@@ -216,7 +216,7 @@ AlphaFold2 对突变迟钝，问题可能出在推理流程而不是模型本身
 
 ## 通讯作者介绍
 
-Maria Sindeeva 是本文的通讯作者兼共同第一作者，任职于俄罗斯人工智能研究院（AIRI，Artificial Intelligence Research Institute）位于莫斯科的生物信息学组，职务为 AI 研究员。她的研究方向集中在把深度学习方法用于蛋白质与基因组建模，具体包括蛋白稳定性变化预测、蛋白–蛋白相互作用能量变化预测、B 细胞构象表位预测，以及基因组与表观基因组数据的深度学习分析。她参与的代表性工作除本文的 AFToolkit 之外，还有基于 Transformer 的蛋白稳定性评估框架 PROSTATA（本文的训练数据和基线之一就来自该工作）和 B 细胞构象表位预测平台 SEMA 2.0，两者分别发表于 Bioinformatics 与 Nucleic Acids Research，相关代码同样由 AIRI 开源。本文的其余共同第一作者 Alexander Telepov、Nikita Ivanisenko、Tatiana Shashkova 同属 AIRI 生物信息学组，Artur Kadurin 与 Olga Kardymon 负责项目指导，整个团队长期围绕蛋白工程与 AI 制药方向开展研究。
+Maria Sindeeva 是本文的通讯作者兼共同第一作者，任职于俄罗斯人工智能研究院（AIRI，Artificial Intelligence Research Institute）位于莫斯科的生物信息学组，职务为 AI 研究员。她的研究方向集中在把深度学习方法用于蛋白质与基因组建模，具体包括蛋白稳定性变化预测、蛋白–蛋白相互作用能量变化预测、B 细胞构象表位预测，以及基因组与表观基因组数据的深度学习分析。她参与的代表性工作除本文的 AFToolkit 之外，还有 B 细胞构象表位预测平台 SEMA 2.0（发表于 Nucleic Acids Research），相关代码同样由 AIRI 开源。本文的其余共同第一作者 Alexander Telepov、Nikita Ivanisenko、Tatiana Shashkova 同属 AIRI 生物信息学组，Artur Kadurin 与 Olga Kardymon 负责项目指导，整个团队长期围绕蛋白工程与 AI 制药方向开展研究。
 
 ## 引用
 

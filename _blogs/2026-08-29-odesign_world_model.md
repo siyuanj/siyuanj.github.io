@@ -72,7 +72,7 @@ Two key innovations: **unified generative tokens** (the minimal chemical units o
 
 *Figure 3. Nucleic-acid-centric benchmarks. (a) RNA monomer design. (b) DNA monomer design. (c) Protein-binding RNA design. (d) Protein-binding DNA design.*
 
-* **Panel a, RNA monomers**: for lengths of 10–150 nt validated by AF3 refolding, **the RMSD and TMScore success rates are nearly twice those of the RNA-specific model RNAFrameFlow**, so the cross-modality model learns nucleic acid rules better than a single-modality specialist. **Panel b, DNA monomers**: ODesign is the first model to demonstrate de novo DNA generation (no public baseline existed before).
+* **Panel a RNA monomer**: 10–150 nt, verified by AF3 refolding, **the RMSD and TMScore success rates are almost twice those of the RNA-specific model RNAFrameFlow**—cross-modal models learn nucleic acid patterns better than single-modal specialized models. **Panel b DNA monomer**: ODesign is one of the earliest AI models demonstrating de novo DNA design capability.
 * **Panels c/d**: de novo design of protein-binding RNA and protein-binding DNA had almost no general-purpose tools before, and ODesign is a pioneer here, generating hundreds of aptamers per protein target and refolding them with AF3 conditioned on the protein, with most reaching a reasonable binding RMSD.
 
 ### Figure 4: Ligand-Centric Benchmarks

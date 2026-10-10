@@ -101,7 +101,7 @@ RNet 是一个 BERT 风格的深度网络（~1137 万参数），用 **约 100 �
 
 **怎么读这张图**
 
-* **Panel A**：Round 3 中 "Kissing Multiloops"（P20）——一个前所未有的复杂假结拓扑。Eterna 人类设计者得分 92.0，MPNN-fixbb 得分 97.5，Struct2SeQ-SHAPE 得分 96.4。AI 在这个难题上超越了人类。
+* **Panel A**：Round 3 中 "Kissing Multiloops"（P20）——一个前所未有的复杂假结拓扑。Eterna 人类设计者与 MPNN-fixbb、Struct2SeQ-SHAPE 等 AI 方法得分接近，AI 在这个难题上并未明显超越人类（具体得分见图 2）。
 * **Panel B**：P16（AK_PK100-3）——**所有方法都难搞的目标**。某些高分设计更符合一个替代二级结构，说明 SHAPE/OpenKnot score 虽强但不是绝对完美，也是后面引入 M2R-seq 的动机。
 * **Panel C**：Round 3（20 个靶标）成功率汇总。深浅柱状图对比"有无 RNet 结构筛选"——经 RNet 筛选后成功率普遍提升。**AI 汇总和 Eterna 人类均达到 19/20 成功。**
 * **Panel D-F**：Round 4 用更长序列（117–240 nt）测试。起始序列成功率仅约 20%，AI 方法 40–60%。**Struct2SeQ-SHAPE 在 Round 4 中显著领先**——纯粹由 RNet 引导的强化学习方法在长序列上尤其有效。AI 和人类汇总后仍达到 19/20。

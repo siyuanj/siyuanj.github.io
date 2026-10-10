@@ -59,7 +59,7 @@ SwitchCraft 的核心思想可以这样理解：
 
 **Contact Loss**：保证每个状态的结构本身紧致可信，作为所有设计任务的默认正则项。
 
-序列优化采用 straight-through estimator（STE）处理 argmax 不可导的问题，并通过四阶段 schedule（共 240 步）从连续探索逐步收敛到离散序列：前 30 步 soft 优化快速探索，中间 200 步逐渐降低温度使分布尖锐化，最后 10 步用 hard 序列收尾。
+序列优化采用 straight-through estimator（STE）处理 argmax 不可导的问题，并通过四阶段 schedule（共 240 步）从连续探索逐步收敛到离散序列：前 30 步 soft 优化快速探索，中间 200 步分两段：先以 τ=0.5 保持 100 步，再把温度从 0.5 逐渐降到 0.005，使分布尖锐化，最后 10 步用 hard 序列收尾。
 
 ## 三、看图说话
 

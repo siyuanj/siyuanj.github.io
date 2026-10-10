@@ -23,7 +23,7 @@ AlphaFold3 在 2024 年证明深度学习可以高精度预测蛋白质、DNA、
 
 MIT CSAIL 和 Jameel Clinic 的 Wohlwend、Corso、Passaro 等人推出 **Boltz-1**——一个以 MIT 许可证全面开源的生物分子结构预测平台。Boltz-1 在数据处理流水线、模型架构、扩散推理过程和置信度估计四个层面做了系统性改进，在多项基准测试上**达到与 AlphaFold3 和 Chai-1 同等精度**，训练计算量仅为 AlphaFold3 的约四分之一。
 
-更重要的是，团队还提出 **Boltz-steering** 推理时物理约束校正技术：通过 Feynman-Kac 框架和 Sequential Monte Carlo 采样，在扩散过程中引入七类物理势函数，将物理合理性从 57% 一举提升到**97%**，远超 AlphaFold3（58%）和 Chai-1（27%）。代码、权重、训练流程和基准测试全部以 MIT 许可证开放，已成为下游研究（SwitchCraft、Pair Representation Scaling 等）的核心平台。
+更重要的是，团队还提出 **Boltz-steering** 推理时物理约束校正技术：通过 Feynman-Kac 框架和 Sequential Monte Carlo 采样，在扩散过程中引入七类物理势函数，将物理合理性通过率从约 43% 一举提升到**97%**，远超 AlphaFold3（58%）和 Chai-1（27%）。代码、权重、训练流程和基准测试全部以 MIT 许可证开放，已成为下游研究（SwitchCraft、Pair Representation Scaling 等）的核心平台。
 
 ## 一、研究问题
 
@@ -244,7 +244,7 @@ Boltz-steering 定义了七类物理约束势函数，每一类都采用**平底
 
 ## 四、核心贡献总结
 
-Boltz-1 的评测在两个独立基准上进行：**593 个最新 PDB 结构**（2023 年 1 月之后发布，确保所有模型的训练集中均未见过）和 **CASP15 竞赛的 66 个结构**。推理参数设置为 200 步扩散、10 轮 recycling，对每个目标生成 5 个候选结构取最优。
+Boltz-1 的评测在两个独立基准上进行：**541 个最新 PDB 结构**（2023 年 1 月之后发布，确保所有模型的训练集中均未见过）和 **CASP15 竞赛的 66 个结构**。推理参数设置为 200 步扩散、10 轮 recycling，对每个目标生成 5 个候选结构取最优。
 
 **这张图想回答：**在 PDB 测试集上，Boltz-1 与 AF3、Chai-1 等模型在五项核心指标上如何比较？
 

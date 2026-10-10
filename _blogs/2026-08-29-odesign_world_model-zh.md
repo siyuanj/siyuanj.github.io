@@ -72,7 +72,7 @@ ODesign 的架构建立在一个关键假设之上：**高性能结构预测模�
 
 *Figure 3. 核酸为中心的基准。(a) RNA 单体设计。(b) DNA 单体设计。(c) 蛋白结合 RNA 设计。(d) 蛋白结合 DNA 设计。*
 
-* **Panel a RNA 单体**：10–150 nt，经 AF3 重折叠验证，**RMSD 和 TMScore 成功率几乎是 RNA 专用模型 RNAFrameFlow 的两倍**——跨模态模型学到的核酸规律比单模态专用模型还好。**Panel b DNA 单体**：ODesign 是第一个展示 DNA 从头生成的模型（此前无公开基线）。
+* **Panel a RNA 单体**：10–150 nt，经 AF3 重折叠验证，**RMSD 和 TMScore 成功率几乎是 RNA 专用模型 RNAFrameFlow 的两倍**——跨模态模型学到的核酸规律比单模态专用模型还好。**Panel b DNA 单体**：ODesign 是最早展示 DNA 从头设计能力的 AI 模型之一。
 * **Panel c/d**：蛋白结合 RNA / 蛋白结合 DNA 的从头设计此前几乎没有通用工具，ODesign 是开拓者——每个蛋白靶标生成数百条适配体、以蛋白为条件 AF3 重折叠，大部分达到合理的结合 RMSD。
 
 ### Figure 4 · 配体为中心的基准

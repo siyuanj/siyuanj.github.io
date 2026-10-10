@@ -182,7 +182,7 @@ The trajectory from RFD1 to RFD3 is clear: the representation moves from residue
 
 **The experimental success rate for DNA binders is low.** Only 1 of the 5 synthesized designs was confirmed to bind (20%), with micromolar affinity. As a brand-new design capability this is an acceptable starting point, but it is still some way from practical use.
 
-**The AME benchmark is an in silico evaluation.** Experimental validation of enzyme design is limited to a single reaction (the cysteine hydrolase). The 37/41 advantage comes from AF3-based evaluation, and it is unclear across how many real reactions that advantage would hold.
+**AME benchmark is an in silico evaluation.** The experimental validation of enzyme design is limited to one reaction (cysteine hydrolase). The 37/41 advantage data comes from Chai (open-source reproduced AF3-like model) evaluation, and whether this advantage can be maintained on real reactions remains unclear.
 
 **This is a preprint that has not yet been peer reviewed.** The article was posted on bioRxiv (September 2025), and the quality and reproducibility of both the in silico and experimental data await formal review.
 
@@ -194,7 +194,7 @@ The trajectory from RFD1 to RFD3 is clear: the representation moves from residue
 
 ## About the Corresponding Authors
 
-Rohith Krishna is a research scientist at the Institute for Protein Design (IPD) at the University of Washington, where he also earned his PhD. He is a core architect of the RFdiffusion series, led the development of RFD2 and RFD3, and is also the first author of the RoseTTAFold All-Atom framework (Science, 2024) and a principal developer of AtomWorks. His work has driven the shift in protein design from residue-level to all-atom modeling.
+Rohith Krishna is a Research Scientist at the Institute for Protein Design (IPD), University of Washington, and received his PhD from the University of Washington. He is a core architect of the RFdiffusion series, contributed to the development of RFD2 and RFD3, and is also the first author of the RoseTTAFold All-Atom framework (Science, 2024) and the principal developer of the AtomWorks framework. His work has driven a paradigm shift in protein design from residue-level to all-atom level.
 
 David Baker is a professor at the University of Washington, a Howard Hughes Medical Institute investigator and the founding director of the Institute for Protein Design. A pioneer of computational protein design, he developed the Rosetta software suite and received the 2024 Nobel Prize in Chemistry for his groundbreaking contributions to computational protein design (shared with Demis Hassabis and John Jumper). From RoseTTAFold to the RFdiffusion series, the Baker lab has continued to lead the frontier of AI-driven protein design.
 

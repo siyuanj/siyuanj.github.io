@@ -126,7 +126,7 @@ AlphaFold2 只做**一次前向计算**（不 recycle），提取目标残基与
 
 *Figure 6. 人类蛋白质组位点发现。*
 
-* **Panel a：三种方法的 Venn 图。**AF2BIND 共预测 20,302 个结合位点（13,686 个蛋白），其中 **8,758 个是 AF2BIND 独有**——P2Rank 和 AlphaFill 都未预测到。反过来 P2Rank 也有 7,472 个独有位点。三种方法捕捉的是部分不同的信号：AlphaFill 靠已知同源关系，P2Rank 靠表面几何口袋，AF2BIND 靠预训练模型中的残基对特征。
+* **Panel a：三种方法的 Venn 图。**AF2BIND 共预测 20,302 个结合位点（13,686 个蛋白），其中 **6,997 个是 AF2BIND 独有**——P2Rank 和 AlphaFill 都未预测到。反过来 P2Rank 也有 7,472 个独有位点。三种方法捕捉的是部分不同的信号：AlphaFill 靠已知同源关系，P2Rank 靠表面几何口袋，AF2BIND 靠预训练模型中的残基对特征。
 * **Panel b：AF2BIND 独有位点案例。**展示三个蛋白上 AF2BIND 独有的高质量位点（P2Rank 和 AlphaFill 均未覆盖），这些位点在表面可能不是传统意义上的深凹口袋，但 AF2BIND 从 pair representation 中识别出了结合特征。
 * **Panel c：可成药性比较。**用 SiteMap Dscore 评估，AF2BIND 位点的中位数为 0.891（高于常用阈值 0.83），但分布比 P2Rank 位点略偏左——AF2BIND 发现的位点平均更浅、更暴露、包裹性略低，P2Rank 偏好深凹、包裹性强的口袋。这正好解释了两种方法互补的本质：几何方法擅长找深口袋，AF2BIND 擅长找化学环境适合结合但几何上不突出的位点。在 OMIM 数据库约 5,700 个疾病相关蛋白中，AF2BIND 在 3,556 个蛋白中预测到位点，其中 411 个蛋白的位点既未被 P2Rank 覆盖、也未被 AlphaFill 覆盖。
 

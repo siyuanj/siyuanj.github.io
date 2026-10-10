@@ -101,7 +101,7 @@ This progressive validation pipeline — from **chemical mapping → compensator
 
 **How to read this figure**
 
-* **Panel A**: 'Kissing Multiloops' (P20) in Round 3 — an unprecedented, highly complex pseudoknot topology. Eterna human designers scored 92.0, MPNN-fixbb scored 97.5, and Struct2SeQ-SHAPE scored 96.4. AI surpassed humans on this challenging target.
+* **Panel A**: In Round 3, "Kissing Multiloops" (P20)—an unprecedented complex pseudoknot topology. Eterna human designers and AI methods such as MPNN-fixbb and Struct2SeQ-SHAPE showed comparable scores; AI did not significantly outperform humans on this difficult problem (specific scores in Figure 2).
 * **Panel B**: P16 (AK_PK100-3) — **a target that proved difficult for all methods**. Some high-scoring designs better matched an alternative secondary structure, indicating that SHAPE/OpenKnot scoring, while powerful, is not infallible — this also motivated the subsequent M2R-seq validation.
 * **Panel C**: Success rate summary for Round 3 (20 targets). Light/dark bar comparisons show performance with and without RNet structural filtering — RNet filtering broadly improved success rates. **Both the AI aggregate and Eterna humans achieved 19/20 successes.**
 * **Panel D-F**: Round 4 tested longer sequences (117–240 nt). Starting sequences achieved only ~20% success, while AI methods reached 40–60%. **Struct2SeQ-SHAPE significantly outperformed other methods in Round 4** — the purely RNet-guided reinforcement learning approach proved especially effective for longer sequences. The AI and human aggregate still reached 19/20.

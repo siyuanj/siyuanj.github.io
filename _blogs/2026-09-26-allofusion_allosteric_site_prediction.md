@@ -122,7 +122,7 @@ The contrast is easy to see: on 5J94_A, for example, AllositePro's prediction is
 
 DCC is the distance from the center of the predicted site to the center of the true site; smaller is more accurate. AlloFusion's box is the lowest and narrowest, with a **median DCC of 5.35 Å**, clearly better than PASSer Rank (10.94 Å) and PASSer Ensemble (16.47 Å).
 
-AllositePro's median DCC is even lower at 4.23 Å, but it successfully predicts only 16/24 proteins, a miss rate of 33%; AlloFusion **successfully predicts 23/24** on D24, combining coverage with accuracy.
+Although AllositePro's median DCC is as low as 4.23 Å, it only successfully predicted 14/24 proteins with a miss rate of 41.7%; AlloFusion on D24 **successfully predicted 23/24**, balancing coverage and accuracy.
 
 ### Figure 8: True versus predicted sites on the structures of three proteins
 
@@ -168,7 +168,7 @@ On the TE90 test set (90 nonredundant proteins), the authors compared AlloFusion
 
 **MCC 0.543**: the Matthews correlation coefficient takes all four classification outcomes, TP, TN, FP and FN, into account and suits class-imbalanced settings better than accuracy; AlloFusion also leads on this metric
 
-On the independent test set D24 (24 allosteric proteins), AlloFusion successfully predicted the allosteric sites of 23 proteins. The authors use DCC (the distance between the predicted site center and the known site center) to measure spatial accuracy; AlloFusion's median DCC is 5.35 Å, significantly lower than PASSer Rank (10.94 Å) and PASSer Ensemble (16.47 Å), showing that AlloFusion not only finds the allosteric region but also localizes it more precisely. AllositePro's median DCC is low (4.23 Å), but it successfully predicts only 16/24 proteins, a miss rate as high as 33%. DeepAllo (median DCC 6.87 Å, 21/24 successes) and PASSer Rank (19/24 successes) also have clear blind spots.
+On the independent test set D24 (24 allosteric proteins), AlloFusion successfully predicted the allosteric sites of 23 proteins. The authors used DCC (distance between predicted site center and known site center) to measure spatial accuracy; AlloFusion's median DCC was 5.35 Å, significantly lower than PASSer Rank (10.94 Å) and PASSer Ensemble (16.47 Å), indicating that AlloFusion not only can find allosteric regions but also localize more precisely. Although AllositePro's median DCC is lower (4.23 Å), it only successfully predicted 14/24 proteins, with a missed detection rate as high as 41.7%. DeepAllo (median DCC 6.87 Å, successful 22/24) and PASSer Rank (successful 14/24) also exhibit obvious prediction blind spots.
 
 In specific protein cases (such as PDB: 5J94_A), the allosteric residues predicted by AlloFusion overlap closely with the true AFRs, whereas AllositePro's predicted region, though compact, covers many irrelevant residues, and the predicted regions of PASSer Ensemble and Automl drift away from the true allosteric site. For another protein, 3PG9_B, AllositePro produces no prediction at all (N/A), while AlloFusion still correctly identifies the allosteric region.
 
