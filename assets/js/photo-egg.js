@@ -1,5 +1,5 @@
 /* Recent Photos easter egg. Hold still on a photo to charge; releasing a full charge spins the strip
-   and opens a flickering pixel "YOU FOUND THE EGG" screen with a doge over scrolling pixel rain. It stays
+   and opens a flickering pixel "YOU FOUND THE EGG" screen with a doge over a background that scrolls sideways. It stays
    until clicked (or Escape), then dissolves back to the photos. Ordinary clicks, drags and flings are
    untouched: moving the pointer turns a press into a drag. */
 (function () {
@@ -216,15 +216,21 @@
       var wordHeight = 7 * small;
       var topBand = [0, py];
       var bottomBand = [py + panelHeight, rows];
-      // Two pixel-rain streams per column; speeds in cells per millisecond.
-      var drops = [];
-      for (var c = 0; c < cols; c++) {
+      // Two horizontal pixel streams per row, racing left; speeds in cells per millisecond.
+      var streams = [];
+      for (var sy = 0; sy < rows; sy++) {
         for (var k = 0; k < 2; k++) {
-          drops.push({ x: c, offset: Math.random() * rows * 3, speed: 0.012 + Math.random() * 0.028, len: 5 + Math.floor(Math.random() * 10), hue: (c * 13 + k * 140) % 360 });
+          streams.push({ y: sy, offset: Math.random() * cols * 3, speed: 0.025 + Math.random() * 0.035, len: 6 + Math.floor(Math.random() * 12), hue: (sy * 23 + k * 140) % 360 });
         }
       }
 
       function hsl(h, s, l, a) { return 'hsla(' + Math.round(((h % 360) + 360) % 360) + ',' + s + '%,' + l + '%,' + a + ')'; }
+      // The full-screen mosaic is thousands of cells per frame, so its colours come from a small cache.
+      var mosaicColors = {};
+      function mosaicColor(hue, light, alpha) {
+        var key = (Math.round(((hue % 360) + 360) % 360 / 8) * 8) + '|' + Math.round(light) + '|' + alpha;
+        return mosaicColors[key] || (mosaicColors[key] = hsl(Math.round(((hue % 360) + 360) % 360 / 8) * 8, 70, Math.round(light), alpha));
+      }
       function rect(x, y, w, h, color) {
         ctx.fillStyle = color;
         ctx.fillRect(Math.round(x * unit), Math.round(y * unit), Math.ceil(w * unit), Math.ceil(h * unit));
@@ -257,25 +263,40 @@
         var tick = Math.floor(t / 80);
         ctx.fillStyle = bg;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        // Far layer: sparse coloured pixels scrolling down slowly, stepping whole cells.
-        var drift = Math.floor(t * 0.006 * pace);
+        // The whole background scrolls left in three layers. Positions are fractional, so the pixel blocks
+        // glide smoothly instead of jumping a whole cell at a time.
+        // 1. A full mosaic of colour moving as one sheet.
+        var sheet = t * 0.006 * pace;
+        var sheetCol = Math.floor(sheet);
+        var sheetFrac = sheet - sheetCol;
         for (var y = 0; y < rows; y++) {
-          for (var x = 0; x < cols; x++) {
-            if (noise(x, y - drift, 21) < 0.045) rect(x, y, 1, 1, hsl(x * 5 + (y - drift) * 4, 80, tone, dark ? 0.3 : 0.2));
+          for (var x = 0; x <= cols; x++) {
+            var u = x + sheetCol;
+            var shade = noise(u, y, 21);
+            rect(x - sheetFrac, y, 1, 1, mosaicColor(u * 4 + y * 6 + t * 0.01 * pace, dark ? 9 + shade * 16 : 92 - shade * 14, 1));
           }
         }
-        // Near layer: falling streams with bright heads and flickering bits.
-        drops.forEach(function (d) {
-          var head = Math.floor((d.offset + t * d.speed * pace) % (rows + d.len + 8));
+        // 2. Brighter sparse pixels moving faster, for depth.
+        var sparks = t * 0.016 * pace;
+        var sparkCol = Math.floor(sparks);
+        var sparkFrac = sparks - sparkCol;
+        for (var y2 = 0; y2 < rows; y2++) {
+          for (var x2 = 0; x2 <= cols; x2++) {
+            if (noise(x2 + sparkCol, y2, 22) < 0.05) rect(x2 - sparkFrac, y2, 1, 1, hsl((x2 + sparkCol) * 9 + y2 * 5, 90, tone + 6, dark ? 0.75 : 0.5));
+          }
+        }
+        // 3. Streams racing left with a bright head and a fading trail behind it.
+        streams.forEach(function (d) {
+          var head = cols + 2 - ((d.offset + t * d.speed * pace) % (cols + d.len + 10));
           for (var i = 0; i < d.len; i++) {
-            var y = head - i;
-            if (y < 0 || y >= rows || (!calm && noise(d.x, y, tick) < 0.2)) continue;
+            var x = head + i;
+            if (x < -1 || x > cols || (!calm && noise(Math.floor(x), d.y, tick) < 0.18)) continue;
             var fade = 1 - i / d.len;
-            rect(d.x, y, 1, 1, hsl(d.hue + y * 3 + t * 0.05 * pace, 90, i === 0 ? tone + 14 : tone, (dark ? 0.62 : 0.38) * fade));
+            rect(x, d.y, 1, 1, hsl(d.hue + x * 3 + t * 0.05 * pace, 95, i === 0 ? tone + 16 : tone + 4, (dark ? 0.85 : 0.6) * fade));
           }
         });
-        // Translucent panel so the rain keeps scrolling behind the text, framed by a marching rainbow.
-        rect(px, py, panelWidth, panelHeight, dark ? 'rgba(6,7,12,0.7)' : 'rgba(246,247,251,0.72)');
+        // Translucent panel so the background keeps moving behind the text, framed by a marching rainbow.
+        rect(px, py, panelWidth, panelHeight, dark ? 'rgba(6,7,12,0.74)' : 'rgba(246,247,251,0.76)');
         var march = t * 0.3 * pace;
         for (var e = 0; e < panelWidth; e++) {
           rect(px + e, py, 1, 1, hsl(e * 9 - march, 95, tone, 0.95));
