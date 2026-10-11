@@ -11,16 +11,18 @@
   --surface: #f4f7fa;
   --raised: #fff;
 }
+// Dark theme (2026-10-11): near-neutral, slightly cool greys; white headings, one soft blue accent for links.
+// All text pairs meet WCAG AA (body 13.8:1, muted 7.0:1, links 9.0:1 on the page background).
 @mixin dark-palette {
-  --page-bg: #20212b;
-  --text: #dadce1;
-  --heading: #3eb7f0;
-  --name: #eeeff0;
-  --link: #3eb7f0;
-  --line: #394552;
-  --muted: #a6adb8;
-  --surface: #282c3a;
-  --raised: #3a4152;
+  --page-bg: #0f1115;
+  --text: #d8dde3;
+  --heading: #eef1f5;
+  --name: #f6f7f9;
+  --link: #7ab6ff;
+  --line: #262b34;
+  --muted: #959eaa;
+  --surface: #171a21;
+  --raised: #252a33;
 }
 @media (prefers-color-scheme: dark) { html:not([data-theme]) { @include dark-palette; } }
 html[data-theme="dark"] { @include dark-palette; color-scheme: dark; }

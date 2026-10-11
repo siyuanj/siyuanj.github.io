@@ -33,7 +33,7 @@
   left: 0;
   padding: 4px 9px;
   border-radius: 4px;
-  background: #07346c;
+  background: var(--paper-badge, #07346c);
   color: #fff;
   font: 700 10px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: .035em;
@@ -99,23 +99,25 @@
 .publication-card a.publication-link:focus-visible { outline: 2px solid var(--paper-title); outline-offset: 3px; }
 
 html[data-theme="dark"] .publication-cards {
-  --paper-background: #253647;
-  --paper-border: #3a5065;
-  --paper-title: #78c5ed;
-  --paper-text: #e0e8ef;
-  --paper-button: #a8cde5;
-  --paper-status-background: #214b42;
-  --paper-status-text: #a4ddc6;
+  --paper-background: #161a21;
+  --paper-border: #272d37;
+  --paper-title: #8fc3ff;
+  --paper-text: #c9cfd7;
+  --paper-button: #a7bbd1;
+  --paper-status-background: #133122;
+  --paper-status-text: #7fd9a8;
+  --paper-badge: #24476f;
 }
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) .publication-cards {
-    --paper-background: #253647;
-    --paper-border: #3a5065;
-    --paper-title: #78c5ed;
-    --paper-text: #e0e8ef;
-    --paper-button: #a8cde5;
-    --paper-status-background: #214b42;
-    --paper-status-text: #a4ddc6;
+    --paper-background: #161a21;
+    --paper-border: #272d37;
+    --paper-title: #8fc3ff;
+    --paper-text: #c9cfd7;
+    --paper-button: #a7bbd1;
+    --paper-status-background: #133122;
+    --paper-status-text: #7fd9a8;
+    --paper-badge: #24476f;
   }
 }
 
