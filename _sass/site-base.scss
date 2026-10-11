@@ -66,6 +66,9 @@ html[data-theme="codex"] .site-content :is(p, li) > a:hover { text-decoration-co
 $mono: "SF Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", monospace;
 html[data-theme="codex"] body { font-family: $mono; font-size: 15px; }
 @media (max-width: 520px) { html[data-theme="codex"] body { font-size: 14px; } }
+// The reading column is 60ch, and a monospace ch is wider: 71ch keeps the same ~640px column as the
+// sans-serif themes (60ch of 15px SF Mono was 542px against 642px), so posts are not squeezed.
+html[data-theme="codex"] .site-content :is(.post-content, .post-pager) { max-width: 71ch; }
 html[data-theme="codex"] .publication-cards :is(.publication-conference-badge, .publication-status, .publication-link) { font-family: $mono; }
 html[data-theme="codex"] .site-content h2::before { content: "› "; content: "› " / ""; color: var(--link); font-weight: 400; }
 html[data-theme="codex"] .site-profile h1::after { content: ""; display: inline-block; width: .5em; height: 1.05em; margin-left: .12em; vertical-align: -.15em; background: var(--link); animation: smoke-cursor 1.1s steps(1) infinite; }

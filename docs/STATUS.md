@@ -1,5 +1,16 @@
 # Project Status
 
+## 2026-10-11 02:58 EDT (America/New_York) - Smoke test主题下博客正文栏变窄的修复
+
+- **用户反馈**：截图显示Smoke test主题下博客排版有问题。
+- **原因（实测）**：正文栏宽是`60ch`，而`ch`随字体变化；等宽字体的字符更宽，1400px窗口下Smoke test的正文栏只有542px，其他主题是642px。正文被挤窄，右侧比导航线短了一大截，标题也多折一行。
+- **这次做了什么**：`_sass/site-base.scss`：Smoke test下`.post-content`和`.post-pager`改为`71ch`，约640px，与其他主题一致（我的判断：保持物理栏宽，不改字号）。`_data/asset_versions.json`同步更新。
+- **现在真实状态 / 本次验证**：本地构建后，1400px窗口实测四个主题的正文栏和翻页栏：Light/Dark/Absolutely均为642px，Smoke test为641px；英文标题由4行变为3行。中文版同样是641px，无横向溢出。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：线上结果见git log及Actions；Windows（Consolas字符更窄）下栏宽约590px，未实测。
+- **要用户定的**：无。
+
+
 ## 2026-10-11 02:56 EDT (America/New_York) - 新增 Absolutely（Claude）和 Smoke test（Codex）两个主题
 
 - **用户要求**：再加Claude配色和Codex配色，用最经典的配色，和亮色/暗色放在同一个切换器里；分别命名Absolutely、Smoke test（用户说拼写可能有误，让我更正）；Codex版要能看出Codex的梗；图标用Claude和OpenAI官方logo；加入Codex的蓝色。
