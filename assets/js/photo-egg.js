@@ -48,7 +48,7 @@
   function calmMotion() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
   function darkTheme() {
     var theme = document.documentElement.getAttribute('data-theme');
-    if (theme) return theme === 'dark';
+    if (theme) return theme === 'dark' || theme === 'codex';
     return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
   }
   // Cheap deterministic noise so flicker changes per time bucket rather than per frame.

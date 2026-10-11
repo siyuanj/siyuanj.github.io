@@ -108,6 +108,26 @@ html[data-theme="dark"] .publication-cards {
   --paper-status-text: #7fd9a8;
   --paper-badge: #24476f;
 }
+html[data-theme="claude"] .publication-cards {
+  --paper-background: #faf9f5;
+  --paper-border: #e3dfd3;
+  --paper-title: #a9502e;
+  --paper-text: #3d3929;
+  --paper-button: #5b574c;
+  --paper-status-background: #e6eadb;
+  --paper-status-text: #4f6136;
+  --paper-badge: #a9502e;
+}
+html[data-theme="codex"] .publication-cards {
+  --paper-background: #0d0d0d;
+  --paper-border: #262626;
+  --paper-title: #94a3ff;
+  --paper-text: #d4d4d4;
+  --paper-button: #e5e5e5;
+  --paper-status-background: #1f1f1f;
+  --paper-status-text: #fff;
+  --paper-badge: #203ee4;
+}
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) .publication-cards {
     --paper-background: #161a21;

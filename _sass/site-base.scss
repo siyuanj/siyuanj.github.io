@@ -27,6 +27,58 @@
 @media (prefers-color-scheme: dark) { html:not([data-theme]) { @include dark-palette; } }
 html[data-theme="dark"] { @include dark-palette; color-scheme: dark; }
 html[data-theme="light"] { color-scheme: light; }
+// Absolutely (2026-10-11): the classic Claude look, Pampas cream with Crail terracotta. Links use a
+// darker Crail (4.9:1) for body text; the full-strength Crail is kept for the large name (3.8:1, AA large).
+html[data-theme="claude"] {
+  color-scheme: light;
+  --page-bg: #f4f3ee;
+  --text: #3d3929;
+  --heading: #141413;
+  --name: #c15f3c;
+  --link: #a9502e;
+  --line: #e3dfd3;
+  --muted: #6e6a5e;
+  --surface: #faf9f5;
+  --raised: #fff;
+}
+// Smoke test (2026-10-11): the classic Codex look, black and white with the cobalt-to-periwinkle blue of
+// the openai.com/codex hero. Links are periwinkle (8.9:1); cobalt (#203ee4) is only used behind white text.
+// Prose links are also underlined, since their contrast with the body text is below 3:1.
+html[data-theme="codex"] {
+  color-scheme: dark;
+  --page-bg: #000;
+  --text: #ececec;
+  --heading: #fff;
+  --name: #fff;
+  --link: #94a3ff;
+  --codex-blue: #203ee4;
+  --line: #262626;
+  --muted: #999;
+  --surface: #141414;
+  --raised: #2e2e2e;
+}
+html[data-theme="codex"] body { background: radial-gradient(120% 55% at 50% -15%, rgba(32, 62, 228, .4), transparent 62%) no-repeat #000; }
+html[data-theme="codex"] ::selection { background: var(--codex-blue); color: #fff; }
+html[data-theme="codex"] .site-content :is(p, li) > a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+html[data-theme="codex"] .site-content :is(p, li) > a:hover { text-decoration-color: currentColor; }
+// Smoke test also borrows the Codex CLI: terminal type, the › prompt before section headings, a blinking
+// block cursor after the name, and the shimmering status line added by site.js.
+$mono: "SF Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", monospace;
+html[data-theme="codex"] body { font-family: $mono; font-size: 15px; }
+@media (max-width: 520px) { html[data-theme="codex"] body { font-size: 14px; } }
+html[data-theme="codex"] .publication-cards :is(.publication-conference-badge, .publication-status, .publication-link) { font-family: $mono; }
+html[data-theme="codex"] .site-content h2::before { content: "› "; content: "› " / ""; color: var(--link); font-weight: 400; }
+html[data-theme="codex"] .site-profile h1::after { content: ""; display: inline-block; width: .5em; height: 1.05em; margin-left: .12em; vertical-align: -.15em; background: var(--link); animation: smoke-cursor 1.1s steps(1) infinite; }
+@keyframes smoke-cursor { 50% { opacity: 0; } }
+.smoke-test { position: fixed; z-index: 10; bottom: 16px; left: 16px; max-width: calc(100% - 32px); box-sizing: border-box; padding: 7px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--page-bg); color: var(--muted); font: 12px/1.5 $mono; pointer-events: none; animation: smoke-in .3s ease-out; transition: opacity .4s, transform .4s; }
+.smoke-test.is-leaving { opacity: 0; transform: translateY(6px); }
+.smoke-test-label { color: var(--text); background: linear-gradient(90deg, #707070 40%, #fff 50%, #707070 60%) 0 0 / 300% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: smoke-shimmer 1.8s linear infinite; }
+.smoke-test.is-passed .smoke-test-label, .smoke-test.is-interrupted .smoke-test-label { background: none; -webkit-text-fill-color: currentColor; animation: none; }
+.smoke-test-mark { color: var(--link); }
+.smoke-test.is-passed .smoke-test-mark { color: #3fb950; }
+.smoke-test.is-interrupted .smoke-test-mark { color: #f85149; }
+@keyframes smoke-in { from { opacity: 0; transform: translateY(6px); } }
+@keyframes smoke-shimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
 html { scroll-padding-top: 24px; }
 body { background: var(--page-bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: var(--link); text-decoration: none; }
@@ -69,19 +121,25 @@ img { height: auto; }
 // A single thumb marks the active theme; it follows html[data-theme], which is set before first paint.
 .theme-switch { --option: 28px; position: relative; display: inline-flex; gap: 2px; padding: 2px; }
 .theme-switch::before { content: ''; position: absolute; top: 2px; left: 2px; width: var(--option); height: var(--option); border-radius: 50%; background: var(--raised); box-shadow: 0 1px 3px rgba(15, 23, 42, .18); transition: transform .25s cubic-bezier(.3, .7, .4, 1); }
-html[data-theme="light"] .theme-switch::before { transform: translateX(calc(var(--option) + 2px)); }
-html[data-theme="dark"] .theme-switch::before { transform: translateX(calc(2 * var(--option) + 4px)); }
+.theme-switch::before { transform: translateX(calc(var(--thumb, 0) * (var(--option) + 2px))); }
+html[data-theme="light"] .theme-switch { --thumb: 1; }
+html[data-theme="dark"] .theme-switch { --thumb: 2; }
+html[data-theme="claude"] .theme-switch { --thumb: 3; }
+html[data-theme="codex"] .theme-switch { --thumb: 4; }
 .theme-option { position: relative; display: grid; place-items: center; width: var(--option); height: var(--option); padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; transition: color .2s; }
 .theme-option:hover { color: var(--text); }
 .theme-option:focus-visible { outline-offset: 1px; }
 .theme-option svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-html:not([data-theme]) [data-theme-option="auto"], html[data-theme="light"] [data-theme-option="light"], html[data-theme="dark"] [data-theme-option="dark"] { color: var(--heading); }
+.theme-option svg.theme-logo { width: 15px; height: 15px; fill: currentColor; stroke: none; }
+html[data-theme="codex"] .theme-switch::before { background: var(--codex-blue); }
+html:not([data-theme]) [data-theme-option="auto"], html[data-theme="light"] [data-theme-option="light"], html[data-theme="dark"] [data-theme-option="dark"], html[data-theme="codex"] [data-theme-option="codex"] { color: var(--heading); }
+html[data-theme="claude"] [data-theme-option="claude"] { color: #d97757; } // Claude brand orange, 3.1:1 on the white thumb
 // Inline institution logos sit on the text line and scale with the surrounding font.
 .inline-logo { display: inline-block; width: auto; height: 1.15em; margin: 0 .25em 0 .05em; vertical-align: -.2em; }
-// Dark theme: a light backing keeps dark or purple artwork visible.
+// Dark themes: a light backing keeps dark or purple artwork visible.
 @mixin logo-backing { padding: 1px; border-radius: 3px; background: #fff; }
 @media (prefers-color-scheme: dark) { html:not([data-theme]) .inline-logo { @include logo-backing; } }
-html[data-theme="dark"] .inline-logo { @include logo-backing; }
+html[data-theme="dark"] .inline-logo, html[data-theme="codex"] .inline-logo { @include logo-backing; }
 .post-lang-link { flex-shrink: 0; margin-left: 12px; font-size: 12px; }
 .section-nav { display: flex; flex-wrap: wrap; gap: 5px 16px; margin: 0 0 24px; font-size: 13px; }
 .site-content .section-nav + h2 { margin-top: 0; }

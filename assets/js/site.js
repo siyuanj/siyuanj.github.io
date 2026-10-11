@@ -1,14 +1,59 @@
 /* Small, event-driven enhancements; navigation and reading also work without JS. */
 (function () {
   'use strict';
-  var modes = ['auto', 'light', 'dark'];
+  var modes = ['auto', 'light', 'dark', 'claude', 'codex'];
   var options = Array.prototype.slice.call(document.querySelectorAll('[data-theme-option]'));
   function normalize(value) { return modes.indexOf(value) < 0 ? 'auto' : value; }
+  // Smoke test theme: a Codex-style status line "runs a smoke test" once per visit, and again whenever
+  // the theme is picked. Esc interrupts it the way Codex does. It is decorative, so hidden from assistive tech.
+  var stopSmoke = null;
+  function smokeTest(force) {
+    if (stopSmoke || document.documentElement.getAttribute('data-theme') !== 'codex') return;
+    try {
+      if (!force && sessionStorage.getItem('smoke-test-ran')) return;
+      sessionStorage.setItem('smoke-test-ran', '1');
+    } catch (error) { /* Storage is optional. */ }
+    var line = document.createElement('div');
+    line.className = 'smoke-test';
+    line.setAttribute('aria-hidden', 'true');
+    line.innerHTML = '<span class="smoke-test-mark">•</span> <span class="smoke-test-label">Running smoke test</span> <span class="smoke-test-meta"></span>';
+    var mark = line.children[0], label = line.children[1], meta = line.children[2];
+    var seconds = 0, timer = 0;
+    function remove() {
+      clearTimeout(timer);
+      document.removeEventListener('keydown', onKey);
+      if (line.parentNode) line.parentNode.removeChild(line);
+      stopSmoke = null;
+    }
+    function finish(state, symbol, text, detail) {
+      clearTimeout(timer);
+      document.removeEventListener('keydown', onKey);
+      line.classList.add(state);
+      mark.textContent = symbol;
+      label.textContent = text;
+      meta.textContent = detail;
+      timer = setTimeout(function () { line.classList.add('is-leaving'); timer = setTimeout(remove, 400); }, 2600);
+    }
+    function onKey(event) {
+      if (event.key === 'Escape') finish('is-interrupted', '■', 'Conversation interrupted - tell the model what to do differently', '');
+    }
+    function tick() {
+      if (seconds === 4) return finish('is-passed', '✓', 'Smoke test passed', '(worked for 4s)');
+      meta.textContent = '(' + seconds + 's • esc to interrupt)';
+      seconds += 1;
+      timer = setTimeout(tick, 1000);
+    }
+    stopSmoke = remove;
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(line);
+    tick();
+  }
   // The pressed state is styled from html[data-theme], so it is correct before this deferred script runs.
   function apply(value) {
     var mode = normalize(value);
     if (mode === 'auto') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', mode);
+    if (mode !== 'codex' && stopSmoke) stopSmoke();
     options.forEach(function (option) {
       option.setAttribute('aria-pressed', option.dataset.themeOption === mode ? 'true' : 'false');
     });
@@ -18,10 +63,12 @@
     var saved = null;
     try { saved = localStorage.getItem('theme-preference'); } catch (error) { /* Storage is optional. */ }
     apply(saved);
+    smokeTest(false);
     options.forEach(function (option) {
       option.addEventListener('click', function () {
         var mode = apply(option.dataset.themeOption);
         try { localStorage.setItem('theme-preference', mode); } catch (error) { /* Storage is optional. */ }
+        if (mode === 'codex') smokeTest(true);
       });
     });
     window.addEventListener('storage', function (event) {

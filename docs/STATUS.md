@@ -1,6 +1,42 @@
 # Project Status
 
-## 2026-10-11 22:09 EDT (America/New_York) - 暗色模式重新配色；学推图注改为用户给的名称
+## 2026-10-11 02:56 EDT (America/New_York) - 新增 Absolutely（Claude）和 Smoke test（Codex）两个主题
+
+- **用户要求**：再加Claude配色和Codex配色，用最经典的配色，和亮色/暗色放在同一个切换器里；分别命名Absolutely、Smoke test（用户说拼写可能有误，让我更正）；Codex版要能看出Codex的梗；图标用Claude和OpenAI官方logo；加入Codex的蓝色。
+- **这次做了什么**：
+  - 切换器从3档扩到5档：System / Light / Dark / Absolutely / Smoke test。改动：`_layouts/site.html`（两个按钮）、`_includes/theme-init.js`与`assets/js/site.js`（接受`claude`/`codex`）、`_sass/site-base.scss`（两套配色；滑块改为`--thumb`序号×30px）、`assets/css/publication-cards.css`（两套卡片变量）、`assets/js/photo-egg.js`（`codex`按暗色绘制）、`_data/asset_versions.json`。
+  - Absolutely（选色是我的判断）：Pampas #f4f3ee底，姓名用Crail #c15f3c；链接用加深的Crail #a9502e，以满足AA；正文#3d3929，标题#141413，卡片#faf9f5；激活图标用Claude品牌橙#d97757。只改配色，字体不变。
+  - Smoke test：黑底白字，对应openai.com/codex实测的纯黑背景、白色文字、60%白次要文字。Codex蓝取自该页首屏视频`floral_a.mp4`的帧采样：钴蓝约#203ee4，过渡到长春花蓝。链接用#94a3ff；滑块、期刊徽章和选中文本用#203ee4；页面顶部加一层钴蓝径向光晕。
+  - Smoke test的Codex CLI元素：
+    - 全站等宽字体，15px，手机14px。
+    - 章节标题前加蓝色`›`。
+    - 姓名后加闪烁块光标。
+    - 左下角状态行：先显示“• Running smoke test (Ns • esc to interrupt)”带流光；4秒后变为“✓ Smoke test passed (worked for 4s)”，2.6秒后淡出。
+    - 运行中按Esc，显示“■ Conversation interrupted - tell the model what to do differently”。
+    - 每个会话自动跑一次（sessionStorage `smoke-test-ran`），每次点选该主题都会重跑；状态行对读屏器隐藏。
+    - 正文链接加下划线，因为链接与正文的对比度低于3:1。
+  - 图标：Claude和OpenAI标志取自Simple Icons 15.22.0，在浏览器里读取jsDelivr上的SVG路径后内嵌，没有下载文件，图形未修改。按钮提示为“Absolutely · Claude colors”和“Smoke test · Codex colors”。商标判断（我的判断，非法律意见）：个人非商业主页上的指代性使用，风险低但不为零；如被要求撤下，换回通用图标即可。
+  - 修正下面两节的标题日期：22:09和22:02实为2026-10-10（提交`bf2c380`、`55ba4b0`的时间），之前误写为10-11。
+- **现在真实状态 / 本次验证**：
+  - 对比度（Python计算）：
+    - Absolutely：正文10.41，次要文字4.86（surface上5.13），链接4.88（卡片上5.15），姓名3.80（大字号AA），卡片按钮6.84，状态标签5.54，徽章白字5.42。
+    - Smoke test：正文17.78，次要文字7.37，链接8.94（卡片上8.28，光晕处7.53），徽章白字7.32，卡片正文13.11。
+  - 本地构建成功。内置浏览器（scratchpad静态副本）核验：
+    - 5档都正确设置`data-theme`、localStorage和`aria-pressed`，滑块位移0/30/60/90/120px。
+    - 只有Smoke test使用等宽字体。
+    - 状态行时间线实测：0–3秒计数，4.0秒通过，7.0秒移除；Esc中断文案正确。
+    - 375px博客页无横向溢出，工具栏不遮挡头像区。
+    - 控制台无错误。
+  - `git diff --check`通过。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：
+  - 线上结果，见本节后续补记。
+  - Safari/Firefox中的`content: "›" / ""`和流光文字（background-clip:text）未实测；旧浏览器会退回普通前缀、无流光。
+  - 彩蛋在两个新主题下未单独截图，只改了是否按暗色绘制。
+- **要用户定的**：Absolutely是否也要加衬线标题等Claude元素（目前只有配色）。
+
+
+## 2026-10-10 22:09 EDT (America/New_York) - 暗色模式重新配色；学推图注改为用户给的名称
 
 - **用户要求**：暗色模式配色难看，要改；学推计划去搜英文名，用户随后说明“学推是大学生学术推进计划”。
 - **学推名称**：搜索未找到官方英文名（清华英文站没有该项目页面；校团委公告只有中文，写法为“大学生学术研究推进计划”，2014年由校团委、科研院发起）。按用户给的名称直译，图注改为“Poster presentation at Tsinghua's Undergraduate Academic Promotion Program”。
@@ -11,7 +47,7 @@
 - **要用户定的**：新配色是否满意。
 
 
-## 2026-10-11 22:02 EDT (America/New_York) - 照片图注改为英文
+## 2026-10-10 22:02 EDT (America/New_York) - 照片图注改为英文
 
 - **用户要求**：图片的图注都用英文。
 - **这次做了什么**：`_data/photos.yml`：“学推计划海报展示”→“Poster presentation at the Xuetui Program”，“摄于金门大桥”→“At the Golden Gate Bridge”，“夜游 NVIDIA”→“NVIDIA at night”，“Griffith 天文台”→“Griffith Observatory”。Baker那条“First time to see Baker!(Nice glasses[doge])”本来就是英文，是用户原话，原样保留（[doge]仍显示为狗头图标）。“学推计划”的官方英文名不确定，用了拼音“Xuetui Program”（我的判断）。README注明图注使用英文。
