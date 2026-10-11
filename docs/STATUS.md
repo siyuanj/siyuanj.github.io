@@ -1,5 +1,15 @@
 # Project Status
 
+## 2026-10-11 22:02 EDT (America/New_York) - 照片图注改为英文
+
+- **用户要求**：图片的图注都用英文。
+- **这次做了什么**：`_data/photos.yml`：“学推计划海报展示”→“Poster presentation at the Xuetui Program”，“摄于金门大桥”→“At the Golden Gate Bridge”，“夜游 NVIDIA”→“NVIDIA at night”，“Griffith 天文台”→“Griffith Observatory”。Baker那条“First time to see Baker!(Nice glasses[doge])”本来就是英文，是用户原话，原样保留（[doge]仍显示为狗头图标）。“学推计划”的官方英文名不确定，用了拼音“Xuetui Program”（我的判断）。README注明图注使用英文。
+- **现在真实状态 / 本次验证**：本地构建成功；首页5条figcaption均为英文，轮播aria-label里没有中文，Baker图注的狗头SVG仍在。375px下5条图注都不超过允许宽度（307px），两条长图注换成两行，页面无横向溢出。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：线上结果见git log及Actions。
+- **要用户定的**：“学推计划”是否有官方英文名需要替换。
+
+
 ## 2026-10-10 12:09 EDT (America/New_York) - 彩蛋从转动的照片中渐变出来
 
 - **用户要求**：彩蛋要从滚动中变出来，要有渐变过程（之前是转完后直接切换）。
