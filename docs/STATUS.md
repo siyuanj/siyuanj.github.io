@@ -1,5 +1,23 @@
 # Project Status
 
+## 2026-11-19 03:50 EST (America/New_York) - 侧栏加入 Google Scholar 主页
+
+- **用户要求**：把新建的Google Scholar主页加到网站上，图标用Google Scholar的经典图标。用户最初发来的是arXiv担保链接（`arxiv.org/auth/endorse?x=M8M96D`），不是Scholar主页；我向用户确认后，用户给出Scholar地址。arXiv担保链接没有放到网站上（我的判断：它是发给担保人的，不属于个人主页内容；用户没有回复是否要放）。
+- **这次做了什么**：
+  - `_config.yml`：启用`google_scholar: https://scholar.google.com/citations?user=ZV0x4bcAAAAJ&hl=en`（原来是注释“暂无”）。
+  - `_includes/site-profile.html`：原来的占位字母“G”换成Scholar学位帽+圆形标志，路径取自Simple Icons 15.22.0的`googlescholar.svg`（jsDelivr，内嵌，未修改图形）。与GitHub/LinkedIn/X一样用`currentColor`单色（我的判断：与同排图标统一，没有用蓝色彩色版）。href加`| escape`，输出为`&amp;hl=en`。
+  - `_includes/site-head.html`：首页Person结构化数据的`sameAs`加入Scholar主页，放在第一位。
+  - 未改CSS/JS，不需要更新资源版本号。
+- **现在真实状态 / 本次验证**：
+  - 本地构建成功；`_site/index.html`和`_site/blog/index.html`都有Scholar链接；`sameAs`共4项，Scholar在首位。
+  - 内置浏览器（scratchpad静态副本，端口4000）：图标在社交图标排第一位，21×21px，在Light/Dark/Absolutely/Smoke test四个主题下都与其他图标同色，控制台无错误。
+  - 不登录直接请求Scholar地址返回HTTP 200，页面姓名为“Siyuan Jiang”，说明主页已公开。
+  - 提交`bd6ac5b`已push；Pages运行`44491081849`在写本条时还在排队，线上结果见后续记录或Actions。
+  - 预览配置：`/Volumes/Work/10-5 website/.claude/launch.json`原先指向旧会话已失效的scratchpad，现改为本会话的scratchpad副本。预览服务读不到外接卷`/Volumes/Work`（macOS权限，`getcwd: Operation not permitted`），所以只能先复制`_site`再预览。这个路径下次会话还会失效，到时需要重新复制并改路径。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：手机宽度下图标排列未单独截图（只换了一个同尺寸SVG，布局未改）；Google搜索结果是否显示Scholar关联未知。
+- **要用户定的**：arXiv担保链接是否需要放到网站上（默认不放）。
+
 ## 2026-10-11 02:58 EDT (America/New_York) - Smoke test主题下博客正文栏变窄的修复
 
 - **用户反馈**：截图显示Smoke test主题下博客排版有问题。
