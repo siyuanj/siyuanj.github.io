@@ -12,7 +12,7 @@
   - 本地构建成功；`_site/index.html`和`_site/blog/index.html`都有Scholar链接；`sameAs`共4项，Scholar在首位。
   - 内置浏览器（scratchpad静态副本，端口4000）：图标在社交图标排第一位，21×21px，在Light/Dark/Absolutely/Smoke test四个主题下都与其他图标同色，控制台无错误。
   - 不登录直接请求Scholar地址返回HTTP 200，页面姓名为“Siyuan Jiang”，说明主页已公开。
-  - 提交`bd6ac5b`已push；Pages运行`44491081849`在写本条时还在排队，线上结果见后续记录或Actions。
+  - 提交`bd6ac5b`已push；它的Pages运行`44491081849`因为紧接着push了STATUS提交`8899e17`而被取消，`8899e17`的Pages运行`44491170350`成功。线上首页（curl，04:00 EST前后）已有Scholar链接和SVG图标。
   - 预览配置：`/Volumes/Work/10-5 website/.claude/launch.json`原先指向旧会话已失效的scratchpad，现改为本会话的scratchpad副本。预览服务读不到外接卷`/Volumes/Work`（macOS权限，`getcwd: Operation not permitted`），所以只能先复制`_site`再预览。这个路径下次会话还会失效，到时需要重新复制并改路径。
 - **卡在哪 / 下一步**：无。
 - **还没验证的**：手机宽度下图标排列未单独截图（只换了一个同尺寸SVG，布局未改）；Google搜索结果是否显示Scholar关联未知。
