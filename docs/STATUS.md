@@ -1,5 +1,24 @@
 # Project Status
 
+## 2026-11-19 04:37 EST (America/New_York) - Scholar 图标换成 Google 官方彩色标志
+
+- **用户要求**：上一版图标看着像自己画的，要搜现成的Scholar图标来用。
+- **搜到的现成图标（04:35 EST前后从jsDelivr和Wikimedia下载到scratchpad对比）**：
+  - Simple Icons 15.22.0：上一版用的就是这个。
+  - Font Awesome Free 6.7.2 `brands/google-scholar`：形状和Simple Icons基本一样。
+  - Academicons `google-scholar`：带学位帽的字母“g”，SIL OFL许可。
+  - Wikimedia Commons的`Google_Scholar_logo.svg`：四种蓝色的学位帽。
+  - 另外取了`scholar.google.com/favicon.ico`（48×48）。
+  在浏览器里读取favicon的像素，颜色为#4185f4/#3669c3/#a0c3ff/#76a7fa，与Commons那个SVG的#4285f4/#356ac3/#a0c3ff/#76a7fa只差取整，说明这就是Google自己用的Scholar标志。
+- **这次做了什么**：`_includes/site-profile.html`把Scholar图标换成上面这个官方彩色SVG（viewBox 0 0 512 512，内嵌，没有改图形和颜色）。我的判断：用户要的是“经典”Scholar图标，最像的是Google在浏览器标签上显示的蓝色标志，所以没有沿用单色；其他图标仍跟主题变色，只有Scholar固定为Google蓝。
+- **现在真实状态 / 本次验证**：
+  - 本地构建成功，首页和博客页都是新图标。
+  - 内置浏览器：图标仍是21×21px，四个fill计算值是上面四种蓝。用页面上的主题切换器分别切到Light、Dark、Absolutely、Smoke test截图，Scholar都是蓝色学位帽，其他图标跟主题变色。控制台无错误。
+  - 提交`6c93f66`已push，Pages运行`44498092612`成功；线上首页（curl，04:40 EST前后）已是新的彩色SVG。
+- **卡在哪 / 下一步**：无。
+- **还没验证的**：手机实机未看（布局未变）；Commons上这个文件的版权标注没有逐条核对（我的判断：图形是Google商标，个人主页上用于指向本人Scholar主页属于常见的指代性使用）。
+- **要用户定的**：用蓝色官方标志还是Academicons的单色“g”（目前是蓝色官方标志）。
+
 ## 2026-11-19 03:50 EST (America/New_York) - 侧栏加入 Google Scholar 主页
 
 - **用户要求**：把新建的Google Scholar主页加到网站上，图标用Google Scholar的经典图标。用户最初发来的是arXiv担保链接（`arxiv.org/auth/endorse?x=M8M96D`），不是Scholar主页；我向用户确认后，用户给出Scholar地址。arXiv担保链接没有放到网站上（我的判断：它是发给担保人的，不属于个人主页内容；用户没有回复是否要放）。
